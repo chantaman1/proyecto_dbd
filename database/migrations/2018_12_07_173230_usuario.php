@@ -13,7 +13,20 @@ class Usuario extends Migration
      */
     public function up()
     {
-        //
+      Schema::create('usuario', function (Blueprint $table) {
+          $table->increments('id');
+          $table->string('nombre');
+          $table->string('apellido_paterno');
+          $table->string('apellido_materno');
+          $table->string('contrasena');
+          $table->date('fecha_nacimiento');
+          $table->string('correo')->unique();
+          $table->string('sexo');
+          $table->string('pais');
+          $table->string('numero_pasaporte')->unique();
+          $table->date('fecha_exp_pasaporte');
+          $table->timestamps();
+      });
     }
 
     /**
@@ -23,6 +36,6 @@ class Usuario extends Migration
      */
     public function down()
     {
-        //
+        Schema::drop('usuario');
     }
 }
