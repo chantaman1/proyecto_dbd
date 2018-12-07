@@ -14,3 +14,9 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Auth::routes();
+
+Route::get('activate/{token}', 'Auth\RegisterController@activate')
+    ->name('activate');
+Route::get('/home', 'HomeController@index')->name('home');
