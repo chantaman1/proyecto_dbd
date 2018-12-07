@@ -13,7 +13,10 @@ class Trayecto extends Migration
      */
     public function up()
     {
-        //
+      Schema::create('trayecto', function (Blueprint $table) {
+          $table->increments('id');
+          $table->timestamps();
+      });
     }
 
     /**
@@ -23,6 +26,6 @@ class Trayecto extends Migration
      */
     public function down()
     {
-        //
+        Schema::drop('trayecto');
     }
 }
