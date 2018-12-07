@@ -13,7 +13,13 @@ class Aeropuerto extends Migration
      */
     public function up()
     {
-        //
+      Schema::create('aeropuerto', function (Blueprint $table) {
+          $table->increments('id');
+          $table->string('nombre');
+          $table->string('direccion');
+          $table->string('pais');
+          $table->timestamps();
+      });
     }
 
     /**
@@ -23,6 +29,6 @@ class Aeropuerto extends Migration
      */
     public function down()
     {
-        //
+        Schema::drop('aeropuerto');
     }
 }

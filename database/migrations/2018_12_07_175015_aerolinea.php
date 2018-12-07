@@ -13,7 +13,11 @@ class Aerolinea extends Migration
      */
     public function up()
     {
-        //
+      Schema::create('aerolinea', function (Blueprint $table) {
+          $table->increments('id');
+          $table->string('nombre');
+          $table->timestamps();
+      });
     }
 
     /**
@@ -23,6 +27,6 @@ class Aerolinea extends Migration
      */
     public function down()
     {
-        //
+        Schema::drop('aerolinea');
     }
 }
