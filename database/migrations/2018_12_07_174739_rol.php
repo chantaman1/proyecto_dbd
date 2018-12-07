@@ -13,11 +13,18 @@ class Rol extends Migration
      */
     public function up()
     {
+<<<<<<< HEAD
       Schema::create('rol', function (Blueprint $table) {
           $table->increments('id');
           $table->string('tipo');
           $table->timestamps();
       });
+=======
+        Schema::create('rol', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('tipo');
+        });
+>>>>>>> d7da0bcae0377be40cafb9ef246011f182411382
     }
 
     /**
