@@ -13,7 +13,9 @@ class Auditoria extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('auditoria', function (Blueprint $table) {
+            $table->increments('id');
+        });
     }
 
     /**
@@ -23,6 +25,6 @@ class Auditoria extends Migration
      */
     public function down()
     {
-        //
+        Schema::drop('auditoria');
     }
 }
