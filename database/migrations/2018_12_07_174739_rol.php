@@ -17,7 +17,6 @@ class Rol extends Migration
           $table->increments('id');
           $table->string('nombre');
           $table->string('tipo');
-          $table->foreign('id_usuario')->references('id')->on('usuario');
           $table->timestamps();
       });
     }
