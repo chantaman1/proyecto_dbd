@@ -31,6 +31,6 @@ class Seguro extends Migration
     */
     public function down()
     {
-       Schema::drop('seguro');
+       Schema::dropIfExists('seguro');
     }
 }

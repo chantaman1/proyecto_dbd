@@ -28,6 +28,6 @@ class Rol extends Migration
      */
     public function down()
     {
-        Schema::drop('rol');
+        Schema::dropIfExists('rol');
     }
 }

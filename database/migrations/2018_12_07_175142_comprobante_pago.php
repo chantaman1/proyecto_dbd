@@ -34,6 +34,6 @@ class ComprobantePago extends Migration
     */
     public function down()
     {
-       Schema::drop('comprobante_pago');
+       Schema::dropIfExists('comprobante_pago');
     }
 }

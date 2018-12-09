@@ -23,6 +23,6 @@ class UsuarioMetodoPago extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('usuario_metodo_pago');
     }
 }

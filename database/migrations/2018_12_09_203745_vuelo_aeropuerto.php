@@ -23,6 +23,6 @@ class VueloAeropuerto extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('vuelo_aeropuerto');
     }
 }

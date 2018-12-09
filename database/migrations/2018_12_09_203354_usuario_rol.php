@@ -23,6 +23,6 @@ class UsuarioRol extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('usuario_rol');
     }
 }

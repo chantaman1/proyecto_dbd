@@ -23,6 +23,6 @@ class ReservaPaquete extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('reserva_paquete');
     }
 }

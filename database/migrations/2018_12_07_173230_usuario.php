@@ -35,6 +35,6 @@ class Usuario extends Migration
      */
     public function down()
     {
-        Schema::drop('usuario');
+        Schema::dropIfExists('usuario');
     }
 }

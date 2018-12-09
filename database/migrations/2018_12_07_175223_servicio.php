@@ -28,6 +28,6 @@ class Servicio extends Migration
     */
     public function down()
     {
-      Schema::drop('servicio');
+      Schema::dropIfExists('servicio');
     }
 }

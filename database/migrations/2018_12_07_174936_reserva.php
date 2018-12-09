@@ -32,6 +32,6 @@ class Reserva extends Migration
      */
     public function down()
     {
-        Schema::drop('reserva');
+        Schema::dropIfExists('reserva');
     }
 }

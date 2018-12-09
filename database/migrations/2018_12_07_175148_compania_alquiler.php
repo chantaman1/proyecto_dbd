@@ -32,6 +32,6 @@ class CompaniaAlquiler extends Migration
      */
     public function down()
     {
-        Schema::drop('compania_alquiler');
+        Schema::dropIfExists('compania_alquiler');
     }
 }

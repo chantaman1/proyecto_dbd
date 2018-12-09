@@ -34,6 +34,6 @@ class Habitacion extends Migration
     */
     public function down()
     {
-     Schema::drop('habitacion');
+     Schema::dropIfExists('habitacion');
     }
 }

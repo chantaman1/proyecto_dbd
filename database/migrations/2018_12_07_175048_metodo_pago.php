@@ -13,7 +13,12 @@ class MetodoPago extends Migration
      */
     public function up()
     {
-        //
+      Schema::create('metodo_pago', function (Blueprint $table) {
+         $table->increments('id');
+         $table->string('tipo');
+         $table->string('nombre');
+         $table->timestamps();
+      });
     }
 
     /**
@@ -23,6 +28,6 @@ class MetodoPago extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('metodo_pago');
     }
 }

@@ -27,6 +27,6 @@ class Aerolinea extends Migration
      */
     public function down()
     {
-        Schema::drop('aerolinea');
+        Schema::dropIfExists('aerolinea');
     }
 }

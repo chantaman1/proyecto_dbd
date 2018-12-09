@@ -23,6 +23,6 @@ class PasajeroSeguro extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('paquete_seguro');
     }
 }

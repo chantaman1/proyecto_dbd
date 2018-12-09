@@ -36,6 +36,6 @@ class Vehiculo extends Migration
     */
     public function down()
     {
-       Schema::drop('vehiculo');
+       Schema::dropIfExists('vehiculo');
     }
 }

@@ -32,6 +32,6 @@ class Asiento extends Migration
      */
     public function down()
     {
-        Schema::drop('asiento');
+        Schema::dropIfExists('asiento');
     }
 }

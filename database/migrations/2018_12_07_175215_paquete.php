@@ -35,6 +35,6 @@ class Paquete extends Migration
     */
     public function down()
     {
-       Schema::drop('paquete');
+       Schema::dropIfExists('paquete');
     }
 }

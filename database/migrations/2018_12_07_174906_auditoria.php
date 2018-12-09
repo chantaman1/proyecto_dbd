@@ -31,6 +31,6 @@ class Auditoria extends Migration
      */
     public function down()
     {
-        Schema::drop('auditoria');
+        Schema::dropIfExists('auditoria');
     }
 }
