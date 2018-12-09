@@ -13,7 +13,14 @@ class ReservaVehiculo extends Migration
      */
     public function up()
     {
-        //
+      Schema::create('reserva_vehiculo', function (Blueprint $table) {
+        $table->increments('id');
+        $table->unsignedInteger('id_reserva');
+        $table->unsignedInteger('id_vehiculo');
+        $table->foreign('id_reserva')->references('id')->on('reserva')->onDelete('cascade');
+        $table->foreign('id_vehiculo')->references('id')->on('vehiculo')->onDelete('cascade');
+        $table->timestamps();
+      });
     }
 
     /**

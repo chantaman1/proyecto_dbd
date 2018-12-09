@@ -13,7 +13,14 @@ class UsuarioMetodoPago extends Migration
      */
     public function up()
     {
-        //
+      Schema::create('usuario_metodo_pago', function (Blueprint $table) {
+        $table->increments('id');
+        $table->unsignedInteger('id_usuario');
+        $table->unsignedInteger('id_metodo_pago');
+        $table->foreign('id_usuario')->references('id')->on('usuario')->onDelete('cascade');
+        $table->foreign('id_metodo_pago')->references('id')->on('metodo_pago')->onDelete('cascade');
+        $table->timestamps();
+      });
     }
 
     /**

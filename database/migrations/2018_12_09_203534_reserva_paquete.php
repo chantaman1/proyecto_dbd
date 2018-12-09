@@ -13,7 +13,14 @@ class ReservaPaquete extends Migration
      */
     public function up()
     {
-        //
+      Schema::create('reserva_paquete', function (Blueprint $table) {
+        $table->increments('id');
+        $table->unsignedInteger('id_reserva');
+        $table->unsignedInteger('id_paquete');
+        $table->foreign('id_reserva')->references('id')->on('reserva')->onDelete('cascade');
+        $table->foreign('id_paquete')->references('id')->on('paquete')->onDelete('cascade');
+        $table->timestamps();
+      });
     }
 
     /**

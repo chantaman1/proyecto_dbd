@@ -13,7 +13,14 @@ class PaqueteHabitacion extends Migration
      */
     public function up()
     {
-        //
+      Schema::create('paquete_habitacion', function (Blueprint $table) {
+        $table->increments('id');
+        $table->unsignedInteger('id_paquete');
+        $table->unsignedInteger('id_habitacion');
+        $table->foreign('id_paquete')->references('id')->on('paquete')->onDelete('cascade');
+        $table->foreign('id_habitacion')->references('id')->on('habitacion')->onDelete('cascade');
+        $table->timestamps();
+      });
     }
 
     /**

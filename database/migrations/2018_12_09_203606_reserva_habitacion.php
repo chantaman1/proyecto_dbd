@@ -13,7 +13,14 @@ class ReservaHabitacion extends Migration
      */
     public function up()
     {
-        //
+      Schema::create('reserva_habitacion', function (Blueprint $table) {
+        $table->increments('id');
+        $table->unsignedInteger('id_reserva');
+        $table->unsignedInteger('id_habitacion');
+        $table->foreign('id_reserva')->references('id')->on('reserva')->onDelete('cascade');
+        $table->foreign('id_habitacion')->references('id')->on('habitacion')->onDelete('cascade');
+        $table->timestamps();
+      });
     }
 
     /**
