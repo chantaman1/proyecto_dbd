@@ -18,7 +18,8 @@ class Seguro extends Migration
          $table->string('tipo');
          $table->integer('precio');
          $table->text('descripcion');
-         $table->foreign('id_aseguradora')->references('id')->on('aseguradora');
+         $table->unsignedInteger('id_aseguradora');
+         $table->foreign('id_aseguradora')->references('id')->on('aseguradora')->onDelete('cascade');
          $table->timestamps();
       });
     }
@@ -30,6 +31,6 @@ class Seguro extends Migration
     */
     public function down()
     {
-       Schema::drop('seguro');
+       Schema::dropIfExists('seguro');
     }
 }

@@ -32,6 +32,6 @@ class Hotel extends Migration
     */
     public function down()
     {
-    Schema::drop('hotel');
+    Schema::dropIfExists('hotel');
     }
 }

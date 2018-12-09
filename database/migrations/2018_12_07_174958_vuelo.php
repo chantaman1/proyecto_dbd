@@ -21,7 +21,8 @@ class Vuelo extends Migration
           $table->string('destino');
           $table->date('fecha');
           $table->datetime('hora');
-          $table->foreign('id_aerolinea')->references('id')->on('aerolinea');
+          $table->unsignedInteger('id_aerolinea');
+          $table->foreign('id_aerolinea')->references('id')->on('aerolinea')->onDelete('cascade');
           $table->timestamps();
       });
     }
@@ -33,6 +34,6 @@ class Vuelo extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('vuelo');
     }
 }

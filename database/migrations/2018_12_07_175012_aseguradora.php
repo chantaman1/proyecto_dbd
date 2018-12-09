@@ -32,6 +32,6 @@ class Aseguradora extends Migration
     */
     public function down()
     {
-       Schema::drop('aseguradora');
+       Schema::dropIfExists('aseguradora');
     }
 }

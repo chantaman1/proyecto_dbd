@@ -23,7 +23,8 @@ class Vehiculo extends Migration
          $table->integer('cantidad_asientos');
          $table->enum('tipo_transmision',['manual','automatico','CVT','automatico doble embrague']);
          $table->text('descripcion');
-         $table->foreign('id_compania_alquiler')->references('id')->on('compania_alquiler');
+         $table->unsignedInteger('id_compania_alquiler');
+         $table->foreign('id_compania_alquiler')->references('id')->on('compania_alquiler')->onDelete('cascade');
          $table->timestamps();
       });
     }
@@ -35,6 +36,6 @@ class Vehiculo extends Migration
     */
     public function down()
     {
-       Schema::drop('vehiculo');
+       Schema::dropIfExists('vehiculo');
     }
 }

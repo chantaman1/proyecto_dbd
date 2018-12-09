@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class Aerolinea extends Migration
+class CompaniaAlquiler extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,15 @@ class Aerolinea extends Migration
      */
     public function up()
     {
-      Schema::create('aerolinea', function (Blueprint $table) {
+      Schema::create('compania_alquiler', function (Blueprint $table) {
           $table->increments('id');
           $table->string('nombre');
+          $table->string('direccion');
+          $table->string('telefono');
+          $table->string('ciudad');
+          $table->string('direccion_web');
           $table->timestamps();
+
       });
     }
 
@@ -27,6 +32,6 @@ class Aerolinea extends Migration
      */
     public function down()
     {
-        Schema::drop('aerolinea');
+        Schema::dropIfExists('compania_alquiler');
     }
 }
