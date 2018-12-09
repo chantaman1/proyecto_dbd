@@ -14,14 +14,16 @@ class Vehiculo extends Migration
     public function up()
     {
       Schema::create('vehiculo', function (Blueprint $table) {
-         $table->increments('patente'); //VER TIPO DATO
+        $table->increments('id');
+         $table->string('patente'); //VER TIPO DATO, es string
          $table->string('marca');
          $table->string('modelo');
          $table->integer('año'); //VER TIPO DATO
          $table->integer('precio');
          $table->integer('cantidad_asientos');
-         $table->string('tipo_transmision');
-         $table->string('descripcion');
+         $table->enum('tipo_transmision',['manual','automatico','CVT','automatico doble embrague']);
+         $table->text('descripcion');
+         $table->foreign('id_compania_alquiler')->references('id')->on('compania_alquiler');
          $table->timestamps();
       });
     }

@@ -18,6 +18,7 @@ class Auditoria extends Migration
           $table->string('tipo_transaccion');
           $table->date('fecha');
           $table->datetime('hora');
+          $table->foreign('id_usuario')->references('id')->on('vuelo');
           $table->timestamps();
       });
     }

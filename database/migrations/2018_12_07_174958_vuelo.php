@@ -15,12 +15,13 @@ class Vuelo extends Migration
     {
       Schema::create('vuelo', function (Blueprint $table) {
           $table->increments('id');
-          $table->integer('codigo');
           $table->string('tipo');
           $table->string('origen');
+          $table->string('codigo');
           $table->string('destino');
           $table->date('fecha');
           $table->datetime('hora');
+          $table->foreign('id_aerolinea')->references('id')->on('aerolinea');
           $table->timestamps();
       });
     }
@@ -32,6 +33,6 @@ class Vuelo extends Migration
      */
     public function down()
     {
-        Schema::drop('vuelo');
+        //
     }
 }

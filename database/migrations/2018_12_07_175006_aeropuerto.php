@@ -18,6 +18,7 @@ class Aeropuerto extends Migration
           $table->string('nombre');
           $table->string('ciudad');
           $table->string('direccion');
+          $table->string('pais',35);//Pais más largo 31 char (republica democratica del congo)
           $table->timestamps();
       });
     }

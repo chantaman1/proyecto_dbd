@@ -15,11 +15,10 @@ class Asiento extends Migration
     {
       Schema::create('asiento', function (Blueprint $table) {
           $table->increments('id');
-          $table->integer('numero');
+          $table->string('codigo');//cambie numero de asiento por codigo
           $table->string('tipo');
           $table->boolean('disponibilidad');
           $table->integer('precio');
-          $table->unsignedInteger('id_vuelo');
           $table->foreign('id_vuelo')->references('id')->on('vuelo');
           $table->timestamps();
       });

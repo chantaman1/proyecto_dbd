@@ -15,10 +15,12 @@ class ComprobantePago extends Migration
     {
       Schema::create('comprobante_pago', function (Blueprint $table) {
          $table->increments('id');
-         $table->integer('total_pagado'); //VER EL TIPO DATO
-         $table->string('descripcion_pago');
+         $table->integer('total_pagado');
+         $table->dngettext('descripcion_pago');
          $table->date('fecha');
          $table->datetime('hora');
+         $table->foreign('id_metodo_pago')->references('id')->on('metodo_pago');
+         $table->foreign('id_reserva')->references('id')->on('reserva');
          $table->timestamps();
       });
     }

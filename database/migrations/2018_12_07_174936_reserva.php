@@ -16,9 +16,10 @@ class Reserva extends Migration
       Schema::create('reserva', function (Blueprint $table) {
           $table->increments('id');
           $table->date('fecha');
-          $table->datetime('hora'); 
+          $table->datetime('hora');
           $table->integer('total_a_pagar');
-          //$table->boolean('estado_pago') tipo dato?
+          $table->enum('estado_pago',['pendiente','aprobado','en proceso','rechazado','cancelado','devuelto','contracargo']);
+          $table->foreign('id_usuario')->references('id')->on('usuario');
           $table->timestamps();
       });
     }
