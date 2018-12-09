@@ -20,7 +20,7 @@ class Asiento extends Migration
           $table->boolean('disponibilidad');
           $table->integer('precio');
           $table->unsignedInteger('id_vuelo');
-          $table->foreign('id_vuelo')->references('id')->on('vuelo');
+          $table->foreign('id_vuelo')->references('id')->on('vuelo')->onDelete('cascade');
           $table->timestamps();
       });
     }

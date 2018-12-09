@@ -19,7 +19,7 @@ class Seguro extends Migration
          $table->integer('precio');
          $table->text('descripcion');
          $table->unsignedInteger('id_aseguradora');
-         $table->foreign('id_aseguradora')->references('id')->on('aseguradora');
+         $table->foreign('id_aseguradora')->references('id')->on('aseguradora')->onDelete('cascade');
          $table->timestamps();
       });
     }

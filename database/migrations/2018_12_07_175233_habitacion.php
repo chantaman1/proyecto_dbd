@@ -22,7 +22,7 @@ class Habitacion extends Migration
          $table->string('categoria');
          $table->integer('precio');
          $table->unsignedInteger('id_hotel');
-         $table->foreign('id_hotel')->references('id')->on('hotel');
+         $table->foreign('id_hotel')->references('id')->on('hotel')->onDelete('cascade');
          $table->timestamps();
       });
     }

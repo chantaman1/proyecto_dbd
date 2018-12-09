@@ -19,7 +19,7 @@ class Auditoria extends Migration
           $table->date('fecha');
           $table->datetime('hora');
           $table->unsignedInteger('id_usuario');
-          $table->foreign('id_usuario')->references('id')->on('usuario');
+          $table->foreign('id_usuario')->references('id')->on('usuario')->onDelete('cascade');
           $table->timestamps();
       });
     }

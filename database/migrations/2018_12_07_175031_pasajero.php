@@ -23,7 +23,7 @@ class Pasajero extends Migration
          $table->string('nacionalidad', 35);//Pais más largo 31 char (republica democratica del congo)
          $table->string('pasaporte')->unique();
          $table->unsignedInteger('id_asiento');
-         $table->foreign('id_asiento')->references('id')->on('asiento');
+         $table->foreign('id_asiento')->references('id')->on('asiento')->onDelete('cascade');
          $table->timestamps();
       });
     }
