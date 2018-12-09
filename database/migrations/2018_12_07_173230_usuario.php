@@ -19,8 +19,8 @@ class Usuario extends Migration
           $table->string('apellido_paterno');
           $table->string('apellido_materno');
           $table->date('fecha_nacimiento');
-          $table->string('direccion')
-          $table->string('telefono')
+          $table->string('direccion');
+          $table->string('telefono');
           $table->string('correo')->unique();
           $table->string('nacionalidad');
           $table->string('pasaporte')->unique();
