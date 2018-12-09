@@ -13,16 +13,22 @@ class Seguro extends Migration
      */
     public function up()
     {
-        //
+      Schema::create('seguro', function (Blueprint $table) {
+         $table->increments('id');
+         $table->string('tipo');
+         $table->integer('precio');
+         $table->string('descripcion');
+         $table->timestamps();
+      });
     }
 
     /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
+    * Reverse the migrations.
+    *
+    * @return void
+    */
     public function down()
     {
-        //
+       Schema::drop('seguro');
     }
 }

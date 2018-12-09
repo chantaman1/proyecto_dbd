@@ -13,16 +13,21 @@ class Servicio extends Migration
      */
     public function up()
     {
-        //
+      Schema::create('servicio', function (Blueprint $table) {
+        $table->increments('id');
+        $table->string('nombre');
+        $table->string('tipo');
+        $table->timestamps();
+      });
     }
 
     /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
+    * Reverse the migrations.
+    *
+    * @return void
+    */
     public function down()
     {
-        //
+      Schema::drop('servicio');
     }
 }

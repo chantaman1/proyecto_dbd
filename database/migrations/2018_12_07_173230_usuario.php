@@ -18,13 +18,12 @@ class Usuario extends Migration
           $table->string('nombre');
           $table->string('apellido_paterno');
           $table->string('apellido_materno');
-          $table->string('contrasena');
           $table->date('fecha_nacimiento');
+          $table->string('direccion')
+          $table->string('telefono')
           $table->string('correo')->unique();
-          $table->string('sexo');
-          $table->string('pais');
-          $table->string('numero_pasaporte')->unique();
-          $table->date('fecha_exp_pasaporte');
+          $table->string('nacionalidad');
+          $table->string('pasaporte')->unique();
           $table->timestamps();
       });
     }

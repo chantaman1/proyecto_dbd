@@ -13,7 +13,14 @@ class Reserva extends Migration
      */
     public function up()
     {
-        //
+      Schema::create('reserva', function (Blueprint $table) {
+          $table->increments('id');
+          $table->date('fecha');
+          $table->datetime('hora'); 
+          $table->integer('total_a_pagar');
+          //$table->boolean('estado_pago') tipo dato?
+          $table->timestamps();
+      });
     }
 
     /**
@@ -23,6 +30,6 @@ class Reserva extends Migration
      */
     public function down()
     {
-        //
+        Schema::drop('reserva');
     }
 }

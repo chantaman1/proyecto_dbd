@@ -16,8 +16,8 @@ class Aeropuerto extends Migration
       Schema::create('aeropuerto', function (Blueprint $table) {
           $table->increments('id');
           $table->string('nombre');
+          $table->string('ciudad');
           $table->string('direccion');
-          $table->string('pais');
           $table->timestamps();
       });
     }
