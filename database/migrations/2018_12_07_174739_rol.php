@@ -15,6 +15,7 @@ class Rol extends Migration
     {
       Schema::create('rol', function (Blueprint $table) {
           $table->increments('id');
+          $table->string('nombre');
           $table->string('tipo');
           $table->foreign('id_usuario')->references('id')->on('usuario');
           $table->timestamps();

@@ -13,7 +13,16 @@ class Vuelo extends Migration
      */
     public function up()
     {
-        //
+      Schema::create('reserva', function (Blueprint $table) {
+          $table->increments('id');
+          $table->integer('codigo');
+          $table->string('tipo');
+          $table->string('origen');
+          $table->string('destino');
+          $table->date('fecha');
+          $table->datetime('hora');
+          $table->timestamps();
+      });
     }
 
     /**
