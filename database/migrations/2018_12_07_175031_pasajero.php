@@ -21,7 +21,7 @@ class Pasajero extends Migration
          $table->date('fecha_nacimiento');
          $table->string('telefono');
          $table->string('nacionalidad');
-         $table->string('pasaporte');->unique();
+         $table->string('pasaporte')->unique();
          $table->timestamps();
       });
     }
