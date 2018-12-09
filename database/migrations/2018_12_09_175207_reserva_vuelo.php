@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class Trayecto extends Migration
+class ReservaVuelo extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,7 @@ class Trayecto extends Migration
      */
     public function up()
     {
-      Schema::create('trayecto', function (Blueprint $table) {
-          $table->increments('id');
-          $table->timestamps();
-      });
+        //
     }
 
     /**
@@ -26,6 +23,6 @@ class Trayecto extends Migration
      */
     public function down()
     {
-        Schema::drop('trayecto');
+        //
     }
 }
