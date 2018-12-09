@@ -11,9 +11,9 @@ class Hotel extends Migration
      *
      * @return void
      */
-     public function up()
-     {
-     Schema::create('hotel', function (Blueprint $table) {
+    public function up()
+    {
+      Schema::create('hotel', function (Blueprint $table) {
         $table->increments('id');
         $table->string('nombre');
         $table->string('direccion');
@@ -22,16 +22,16 @@ class Hotel extends Migration
         $table->string('calificacion');
         $table->string('direccion_web');
         $table->timestamps();
-     });
-     }
+      });
+    }
 
-     /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
-     public function down()
-     {
-      Schema::drop('hotel');
-     }
+    /**
+    * Reverse the migrations.
+    *
+    * @return void
+    */
+    public function down()
+    {
+    Schema::drop('hotel');
+    }
 }

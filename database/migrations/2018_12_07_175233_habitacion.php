@@ -13,16 +13,16 @@ class Habitacion extends Migration
      */
     public function up()
     {
-    Schema::create('habitacion', function (Blueprint $table) {
-       $table->increments('id');
-       $table->integer('numero');
-       $table->integer('capacidad');
-       $table->boolean('disponibilidad');
-       $table->string('tipo_cama');
-       $table->string('categoria');
-       $table->integer('precio');
-       $table->timestamps();
-    });
+      Schema::create('habitacion', function (Blueprint $table) {
+         $table->increments('id');
+         $table->integer('numero');
+         $table->integer('capacidad');
+         $table->boolean('disponibilidad');
+         $table->string('tipo_cama');
+         $table->string('categoria');
+         $table->integer('precio');
+         $table->timestamps();
+      });
     }
 
     /**

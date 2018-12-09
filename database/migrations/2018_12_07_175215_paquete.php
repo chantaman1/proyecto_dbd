@@ -13,7 +13,7 @@ class Paquete extends Migration
      */
     public function up()
     {
-     Schema::create('paquete', function (Blueprint $table) {
+      Schema::create('paquete', function (Blueprint $table) {
          $table->increments('id');
          $table->string('pais_destino');
          $table->string('ciudad_destino');
@@ -25,7 +25,7 @@ class Paquete extends Migration
          $table->string('posee_seguro');
          $table->timestamps();
 
-     });
+      });
     }
 
     /**

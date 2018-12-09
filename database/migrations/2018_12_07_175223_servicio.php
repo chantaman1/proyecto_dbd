@@ -13,13 +13,12 @@ class Servicio extends Migration
      */
     public function up()
     {
-    Schema::create('servicio', function (Blueprint $table) {
+      Schema::create('servicio', function (Blueprint $table) {
         $table->increments('id');
         $table->string('nombre');
         $table->string('tipo');
         $table->timestamps();
-
-    });
+      });
     }
 
     /**

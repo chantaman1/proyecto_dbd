@@ -13,7 +13,7 @@ class Vehiculo extends Migration
      */
     public function up()
     {
-     Schema::create('vehiculo', function (Blueprint $table) {
+      Schema::create('vehiculo', function (Blueprint $table) {
          $table->increments('patente'); //VER TIPO DATO
          $table->string('marca');
          $table->string('modelo');
@@ -23,7 +23,7 @@ class Vehiculo extends Migration
          $table->string('tipo_transmision');
          $table->string('descripcion');
          $table->timestamps();
-     });
+      });
     }
 
     /**
