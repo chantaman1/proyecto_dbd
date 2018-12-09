@@ -34,6 +34,6 @@ class Vuelo extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('vuelo');
     }
 }

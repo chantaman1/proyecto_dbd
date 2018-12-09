@@ -16,9 +16,9 @@ class ComprobantePago extends Migration
       Schema::create('comprobante_pago', function (Blueprint $table) {
          $table->increments('id');
          $table->integer('total_pagado');
-         $table->dngettext('descripcion_pago');
+         $table->text('descripcion_pago');
          $table->date('fecha');
-         $table->datetime('hora');
+         $table->time('hora');
          $table->unsignedInteger('id_metodo_pago');
          $table->unsignedInteger('id_reserva');
          $table->foreign('id_metodo_pago')->references('id')->on('metodo_pago')->onDelete('cascade');
