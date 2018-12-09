@@ -13,7 +13,7 @@ class Vuelo extends Migration
      */
     public function up()
     {
-      Schema::create('reserva', function (Blueprint $table) {
+      Schema::create('vuelo', function (Blueprint $table) {
           $table->increments('id');
           $table->integer('codigo');
           $table->string('tipo');
@@ -32,6 +32,6 @@ class Vuelo extends Migration
      */
     public function down()
     {
-        //
+        Schema::drop('vuelo');
     }
 }
