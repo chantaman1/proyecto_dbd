@@ -19,7 +19,8 @@ class Reserva extends Migration
           $table->datetime('hora');
           $table->integer('total_a_pagar');
           $table->enum('estado_pago',['pendiente','aprobado','en proceso','rechazado','cancelado','devuelto','contracargo']);
-          $table->foreign('id_usuario')->references('id')->on('usuario');
+          $table->unsignedInteger('id_usuario');
+          $table->foreign('id_usuario')->references('id')->on('usuario')-onDelete('cascade');
           $table->timestamps();
       });
     }

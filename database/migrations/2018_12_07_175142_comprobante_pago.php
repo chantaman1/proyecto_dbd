@@ -19,6 +19,8 @@ class ComprobantePago extends Migration
          $table->dngettext('descripcion_pago');
          $table->date('fecha');
          $table->datetime('hora');
+         $table->unsignedInteger('id_metodo_pago');
+         $table->unsignedInteger('id_reserva');
          $table->foreign('id_metodo_pago')->references('id')->on('metodo_pago');
          $table->foreign('id_reserva')->references('id')->on('reserva');
          $table->timestamps();

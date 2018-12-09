@@ -18,6 +18,7 @@ class Seguro extends Migration
          $table->string('tipo');
          $table->integer('precio');
          $table->text('descripcion');
+         $table->unsignedInteger('id_aseguradora');
          $table->foreign('id_aseguradora')->references('id')->on('aseguradora');
          $table->timestamps();
       });

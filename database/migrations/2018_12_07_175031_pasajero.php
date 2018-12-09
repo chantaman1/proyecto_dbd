@@ -20,8 +20,9 @@ class Pasajero extends Migration
          $table->string('apellido_materno', 40);//apellido más largo 39 char
          $table->date('fecha_nacimiento');
          $table->string('telefono',15);
-         $table->string('nacionalidad' 35);//Pais más largo 31 char (republica democratica del congo)
-         $table->string('pasaporte');->unique();
+         $table->string('nacionalidad', 35);//Pais más largo 31 char (republica democratica del congo)
+         $table->string('pasaporte')->unique();
+         $table->unsignedInteger('id_asiento');
          $table->foreign('id_asiento')->references('id')->on('asiento');
          $table->timestamps();
       });
