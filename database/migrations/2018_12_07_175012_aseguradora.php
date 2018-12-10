@@ -13,7 +13,7 @@ class Aseguradora extends Migration
      */
     public function up()
     {
-      Schema::create('aseguradora', function (Blueprint $table) {
+      Schema::create('aseguradoras', function (Blueprint $table) {
          $table->increments('id');
          $table->string('nombre', 60);
          $table->string('direccion', 100);
@@ -32,6 +32,6 @@ class Aseguradora extends Migration
     */
     public function down()
     {
-       Schema::dropIfExists('aseguradora');
+       Schema::dropIfExists('aseguradoras');
     }
 }

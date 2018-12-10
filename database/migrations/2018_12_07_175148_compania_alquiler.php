@@ -13,7 +13,7 @@ class CompaniaAlquiler extends Migration
      */
     public function up()
     {
-      Schema::create('compania_alquiler', function (Blueprint $table) {
+      Schema::create('compania_alquilers', function (Blueprint $table) {
           $table->increments('id');
           $table->string('nombre', 60);
           $table->string('direccion', 100);
@@ -32,6 +32,6 @@ class CompaniaAlquiler extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('compania_alquiler');
+        Schema::dropIfExists('compania_alquilers');
     }
 }

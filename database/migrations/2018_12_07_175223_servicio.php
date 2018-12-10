@@ -13,7 +13,7 @@ class Servicio extends Migration
      */
     public function up()
     {
-      Schema::create('servicio', function (Blueprint $table) {
+      Schema::create('servicios', function (Blueprint $table) {
         $table->increments('id');
         $table->string('nombre', 100);
         $table->string('tipo', 40);
@@ -28,6 +28,6 @@ class Servicio extends Migration
     */
     public function down()
     {
-      Schema::dropIfExists('servicio');
+      Schema::dropIfExists('servicios');
     }
 }

@@ -13,14 +13,14 @@ class Asiento extends Migration
      */
     public function up()
     {
-      Schema::create('asiento', function (Blueprint $table) {
+      Schema::create('asientos', function (Blueprint $table) {
           $table->increments('id');
           $table->string('codigo', 10);//cambie numero de asiento por codigo
           $table->string('tipo', 30);
           $table->boolean('disponibilidad');
           $table->integer('precio');
           $table->unsignedInteger('id_vuelo');
-          $table->foreign('id_vuelo')->references('id')->on('vuelo')->onDelete('cascade');
+          $table->foreign('id_vuelo')->references('id')->on('vuelos')->onDelete('cascade');
           $table->timestamps();
       });
     }
@@ -32,6 +32,6 @@ class Asiento extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('asiento');
+        Schema::dropIfExists('asientos');
     }
 }

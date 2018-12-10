@@ -13,7 +13,7 @@ class MetodoPago extends Migration
      */
     public function up()
     {
-      Schema::create('metodo_pago', function (Blueprint $table) {
+      Schema::create('metodo_pagos', function (Blueprint $table) {
          $table->increments('id');
          $table->string('tipo', 30);
          $table->string('nombre', 40);
@@ -28,6 +28,6 @@ class MetodoPago extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('metodo_pago');
+        Schema::dropIfExists('metodo_pagos');
     }
 }

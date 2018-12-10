@@ -13,13 +13,13 @@ class Seguro extends Migration
      */
     public function up()
     {
-      Schema::create('seguro', function (Blueprint $table) {
+      Schema::create('seguros', function (Blueprint $table) {
          $table->increments('id');
          $table->string('tipo', 30);
          $table->integer('precio');
          $table->text('descripcion');
          $table->unsignedInteger('id_aseguradora');
-         $table->foreign('id_aseguradora')->references('id')->on('aseguradora')->onDelete('cascade');
+         $table->foreign('id_aseguradora')->references('id')->on('aseguradoras')->onDelete('cascade');
          $table->timestamps();
       });
     }
@@ -31,6 +31,6 @@ class Seguro extends Migration
     */
     public function down()
     {
-       Schema::dropIfExists('seguro');
+       Schema::dropIfExists('seguros');
     }
 }

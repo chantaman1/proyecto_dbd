@@ -13,7 +13,7 @@ class Habitacion extends Migration
      */
     public function up()
     {
-      Schema::create('habitacion', function (Blueprint $table) {
+      Schema::create('habitacions', function (Blueprint $table) {
          $table->increments('id');
          $table->integer('numero');
          $table->integer('capacidad');
@@ -22,7 +22,7 @@ class Habitacion extends Migration
          $table->string('categoria', 30);
          $table->integer('precio');
          $table->unsignedInteger('id_hotel');
-         $table->foreign('id_hotel')->references('id')->on('hotel')->onDelete('cascade');
+         $table->foreign('id_hotel')->references('id')->on('hotels')->onDelete('cascade');
          $table->timestamps();
       });
     }
@@ -34,6 +34,6 @@ class Habitacion extends Migration
     */
     public function down()
     {
-     Schema::dropIfExists('habitacion');
+     Schema::dropIfExists('habitacions');
     }
 }

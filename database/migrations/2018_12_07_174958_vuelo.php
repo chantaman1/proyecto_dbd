@@ -24,7 +24,7 @@ class Vuelo extends Migration
           $table->date('fecha');
           $table->time('hora');
           $table->unsignedInteger('id_aerolinea');
-          $table->foreign('id_aerolinea')->references('id')->on('aerolinea')->onDelete('cascade');
+          $table->foreign('id_aerolinea')->references('id')->on('aerolineas')->onDelete('cascade');
           $table->timestamps();
       });
     }

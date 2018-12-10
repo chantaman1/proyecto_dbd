@@ -13,7 +13,7 @@ class Paquete extends Migration
      */
     public function up()
     {
-      Schema::create('paquete', function (Blueprint $table) {
+      Schema::create('paquetes', function (Blueprint $table) {
          $table->increments('id');
          $table->string('pais_destino', 35);
          $table->string('ciudad_destino', 100);
@@ -35,6 +35,6 @@ class Paquete extends Migration
     */
     public function down()
     {
-       Schema::dropIfExists('paquete');
+       Schema::dropIfExists('paquetes');
     }
 }
