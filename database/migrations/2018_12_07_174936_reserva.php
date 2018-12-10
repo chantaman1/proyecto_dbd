@@ -13,14 +13,14 @@ class Reserva extends Migration
      */
     public function up()
     {
-      Schema::create('reserva', function (Blueprint $table) {
+      Schema::create('reservas', function (Blueprint $table) {
           $table->increments('id');
           $table->date('fecha');
           $table->time('hora');
           $table->integer('total_a_pagar');
           $table->enum('estado_pago',['pendiente','aprobado','en proceso','rechazado','cancelado','devuelto','contracargo']);
           $table->unsignedInteger('id_usuario');
-          $table->foreign('id_usuario')->references('id')->on('usuario')->onDelete('cascade');
+          $table->foreign('id_usuario')->references('id')->on('usuarios')->onDelete('cascade');
           $table->timestamps();
       });
     }
@@ -32,6 +32,6 @@ class Reserva extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('reserva');
+        Schema::dropIfExists('reservas');
     }
 }

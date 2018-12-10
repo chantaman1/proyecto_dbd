@@ -338,6 +338,7 @@ class ComposerStaticInitda5941214350eac20d7d17a7bec001f4
     );
 
     public static $classMap = array (
+        'App\\Auditoria' => __DIR__ . '/../..' . '/app/Auditoria.php',
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
         'App\\Http\\Controllers\\Auth\\ForgotPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ForgotPasswordController.php',
@@ -361,7 +362,9 @@ class ComposerStaticInitda5941214350eac20d7d17a7bec001f4
         'App\\Providers\\EventServiceProvider' => __DIR__ . '/../..' . '/app/Providers/EventServiceProvider.php',
         'App\\Providers\\RouteServiceProvider' => __DIR__ . '/../..' . '/app/Providers/RouteServiceProvider.php',
         'App\\Reserva' => __DIR__ . '/../..' . '/app/Reserva.php',
+        'App\\Rol' => __DIR__ . '/../..' . '/app/Rol.php',
         'App\\User' => __DIR__ . '/../..' . '/app/User.php',
+        'App\\Usuario' => __DIR__ . '/../..' . '/app/Usuario.php',
         'BeyondCode\\DumpServer\\DumpServerCommand' => __DIR__ . '/..' . '/beyondcode/laravel-dump-server/src/DumpServerCommand.php',
         'BeyondCode\\DumpServer\\DumpServerServiceProvider' => __DIR__ . '/..' . '/beyondcode/laravel-dump-server/src/DumpServerServiceProvider.php',
         'BeyondCode\\DumpServer\\Dumper' => __DIR__ . '/..' . '/beyondcode/laravel-dump-server/src/Dumper.php',
@@ -3776,6 +3779,7 @@ class ComposerStaticInitda5941214350eac20d7d17a7bec001f4
         'phpDocumentor\\Reflection\\Types\\String_' => __DIR__ . '/..' . '/phpdocumentor/type-resolver/src/Types/String_.php',
         'phpDocumentor\\Reflection\\Types\\This' => __DIR__ . '/..' . '/phpdocumentor/type-resolver/src/Types/This.php',
         'phpDocumentor\\Reflection\\Types\\Void_' => __DIR__ . '/..' . '/phpdocumentor/type-resolver/src/Types/Void_.php',
+        'usuariosTableSeeder' => __DIR__ . '/../..' . '/database/seeds/usuariosTableSeeder.php',
     );
 
     public static function getInitializer(ClassLoader $loader)

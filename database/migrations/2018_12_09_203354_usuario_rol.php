@@ -17,8 +17,8 @@ class UsuarioRol extends Migration
         $table->increments('id');
         $table->unsignedInteger('id_usuario');
         $table->unsignedInteger('id_rol');
-        $table->foreign('id_usuario')->references('id')->on('usuario')->onDelete('cascade');
-        $table->foreign('id_rol')->references('id')->on('rol')->onDelete('cascade');
+        $table->foreign('id_usuario')->references('id')->on('usuarios')->onDelete('cascade');
+        $table->foreign('id_rol')->references('id')->on('rols')->onDelete('cascade');
         $table->timestamps();
       });
     }
