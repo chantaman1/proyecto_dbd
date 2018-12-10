@@ -18,8 +18,8 @@ class Habitacion extends Migration
          $table->integer('numero');
          $table->integer('capacidad');
          $table->boolean('disponibilidad');
-         $table->string('tipo_cama');
-         $table->string('categoria');
+         $table->string('tipo_cama', 30);
+         $table->string('categoria', 30);
          $table->integer('precio');
          $table->unsignedInteger('id_hotel');
          $table->foreign('id_hotel')->references('id')->on('hotel')->onDelete('cascade');

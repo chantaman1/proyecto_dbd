@@ -15,11 +15,11 @@ class CompaniaAlquiler extends Migration
     {
       Schema::create('compania_alquiler', function (Blueprint $table) {
           $table->increments('id');
-          $table->string('nombre');
-          $table->string('direccion');
-          $table->string('telefono');
-          $table->string('ciudad');
-          $table->string('direccion_web');
+          $table->string('nombre', 60);
+          $table->string('direccion', 100);
+          $table->string('telefono', 15);
+          $table->string('ciudad', 100);
+          $table->string('direccion_web'. 256);
           $table->timestamps();
 
       });

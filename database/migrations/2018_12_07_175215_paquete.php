@@ -15,14 +15,14 @@ class Paquete extends Migration
     {
       Schema::create('paquete', function (Blueprint $table) {
          $table->increments('id');
-         $table->string('pais_destino');
-         $table->string('ciudad_destino');
+         $table->string('pais_destino', 35);
+         $table->string('ciudad_destino', 100);
          $table->integer('precio');
-         $table->string('descuento'); //VER TIPO DATO
+         $table->float('descuento');
          $table->boolean('disponibilidad');
-         $table->string('posee_vehiculo'); //VER TIPO DATO
-         $table->string('posee_hotel');
-         $table->string('posee_seguro');
+         $table->boolean('posee_vehiculo');
+         $table->boolean('posee_hotel');
+         $table->boolean('posee_seguro');
          $table->timestamps();
 
       });

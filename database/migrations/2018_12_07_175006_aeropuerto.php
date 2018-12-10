@@ -15,9 +15,9 @@ class Aeropuerto extends Migration
     {
       Schema::create('aeropuerto', function (Blueprint $table) {
           $table->increments('id');
-          $table->string('nombre');
-          $table->string('ciudad');
-          $table->string('direccion');
+          $table->string('nombre', 60);
+          $table->string('ciudad', 100);
+          $table->string('direccion', 100);
           $table->string('pais',35);//Pais más largo 31 char (republica democratica del congo)
           $table->timestamps();
       });

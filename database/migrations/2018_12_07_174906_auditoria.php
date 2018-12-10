@@ -15,7 +15,7 @@ class Auditoria extends Migration
     {
       Schema::create('auditoria', function (Blueprint $table) {
           $table->increments('id');
-          $table->string('tipo_transaccion');
+          $table->string('tipo_transaccion', 40);
           $table->date('fecha');
           $table->datetime('hora');
           $table->unsignedInteger('id_usuario');

@@ -15,9 +15,9 @@ class Vehiculo extends Migration
     {
       Schema::create('vehiculo', function (Blueprint $table) {
         $table->increments('id');
-         $table->string('patente'); //VER TIPO DATO, es string
-         $table->string('marca');
-         $table->string('modelo');
+         $table->string('patente', 15); //VER TIPO DATO, es string
+         $table->string('marca', 40);
+         $table->string('modelo', 40);
          $table->integer('año'); //VER TIPO DATO
          $table->integer('precio');
          $table->integer('cantidad_asientos');

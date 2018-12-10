@@ -15,8 +15,8 @@ class Servicio extends Migration
     {
       Schema::create('servicio', function (Blueprint $table) {
         $table->increments('id');
-        $table->string('nombre');
-        $table->string('tipo');
+        $table->string('nombre', 100);
+        $table->string('tipo', 40);
         $table->timestamps();
       });
     }

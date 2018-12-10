@@ -15,12 +15,14 @@ class Vuelo extends Migration
     {
       Schema::create('vuelo', function (Blueprint $table) {
           $table->increments('id');
-          $table->string('tipo');
-          $table->string('origen');
+          $table->string('tipo', 40);
+          $table->string('ciudad_origen', 100);
+          $table->string('pais_origen', 35);
           $table->string('codigo');
-          $table->string('destino');
+          $table->string('ciudad_destino', 100);
+          $table->string('pais_destino', 35);
           $table->date('fecha');
-          $table->datetime('hora');
+          $table->time('hora');
           $table->unsignedInteger('id_aerolinea');
           $table->foreign('id_aerolinea')->references('id')->on('aerolinea')->onDelete('cascade');
           $table->timestamps();
