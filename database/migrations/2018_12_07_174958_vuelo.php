@@ -13,7 +13,7 @@ class Vuelo extends Migration
      */
     public function up()
     {
-      Schema::create('vuelo', function (Blueprint $table) {
+      Schema::create('vuelos', function (Blueprint $table) {
           $table->increments('id');
           $table->string('tipo', 40);
           $table->string('ciudad_origen', 100);
@@ -36,6 +36,6 @@ class Vuelo extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('vuelo');
+        Schema::dropIfExists('vuelos');
     }
 }
