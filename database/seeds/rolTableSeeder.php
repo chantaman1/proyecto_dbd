@@ -12,12 +12,6 @@ class rolTableSeeder extends Seeder
     public function run()
     {
       DB::table('rols')->insert([
-          'tipo' => "administrador",
-          'created_at' => now(),
-          'updated_at' => now(),
-      ]);
-
-      DB::table('rols')->insert([
           'tipo' => "usuario",
           'created_at' => now(),
           'updated_at' => now(),
@@ -25,6 +19,12 @@ class rolTableSeeder extends Seeder
 
       DB::table('rols')->insert([
           'tipo' => "premium",
+          'created_at' => now(),
+          'updated_at' => now(),
+      ]);
+
+      DB::table('rols')->insert([
+          'tipo' => "administrador",
           'created_at' => now(),
           'updated_at' => now(),
       ]);
