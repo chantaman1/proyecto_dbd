@@ -3805,6 +3805,7 @@ class ComposerStaticInitda5941214350eac20d7d17a7bec001f4
         'phpDocumentor\\Reflection\\Types\\String_' => __DIR__ . '/..' . '/phpdocumentor/type-resolver/src/Types/String_.php',
         'phpDocumentor\\Reflection\\Types\\This' => __DIR__ . '/..' . '/phpdocumentor/type-resolver/src/Types/This.php',
         'phpDocumentor\\Reflection\\Types\\Void_' => __DIR__ . '/..' . '/phpdocumentor/type-resolver/src/Types/Void_.php',
+        'rolTableSeeder' => __DIR__ . '/../..' . '/database/seeds/rolTableSeeder.php',
         'usuariosTableSeeder' => __DIR__ . '/../..' . '/database/seeds/usuariosTableSeeder.php',
     );
 
