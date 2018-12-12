@@ -13,14 +13,14 @@ class Aseguradora extends Migration
      */
     public function up()
     {
-      Schema::create('aseguradora', function (Blueprint $table) {
+      Schema::create('aseguradoras', function (Blueprint $table) {
          $table->increments('id');
-         $table->string('nombre');
-         $table->string('direccion');
-         $table->string('telefono');
-         $table->string('ciudad');
-         $table->string('pais');
-         $table->string('direccion_web');
+         $table->string('nombre', 60);
+         $table->string('direccion', 100);
+         $table->string('telefono', 15);
+         $table->string('ciudad', 100);
+         $table->string('pais', 35);
+         $table->string('direccion_web', 256);
          $table->timestamps();
       });
     }
@@ -32,6 +32,6 @@ class Aseguradora extends Migration
     */
     public function down()
     {
-       Schema::dropIfExists('aseguradora');
+       Schema::dropIfExists('aseguradoras');
     }
 }

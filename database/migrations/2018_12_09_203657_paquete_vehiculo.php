@@ -13,12 +13,12 @@ class PaqueteVehiculo extends Migration
      */
     public function up()
     {
-      Schema::create('paquete_vehiculo', function (Blueprint $table) {
+      Schema::create('paquete_vehiculos', function (Blueprint $table) {
         $table->increments('id');
         $table->unsignedInteger('id_paquete');
         $table->unsignedInteger('id_vehiculo');
-        $table->foreign('id_paquete')->references('id')->on('paquete')->onDelete('cascade');
-        $table->foreign('id_vehiculo')->references('id')->on('vehiculo')->onDelete('cascade');
+        $table->foreign('id_paquete')->references('id')->on('paquetes')->onDelete('cascade');
+        $table->foreign('id_vehiculo')->references('id')->on('vehiculos')->onDelete('cascade');
         $table->timestamps();
       });
     }
@@ -30,6 +30,6 @@ class PaqueteVehiculo extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('paquete_vehiculo');
+        Schema::dropIfExists('paquete_vehiculos');
     }
 }

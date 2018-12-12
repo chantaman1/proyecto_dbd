@@ -13,12 +13,12 @@ class ReservaVehiculo extends Migration
      */
     public function up()
     {
-      Schema::create('reserva_vehiculo', function (Blueprint $table) {
+      Schema::create('reserva_vehiculos', function (Blueprint $table) {
         $table->increments('id');
         $table->unsignedInteger('id_reserva');
         $table->unsignedInteger('id_vehiculo');
-        $table->foreign('id_reserva')->references('id')->on('reserva')->onDelete('cascade');
-        $table->foreign('id_vehiculo')->references('id')->on('vehiculo')->onDelete('cascade');
+        $table->foreign('id_reserva')->references('id')->on('reservas')->onDelete('cascade');
+        $table->foreign('id_vehiculo')->references('id')->on('vehiculos')->onDelete('cascade');
         $table->timestamps();
       });
     }
@@ -30,6 +30,6 @@ class ReservaVehiculo extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('reserva_vehiculo');
+        Schema::dropIfExists('reserva_vehiculos');
     }
 }

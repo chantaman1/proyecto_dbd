@@ -13,18 +13,18 @@ class Vehiculo extends Migration
      */
     public function up()
     {
-      Schema::create('vehiculo', function (Blueprint $table) {
+      Schema::create('vehiculos', function (Blueprint $table) {
         $table->increments('id');
-         $table->string('patente'); //VER TIPO DATO, es string
-         $table->string('marca');
-         $table->string('modelo');
+         $table->string('patente', 15); //VER TIPO DATO, es string
+         $table->string('marca', 40);
+         $table->string('modelo', 40);
          $table->integer('año'); //VER TIPO DATO
          $table->integer('precio');
          $table->integer('cantidad_asientos');
          $table->enum('tipo_transmision',['manual','automatico','CVT','automatico doble embrague']);
          $table->text('descripcion');
          $table->unsignedInteger('id_compania_alquiler');
-         $table->foreign('id_compania_alquiler')->references('id')->on('compania_alquiler')->onDelete('cascade');
+         $table->foreign('id_compania_alquiler')->references('id')->on('compania_alquilers')->onDelete('cascade');
          $table->timestamps();
       });
     }
@@ -36,6 +36,6 @@ class Vehiculo extends Migration
     */
     public function down()
     {
-       Schema::dropIfExists('vehiculo');
+       Schema::dropIfExists('vehiculos');
     }
 }

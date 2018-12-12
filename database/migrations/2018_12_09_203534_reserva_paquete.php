@@ -13,12 +13,12 @@ class ReservaPaquete extends Migration
      */
     public function up()
     {
-      Schema::create('reserva_paquete', function (Blueprint $table) {
+      Schema::create('reserva_paquetes', function (Blueprint $table) {
         $table->increments('id');
         $table->unsignedInteger('id_reserva');
         $table->unsignedInteger('id_paquete');
-        $table->foreign('id_reserva')->references('id')->on('reserva')->onDelete('cascade');
-        $table->foreign('id_paquete')->references('id')->on('paquete')->onDelete('cascade');
+        $table->foreign('id_reserva')->references('id')->on('reservas')->onDelete('cascade');
+        $table->foreign('id_paquete')->references('id')->on('paquetes')->onDelete('cascade');
         $table->timestamps();
       });
     }
@@ -30,6 +30,6 @@ class ReservaPaquete extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('reserva_paquete');
+        Schema::dropIfExists('reserva_paquetes');
     }
 }

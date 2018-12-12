@@ -13,7 +13,7 @@ class ComprobantePago extends Migration
      */
     public function up()
     {
-      Schema::create('comprobante_pago', function (Blueprint $table) {
+      Schema::create('comprobante_pagos', function (Blueprint $table) {
          $table->increments('id');
          $table->integer('total_pagado');
          $table->text('descripcion_pago');
@@ -21,8 +21,8 @@ class ComprobantePago extends Migration
          $table->time('hora');
          $table->unsignedInteger('id_metodo_pago');
          $table->unsignedInteger('id_reserva');
-         $table->foreign('id_metodo_pago')->references('id')->on('metodo_pago')->onDelete('cascade');
-         $table->foreign('id_reserva')->references('id')->on('reserva')->onDelete('cascade');
+         $table->foreign('id_metodo_pago')->references('id')->on('metodo_pagos')->onDelete('cascade');
+         $table->foreign('id_reserva')->references('id')->on('reservas')->onDelete('cascade');
          $table->timestamps();
       });
     }
@@ -34,6 +34,6 @@ class ComprobantePago extends Migration
     */
     public function down()
     {
-       Schema::dropIfExists('comprobante_pago');
+       Schema::dropIfExists('comprobante_pagos');
     }
 }

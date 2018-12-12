@@ -28,15 +28,15 @@ class ReservaVuelo extends Migration
 =======
     public function up()
     {
-      Schema::create('reserva_vuelo', function (Blueprint $table) {
+      Schema::create('reserva_vuelos', function (Blueprint $table) {
         $table->increments('id');
         $table->integer('cant_ninos');
         $table->integer('cant_adultos');
         $table->integer('cant_infantes');
         $table->unsignedInteger('id_reserva');
         $table->unsignedInteger('id_vuelo');
-        $table->foreign('id_reserva')->references('id')->on('reserva')->onDelete('cascade');
-        $table->foreign('id_vuelo')->references('id')->on('vuelo')->onDelete('cascade');
+        $table->foreign('id_reserva')->references('id')->on('reservas')->onDelete('cascade');
+        $table->foreign('id_vuelo')->references('id')->on('vuelos')->onDelete('cascade');
         $table->timestamps();
       });
     }
@@ -55,7 +55,7 @@ class ReservaVuelo extends Migration
 =======
     public function down()
     {
-        Schema::dropIfExists('reserva_vuelo');
+        Schema::dropIfExists('reserva_vuelos');
     }
 >>>>>>> f7c73bc605a787080360436e676a4c17a4565cd8
 }

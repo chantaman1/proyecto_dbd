@@ -13,13 +13,13 @@ class Auditoria extends Migration
      */
     public function up()
     {
-      Schema::create('auditoria', function (Blueprint $table) {
+      Schema::create('auditorias', function (Blueprint $table) {
           $table->increments('id');
-          $table->string('tipo_transaccion');
+          $table->string('tipo_transaccion', 40);
           $table->date('fecha');
           $table->datetime('hora');
           $table->unsignedInteger('id_usuario');
-          $table->foreign('id_usuario')->references('id')->on('usuario')->onDelete('cascade');
+          $table->foreign('id_usuario')->references('id')->on('usuarios')->onDelete('cascade');
           $table->timestamps();
       });
     }
@@ -31,6 +31,6 @@ class Auditoria extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('auditoria');
+        Schema::dropIfExists('auditorias');
     }
 }

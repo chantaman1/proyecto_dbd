@@ -13,7 +13,7 @@ class Pasajero extends Migration
      */
     public function up()
     {
-      Schema::create('pasajero', function (Blueprint $table) {
+      Schema::create('pasajeros', function (Blueprint $table) {
          $table->increments('id');
          $table->string('nombre', 45);//nombre más largo 41 caracteres
          $table->string('apellido_paterno', 40);//apellido más largo 39 char
@@ -23,7 +23,7 @@ class Pasajero extends Migration
          $table->string('nacionalidad', 35);//Pais más largo 31 char (republica democratica del congo)
          $table->string('pasaporte')->unique();
          $table->unsignedInteger('id_asiento');
-         $table->foreign('id_asiento')->references('id')->on('asiento')->onDelete('cascade');
+         $table->foreign('id_asiento')->references('id')->on('asientos')->onDelete('cascade');
          $table->timestamps();
       });
     }
@@ -35,6 +35,6 @@ class Pasajero extends Migration
     */
     public function down()
     {
-       Schema::dropIfExists('pasajero');
+       Schema::dropIfExists('pasajeros');
     }
 }

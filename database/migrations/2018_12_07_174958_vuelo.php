@@ -13,16 +13,18 @@ class Vuelo extends Migration
      */
     public function up()
     {
-      Schema::create('vuelo', function (Blueprint $table) {
+      Schema::create('vuelos', function (Blueprint $table) {
           $table->increments('id');
-          $table->string('tipo');
-          $table->string('origen');
+          $table->string('tipo', 40);
+          $table->string('ciudad_origen', 100);
+          $table->string('pais_origen', 35);
           $table->string('codigo');
-          $table->string('destino');
+          $table->string('ciudad_destino', 100);
+          $table->string('pais_destino', 35);
           $table->date('fecha');
-          $table->datetime('hora');
+          $table->time('hora');
           $table->unsignedInteger('id_aerolinea');
-          $table->foreign('id_aerolinea')->references('id')->on('aerolinea')->onDelete('cascade');
+          $table->foreign('id_aerolinea')->references('id')->on('aerolineas')->onDelete('cascade');
           $table->timestamps();
       });
     }
@@ -34,6 +36,6 @@ class Vuelo extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('vuelo');
+        Schema::dropIfExists('vuelos');
     }
 }
