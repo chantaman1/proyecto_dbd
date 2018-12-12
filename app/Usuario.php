@@ -20,4 +20,10 @@ class Usuario extends Model
     public function rols(){
       return $this->belongsToMany('app\Rol');
     }
+
+    //El usuario hace muchas reservas
+    public function reservas()
+    {
+        return $this->hasMany('App\Reserva', 'reservable');
+    }
 }
