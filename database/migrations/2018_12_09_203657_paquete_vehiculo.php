@@ -15,6 +15,10 @@ class PaqueteVehiculo extends Migration
     {
       Schema::create('paquete_vehiculos', function (Blueprint $table) {
         $table->increments('id');
+        $table->date('fecha_inicio');
+        $table->time('hora_inicio');
+        $table->date('fecha_termino');
+        $table->time('hora_termino');
         $table->unsignedInteger('id_paquete');
         $table->unsignedInteger('id_vehiculo');
         $table->foreign('id_paquete')->references('id')->on('paquetes')->onDelete('cascade');
