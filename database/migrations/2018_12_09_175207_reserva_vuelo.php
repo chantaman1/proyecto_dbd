@@ -11,21 +11,7 @@ class ReservaVuelo extends Migration
      *
      * @return void
      */
-<<<<<<< HEAD
-     public function up()
-     {
-       Schema::create('reserva_vuelo', function (Blueprint $table) {
-         $table->unsignedInteger('id_reserva');
-         $table->foreign('id_reserva')->references('id')->on('reservas');
-         $table->unsignedInteger('id_vuelo');
-         $table->foreign('id_vuelo')->references('id')->on('vuelos');
-         $table->integer('cant_adultos',1);
-         $table->integer('cant_niños',1);
-         $table->integer('cant_infantes',1);
-         $table->timestamps();
-       });
-     }
-=======
+
     public function up()
     {
       Schema::create('reserva_vuelos', function (Blueprint $table) {
@@ -40,22 +26,14 @@ class ReservaVuelo extends Migration
         $table->timestamps();
       });
     }
->>>>>>> f7c73bc605a787080360436e676a4c17a4565cd8
 
      /**
      * Reverse the migrations.
      *
      * @return void
      */
-<<<<<<< HEAD
      public function down()
      {
-     Schema::drop('reserva_vuelo');
+       Schema::drop('reserva_vuelos');
      }
-=======
-    public function down()
-    {
-        Schema::dropIfExists('reserva_vuelos');
-    }
->>>>>>> f7c73bc605a787080360436e676a4c17a4565cd8
 }

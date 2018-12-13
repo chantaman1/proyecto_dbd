@@ -17,8 +17,7 @@ class UsuarioRolTrigger extends Migration
         CREATE TRIGGER tg_usuario_insert_rol
         AFTER INSERT ON usuarios
         FOR EACH ROW
-        EXECUTE PROCEDURE pc_insert_rol_usuario(id);
-        ');
+        EXECUTE PROCEDURE pc_insert_rol_usuario()');
     }
 
     /**

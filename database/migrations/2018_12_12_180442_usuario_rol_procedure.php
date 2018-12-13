@@ -14,7 +14,7 @@ class UsuarioRolProcedure extends Migration
     public function up()
     {
         DB::unprepared('
-        CREATE FUNCTION schema.pc_insert_rol_usuario(userId integer) RETURNS void AS $$
+        CREATE FUNCTION public.pc_insert_rol_usuario(userId integer) RETURNS void AS $$
         BEGIN
                 INSERT INTO usuario_rols (´id_usuario´, ´id_rol´, ´create_at´, ´updated_at´) VALUES (userId, 1, now(), null);
         END;
