@@ -15,6 +15,8 @@ class ReservaHabitacion extends Migration
     {
       Schema::create('reserva_habitacions', function (Blueprint $table) {
         $table->increments('id');
+        $table->date('fecha_inicio');
+        $table->date('fecha_termino');
         $table->unsignedInteger('id_reserva');
         $table->unsignedInteger('id_habitacion');
         $table->foreign('id_reserva')->references('id')->on('reservas')->onDelete('cascade');
