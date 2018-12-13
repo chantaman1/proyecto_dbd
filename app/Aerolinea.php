@@ -6,5 +6,16 @@ use Illuminate\Database\Eloquent\Model;
 
 class Aerolinea extends Model
 {
-    //
+  //llave primaria
+  protected $primaryKey = 'id';
+
+  //atributos que pueden ser rellenables
+  protected $fillable=[
+    'nombre'
+  ];
+
+  public function vuelos()
+  {
+      return $this->hasMany('App\Vuelo');
+  }
 }

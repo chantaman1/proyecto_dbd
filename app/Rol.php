@@ -9,6 +9,7 @@ class Rol extends Model
     protected $fillable = [
         'tipo',
     ];
+    
     public function usuarios(){
         return $this->belongsToMany('app\Usuario');
     }

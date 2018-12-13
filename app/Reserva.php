@@ -44,9 +44,9 @@ class Reserva extends Model
         return $this->belongsToMany('App\Vuelo');
     }
 
-    //Consigue todos los modelos reservables propios
+    //la reserva pertenece a un usuario
     public function usuario()
     {
-        return $this->belongsTo('App\Usuario','id_usuario');
+        return $this->belongsTo('App\Usuario');
     }
 }
