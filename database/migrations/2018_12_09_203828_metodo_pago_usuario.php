@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class UsuarioMetodoPago extends Migration
+class MetodoPagoUsuario extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,12 @@ class UsuarioMetodoPago extends Migration
      */
     public function up()
     {
-      Schema::create('usuario_metodo_pagos', function (Blueprint $table) {
+      Schema::create('metodo_pago_usuario', function (Blueprint $table) {
         $table->increments('id');
-        $table->unsignedInteger('id_usuario');
-        $table->unsignedInteger('id_metodo_pago');
-        $table->foreign('id_usuario')->references('id')->on('usuarios')->onDelete('cascade');
-        $table->foreign('id_metodo_pago')->references('id')->on('metodo_pagos')->onDelete('cascade');
+        $table->unsignedInteger('usuario_id');
+        $table->unsignedInteger('metodo_pago_id');
+        $table->foreign('usuario_id')->references('id')->on('usuarios')->onDelete('cascade');
+        $table->foreign('metodo_pago_id')->references('id')->on('metodo_pagos')->onDelete('cascade');
         $table->timestamps();
       });
     }

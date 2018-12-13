@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class ReservaPaquete extends Migration
+class PaqueteReserva extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,12 @@ class ReservaPaquete extends Migration
      */
     public function up()
     {
-      Schema::create('reserva_paquetes', function (Blueprint $table) {
+      Schema::create('paquete_reserva', function (Blueprint $table) {
         $table->increments('id');
-        $table->unsignedInteger('id_reserva');
-        $table->unsignedInteger('id_paquete');
-        $table->foreign('id_reserva')->references('id')->on('reservas')->onDelete('cascade');
-        $table->foreign('id_paquete')->references('id')->on('paquetes')->onDelete('cascade');
+        $table->unsignedInteger('reserva_id');
+        $table->unsignedInteger('paquete_id');
+        $table->foreign('reserva_id')->references('id')->on('reservas')->onDelete('cascade');
+        $table->foreign('paquete_id')->references('id')->on('paquetes')->onDelete('cascade');
         $table->timestamps();
       });
     }

@@ -13,12 +13,12 @@ class PaqueteServicio extends Migration
      */
     public function up()
     {
-      Schema::create('paquete_servicios', function (Blueprint $table) {
+      Schema::create('paquete_servicio', function (Blueprint $table) {
         $table->increments('id');
-        $table->unsignedInteger('id_paquete');
-        $table->unsignedInteger('id_servicio');
-        $table->foreign('id_paquete')->references('id')->on('paquetes')->onDelete('cascade');
-        $table->foreign('id_servicio')->references('id')->on('servicios')->onDelete('cascade');
+        $table->unsignedInteger('paquete_id');
+        $table->unsignedInteger('servicio_id');
+        $table->foreign('paquete_id')->references('id')->on('paquetes')->onDelete('cascade');
+        $table->foreign('servicio_id')->references('id')->on('servicios')->onDelete('cascade');
         $table->timestamps();
       });
     }

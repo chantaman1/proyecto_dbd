@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class UsuarioRol extends Migration
+class RolUsuario extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class UsuarioRol extends Migration
      */
     public function up()
     {
-      Schema::create('usuario_rols', function (Blueprint $table) {
+      Schema::create('rol_usuario', function (Blueprint $table) {
         $table->increments('id');
         $table->unsignedInteger('id_usuario');
         $table->unsignedInteger('id_rol');

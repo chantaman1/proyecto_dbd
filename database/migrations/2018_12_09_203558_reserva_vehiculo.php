@@ -13,16 +13,16 @@ class ReservaVehiculo extends Migration
      */
     public function up()
     {
-      Schema::create('reserva_vehiculos', function (Blueprint $table) {
+      Schema::create('reserva_vehiculo', function (Blueprint $table) {
         $table->increments('id');
         $table->date('fecha_inicio');
         $table->time('hora_inicio');
         $table->date('fecha_termino');
         $table->time('hora_termino');
-        $table->unsignedInteger('id_reserva');
-        $table->unsignedInteger('id_vehiculo');
-        $table->foreign('id_reserva')->references('id')->on('reservas')->onDelete('cascade');
-        $table->foreign('id_vehiculo')->references('id')->on('vehiculos')->onDelete('cascade');
+        $table->unsignedInteger('reserva_id');
+        $table->unsignedInteger('vehiculo_id');
+        $table->foreign('reserva_id')->references('id')->on('reservas')->onDelete('cascade');
+        $table->foreign('vehiculo_id')->references('id')->on('vehiculos')->onDelete('cascade');
         $table->timestamps();
       });
     }

@@ -14,15 +14,15 @@ class ReservaVuelo extends Migration
 
     public function up()
     {
-      Schema::create('reserva_vuelos', function (Blueprint $table) {
+      Schema::create('reserva_vuelo', function (Blueprint $table) {
         $table->increments('id');
         $table->integer('cant_ninos');
         $table->integer('cant_adultos');
         $table->integer('cant_infantes');
-        $table->unsignedInteger('id_reserva');
-        $table->unsignedInteger('id_vuelo');
-        $table->foreign('id_reserva')->references('id')->on('reservas')->onDelete('cascade');
-        $table->foreign('id_vuelo')->references('id')->on('vuelos')->onDelete('cascade');
+        $table->unsignedInteger('reserva_id');
+        $table->unsignedInteger('vuelo_id');
+        $table->foreign('reserva_id')->references('id')->on('reservas')->onDelete('cascade');
+        $table->foreign('vuelo_id')->references('id')->on('vuelos')->onDelete('cascade');
         $table->timestamps();
       });
     }

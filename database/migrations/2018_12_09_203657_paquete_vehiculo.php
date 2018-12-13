@@ -13,16 +13,16 @@ class PaqueteVehiculo extends Migration
      */
     public function up()
     {
-      Schema::create('paquete_vehiculos', function (Blueprint $table) {
+      Schema::create('paquete_vehiculo', function (Blueprint $table) {
         $table->increments('id');
         $table->date('fecha_inicio');
         $table->time('hora_inicio');
         $table->date('fecha_termino');
         $table->time('hora_termino');
-        $table->unsignedInteger('id_paquete');
-        $table->unsignedInteger('id_vehiculo');
-        $table->foreign('id_paquete')->references('id')->on('paquetes')->onDelete('cascade');
-        $table->foreign('id_vehiculo')->references('id')->on('vehiculos')->onDelete('cascade');
+        $table->unsignedInteger('paquete_id');
+        $table->unsignedInteger('vehiculo_id');
+        $table->foreign('paquete_id')->references('id')->on('paquetes')->onDelete('cascade');
+        $table->foreign('vehiculo_id')->references('id')->on('vehiculos')->onDelete('cascade');
         $table->timestamps();
       });
     }

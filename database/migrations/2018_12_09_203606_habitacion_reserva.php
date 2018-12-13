@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class PaqueteHabitacion extends Migration
+class HabitacionReserva extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,14 @@ class PaqueteHabitacion extends Migration
      */
     public function up()
     {
-      Schema::create('paquete_habitacions', function (Blueprint $table) {
+      Schema::create('habitacion_reserva', function (Blueprint $table) {
         $table->increments('id');
         $table->date('fecha_inicio');
         $table->date('fecha_termino');
-        $table->unsignedInteger('id_paquete');
-        $table->unsignedInteger('id_habitacion');
-        $table->foreign('id_paquete')->references('id')->on('paquetes')->onDelete('cascade');
-        $table->foreign('id_habitacion')->references('id')->on('habitacions')->onDelete('cascade');
+        $table->unsignedInteger('reserva_id');
+        $table->unsignedInteger('habitacion_id');
+        $table->foreign('reserva_id')->references('id')->on('reservas')->onDelete('cascade');
+        $table->foreign('habitacion_id')->references('id')->on('habitacions')->onDelete('cascade');
         $table->timestamps();
       });
     }
@@ -32,6 +32,6 @@ class PaqueteHabitacion extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('paquete_habitacions');
+        Schema::dropIfExists('reserva_habitacions');
     }
 }

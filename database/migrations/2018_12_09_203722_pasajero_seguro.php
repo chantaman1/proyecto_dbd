@@ -13,12 +13,12 @@ class PasajeroSeguro extends Migration
      */
     public function up()
     {
-      Schema::create('paquete_seguros', function (Blueprint $table) {
+      Schema::create('pasajero_seguros', function (Blueprint $table) {
         $table->increments('id');
-        $table->unsignedInteger('id_pasajero');
-        $table->unsignedInteger('id_seguro');
-        $table->foreign('id_pasajero')->references('id')->on('pasajeros')->onDelete('cascade');
-        $table->foreign('id_seguro')->references('id')->on('seguros')->onDelete('cascade');
+        $table->unsignedInteger('pasajero_id');
+        $table->unsignedInteger('seguro_id');
+        $table->foreign('pasajero_id')->references('id')->on('pasajeros')->onDelete('cascade');
+        $table->foreign('seguro_id')->references('id')->on('seguros')->onDelete('cascade');
         $table->timestamps();
       });
     }
