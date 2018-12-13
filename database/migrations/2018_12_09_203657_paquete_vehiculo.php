@@ -34,6 +34,6 @@ class PaqueteVehiculo extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('paquete_vehiculos');
+        Schema::dropIfExists('paquete_vehiculo');
     }
 }

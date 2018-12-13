@@ -32,6 +32,6 @@ class HabitacionPaquete extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('paquete_habitacions');
+        Schema::dropIfExists('habitacion_paquete');
     }
 }

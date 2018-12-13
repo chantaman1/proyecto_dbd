@@ -32,6 +32,6 @@ class HabitacionReserva extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('reserva_habitacions');
+        Schema::dropIfExists('habitacion_reserva');
     }
 }

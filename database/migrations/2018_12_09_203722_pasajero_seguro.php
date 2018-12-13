@@ -13,7 +13,7 @@ class PasajeroSeguro extends Migration
      */
     public function up()
     {
-      Schema::create('pasajero_seguros', function (Blueprint $table) {
+      Schema::create('pasajero_seguro', function (Blueprint $table) {
         $table->increments('id');
         $table->unsignedInteger('pasajero_id');
         $table->unsignedInteger('seguro_id');
@@ -30,6 +30,6 @@ class PasajeroSeguro extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('paquete_seguros');
+        Schema::dropIfExists('pasajero_seguro');
     }
 }

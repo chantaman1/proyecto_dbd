@@ -30,6 +30,6 @@ class PaqueteReserva extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('reserva_paquetes');
+        Schema::dropIfExists('paquete_reserva');
     }
 }

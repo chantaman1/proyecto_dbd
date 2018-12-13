@@ -34,6 +34,6 @@ class ReservaVuelo extends Migration
      */
      public function down()
      {
-       Schema::drop('reserva_vuelos');
+       Schema::drop('reserva_vuelo');
      }
 }

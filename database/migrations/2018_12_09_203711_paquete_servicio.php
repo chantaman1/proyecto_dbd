@@ -30,6 +30,6 @@ class PaqueteServicio extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('paquete_servicios');
+        Schema::dropIfExists('paquete_servicio');
     }
 }
