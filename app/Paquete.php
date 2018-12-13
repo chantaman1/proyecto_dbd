@@ -6,5 +6,37 @@ use Illuminate\Database\Eloquent\Model;
 
 class Paquete extends Model
 {
-    //
+  //llave primaria
+  protected $primaryKey = 'id';
+
+  //atributos que pueden ser rellenables
+  protected $fillable=[
+    'pais_destino','ciudad_destino', 'precio', 'descuento', 'disponibilidad',
+    'posee_vehiculo', 'posee_hotel', 'posee_seguro'
+  ];
+
+  public function vuelo()
+  {
+      return $this->belongsTo('App\Vuelo');
+  }
+
+  public function reservas()
+  {
+      return $this->belongsToMany('App\Reserva');
+  }
+
+  public function vehiculos()
+  {
+      return $this->belongsToMany('App\Vehiculo');
+  }
+
+  public function habitacions()
+  {
+      return $this->belongsToMany('App\Habitacion');
+  }
+
+  public function servicios()
+  {
+      return $this->belongsToMany('App\Servicio');
+  }
 }

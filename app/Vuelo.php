@@ -37,6 +37,6 @@ class Vuelo extends Model
 
   public function paquetes()
   {
-      return $this->belongsToMany('App\Paquete');
+      return $this->hasMany('App\Paquete');
   }
 }
