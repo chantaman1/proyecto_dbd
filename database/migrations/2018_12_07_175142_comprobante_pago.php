@@ -19,10 +19,10 @@ class ComprobantePago extends Migration
          $table->text('descripcion_pago');
          $table->date('fecha');
          $table->time('hora');
-         $table->unsignedInteger('id_metodo_pago');
-         $table->unsignedInteger('id_reserva');
-         $table->foreign('id_metodo_pago')->references('id')->on('metodo_pagos')->onDelete('cascade');
-         $table->foreign('id_reserva')->references('id')->on('reservas')->onDelete('cascade');
+         $table->unsignedInteger('metodo_pago_id');
+         $table->unsignedInteger('reserva_id');
+         $table->foreign('metodo_pago_id')->references('id')->on('metodo_pagos')->onDelete('cascade');
+         $table->foreign('reserva_id')->references('id')->on('reservas')->onDelete('cascade');
          $table->timestamps();
       });
     }
