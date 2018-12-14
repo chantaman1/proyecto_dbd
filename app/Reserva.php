@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Reserva extends Model
 {
-    protected $table = 'reserva';
+    protected $table = 'reservas';
       protected $fecha;
       protected $hora;
       protected $total_a_pagar;

@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Aseguradora extends Model
 {
-  protected $table = 'aseguradora';
+  protected $table = 'aseguradoras';
     protected $nombre;
     protected $direccion;
     protected $telefono;

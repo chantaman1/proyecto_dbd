@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Asiento extends Model
 {
-  protected $table = 'asiento';
+  protected $table = 'asientos';
     protected $numero;
     protected $tipo;
     protected $disponibilidad;

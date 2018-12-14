@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Metodo_pago extends Model
 {
-  protected $table = 'metodo_pago';
+  protected $table = 'metodo_pagos';
     protected $nombre;
     protected $tipo;
 

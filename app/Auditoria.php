@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Auditoria extends Model
 {
-  protected $table = 'auditoria';
+  protected $table = 'auditorias';
     protected $tipo_transaccion;
     protected $fecha;
     protected $hora;

@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Comprobante_pago extends Model
 {
-  protected $table = 'comprobante_pago';
+  protected $table = 'comprobante_pagos';
     protected $total_pagado;
     protected $descripcion_pago;
     protected $fecha;

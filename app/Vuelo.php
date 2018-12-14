@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Vuelo extends Model
 {
-  protected $table = 'vuelo';
+  protected $table = 'vuelos';
     protected $codigo;
     protected $tipo;
     protected $ciudad_origen;

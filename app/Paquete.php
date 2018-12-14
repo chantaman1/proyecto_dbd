@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Paquete extends Model
 {
-  protected $table = 'paquete';
+  protected $table = 'paquetes';
     protected $pais_destino;
     protected $ciudad_destino;
     protected $precio;

@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Habitacion extends Model
 {
-  protected $table = 'habitacion';
+  protected $table = 'habitacions';
     protected $numero;
     protected $capacidad;
     protected $disponibilidad;

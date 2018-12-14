@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Aerolinea extends Model
 {
-  protected $table = 'aerolinea';
+  protected $table = 'aerolineas';
     protected $nombre;
 
   //atributos que pueden ser rellenables
