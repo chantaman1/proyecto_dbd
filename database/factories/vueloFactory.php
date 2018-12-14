@@ -5,13 +5,13 @@ use Faker\Generator as Faker;
 $factory->define(App\Vuelo::class, function (Faker $faker) {
     return [
       'tipo' => 'ida',
-      'ciudad_origen' => $faker->lastName,
-      'pais_origen' => $faker->lastName,
-      'codigo' => $faker->date,
-      'ciudad_destino' => bcrypt($faker->password),
-      'pais_destino' => $faker->address,
-      'fecha' => $faker->phoneNumber,
-      'hora' => $faker->unique()->safeEmail,
-      'aerolinea_id' => $faker->numberBetween($min = 1, $max = 8),
+      'ciudad_origen' => $faker->city,
+      'pais_origen' => $faker->country,
+      'codigo' => $faker->ean8->unique(),
+      'ciudad_destino' => $faker->city,
+      'pais_destino' => $faker->country,
+      'fecha' => $faker->dateTimeBetween('now', '+5days') ,
+      'hora' => $faker->time($format = 'H:i:s'),
+      'aerolinea_id' => $faker->numberBetween(1, 8),
     ];
 });

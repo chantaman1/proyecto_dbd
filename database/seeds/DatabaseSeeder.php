@@ -13,5 +13,7 @@ class DatabaseSeeder extends Seeder
     {
         $this->call(usuariosTableSeeder::class);
         $this->call(rolTableSeeder::class);
+        $this->call(aerolineaTableSeeder::class);
+        $this->call(vueloTableSeeder::class);
     }
 }
