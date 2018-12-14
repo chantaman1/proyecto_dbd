@@ -3,6 +3,7 @@
 use Faker\Generator as Faker;
 
 $factory->define(App\Vuelo::class, function (Faker $faker) {
+    $tipo_array = array("ida","vuelta");
     return [
       'tipo' => $faker->randomElement(['ida','vuelta']),
       'ciudad_origen' => $faker->city,

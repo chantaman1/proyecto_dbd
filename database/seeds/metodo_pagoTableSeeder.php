@@ -11,6 +11,32 @@ class metodo_pagoTableSeeder extends Seeder
      */
     public function run()
     {
-        //
+      DB::table('metodo_pagos')->insert([
+          'tipo' => "Tarjeta Debito"
+          'nombre' => "WebPay",
+          'created_at' => now(),
+          'updated_at' => null,
+      ]);
+
+      DB::table('metodo_pagos')->insert([
+          'tipo' => "Tarjeta Credito"
+          'nombre' => "WebPay",
+          'created_at' => now(),
+          'updated_at' => null,
+      ]);
+
+      DB::table('metodo_pagos')->insert([
+          'tipo' => "Tarjeta Credito"
+          'nombre' => "Mastercard",
+          'created_at' => now(),
+          'updated_at' => null,
+      ]);
+
+      DB::table('metodo_pagos')->insert([
+          'tipo' => "Tarjeta Credito"
+          'nombre' => "Visa",
+          'created_at' => now(),
+          'updated_at' => null,
+      ]);
     }
 }
