@@ -6,8 +6,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class Compania_alquiler extends Model
 {
-  //llave primaria
-  protected $primaryKey = 'id';
+  protected $table = 'compania_alquiler';
+  protected $nombre;
+  protected $direccion;
+  protected $telefono;
+  protected $ciudad;
+  protected $pais;
+  protected $direccion_web;
 
   //atributos que pueden ser rellenables
   protected $fillable=[

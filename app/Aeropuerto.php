@@ -6,8 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Aeropuerto extends Model
 {
-  //llave primaria
-  protected $primaryKey = 'id';
+  /protected $table = 'aeropuerto';
+  protected $nombre;
 
   //atributos que pueden ser rellenables
   protected $fillable=[

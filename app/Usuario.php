@@ -6,9 +6,18 @@ use Illuminate\Database\Eloquent\Model;
 
 class Usuario extends Model
 {
-    //llave primaria
-    protected $primaryKey = 'id';
-    
+    protected $table = 'usuario';
+    protected $nombre;
+    protected $apellido_paterno;
+    protected $apellido_materno;
+    protected $password;
+    protected $fecha_nacimiento;
+    protected $direccion;
+    protected $telefono;
+    protected $correo;
+    protected $nacionalidad;
+    protected $pasaporte;
+
     protected $fillable = [
         'nombre', 'apellido_paterno', 'apellido_materno',
         'password', 'fecha_nacimiento', 'direccion',

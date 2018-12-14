@@ -6,16 +6,21 @@ use Illuminate\Database\Eloquent\Model;
 
 class Hotel extends Model
 {
-  //llave primaria
-  protected $primaryKey = 'id';
+  protected $table = 'hotel';
+  protected $nombre;
+  protected $direccion;
+  protected $telefono;
+  protected $ciudad;
+  protected $calificacion;
+  protected $direccion_web;
 
   //atributos que pueden ser rellenables
   protected $fillable=[
-    'numero', 'capacidad', 'disponibilidad', 'tipo_cama', 'categoria', 'precio',
+    'nombre', 'direccion', 'telefono', 'ciudad', 'calificacion', 'direccion_web',
   ];
 
   public function habitacions()
   {
-      return $this->hasMany('App\Hotel');
+      return $this->hasMany('App\Habitacion');
   }
 }

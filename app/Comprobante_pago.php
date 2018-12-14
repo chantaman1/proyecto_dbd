@@ -6,8 +6,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Comprobante_pago extends Model
 {
-  //llave primaria
-  protected $primaryKey = 'id';
+  protected $table = 'comprobante_pago';
+  protected $total_pagado;
+  protected $descripcion_pago;
+  protected $fecha;
+  protected $hora;
 
   //atributos que pueden ser rellenables
   protected $fillable=[

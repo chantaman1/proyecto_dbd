@@ -6,8 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Metodo_pago extends Model
 {
-  //llave primaria
-  protected $primaryKey = 'id';
+  protected $table = 'metodo_pago';
+  protected $nombre;
+  protected $tipo;
 
   //atributos que pueden ser rellenables
   protected $fillable=[

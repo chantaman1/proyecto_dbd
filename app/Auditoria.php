@@ -6,8 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Auditoria extends Model
 {
-  //llave primaria
-  protected $primaryKey = 'id';
+  protected $table = 'auditoria';
+  protected $tipo_transaccion;
+  protected $fecha;
+  protected $hora;
 
   //atributos que pueden ser rellenables
   protected $fillable=[

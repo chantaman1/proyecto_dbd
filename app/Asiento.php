@@ -6,8 +6,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Asiento extends Model
 {
-  //llave primaria
-  protected $primaryKey = 'id';
+  protected $table = 'asiento';
+  protected $numero;
+  protected $tipo;
+  protected $disponibilidad;
+  protected $precio;
 
   //atributos que pueden ser rellenables
   protected $fillable=[

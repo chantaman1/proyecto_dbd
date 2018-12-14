@@ -6,8 +6,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class Habitacion extends Model
 {
-  //llave primaria
-  protected $primaryKey = 'id';
+  protected $table = 'habitacion';
+  protected $numero;
+  protected $capacidad;
+  protected $disponibilidad;
+  protected $tipo_cama;
+  protected $categoria;
+  protected $precio;
 
   //atributos que pueden ser rellenables
   protected $fillable=[

@@ -6,8 +6,15 @@ use Illuminate\Database\Eloquent\Model;
 
 class Vuelo extends Model
 {
-  //llave primaria
-  protected $primaryKey = 'id';
+  protected $table = 'vuelo';
+  protected $codigo;
+  protected $tipo;
+  protected $ciudad_origen;
+  protected $pais_origen;
+  protected $ciudad_destino;
+  protected $pais_destino;
+  protected $fecha;
+  protected $hora;
 
   //atributos que pueden ser rellenables
   protected $fillable=[

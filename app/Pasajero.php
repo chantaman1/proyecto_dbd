@@ -6,8 +6,14 @@ use Illuminate\Database\Eloquent\Model;
 
 class Pasajero extends Model
 {
-  //llave primaria
-  protected $primaryKey = 'id';
+  protected $table = 'pasajero';
+  protected $nombre;
+  protected $apellido_paterno;
+  protected $apellido_materno;
+  protected $fecha_nacimiento;
+  protected $telefono;
+  protected $nacionalidad;
+  protected $pasaporte;
 
   //atributos que pueden ser rellenables
   protected $fillable=[

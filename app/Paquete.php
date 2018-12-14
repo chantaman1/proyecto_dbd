@@ -6,8 +6,15 @@ use Illuminate\Database\Eloquent\Model;
 
 class Paquete extends Model
 {
-  //llave primaria
-  protected $primaryKey = 'id';
+  protected $table = 'paquete';
+  protected $pais_destino;
+  protected $ciudad_destino;
+  protected $precio;
+  protected $descuento;
+  protected $disponibilidad;
+  protected $posee_vehiculo;
+  protected $posee_hotel;
+  protected $posee_seguro;
 
   //atributos que pueden ser rellenables
   protected $fillable=[

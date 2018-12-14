@@ -6,8 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Rol extends Model
 {
-    //llave primaria
-    protected $primaryKey = 'id';
+    protected $table = 'rol';
+    protected $tipo;
 
     protected $fillable = [
         'tipo',
