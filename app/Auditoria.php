@@ -7,9 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 class Auditoria extends Model
 {
   protected $table = 'auditoria';
-  protected $tipo_transaccion;
-  protected $fecha;
-  protected $hora;
+    protected $tipo_transaccion;
+    protected $fecha;
+    protected $hora;
 
   //atributos que pueden ser rellenables
   protected $fillable=[

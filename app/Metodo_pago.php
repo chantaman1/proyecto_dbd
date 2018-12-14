@@ -7,8 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 class Metodo_pago extends Model
 {
   protected $table = 'metodo_pago';
-  protected $nombre;
-  protected $tipo;
+    protected $nombre;
+    protected $tipo;
 
   //atributos que pueden ser rellenables
   protected $fillable=[

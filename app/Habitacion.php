@@ -7,12 +7,12 @@ use Illuminate\Database\Eloquent\Model;
 class Habitacion extends Model
 {
   protected $table = 'habitacion';
-  protected $numero;
-  protected $capacidad;
-  protected $disponibilidad;
-  protected $tipo_cama;
-  protected $categoria;
-  protected $precio;
+    protected $numero;
+    protected $capacidad;
+    protected $disponibilidad;
+    protected $tipo_cama;
+    protected $categoria;
+    protected $precio;
 
   //atributos que pueden ser rellenables
   protected $fillable=[
