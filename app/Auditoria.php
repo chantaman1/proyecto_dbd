@@ -17,6 +17,6 @@ class Auditoria extends Model
   //la auditoria pertenece a un usuario
   public function usuario()
   {
-      return $this->belongsTo('App\Usuario');
+      return $this->belongsTo(Usuario::class);
   }
 }
