@@ -3725,6 +3725,7 @@ class ComposerStaticInitda5941214350eac20d7d17a7bec001f4
         'Whoops\\Util\\SystemFacade' => __DIR__ . '/..' . '/filp/whoops/src/Whoops/Util/SystemFacade.php',
         'Whoops\\Util\\TemplateHelper' => __DIR__ . '/..' . '/filp/whoops/src/Whoops/Util/TemplateHelper.php',
         'XdgBaseDir\\Xdg' => __DIR__ . '/..' . '/dnoegel/php-xdg-base-dir/src/Xdg.php',
+        'aerolineaTableSeeder' => __DIR__ . '/../..' . '/database/seeds/aerolineaTableSeeder.php',
         'phpDocumentor\\Reflection\\DocBlock' => __DIR__ . '/..' . '/phpdocumentor/reflection-docblock/src/DocBlock.php',
         'phpDocumentor\\Reflection\\DocBlockFactory' => __DIR__ . '/..' . '/phpdocumentor/reflection-docblock/src/DocBlockFactory.php',
         'phpDocumentor\\Reflection\\DocBlockFactoryInterface' => __DIR__ . '/..' . '/phpdocumentor/reflection-docblock/src/DocBlockFactoryInterface.php',
@@ -3795,6 +3796,7 @@ class ComposerStaticInitda5941214350eac20d7d17a7bec001f4
         'phpDocumentor\\Reflection\\Types\\Void_' => __DIR__ . '/..' . '/phpdocumentor/type-resolver/src/Types/Void_.php',
         'rolTableSeeder' => __DIR__ . '/../..' . '/database/seeds/rolTableSeeder.php',
         'usuariosTableSeeder' => __DIR__ . '/../..' . '/database/seeds/usuariosTableSeeder.php',
+        'vueloTableSeeder' => __DIR__ . '/../..' . '/database/seeds/vueloTableSeeder.php',
     );
 
     public static function getInitializer(ClassLoader $loader)
