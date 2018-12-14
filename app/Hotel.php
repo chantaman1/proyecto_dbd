@@ -11,7 +11,7 @@ class Hotel extends Model
 
   //atributos que pueden ser rellenables
   protected $fillable=[
-    'numero', 'capacidad', 'disponibilidad', 'tipo_cama', 'categoria', 'precio'
+    'numero', 'capacidad', 'disponibilidad', 'tipo_cama', 'categoria', 'precio',
   ];
 
   public function habitacions()

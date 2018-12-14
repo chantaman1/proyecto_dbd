@@ -11,7 +11,7 @@ class Aeropuerto extends Model
 
   //atributos que pueden ser rellenables
   protected $fillable=[
-    'nombre'
+    'nombre',
   ];
 
   public function vuelos()

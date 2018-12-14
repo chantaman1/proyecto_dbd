@@ -11,7 +11,7 @@ class Metodo_pago extends Model
 
   //atributos que pueden ser rellenables
   protected $fillable=[
-    'nombre','tipo'
+    'nombre','tipo',
   ];
 
   public function usuarios()

@@ -12,7 +12,7 @@ class Paquete extends Model
   //atributos que pueden ser rellenables
   protected $fillable=[
     'pais_destino','ciudad_destino', 'precio', 'descuento', 'disponibilidad',
-    'posee_vehiculo', 'posee_hotel', 'posee_seguro'
+    'posee_vehiculo', 'posee_hotel', 'posee_seguro',
   ];
 
   public function vuelo()

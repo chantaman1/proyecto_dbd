@@ -11,7 +11,7 @@ class Compania_alquiler extends Model
 
   //atributos que pueden ser rellenables
   protected $fillable=[
-    'nombre', 'direccion', 'telefono', 'ciudad', 'pais', 'direccion_web'
+    'nombre', 'direccion', 'telefono', 'ciudad', 'pais', 'direccion_web',
   ];
 
   public function vehiculos()

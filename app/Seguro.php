@@ -8,9 +8,9 @@ class Seguro extends Model
 {
   //llave primaria
   protected $primaryKey = 'id';
-  
+
   protected $fillable = [
-      'tipo', 'precio', 'descripcion'
+      'tipo', 'precio', 'descripcion',
   ];
 
   public function pasajeros(){

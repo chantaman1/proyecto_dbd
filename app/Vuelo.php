@@ -12,7 +12,7 @@ class Vuelo extends Model
   //atributos que pueden ser rellenables
   protected $fillable=[
     'codigo', 'tipo', 'ciudad_origen', 'pais_origen', 'ciudad_destino'
-    'pais_destino', 'fecha', 'hora'
+    'pais_destino', 'fecha', 'hora',
   ];
 
   public function reservas()

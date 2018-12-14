@@ -11,7 +11,7 @@ class Vehiculo extends Model
 
   protected $fillable = [
       'marca', 'modelo', 'año', 'precio', 'cantidad_asientos',
-      'tipo_transmision', 'descripcion'
+      'tipo_transmision', 'descripcion',
   ];
 
   public function reservas(){

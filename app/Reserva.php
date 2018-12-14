@@ -11,7 +11,7 @@ class Reserva extends Model
 
     //atributos que pueden ser rellenables
     protected $fillable=[
-      'fecha', 'hora', 'total_a_pagar', 'estado_pago'
+      'fecha', 'hora', 'total_a_pagar', 'estado_pago',
     ];
 
     //la reserva tiene un comprobante de pago

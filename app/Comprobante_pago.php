@@ -11,7 +11,7 @@ class Comprobante_pago extends Model
 
   //atributos que pueden ser rellenables
   protected $fillable=[
-    'total_pagado','descripcion_pago', 'fecha', 'hora'
+    'total_pagado','descripcion_pago', 'fecha', 'hora',
   ];
 
   public function metodo_pago()

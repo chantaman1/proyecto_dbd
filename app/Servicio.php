@@ -9,7 +9,7 @@ class Servicio extends Model
   protected $primaryKey = 'id';
 
   protected $fillable = [
-      'tipo', 'precio', 'descripcion'
+      'tipo', 'precio', 'descripcion',
   ];
 
   public function paquetes(){

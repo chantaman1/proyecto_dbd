@@ -12,7 +12,7 @@ class Pasajero extends Model
   //atributos que pueden ser rellenables
   protected $fillable=[
     'nombre', 'apellido_paterno', 'apellido_materno', 'fecha_nacimiento',
-    'telefono', 'nacionalidad', 'pasaporte'
+    'telefono', 'nacionalidad', 'pasaporte',
   ];
 
   public function asiento()
