@@ -23,7 +23,7 @@ class Usuario extends Migration
           $table->string('direccion', 100);
           $table->string('telefono', 30);
           $table->string('correo')->unique();
-          $table->string('nacionalidad', 35);//Pais más largo 31 char (republica democratica del congo)
+          $table->string('nacionalidad', 45);//Pais más largo 31 char (republica democratica del congo)
           $table->string('pasaporte')->unique();
           $table->timestamps();
       });
