@@ -6,11 +6,7 @@ use Illuminate\Database\Migrations\Migration;
 
 class RolUsuarioTrigger extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
+    /*
     public function up()
     {
       DB::unprepared('
@@ -20,13 +16,9 @@ class RolUsuarioTrigger extends Migration
         EXECUTE PROCEDURE pc_insert_rol_usuario()');
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
+    
     public function down()
     {
         DB::unprepared('DROP TRIGGER `tg_usuario_insert_rol`');
-    }
+    }*/
 }

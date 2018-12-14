@@ -6,11 +6,7 @@ use Illuminate\Database\Migrations\Migration;
 
 class RolUsuarioProcedure extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
+    /*
     public function up()
     {
         DB::unprepared('
@@ -21,13 +17,9 @@ class RolUsuarioProcedure extends Migration
         $$ LANGUAGE plpgsql;');
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
     public function down()
     {
         DB::unprepared('DROP FUNCTION IF EXISTS pc_insert_rol_usuario');
     }
+    */
 }
