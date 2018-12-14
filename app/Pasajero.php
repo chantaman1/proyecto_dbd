@@ -7,13 +7,13 @@ use Illuminate\Database\Eloquent\Model;
 class Pasajero extends Model
 {
   protected $table = 'pasajero';
-  protected $nombre;
-  protected $apellido_paterno;
-  protected $apellido_materno;
-  protected $fecha_nacimiento;
-  protected $telefono;
-  protected $nacionalidad;
-  protected $pasaporte;
+    protected $nombre;
+    protected $apellido_paterno;
+    protected $apellido_materno;
+    protected $fecha_nacimiento;
+    protected $telefono;
+    protected $nacionalidad;
+    protected $pasaporte;
 
   //atributos que pueden ser rellenables
   protected $fillable=[

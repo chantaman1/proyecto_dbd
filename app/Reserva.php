@@ -7,10 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 class Reserva extends Model
 {
     protected $table = 'reserva';
-    protected $fecha;
-    protected $hora;
-    protected $total_a_pagar;
-    protected $estado_pago;
+      protected $fecha;
+      protected $hora;
+      protected $total_a_pagar;
+      protected $estado_pago;
 
     //atributos que pueden ser rellenables
     protected $fillable=[

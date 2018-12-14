@@ -7,12 +7,12 @@ use Illuminate\Database\Eloquent\Model;
 class Aseguradora extends Model
 {
   protected $table = 'aseguradora';
-  protected $nombre;
-  protected $direccion;
-  protected $telefono;
-  protected $ciudad;
-  protected $pais;
-  protected $direccion_web;
+    protected $nombre;
+    protected $direccion;
+    protected $telefono;
+    protected $ciudad;
+    protected $pais;
+    protected $direccion_web;
 
   //atributos que pueden ser rellenables
   protected $fillable=[

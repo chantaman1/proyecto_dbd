@@ -7,13 +7,13 @@ use Illuminate\Database\Eloquent\Model;
 class Vehiculo extends Model
 {
   protected $table = 'vehiculo';
-  protected $marca;
-  protected $modelo;
-  protected $año;
-  protected $precio;
-  protected $cantidad_asientos;
-  protected $tipo_transmision;
-  protected $descripcion;
+    protected $marca;
+    protected $modelo;
+    protected $año;
+    protected $precio;
+    protected $cantidad_asientos;
+    protected $tipo_transmision;
+    protected $descripcion;
 
   protected $fillable = [
       'marca', 'modelo', 'año', 'precio', 'cantidad_asientos',

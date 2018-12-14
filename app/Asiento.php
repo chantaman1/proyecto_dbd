@@ -7,10 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 class Asiento extends Model
 {
   protected $table = 'asiento';
-  protected $numero;
-  protected $tipo;
-  protected $disponibilidad;
-  protected $precio;
+    protected $numero;
+    protected $tipo;
+    protected $disponibilidad;
+    protected $precio;
 
   //atributos que pueden ser rellenables
   protected $fillable=[
