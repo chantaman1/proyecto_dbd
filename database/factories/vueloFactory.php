@@ -3,8 +3,9 @@
 use Faker\Generator as Faker;
 
 $factory->define(App\Vuelo::class, function (Faker $faker) {
+    $tipo_array = array("ida","vuelta");
     return [
-      'tipo' => 'ida',
+      'tipo' => $tipo_array[rand(0, count($tipo_array) - 1)],
       'ciudad_origen' => $faker->city,
       'pais_origen' => $faker->country,
       'codigo' => $faker->ean8,
