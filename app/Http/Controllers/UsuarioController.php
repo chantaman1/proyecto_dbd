@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-
+use App\Usuario;
 class UsuarioController extends Controller
 {
     /**
@@ -14,7 +14,8 @@ class UsuarioController extends Controller
      */
     public function index()
     {
-        //
+        $usuarios = Usuario::All();
+        return $usuarios;
     }
 
     /**
@@ -46,7 +47,8 @@ class UsuarioController extends Controller
      */
     public function show($id)
     {
-        //
+        $usuario = Usuario::find($id);
+        return $usuario;
     }
 
     /**
