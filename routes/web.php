@@ -22,3 +22,5 @@ Route::get('activate/{token}', 'Auth\RegisterController@activate')
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/usuario/show/{id}', 'usuarioController@show');
+
+Route::get('/usuario/all/', 'usuarioController@index');
