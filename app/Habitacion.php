@@ -16,12 +16,12 @@ class Habitacion extends Model
 
   public function reservas()
   {
-      return $this->belongsToMany('App\Reserva');
+      return $this->belongsToMany('App\Reserva')->withPivot('fecha_inicio','fecha_termino');
   }
 
   public function paquetes()
   {
-      return $this->belongsToMany('App\Paquete');
+      return $this->belongsToMany('App\Paquete')->withPivot('fecha_inicio','fecha_termino');
   }
 
   public function hotel()

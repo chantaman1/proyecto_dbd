@@ -17,7 +17,7 @@ class Vuelo extends Model
 
   public function reservas()
   {
-      return $this->belongsToMany('App\Reserva');
+      return $this->belongsToMany('App\Reserva')->withPivot('cant_ninos','cant_adultos','cant_infantes');
   }
 
   public function aerolinea()

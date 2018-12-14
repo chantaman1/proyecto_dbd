@@ -23,13 +23,13 @@ class Reserva extends Model
     //la reserva tiene muchas habitaciones y la habitacion muchas reservas
     public function habitacions()
     {
-        return $this->belongsToMany('App\Habitacion');
+        return $this->belongsToMany('App\Habitacion')->withPivot('fecha_inicio','fecha_termino');
     }
 
     //la reserva tiene muchos vehiculos y el vehiculo muchas reservas
     public function vehiculos()
     {
-        return $this->belongsToMany('App\Vehiculo');
+        return $this->belongsToMany('App\Vehiculo')->withPivot('hora_inicio','fecha_inicio','hora_termino','fecha_termino');
     }
 
     //la reserva tiene muchos paquetes y el paquete muchas reservas
@@ -41,7 +41,7 @@ class Reserva extends Model
     //la reserva tiene muchos vuelos y el vuelo muchas reservas
     public function vuelos()
     {
-        return $this->belongsToMany('App\Vuelo');
+        return $this->belongsToMany('App\Vuelo')->withPivot('cant_ninos','cant_adultos','cant_infantes');
     }
 
     //la reserva pertenece a un usuario
