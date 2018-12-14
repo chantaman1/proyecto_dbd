@@ -4,7 +4,7 @@ use Faker\Generator as Faker;
 
 $factory->define(App\Vuelo::class, function (Faker $faker) {
     return [
-      'tipo' => 'ida',
+      'tipo' => $faker->randomElement(['ida','vuelta']),
       'ciudad_origen' => $faker->city,
       'pais_origen' => $faker->country,
       'codigo' => $faker->ean8,
