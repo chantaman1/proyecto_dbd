@@ -17,10 +17,10 @@ class Hotel extends Migration
         $table->increments('id');
         $table->string('nombre', 60);
         $table->string('direccion', 100);
-        $table->string('telefono', 15);
+        $table->string('telefono', 31);
         $table->string('ciudad', 100);
         $table->integer('calificacion');
-        $table->string('direccion_web', 256);
+        $table->string('webpage', 256);
         $table->boolean('activo');
         $table->timestamps();
       });
