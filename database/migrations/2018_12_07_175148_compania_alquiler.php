@@ -20,6 +20,7 @@ class CompaniaAlquiler extends Migration
           $table->string('telefono', 15);
           $table->string('ciudad', 100);
           $table->string('direccion_web'. 256);
+          $table->boolean('activo');
           $table->timestamps();
 
       });

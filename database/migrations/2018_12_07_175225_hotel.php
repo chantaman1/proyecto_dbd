@@ -21,6 +21,7 @@ class Hotel extends Migration
         $table->string('ciudad', 100);
         $table->integer('calificacion');
         $table->string('direccion_web', 256);
+        $table->boolean('activo');
         $table->timestamps();
       });
     }

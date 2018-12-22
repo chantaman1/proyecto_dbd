@@ -21,6 +21,7 @@ class Aseguradora extends Migration
          $table->string('ciudad', 100);
          $table->string('pais', 35);
          $table->string('direccion_web', 256);
+         $table->boolean('activo');
          $table->timestamps();
       });
     }
