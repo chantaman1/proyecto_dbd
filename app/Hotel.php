@@ -11,13 +11,14 @@ class Hotel extends Model
     protected $direccion;
     protected $telefono;
     protected $ciudad;
+    protected $pais;
     protected $calificacion;
     protected $webpage;
     protected $activo;
 
   //atributos que pueden ser rellenables
   protected $fillable=[
-    'nombre', 'direccion', 'telefono', 'ciudad', 'calificacion', 'webpage', 'activo',
+    'nombre', 'direccion', 'telefono', 'ciudad', 'pais', 'calificacion', 'webpage', 'activo',
   ];
 
   public function habitacions()

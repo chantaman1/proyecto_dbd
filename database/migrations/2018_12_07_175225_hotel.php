@@ -19,6 +19,7 @@ class Hotel extends Migration
         $table->string('direccion', 100);
         $table->string('telefono', 31);
         $table->string('ciudad', 100);
+        $table->string('pais', 35);
         $table->integer('calificacion');
         $table->string('webpage', 256);
         $table->boolean('activo');
