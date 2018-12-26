@@ -78,7 +78,7 @@ class aseguradoraTableSeeder extends Seeder
           'ciudad' => 'Cockeysville',
           'pais' => 'United States',
           'webpage' => 'https://www.roamright.com',
-          'activo' => true,
+          'activo' => false,
           'created_at' => now(),
           'updated_at' => null,
       ]);
@@ -114,7 +114,7 @@ class aseguradoraTableSeeder extends Seeder
           'ciudad' => 'Richmond',
           'pais' => 'United States',
           'webpage' => 'https://www.allianztravelinsurance.com',
-          'activo' => true,
+          'activo' => false,
           'created_at' => now(),
           'updated_at' => null,
       ]);
@@ -138,7 +138,7 @@ class aseguradoraTableSeeder extends Seeder
           'ciudad' => 'Plantation',
           'pais' => 'United States',
           'webpage' => 'https://www.aardvarkcompare.com',
-          'activo' => true,
+          'activo' => false,
           'created_at' => now(),
           'updated_at' => null,
       ]);
@@ -150,7 +150,7 @@ class aseguradoraTableSeeder extends Seeder
           'ciudad' => 'Omaha',
           'pais' => 'United States',
           'webpage' => 'https://www.travelexinsurance.com',
-          'activo' => true,
+          'activo' => false,
           'created_at' => now(),
           'updated_at' => null,
       ]);
@@ -166,6 +166,6 @@ class aseguradoraTableSeeder extends Seeder
           'created_at' => now(),
           'updated_at' => null,
       ]);
-      
+
     }
 }
