@@ -684,6 +684,5 @@ class habitacionTableSeeder extends Seeder
         'created_at' => now(),
         'updated_at' => null,
       ]);
-
     }
 }
