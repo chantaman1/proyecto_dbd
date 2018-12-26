@@ -49,7 +49,7 @@ Route::get('/asiento/all/', 'asientoController@index');
 //RUTAS DE LA AUDITORIA
 Route::get('/auditoria/show/{id}', 'auditoriaController@show');
 
-Route::get('/auditoria/all/', 'auditoriaController@index');+
+Route::get('/auditoria/all/', 'auditoriaController@index');
 
 //RUTAS DE LA COMPANIA ALQUILER
 Route::get('/compania_alquiler/show/{id}', 'compania_alquilerController@show');
