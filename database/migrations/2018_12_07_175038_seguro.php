@@ -15,7 +15,7 @@ class Seguro extends Migration
     {
       Schema::create('seguros', function (Blueprint $table) {
          $table->increments('id');
-         $table->string('tipo', 30);
+         $table->string('tipo', 63);
          $table->integer('precio');
          $table->text('descripcion');
          $table->unsignedInteger('aseguradora_id');

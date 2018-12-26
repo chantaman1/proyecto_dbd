@@ -601,7 +601,7 @@ class habitacionTableSeeder extends Seeder
         'tipo_cama' => 'doble',
         'categoria' => 'deluxe',
         'precio' => 126735,
-        'hotel_id' => 2
+        'hotel_id' => 2,
         'activo' => true,
         'created_at' => now(),
         'updated_at' => null,

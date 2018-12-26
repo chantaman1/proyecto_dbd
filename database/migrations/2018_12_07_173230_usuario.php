@@ -15,7 +15,7 @@ class Usuario extends Migration
     {
       Schema::create('usuarios', function (Blueprint $table) {
           $table->increments('id');
-          $table->string('nombre', 45);//nombre más largo 41 caracteres
+          $table->string('nombre', 63);//nombre más largo 41 caracteres
           $table->string('apellido_paterno', 40);//apellido más largo 39 char
           $table->string('apellido_materno', 40);//apellido más largo 39 char
           $table->string('password', 127);
