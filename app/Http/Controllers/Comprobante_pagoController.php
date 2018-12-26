@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-
+use App\Comprobante_pago;
 class Comprobante_pagoController extends Controller
 {
     /**
@@ -14,7 +14,8 @@ class Comprobante_pagoController extends Controller
      */
     public function index()
     {
-        //
+        $comprobante_pagos = Comprobante_pago::All();
+        return $comprobante_pagos;
     }
 
     /**
@@ -46,7 +47,8 @@ class Comprobante_pagoController extends Controller
      */
     public function show($id)
     {
-        //
+        $comprobante_pago = Comprobante_pago::find($id);
+        return $comprobante_pago;
     }
 
     /**

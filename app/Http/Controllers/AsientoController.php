@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-
+use App\Asiento;
 class AsientoController extends Controller
 {
     /**
@@ -14,7 +14,8 @@ class AsientoController extends Controller
      */
     public function index()
     {
-        //
+        $asientos = Asiento::All();
+        return $asientos;
     }
 
     /**
@@ -46,7 +47,8 @@ class AsientoController extends Controller
      */
     public function show($id)
     {
-        //
+        $asiento = Asiento::find($id);
+        return $asiento;
     }
 
     /**

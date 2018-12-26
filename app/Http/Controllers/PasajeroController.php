@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-
+use App\Pasajero;
 class PasajeroController extends Controller
 {
     /**
@@ -14,7 +14,8 @@ class PasajeroController extends Controller
      */
     public function index()
     {
-        //
+        $pasajeros = Pasajero::All();
+        return $pasajeros;
     }
 
     /**
@@ -46,7 +47,8 @@ class PasajeroController extends Controller
      */
     public function show($id)
     {
-        //
+        $pasajero = Pasajero::find($id);
+        return $pasajero;
     }
 
     /**

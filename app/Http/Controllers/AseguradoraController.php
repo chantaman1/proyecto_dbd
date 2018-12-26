@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-
+use App\Aseguradora;
 class AseguradoraController extends Controller
 {
     /**
@@ -14,7 +14,8 @@ class AseguradoraController extends Controller
      */
     public function index()
     {
-        //
+        $aseguradoras = Aseguradora::All();
+        return $aseguradoras;
     }
 
     /**
@@ -46,7 +47,8 @@ class AseguradoraController extends Controller
      */
     public function show($id)
     {
-        //
+        $aseguradora = Aseguradora::find($id);
+        return $aseguradora;
     }
 
     /**

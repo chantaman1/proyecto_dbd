@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-
+use App\Reserva;
 class ReservaController extends Controller
 {
     /**
@@ -14,7 +14,8 @@ class ReservaController extends Controller
      */
     public function index()
     {
-        //
+        $reservas = Reserva::All();
+        return $reservas;
     }
 
     /**
@@ -46,7 +47,8 @@ class ReservaController extends Controller
      */
     public function show($id)
     {
-        //
+        $reserva = Reserva::find($id);
+        return $reserva;
     }
 
     /**

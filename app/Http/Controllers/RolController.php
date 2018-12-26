@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-
+use App\Rol;
 class RolController extends Controller
 {
     /**
@@ -14,7 +14,8 @@ class RolController extends Controller
      */
     public function index()
     {
-        //
+        $rols = Rol::All();
+        return $rols;
     }
 
     /**
@@ -46,7 +47,8 @@ class RolController extends Controller
      */
     public function show($id)
     {
-        //
+        $rol = Rol::find($id);
+        return $rol;
     }
 
     /**

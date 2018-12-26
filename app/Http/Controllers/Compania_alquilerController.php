@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-
+use App\Compania_alquiler;
 class Compania_alquilerController extends Controller
 {
     /**
@@ -14,7 +14,8 @@ class Compania_alquilerController extends Controller
      */
     public function index()
     {
-        //
+        $compania_alquilers = Compania_alquiler::All();
+        return $compania_alquilers;
     }
 
     /**
@@ -46,7 +47,8 @@ class Compania_alquilerController extends Controller
      */
     public function show($id)
     {
-        //
+        $compania_alquiler = Compania_alquiler::find($id);
+        return $compania_alquiler;
     }
 
     /**

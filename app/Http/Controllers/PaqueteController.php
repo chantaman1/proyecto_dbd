@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Paquete;
 
 class PaqueteController extends Controller
 {
@@ -14,7 +15,8 @@ class PaqueteController extends Controller
      */
     public function index()
     {
-        //
+        $paquetes = Paquete::All();
+        return $paquetes;
     }
 
     /**
@@ -46,7 +48,8 @@ class PaqueteController extends Controller
      */
     public function show($id)
     {
-        //
+        $paquete = Paquete::find($id);
+        return $paquete;
     }
 
     /**

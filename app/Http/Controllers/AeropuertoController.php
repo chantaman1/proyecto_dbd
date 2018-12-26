@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-
+use App\Aeropuerto;
 class AeropuertoController extends Controller
 {
     /**
@@ -14,7 +14,8 @@ class AeropuertoController extends Controller
      */
     public function index()
     {
-        //
+      $aeropuertos = Aeropuerto::All();
+      return $aeropuertos;
     }
 
     /**
@@ -46,7 +47,8 @@ class AeropuertoController extends Controller
      */
     public function show($id)
     {
-        //
+      $aeropuerto = Aeropuerto::find($id);
+      return $aeropuerto;
     }
 
     /**

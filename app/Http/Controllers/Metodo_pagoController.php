@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-
+use App\Metodo_pago;
 class Metodo_pagoController extends Controller
 {
     /**
@@ -14,7 +14,8 @@ class Metodo_pagoController extends Controller
      */
     public function index()
     {
-        //
+        $metodo_pagos = Metodo_pago::All();
+        return $metodo_pagos;
     }
 
     /**
@@ -46,7 +47,8 @@ class Metodo_pagoController extends Controller
      */
     public function show($id)
     {
-        //
+        $metodo_pago = Metodo_pago::find($id);
+        return $metodo_pago;
     }
 
     /**

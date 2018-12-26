@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-
+use App\Habitacion;
 class HabitacionController extends Controller
 {
     /**
@@ -14,7 +14,8 @@ class HabitacionController extends Controller
      */
     public function index()
     {
-        //
+        $habitacions = Habitacion::All();
+        return $habitacions;
     }
 
     /**
@@ -46,7 +47,8 @@ class HabitacionController extends Controller
      */
     public function show($id)
     {
-        //
+        $habitacion = Habitacion::find($id);
+        return $habitacion;
     }
 
     /**

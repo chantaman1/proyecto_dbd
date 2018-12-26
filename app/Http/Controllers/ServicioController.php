@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-
+use App\Servicio;
 class ServicioController extends Controller
 {
     /**
@@ -14,7 +14,8 @@ class ServicioController extends Controller
      */
     public function index()
     {
-        //
+        $servicios = Servicio::All();
+        return $servicios;
     }
 
     /**
@@ -46,7 +47,8 @@ class ServicioController extends Controller
      */
     public function show($id)
     {
-        //
+        $servicio = Servicio::find($id);
+        return $servicio;
     }
 
     /**

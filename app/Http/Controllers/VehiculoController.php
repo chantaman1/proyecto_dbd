@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-
+use App\Vehiculo;
 class VehiculoController extends Controller
 {
     /**
@@ -14,7 +14,8 @@ class VehiculoController extends Controller
      */
     public function index()
     {
-        //
+        $vehiculos = Vehiculo::All();
+        return $vehiculos;
     }
 
     /**
@@ -46,7 +47,8 @@ class VehiculoController extends Controller
      */
     public function show($id)
     {
-        //
+        $vehiculo = Vehiculo::find($id);
+        return $vehiculo;
     }
 
     /**

@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-
+use App\Aerolinea;
 class AerolineaController extends Controller
 {
     /**
@@ -14,7 +14,8 @@ class AerolineaController extends Controller
      */
     public function index()
     {
-        //
+      $aerolineas = Aerolinea::All();
+      return $aerolineas;
     }
 
     /**
@@ -46,7 +47,8 @@ class AerolineaController extends Controller
      */
     public function show($id)
     {
-        //
+      $aerolinea = Aerolinea::find($id);
+      return $aerolinea;
     }
 
     /**
