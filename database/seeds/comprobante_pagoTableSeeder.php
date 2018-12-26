@@ -11,6 +11,6 @@ class comprobante_pagoTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(App\Comprobante_pago::class, 100)->create();
+        factory(App\Comprobante_pago::class, 20)->create();
     }
 }

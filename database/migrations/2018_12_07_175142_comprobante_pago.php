@@ -17,8 +17,6 @@ class ComprobantePago extends Migration
          $table->increments('id');
          $table->integer('total_pagado');
          $table->text('descripcion_pago');
-         $table->date('fecha');
-         $table->time('hora');
          $table->unsignedInteger('metodo_pago_id');
          $table->unsignedInteger('reserva_id');
          $table->foreign('metodo_pago_id')->references('id')->on('metodo_pagos')->onDelete('cascade');

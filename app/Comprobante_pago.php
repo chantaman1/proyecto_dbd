@@ -9,12 +9,10 @@ class Comprobante_pago extends Model
   protected $table = 'comprobante_pagos';
     protected $total_pagado;
     protected $descripcion_pago;
-    protected $fecha;
-    protected $hora;
 
   //atributos que pueden ser rellenables
   protected $fillable=[
-    'total_pagado','descripcion_pago', 'fecha', 'hora',
+    'total_pagado','descripcion_pago',
   ];
 
   public function metodo_pago()
