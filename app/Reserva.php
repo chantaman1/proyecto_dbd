@@ -7,14 +7,12 @@ use Illuminate\Database\Eloquent\Model;
 class Reserva extends Model
 {
     protected $table = 'reservas';
-      protected $fecha;
-      protected $hora;
-      protected $total_a_pagar;
+      protected $totalAPagar;
       protected $estado_pago;
 
     //atributos que pueden ser rellenables
     protected $fillable=[
-      'fecha', 'hora', 'total_a_pagar', 'estado_pago',
+      'totalAPagar', 'estado_pago',
     ];
 
     //la reserva tiene un comprobante de pago

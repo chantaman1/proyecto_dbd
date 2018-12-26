@@ -19,6 +19,7 @@ class Paquete extends Migration
          $table->string('ciudad_destino', 100);
          $table->integer('precio');
          $table->float('descuento');
+         $table->integer('cupos');
          $table->boolean('disponibilidad');
          $table->boolean('posee_vehiculo');
          $table->boolean('posee_hotel');

@@ -11,6 +11,36 @@ class servicioTableSeeder extends Seeder
      */
     public function run()
     {
-        //
+      DB::table('servicios')->insert([
+          'tipo' => '',
+          'precio' => 100,
+          'descripcion' => '',
+          'created_at' => now(),
+          'updated_at' => null,
+      ]);
+
+      DB::table('servicios')->insert([
+          'tipo' => '',
+          'precio' => 100,
+          'descripcion' => '',
+          'created_at' => now(),
+          'updated_at' => null,
+      ]);
+
+      DB::table('servicios')->insert([
+          'tipo' => '',
+          'precio' => 100,
+          'descripcion' => '',
+          'created_at' => now(),
+          'updated_at' => null,
+      ]);
+
+      DB::table('servicios')->insert([
+          'tipo' => '',
+          'precio' => 100,
+          'descripcion' => '',
+          'created_at' => now(),
+          'updated_at' => null,
+      ]);
     }
 }

@@ -11,6 +11,7 @@ class Paquete extends Model
     protected $ciudad_destino;
     protected $precio;
     protected $descuento;
+    protected $cupos;
     protected $disponibilidad;
     protected $posee_vehiculo;
     protected $posee_hotel;
@@ -18,7 +19,7 @@ class Paquete extends Model
 
   //atributos que pueden ser rellenables
   protected $fillable=[
-    'pais_destino','ciudad_destino', 'precio', 'descuento', 'disponibilidad',
+    'pais_destino','ciudad_destino', 'precio', 'descuento', 'cupos', 'disponibilidad',
     'posee_vehiculo', 'posee_hotel', 'posee_seguro',
   ];
 

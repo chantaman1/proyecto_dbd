@@ -15,10 +15,8 @@ class Reserva extends Migration
     {
       Schema::create('reservas', function (Blueprint $table) {
           $table->increments('id');
-          $table->date('fecha');
-          $table->time('hora');
-          $table->integer('total_a_pagar');
-          $table->enum('estado_pago',['pendiente','aprobado','en proceso','rechazado','cancelado','devuelto','contracargo']);
+          $table->integer('totalAPagar');
+          $table->string('estado_pago');
           $table->unsignedInteger('usuario_id');
           $table->foreign('usuario_id')->references('id')->on('usuarios')->onDelete('cascade');
           $table->timestamps();
