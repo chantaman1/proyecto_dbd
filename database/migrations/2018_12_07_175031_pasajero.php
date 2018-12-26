@@ -15,13 +15,13 @@ class Pasajero extends Migration
     {
       Schema::create('pasajeros', function (Blueprint $table) {
          $table->increments('id');
-         $table->string('nombre', 45);//nombre más largo 41 caracteres
+         $table->string('nombre', 63);//nombre más largo 41 caracteres
          $table->string('apellido_paterno', 40);//apellido más largo 39 char
          $table->string('apellido_materno', 40);//apellido más largo 39 char
          $table->date('fecha_nacimiento');
-         $table->string('telefono',15);
+         $table->string('telefono',30);
          $table->string('correo')->unique();
-         $table->string('nacionalidad', 35);//Pais más largo 31 char (republica democratica del congo)
+         $table->string('nacionalidad', 63);//Pais más largo 31 char (republica democratica del congo)
          $table->string('pasaporte')->unique();
          $table->unsignedInteger('asiento_id');
          $table->foreign('asiento_id')->references('id')->on('asientos')->onDelete('cascade');
