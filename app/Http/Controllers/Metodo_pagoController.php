@@ -82,6 +82,8 @@ class Metodo_pagoController extends Controller
      */
     public function destroy($id)
     {
-        //
+      $metodo_pago = Metodo_pago::find($id);
+      $metodo_pago->delete();
+      return Metodo_pago::All();
     }
 }

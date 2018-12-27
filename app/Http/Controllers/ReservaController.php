@@ -82,6 +82,8 @@ class ReservaController extends Controller
      */
     public function destroy($id)
     {
-        //
+      $reserva = Reserva::find($id);
+      $res+->delete();
+      return Reserva::All();
     }
 }

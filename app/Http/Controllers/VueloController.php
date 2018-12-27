@@ -82,6 +82,8 @@ class VueloController extends Controller
      */
     public function destroy($id)
     {
-        //
+      $vuelo = Vuelo::find($id);
+      $vuelo->delete();
+      return Vuelo::All();
     }
 }

@@ -82,6 +82,8 @@ class Comprobante_pagoController extends Controller
      */
     public function destroy($id)
     {
-        //
+      $comprobante_pago = Comprobante_pago::find($id);
+      $comprobante_pago->delete();
+      return Comprobante_pago::All();
     }
 }

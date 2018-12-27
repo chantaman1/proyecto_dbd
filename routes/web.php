@@ -31,6 +31,8 @@ Route::get('/aerolinea/show/{id}', 'aerolineaController@show');
 
 Route::get('/aerolinea/all/', 'aerolineaController@index');
 
+Route::get('/aerolinea/destroy/{id}', 'aerolineaController@destroy');
+
 //RUTAS DE LA AEROPUERTO
 Route::get('/aeropuerto/show/{id}', 'aeropuertoController@show');
 

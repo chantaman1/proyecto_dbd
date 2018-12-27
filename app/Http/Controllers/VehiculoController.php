@@ -82,6 +82,8 @@ class VehiculoController extends Controller
      */
     public function destroy($id)
     {
-        //
+      $vehiculo = Vehiculo::find($id);
+      $vehiculo->delete();
+      return Vehiculo::All();
     }
 }

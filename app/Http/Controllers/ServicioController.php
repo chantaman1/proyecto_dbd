@@ -82,6 +82,8 @@ class ServicioController extends Controller
      */
     public function destroy($id)
     {
-        //
+      $servicio = Servicio::find($id);
+      $servicio->delete();
+      return Servicio::All();
     }
 }

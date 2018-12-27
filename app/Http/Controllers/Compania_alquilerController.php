@@ -82,6 +82,8 @@ class Compania_alquilerController extends Controller
      */
     public function destroy($id)
     {
-        //
+      $compania_alquiler = Compania_alquiler::find($id);
+      $compania_alquiler->delete();
+      return Compania_alquiler::All();
     }
 }

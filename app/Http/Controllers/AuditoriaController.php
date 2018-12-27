@@ -83,6 +83,8 @@ class AuditoriaController extends Controller
      */
     public function destroy($id)
     {
-        //
+      $auditoria = Auditoria::find($id);
+      $auditoria->delete();
+      return Auditoria::All();
     }
 }

@@ -82,6 +82,8 @@ class AerolineaController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $aerolinea = Aerolinea::find($id);
+        $aerolinea->delete();
+        return Aerolinea::All();
     }
 }

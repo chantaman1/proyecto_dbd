@@ -82,6 +82,8 @@ class AsientoController extends Controller
      */
     public function destroy($id)
     {
-        //
+      $asiento = Asiento::find($id);
+      $asiento->delete();
+      return Asiento::All();
     }
 }

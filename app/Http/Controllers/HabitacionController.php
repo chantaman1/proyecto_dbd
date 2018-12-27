@@ -82,6 +82,8 @@ class HabitacionController extends Controller
      */
     public function destroy($id)
     {
-        //
+      $habitacion = Habitacion::find($id);
+      $habitacion->delete();
+      return Habitacion::All();
     }
 }

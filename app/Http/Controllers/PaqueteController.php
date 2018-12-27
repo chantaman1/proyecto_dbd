@@ -83,6 +83,8 @@ class PaqueteController extends Controller
      */
     public function destroy($id)
     {
-        //
+      $paquete = Paquete::find($id);
+      $paquete->delete();
+      return Paquete::All();
     }
 }

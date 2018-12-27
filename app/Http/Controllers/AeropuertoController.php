@@ -82,6 +82,8 @@ class AeropuertoController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $aeropuerto = Aeropuerto::find($id);
+        $aeropuerto->delete();
+        return Aeropuerto::All();
     }
 }

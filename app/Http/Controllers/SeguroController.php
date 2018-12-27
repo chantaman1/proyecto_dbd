@@ -82,6 +82,8 @@ class SeguroController extends Controller
      */
     public function destroy($id)
     {
-        //
+      $seguro = Seguro::find($id);
+      $seguro->delete();
+      return Seguro::All();
     }
 }

@@ -82,6 +82,8 @@ class HotelController extends Controller
      */
     public function destroy($id)
     {
-        //
+      $hotel = Hotel::find($id);
+      $hotel->delete();
+      return Hotel::All();
     }
 }

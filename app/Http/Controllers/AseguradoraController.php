@@ -82,6 +82,8 @@ class AseguradoraController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $aseguradora = Aseguradora::find($id);
+        $aseguradora->delete();
+        return Aseguradora::All();
     }
 }
