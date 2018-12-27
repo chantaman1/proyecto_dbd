@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\transaccion;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
-use App\Usuario;
-class UsuarioController extends Controller
+
+class TransaccionController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +14,7 @@ class UsuarioController extends Controller
      */
     public function index()
     {
-        $usuarios = Usuario::All();
-        return $usuarios;
+        //
     }
 
     /**
@@ -36,31 +35,27 @@ class UsuarioController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request,['nombre' => 'required', 'apellido_paterno' => 'required', 'apellido_materno' => 'required', 'password' => 'required', 'fecha_nacimiento' => 'required', 'direccion' => 'required', 'telefono' => 'required',
-        'correo' => 'required', 'nacionalidad' => 'required', 'pasaporte' => 'required']);
-        Usuario::create($request->all());
-        return redirect()->route('welcome.blade')->with('Sucess', 'Registro de usuario correcto.');
+        //
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\transaccion  $transaccion
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(transaccion $transaccion)
     {
-        $usuario = Usuario::find($id);
-        return $usuario;
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\transaccion  $transaccion
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(transaccion $transaccion)
     {
         //
     }
@@ -69,10 +64,10 @@ class UsuarioController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\transaccion  $transaccion
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, transaccion $transaccion)
     {
         //
     }
@@ -80,13 +75,11 @@ class UsuarioController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\transaccion  $transaccion
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(transaccion $transaccion)
     {
-      $usuario = Usuario::find($id);
-      $usuario->delete();
-      return Usuario::All();
+        //
     }
 }

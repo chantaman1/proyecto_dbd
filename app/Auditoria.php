@@ -8,12 +8,10 @@ class Auditoria extends Model
 {
   protected $table = 'auditorias';
     protected $tipo_transaccion;
-    protected $fecha;
-    protected $hora;
 
   //atributos que pueden ser rellenables
   protected $fillable=[
-    'tipo_transaccion', 'fecha', 'hora',
+    'tipo_transaccion',
   ];
 
   //la auditoria pertenece a un usuario
