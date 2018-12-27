@@ -159,4 +159,94 @@ CREATE TABLE pasajeros (
     asiento_id              INTEGER REFERENCES asientos
 );
 
+CREATE TABLE reserva_vehiculo (
+    reserva_id              INTEGER REFERENCES reservas,
+    vehiculo_id             INTEGER REFERENCES vehiculos,
+    fecha_inicio            DATE,
+    hora_inicio             TIME(0),
+    fecha_termino           DATE,
+    hora_termino            TIME(0)
+);
+
+CREATE TABLE reserva_vehiculo (
+    reserva_id              INTEGER REFERENCES reservas,
+    vuelo_id                INTEGER REFERENCES vuelos,
+    cant_ninos              INTEGER,
+    cant_adultos            INTEGER,
+    cant_infantes           INTEGER
+);
+
+CREATE TABLE reservas (
+    id                      SERIAL PRIMARY KEY,
+    totalAPagar             INTEGER,
+    estado_pago             VARCHAR(30),
+    usuario_id              INTEGER REFERENCES usuarios
+);
+
+CREATE TABLE rol_usuario (
+    rol_id                  INTEGER REFERENCES rols,
+    usuario_id              INTEGER REFERENCES usuarios
+);
+
+CREATE TABLE rols (
+    id                      SERIAL PRIMARY KEY,
+    tipo                    VARCHAR(30)
+);
+
+CREATE TABLE seguros (
+    id                      SERIAL PRIMARY KEY,
+    tipo                    VARCHAR(63),
+    precio                  INTEGER,
+    descripcion             TEXT,
+    aseguradora_id          INTEGER REFERENCES aseguradora
+);
+
+CREATE TABLE servicios (
+    id                      SERIAL PRIMARY KEY,
+    tipo                    VARCHAR(40),
+    precio                  INTEGER,
+    descripcion             TEXT,
+    aseguradora_id          INTEGER REFERENCES aseguradora
+);
+
+CREATE TABLE usuarios (
+    id                      SERIAL PRIMARY KEY,
+    nombre                  VARCHAR(63),
+    apellido_paterno        VARCHAR(40),
+    apellido_materno        VARCHAR(40),
+    password                VARCHAR(127),
+    fecha_nacimiento        DATE,
+    direccion               VARCHAR(100),
+    telefono                VARCHAR(30),
+    correo                  VARCHAR(255),
+    nacionalidad            VARCHAR(63),
+    pasaporte               VARCHAR(255)
+);
+
+CREATE TABLE vehiculos (
+    id                      SERIAL PRIMARY KEY,
+    patente                 VARCHAR(15),
+    marca                   VARCHAR(40),
+    modelo                  VARCHAR(40),
+    año                     INTEGER,
+    precio                  INTEGER,
+    cantidad_asientos       INTEGER,
+    tipo_transmision        VARCHAR(20),
+    descripcion             TEXT,
+    compania_alquiler_id    INTEGER REFERENCES compania_alquilers
+);
+
+CREATE TABLE vuelos (
+    id                      SERIAL PRIMARY KEY,
+    tipo                    VARCHAR(40),
+    ciudad_origen           VARCHAR(100),
+    pais_origen             VARCHAR(35),
+    codigo                  VARCHAR(255),
+    ciudad_destino          VARCHAR(100),
+    pais_destino            VARCHAR(35),
+    fecha_inicio            DATE,
+    hora                    TIME(0),
+    aerolinea_id            INTEGER REFERENCES aerolineas
+);
+
 COMMIT;
