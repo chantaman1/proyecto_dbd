@@ -8,10 +8,13 @@ class Aeropuerto extends Model
 {
   protected $table = 'aeropuertos';
     protected $nombre;
+    protected $ciudad;
+    protected $direccion;
+    protected $pais;
 
   //atributos que pueden ser rellenables
   protected $fillable=[
-    'nombre',
+    'nombre', 'ciudad', 'direccion', 'pais',
   ];
 
   public function vuelos()

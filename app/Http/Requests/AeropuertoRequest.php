@@ -23,8 +23,11 @@ class AeropuertoRequest extends FormRequest
      */
     public function rules()
     {
-        return [
-            //
-        ];
+      return [
+          'nombre' => 'required|string',
+          'ciudad' => 'required|string',
+          'direccion' => 'required|string',
+          'pais' => 'required|string',
+      ];
     }
 }
