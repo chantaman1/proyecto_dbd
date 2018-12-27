@@ -20,7 +20,7 @@ class vehiculoTableSeeder extends Seeder
           'cantidad_asientos' => 5,
           'tipo_transmision' => 'mecanico',
           'descripcion' => '',
-          'compania_alquiler_id' => '',
+          'compania_alquiler_id' => 1,
           'created_at' => now(),
           'updated_at' => null,
       ]);
@@ -34,7 +34,7 @@ class vehiculoTableSeeder extends Seeder
           'cantidad_asientos' => 5,
           'tipo_transmision' => 'mecanico',
           'descripcion' => '',
-          'compania_alquiler_id' => '',
+          'compania_alquiler_id' => 1,
           'created_at' => now(),
           'updated_at' => null,
       ]);
@@ -48,7 +48,7 @@ class vehiculoTableSeeder extends Seeder
           'cantidad_asientos' => 5,
           'tipo_transmision' => 'mecanico',
           'descripcion' => '',
-          'compania_alquiler_id' => '',
+          'compania_alquiler_id' => 2,
           'created_at' => now(),
           'updated_at' => null,
       ]);
@@ -62,7 +62,7 @@ class vehiculoTableSeeder extends Seeder
           'cantidad_asientos' => 5,
           'tipo_transmision' => 'mecanico',
           'descripcion' => '',
-          'compania_alquiler_id' => '',
+          'compania_alquiler_id' => 2,
           'created_at' => now(),
           'updated_at' => null,
       ]);
@@ -76,7 +76,7 @@ class vehiculoTableSeeder extends Seeder
           'cantidad_asientos' => 5,
           'tipo_transmision' => 'mecanico',
           'descripcion' => '',
-          'compania_alquiler_id' => '',
+          'compania_alquiler_id' => 3,
           'created_at' => now(),
           'updated_at' => null,
       ]);
@@ -90,7 +90,7 @@ class vehiculoTableSeeder extends Seeder
           'cantidad_asientos' => 5,
           'tipo_transmision' => 'mecanico',
           'descripcion' => '',
-          'compania_alquiler_id' => '',
+          'compania_alquiler_id' => 3,
           'created_at' => now(),
           'updated_at' => null,
       ]);
@@ -104,7 +104,7 @@ class vehiculoTableSeeder extends Seeder
           'cantidad_asientos' => 5,
           'tipo_transmision' => 'automatico',
           'descripcion' => '',
-          'compania_alquiler_id' => '',
+          'compania_alquiler_id' => 3,
           'created_at' => now(),
           'updated_at' => null,
       ]);
@@ -118,7 +118,7 @@ class vehiculoTableSeeder extends Seeder
           'cantidad_asientos' => 5,
           'tipo_transmision' => 'mecanico',
           'descripcion' => '',
-          'compania_alquiler_id' => '',
+          'compania_alquiler_id' => 3,
           'created_at' => now(),
           'updated_at' => null,
       ]);

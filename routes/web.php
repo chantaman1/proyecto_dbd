@@ -35,6 +35,8 @@ Route::get('/aerolinea/all/', 'aerolineaController@index');
 
 Route::get('/aerolinea/destroy/{id}', 'aerolineaController@destroy');
 
+//Route::get('/aerolinea/create/{id}', 'aerolineaController@destroy');
+
 //RUTAS DE LA AEROPUERTO
 Route::get('/aeropuerto/show/{id}', 'aeropuertoController@show');
 
@@ -48,6 +50,7 @@ Route::get('/aseguradora/show/{id}', 'aseguradoraController@show');
 Route::get('/aseguradora/all/', 'aseguradoraController@index');
 
 Route::get('/aseguradora/destroy/{id}', 'aseguradoraController@destroy');
+
 //RUTAS DEL ASIENTO
 Route::get('/asiento/show/{id}', 'asientoController@show');
 
@@ -144,12 +147,14 @@ Route::get('/vehiculo/show/{id}', 'vehiculoController@show');
 
 Route::get('/vehiculo/all/', 'vehiculoController@index');
 
-Route::get('/pico/destroy/{id}', 'picoController@destroy');
+Route::get('/vehiculo/destroy/{id}', 'vehiculoController@destroy');
 
 //RUTAS DEL VEHICULO
 Route::get('/vuelo/show/{id}', 'vueloController@show');
 
 Route::get('/vuelo/all/', 'vueloController@index');
+
+Route::get('/vuelo/destroy/{id}', 'vueloController@destroy');
 //-------------------------------------------------------------
 Auth::routes();
 

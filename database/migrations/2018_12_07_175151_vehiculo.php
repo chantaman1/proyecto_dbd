@@ -21,7 +21,7 @@ class Vehiculo extends Migration
          $table->integer('año'); //VER TIPO DATO
          $table->integer('precio');
          $table->integer('cantidad_asientos');
-         $table->enum('tipo_transmision',['manual','automatico','CVT','automatico doble embrague']);
+         $table->string('tipo_transmision',20);
          $table->text('descripcion');
          $table->unsignedInteger('compania_alquiler_id');
          $table->foreign('compania_alquiler_id')->references('id')->on('compania_alquilers')->onDelete('cascade');
