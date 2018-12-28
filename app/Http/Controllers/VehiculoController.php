@@ -36,7 +36,10 @@ class VehiculoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+      $vehiculo = new Vehiculo;
+      $vehiculo->fill($request->all());
+      $vehiculo->save();
+      return $vehiculo;
     }
 
     /**
@@ -48,7 +51,12 @@ class VehiculoController extends Controller
     public function show($id)
     {
         $vehiculo = Vehiculo::find($id);
-        return $vehiculo;
+        if($vehiculo != NULL){
+          return $vehiculo;
+        }
+        else{
+          return "El vehiculo no existe.";
+        }
     }
 
     /**
@@ -71,7 +79,15 @@ class VehiculoController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+      $vehiculo = Vehiculo::find($id);
+      if($vehiculo != NULL){
+        $vehiculo->fill($request->all());
+        $vehiculo->save();
+        return $vehiculo;
+      }
+      else{
+        return "No puede modificar un vehiculo no existente.";
+      }
     }
 
     /**
@@ -83,7 +99,12 @@ class VehiculoController extends Controller
     public function destroy($id)
     {
       $vehiculo = Vehiculo::find($id);
-      $vehiculo->delete();
-      return Vehiculo::All();
+      if($vehiculo != NULL){
+        $vehiculo->delete();
+        return "Vehiculo eliminado.";
+      }
+      else{
+        return "Vehiculo no existente.";
+      }
     }
 }

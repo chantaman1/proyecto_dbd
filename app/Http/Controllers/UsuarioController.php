@@ -101,10 +101,10 @@ class UsuarioController extends Controller
       $usuario = Usuario::find($id);
       if($usuario != NULL){
         $usuario->delete();
-        return "Usuario elimimado correctamente.";
+        return "Usuario eliminado.";
       }
       else{
-        return "El usuario ingresado no existe.";
+        return "Usuario no existente.";
       }
     }
 }
