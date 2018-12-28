@@ -31,7 +31,7 @@ class VehiculosRequest extends FormRequest
           'precio' => 'required|integer',
           'cantidad_asientos' => 'required|integer',
           'tipo_transmision' => 'required|string',
-          'descripcion' => 'required|string'.
+          'descripcion' => 'required|string',
           'compania_alquiler_id' => 'required|unsignedInteger'
         ];
     }
