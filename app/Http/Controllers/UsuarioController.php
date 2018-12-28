@@ -18,6 +18,16 @@ class UsuarioController extends Controller
         return $usuarios;
     }
 
+    public function getUserByEmail($email){
+        $usuario = Usuario::where('correo', $email)->first();
+        if($usuario != NULL){
+            return $usuario;
+        }
+        else{
+            return "No se encontro ningun usuario con ese correo.";
+        }
+    }
+
     /**
      * Show the form for creating a new resource.
      *

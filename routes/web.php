@@ -26,6 +26,8 @@ Route::get('/usuario/show/{id}', 'usuarioController@show');
 
 Route::get('/usuario/all/', 'usuarioController@index');
 
+Route::get('/usuario/email/{email}', 'usuarioController@getUserByEmail');
+
 Route::post('/usuario/register', 'usuarioController@store');
 
 Route::post('/usuario/update/{id}', 'usuarioController@update');
@@ -225,6 +227,10 @@ Route::get('/vehiculo/destroy/{id}', 'vehiculoController@destroy');
 Route::get('/vuelo/show/{id}', 'vueloController@show');
 
 Route::get('/vuelo/all/', 'vueloController@index');
+
+Route::get('/vuelo/byDate/{date}/', 'vueloController@getFlightByDate');
+
+Route::get('/vuelo/byDestination/{city}/', 'vueloController@getFlightByDestination');
 
 Route::post('/vuelo/register', 'vueloController@store');
 
