@@ -29,6 +29,7 @@ class DatabaseSeeder extends Seeder
         $this->call(hotelTableSeeder::class);
         $this->call(habitacionTableSeeder::class);
         $this->call(paqueteTableSeeder::class);
+        $this->call(servicioTableSeeder::class);
         $this->call(aeropuerto_vueloSeeder::class);
         $this->call(habitacion_paqueteSeeder::class);
         $this->call(habitacion_reservaSeeder::class);
@@ -39,7 +40,5 @@ class DatabaseSeeder extends Seeder
         $this->call(pasajero_seguroSeeder::class);
         $this->call(reserva_vehiculoSeeder::class);
         $this->call(reserva_vueloSeeder::class);
-        $this->call(rol_usuarioSeeder::class);
-
     }
 }
