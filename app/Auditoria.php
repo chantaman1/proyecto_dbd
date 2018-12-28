@@ -19,4 +19,9 @@ class Auditoria extends Model
   {
       return $this->belongsTo(Usuario::class);
   }
+
+  public function transaccion()
+  {
+      return $this->belongsTo(Transaccion::class);
+  }
 }

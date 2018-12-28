@@ -17,7 +17,9 @@ class Auditoria extends Migration
           $table->increments('id');
           $table->string('tipo_transaccion', 127);
           $table->unsignedInteger('usuario_id');
+          $table->unsignedInteger('transaccion_id');
           $table->foreign('usuario_id')->references('id')->on('usuarios')->onDelete('cascade');
+          $table->foreign('transaccion_id')->references('id')->on('transaccions')->onDelete('cascade');
           $table->timestamps();
       });
     }
