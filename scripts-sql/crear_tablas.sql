@@ -236,14 +236,6 @@ CREATE TABLE reserva_vehiculo (
     hora_termino            TIME(0)
 );
 
-CREATE TABLE reserva_vehiculo (
-    reserva_id              INTEGER REFERENCES "reservas",
-    vuelo_id                INTEGER REFERENCES "vuelos",
-    cant_ninos              INTEGER,
-    cant_adultos            INTEGER,
-    cant_infantes           INTEGER
-);
-
 CREATE TABLE rol_usuario (
     rol_id                  INTEGER REFERENCES "rols",
     usuario_id              INTEGER REFERENCES "usuarios"
