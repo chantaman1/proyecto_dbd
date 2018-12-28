@@ -36,10 +36,10 @@ class UsuarioController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request,['nombre' => 'required', 'apellido_paterno' => 'required', 'apellido_materno' => 'required', 'password' => 'required', 'fecha_nacimiento' => 'required', 'direccion' => 'required', 'telefono' => 'required',
-        'correo' => 'required', 'nacionalidad' => 'required', 'pasaporte' => 'required']);
-        Usuario::create($request->all());
-        return redirect()->route('welcome.blade')->with('Sucess', 'Registro de usuario correcto.');
+        $usuario = new Usuario;
+        $usuario->fill($request->all());
+        $usuario->save();
+        return $usuario;
     }
 
     /**
@@ -51,7 +51,12 @@ class UsuarioController extends Controller
     public function show($id)
     {
         $usuario = Usuario::find($id);
-        return $usuario;
+        if($usuario != NULL){
+          return $usuario;
+        }
+        else{
+          return "El usuario no existe.";
+        }
     }
 
     /**
@@ -74,7 +79,15 @@ class UsuarioController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $usuario = Usuario::find($id);
+        if($usuario != NULL){
+          $usuario->fill($request->all());
+          $usuario->save();
+          return $usuario;
+        }
+        else{
+          return "No puede modificar un usuario no existente.";
+        }
     }
 
     /**
@@ -86,7 +99,12 @@ class UsuarioController extends Controller
     public function destroy($id)
     {
       $usuario = Usuario::find($id);
-      $usuario->delete();
-      return Usuario::All();
+      if($usuario != NULL){
+        $usuario->delete();
+        return "Usuario elimimado correctamente.";
+      }
+      else{
+        return "El usuario ingresado no existe.";
+      }
     }
 }
