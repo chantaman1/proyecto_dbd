@@ -17,7 +17,7 @@ class Servicio extends Migration
         $table->increments('id');
         $table->string('tipo', 40);
         $table->integer('precio');
-        $table->string('descripcion', 255);
+        $table->text('descripcion');
         $table->timestamps();
       });
     }

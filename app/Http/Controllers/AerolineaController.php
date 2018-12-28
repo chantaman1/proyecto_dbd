@@ -36,7 +36,10 @@ class AerolineaController extends Controller
      */
     public function store(Request $request)
     {
-      
+        $aerolinea = new Aerolinea;
+        $aerolinea->fill($request->all());
+        $aerolinea->save();
+        return $aerolinea;
     }
 
     /**
@@ -48,7 +51,12 @@ class AerolineaController extends Controller
     public function show($id)
     {
       $aerolinea = Aerolinea::find($id);
-      return $aerolinea;
+      if($aerolinea != NULL){
+          return $aerolinea;
+      }
+      else{
+          return "ID de aerolinea no existe.";
+      }
     }
 
     /**
@@ -71,7 +79,15 @@ class AerolineaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $aerolinea = Aerolinea::find($id);
+        if($aerolinea != NULL){
+          $aerolinea->fill($request->all());
+          $aerolinea->save();
+          return $aerolinea;
+        }
+        else{
+          return "No puede modificar una aerolinea no existente.";
+        }
     }
 
     /**
@@ -83,7 +99,12 @@ class AerolineaController extends Controller
     public function destroy($id)
     {
         $aerolinea = Aerolinea::find($id);
-        $aerolinea->delete();
-        return Aerolinea::All();
+        if($aerolinea != NULL){
+            $aerolinea->delete();
+            return "Aerolinea eliminada.";
+        }
+        else{
+            return "No puede eliminar una aerolinea no existente.";
+        }
     }
 }

@@ -15,7 +15,6 @@ class ReservaVuelo extends Migration
     public function up()
     {
       Schema::create('reserva_vuelo', function (Blueprint $table) {
-        $table->increments('id');
         $table->integer('cant_ninos');
         $table->integer('cant_adultos');
         $table->integer('cant_infantes');

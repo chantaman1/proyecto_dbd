@@ -14,7 +14,6 @@ class HabitacionPaquete extends Migration
     public function up()
     {
       Schema::create('habitacion_paquete', function (Blueprint $table) {
-        $table->increments('id');
         $table->date('fecha_inicio');
         $table->date('fecha_termino');
         $table->unsignedInteger('paquete_id');

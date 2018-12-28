@@ -36,7 +36,10 @@ class SeguroController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $seguro = new Seguro;
+        $seguro->fill($request->all());
+        $seguro->save();
+        return $seguro;
     }
 
     /**
@@ -48,7 +51,12 @@ class SeguroController extends Controller
     public function show($id)
     {
         $seguro = Seguro::find($id);
-        return $seguro;
+        if($seguro != NULL){
+            return $seguro;
+        }
+        else{
+            return "Seguro no existente.";
+        }
     }
 
     /**
@@ -71,7 +79,15 @@ class SeguroController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $seguro = Seguro::find($id);
+        if($seguro != NULL){
+          $seguro->fill($request->all());
+          $seguro->save();
+          return $seguro;
+        }
+        else{
+          return "No puede modificar un seguro no existente.";
+        }
     }
 
     /**
@@ -83,7 +99,12 @@ class SeguroController extends Controller
     public function destroy($id)
     {
       $seguro = Seguro::find($id);
-      $seguro->delete();
-      return Seguro::All();
+      if($seguro != NULL){
+          $seguro->delete();
+          return "Seguro eliminado.";
+      }
+      else{
+          return "Seguro no existente.";
+      }
     }
 }

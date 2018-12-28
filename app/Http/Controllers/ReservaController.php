@@ -36,7 +36,10 @@ class ReservaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $reserva = new Reserva;
+        $reserva->fill($request->all());
+        $reserva->save();
+        return $reserva;
     }
 
     /**
@@ -48,7 +51,12 @@ class ReservaController extends Controller
     public function show($id)
     {
         $reserva = Reserva::find($id);
-        return $reserva;
+        if($reserva != NULL){
+            return $reserva;
+        }
+        else{
+            return "Reserva no existe.";
+        }
     }
 
     /**
@@ -71,7 +79,15 @@ class ReservaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $reserva = Reserva::find($id);
+        if($reserva != NULL){
+          $reserva->fill($request->all());
+          $reserva->save();
+          return $reserva;
+        }
+        else{
+          return "No puede modificar una reserva no existente.";
+        }
     }
 
     /**
@@ -83,7 +99,12 @@ class ReservaController extends Controller
     public function destroy($id)
     {
       $reserva = Reserva::find($id);
-      $res+->delete();
-      return Reserva::All();
+      if($reserva != NULL){
+          $reserva->delete();
+          return "Reserva eliminada.";
+      }
+      else{
+          return "Reserva no existente.";
+      }
     }
 }

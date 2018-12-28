@@ -14,7 +14,6 @@ class RolUsuario extends Migration
     public function up()
     {
       Schema::create('rol_usuario', function (Blueprint $table) {
-        $table->increments('id');
         $table->unsignedInteger('id_usuario');
         $table->unsignedInteger('id_rol');
         $table->foreign('id_usuario')->references('id')->on('usuarios')->onDelete('cascade');

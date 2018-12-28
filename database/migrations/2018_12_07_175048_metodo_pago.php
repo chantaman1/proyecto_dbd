@@ -28,6 +28,6 @@ class MetodoPago extends Migration
      */
     public function down()
     {
-        Schema::drop('metodo_pagos');
+        Schema::dropIfExists('metodo_pagos');
     }
 }

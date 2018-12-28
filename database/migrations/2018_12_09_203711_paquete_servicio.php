@@ -14,7 +14,6 @@ class PaqueteServicio extends Migration
     public function up()
     {
       Schema::create('paquete_servicio', function (Blueprint $table) {
-        $table->increments('id');
         $table->unsignedInteger('paquete_id');
         $table->unsignedInteger('servicio_id');
         $table->foreign('paquete_id')->references('id')->on('paquetes')->onDelete('cascade');

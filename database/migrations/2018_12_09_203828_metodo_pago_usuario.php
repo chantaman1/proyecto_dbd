@@ -14,7 +14,6 @@ class MetodoPagoUsuario extends Migration
     public function up()
     {
       Schema::create('metodo_pago_usuario', function (Blueprint $table) {
-        $table->increments('id');
         $table->unsignedInteger('usuario_id');
         $table->unsignedInteger('metodo_pago_id');
         $table->foreign('usuario_id')->references('id')->on('usuarios')->onDelete('cascade');

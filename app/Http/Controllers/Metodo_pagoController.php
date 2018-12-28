@@ -36,7 +36,10 @@ class Metodo_pagoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $metodo_pago = new Metodo_pago;
+        $metodo_pago->fill($request->all());
+        $metodo_pago->save();
+        return $metodo_pago;
     }
 
     /**
@@ -48,7 +51,12 @@ class Metodo_pagoController extends Controller
     public function show($id)
     {
         $metodo_pago = Metodo_pago::find($id);
-        return $metodo_pago;
+        if($metodo_pago != NULL){
+            return $metodo_pago;
+        }
+        else{
+            return "Metodo de pago no existe.";
+        }
     }
 
     /**
@@ -71,7 +79,15 @@ class Metodo_pagoController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $metodo_pago = Metodo_pago::find($id);
+        if($metodo_pago != NULL){
+          $metodo_pago->fill($request->all());
+          $metodo_pago->save();
+          return $metodo_pago;
+        }
+        else{
+          return "No puede modificar un metodo de pago no existente.";
+        }
     }
 
     /**
@@ -83,7 +99,12 @@ class Metodo_pagoController extends Controller
     public function destroy($id)
     {
       $metodo_pago = Metodo_pago::find($id);
-      $metodo_pago->delete();
-      return Metodo_pago::All();
+      if($metodo_pago != NULL){
+          $metodo_pago->delete();
+          return "Metodo de pago eliminado.";
+      }
+      else{
+          return "Metodo de pago no existente.";
+      }
     }
 }

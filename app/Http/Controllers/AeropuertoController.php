@@ -36,7 +36,10 @@ class AeropuertoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $aeropuerto = new Aeropuerto;
+        $aeropuerto->fill($request->all());
+        $aeropuerto->save();
+        return $aeropuerto;
     }
 
     /**
@@ -48,7 +51,12 @@ class AeropuertoController extends Controller
     public function show($id)
     {
       $aeropuerto = Aeropuerto::find($id);
-      return $aeropuerto;
+      if($aeropuerto != NULL){
+        return $aeropuerto;
+      }
+      else{
+        return "Aeropuerto especificado no existe.";
+      }
     }
 
     /**
@@ -71,7 +79,15 @@ class AeropuertoController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $aeropuerto = Aeropuerto::find($id);
+        if($aeropuerto != NULL){
+          $aeropuerto->fill($request->all());
+          $aeropuerto->save();
+          return $aeropuerto;
+        }
+        else{
+          return "No puede modificar un aeropuerto no existente.";
+        }
     }
 
     /**
@@ -83,7 +99,12 @@ class AeropuertoController extends Controller
     public function destroy($id)
     {
         $aeropuerto = Aeropuerto::find($id);
-        $aeropuerto->delete();
-        return Aeropuerto::All();
+        if($aeropuerto != NULL){
+            $aeropuerto->delete();
+            return "Aeropuerto eliminado.";
+        }
+        else{
+            return "Aeropuerto no existe.";
+        }
     }
 }

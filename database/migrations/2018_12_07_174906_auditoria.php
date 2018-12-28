@@ -15,11 +15,11 @@ class Auditoria extends Migration
     {
       Schema::create('auditorias', function (Blueprint $table) {
           $table->increments('id');
-          $table->string('tipo_transaccion', 40);
-          $table->date('fecha');
-          $table->datetime('hora');
+          $table->string('tipo_transaccion', 127);
           $table->unsignedInteger('usuario_id');
+          $table->unsignedInteger('transaccion_id');
           $table->foreign('usuario_id')->references('id')->on('usuarios')->onDelete('cascade');
+          $table->foreign('transaccion_id')->references('id')->on('transaccions')->onDelete('cascade');
           $table->timestamps();
       });
     }

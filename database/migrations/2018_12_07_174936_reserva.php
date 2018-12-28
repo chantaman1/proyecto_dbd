@@ -16,7 +16,7 @@ class Reserva extends Migration
       Schema::create('reservas', function (Blueprint $table) {
           $table->increments('id');
           $table->integer('totalAPagar');
-          $table->string('estado_pago');
+          $table->string('estado_pago',30);
           $table->unsignedInteger('usuario_id');
           $table->foreign('usuario_id')->references('id')->on('usuarios')->onDelete('cascade');
           $table->timestamps();
