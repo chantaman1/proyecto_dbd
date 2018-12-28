@@ -10,7 +10,7 @@ CREATE TABLE aeropuertos (
     nombre                  VARCHAR(60),
     ciudad                  VARCHAR(100),
     direccion               VARCHAR(100),
-    Pais                    VARCHAR(35)
+    pais                    VARCHAR(35)
 );
 
 CREATE TABLE aseguradoras (
@@ -21,7 +21,7 @@ CREATE TABLE aseguradoras (
     ciudad                  VARCHAR(100),
     pais                    VARCHAR(35),
     webpage                 VARCHAR(256),
-    activo                  BOOLEAN;
+    activo                  BOOLEAN
 );
 
 CREATE TABLE asientos (
@@ -60,20 +60,6 @@ CREATE TABLE comprobante_pagos (
     reserva_id              INTEGER REFERENCES reservas
 );
 
-CREATE TABLE habitacion_paquete (
-    fecha_inicio            DATE,
-    fecha_termino           DATE,
-    paquete_id              INTEGER REFERENCES paquete,
-    habitacion_id           INTEGER REFERENCES habitacion
-);
-
-CREATE TABLE habitacion_reserva (
-    fecha_inicio            DATE,
-    fecha_termino           DATE,
-    reserva_id              INTEGER REFERENCES reservas,
-    habitacion_id           INTEGER REFERENCES habitacions
-);
-
 CREATE TABLE habitacions (
     id                      SERIAL PRIMARY KEY,
     numero                  INTEGER,
@@ -98,15 +84,128 @@ CREATE TABLE hotel (
     activo                  BOOLEAN
 );
 
-CREATE TABLE metodo_pago_usuario (
-    usuario_id              INTEGER REFERENCES usuarios,
-    metodo_pago_id          INTEGER REFERENCES metodo_pagos
-);
-
 CREATE TABLE metodo_pagos (
     id                      SERIAL PRIMARY KEY,
     tipo                    VARCHAR(30),
     nombre                  VARCHAR(40)
+);
+
+CREATE TABLE paquetes (
+    id                      SERIAL PRIMARY KEY,
+    pais_destino            VARCHAR(35),
+    ciudad_destino          VARCHAR(100),
+    precio                  INTEGER,
+    descuento               DOUBLE PRECISION,
+    cupos                   INTEGER,
+    disponibilidad          BOOLEAN,
+    posee_vehiculo          BOOLEAN,
+    posee_hotel             BOOLEAN,
+    posee_seguro            BOOLEAN
+);
+
+CREATE TABLE pasajeros (
+    id                      SERIAL PRIMARY KEY,
+    nombre                  VARCHAR(63),
+    apellido_paterno        VARCHAR(40),
+    apellido_materno        VARCHAR(40),
+    fecha_nacimiento        DATE,
+    telefono                VARCHAR(30),
+    correo                  VARCHAR(255),
+    nacionalidad            VARCHAR(63),
+    pasaporte               VARCHAR(255),
+    asiento_id              INTEGER REFERENCES asientos
+);
+
+CREATE TABLE reservas (
+    id                      SERIAL PRIMARY KEY,
+    totalAPagar             INTEGER,
+    estado_pago             VARCHAR(30),
+    usuario_id              INTEGER REFERENCES usuarios
+);
+
+CREATE TABLE rol_usuario (
+    rol_id                  INTEGER REFERENCES rols,
+    usuario_id              INTEGER REFERENCES usuarios
+);
+
+CREATE TABLE rols (
+    id                      SERIAL PRIMARY KEY,
+    tipo                    VARCHAR(30)
+);
+
+CREATE TABLE seguros (
+    id                      SERIAL PRIMARY KEY,
+    tipo                    VARCHAR(63),
+    precio                  INTEGER,
+    descripcion             TEXT,
+    aseguradora_id          INTEGER REFERENCES aseguradora
+);
+
+CREATE TABLE servicios (
+    id                      SERIAL PRIMARY KEY,
+    tipo                    VARCHAR(40),
+    precio                  INTEGER,
+    descripcion             TEXT,
+    aseguradora_id          INTEGER REFERENCES aseguradora
+);
+
+CREATE TABLE usuarios (
+    id                      SERIAL PRIMARY KEY,
+    nombre                  VARCHAR(63),
+    apellido_paterno        VARCHAR(40),
+    apellido_materno        VARCHAR(40),
+    password                VARCHAR(127),
+    fecha_nacimiento        DATE,
+    direccion               VARCHAR(100),
+    telefono                VARCHAR(30),
+    correo                  VARCHAR(255),
+    nacionalidad            VARCHAR(63),
+    pasaporte               VARCHAR(255)
+);
+
+CREATE TABLE vehiculos (
+    id                      SERIAL PRIMARY KEY,
+    patente                 VARCHAR(15),
+    marca                   VARCHAR(40),
+    modelo                  VARCHAR(40),
+    año                     INTEGER,
+    precio                  INTEGER,
+    cantidad_asientos       INTEGER,
+    tipo_transmision        VARCHAR(20),
+    descripcion             TEXT,
+    compania_alquiler_id    INTEGER REFERENCES compania_alquilers
+);
+
+CREATE TABLE vuelos (
+    id                      SERIAL PRIMARY KEY,
+    tipo                    VARCHAR(40),
+    ciudad_origen           VARCHAR(100),
+    pais_origen             VARCHAR(35),
+    codigo                  VARCHAR(255),
+    ciudad_destino          VARCHAR(100),
+    pais_destino            VARCHAR(35),
+    fecha_inicio            DATE,
+    hora                    TIME(0),
+    aerolinea_id            INTEGER REFERENCES aerolineas
+);
+
+CREATE TABLE habitacion_paquete (
+    fecha_inicio            DATE,
+    fecha_termino           DATE,
+    paquete_id              INTEGER REFERENCES paquete,
+    habitacion_id           INTEGER REFERENCES habitacion
+);
+
+CREATE TABLE habitacion_reserva (
+    fecha_inicio            DATE,
+    fecha_termino           DATE,
+    reserva_id              INTEGER REFERENCES reservas,
+    habitacion_id           INTEGER REFERENCES habitacions
+);
+
+CREATE TABLE metodo_pago_usuario (
+    usuario_id              INTEGER REFERENCES usuarios,
+    metodo_pago_id          INTEGER REFERENCES metodo_pagos
 );
 
 CREATE TABLE paquete_reserva (
@@ -128,35 +227,26 @@ CREATE TABLE paquete_vehiculo (
     vehiculo_id             INTEGER REFERENCES vehiculos
 );
 
-CREATE TABLE paquetes (
-    id                      SERIAL PRIMARY KEY,
-    pais_destino            VARCHAR(35),
-    ciudad_destino          VARCHAR(100),
-    precio                  INTEGER,
-    descuento               DOUBLE PRECISION,
-    cupos                   INTEGER,
-    disponibilidad          BOOLEAN,
-    posee_vehiculo          BOOLEAN,
-    posee_hotel             BOOLEAN,
-    posee_seguro            BOOLEAN
-);
-
 CREATE TABLE pasajero_seguro (
     pasajero_id             INTEGER REFERENCES pasajeros,
     seguro_id               INTEGER REFERENCES seguros
 );
 
-CREATE TABLE pasajeros (
-    id                      SERIAL PRIMARY KEY,
-    nombre                  VARCHAR(63),
-    apellido_paterno        VARCHAR(40),
-    apellido_materno        VARCHAR(40),
-    fecha_nacimiento        DATE,
-    telefono                VARCHAR(30),
-    correo                  VARCHAR(255),
-    nacionalidad            VARCHAR(63),
-    pasaporte               VARCHAR(255),
-    asiento_id              INTEGER REFERENCES asientos
+CREATE TABLE reserva_vehiculo (
+    reserva_id              INTEGER REFERENCES reservas,
+    vehiculo_id             INTEGER REFERENCES vehiculos,
+    fecha_inicio            DATE,
+    hora_inicio             TIME(0),
+    fecha_termino           DATE,
+    hora_termino            TIME(0)
+);
+
+CREATE TABLE reserva_vehiculo (
+    reserva_id              INTEGER REFERENCES reservas,
+    vuelo_id                INTEGER REFERENCES vuelos,
+    cant_ninos              INTEGER,
+    cant_adultos            INTEGER,
+    cant_infantes           INTEGER
 );
 
 COMMIT;

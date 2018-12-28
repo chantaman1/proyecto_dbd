@@ -14,7 +14,6 @@ class ReservaVehiculo extends Migration
     public function up()
     {
       Schema::create('reserva_vehiculo', function (Blueprint $table) {
-        $table->increments('id');
         $table->date('fecha_inicio');
         $table->time('hora_inicio');
         $table->date('fecha_termino');

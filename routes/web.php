@@ -26,6 +26,8 @@ Route::get('/usuario/show/{id}', 'usuarioController@show');
 
 Route::get('/usuario/all/', 'usuarioController@index');
 
+Route::post('/usuario', 'usuarioController@store');
+
 Route::get('/usuario/destroy/{id}', 'usuarioController@destroy');
 
 //RUTAS DE LA AEROLINEA

@@ -14,7 +14,6 @@ class AeropuertoVuelo extends Migration
     public function up()
     {
       Schema::create('aeropuerto_vuelo', function (Blueprint $table) {
-        $table->increments('id');
         $table->unsignedInteger('vuelo_id');
         $table->unsignedInteger('aeropuerto_id');
         $table->foreign('vuelo_id')->references('id')->on('vuelos')->onDelete('cascade');
