@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\transaccion;
+use App\Transaccion;
 use Illuminate\Http\Request;
 
 class TransaccionController extends Controller
@@ -14,7 +14,8 @@ class TransaccionController extends Controller
      */
     public function index()
     {
-        //
+      $transaccion = Transaccion::All();
+      return $transaccion;
     }
 
     /**
@@ -35,7 +36,10 @@ class TransaccionController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $transaccion = new Transaccion;
+        $transaccion->fill($request->all());
+        $transaccion->save();
+        return $transaccion;
     }
 
     /**
@@ -46,7 +50,13 @@ class TransaccionController extends Controller
      */
     public function show(transaccion $transaccion)
     {
-        //
+        $transaccion = Transaccion::find($id);
+        if($transaccion != NULL){
+            return $transaccion;
+        }
+        else{
+            return "Transaccion no existente.";
+        }
     }
 
     /**
@@ -69,7 +79,15 @@ class TransaccionController extends Controller
      */
     public function update(Request $request, transaccion $transaccion)
     {
-        //
+        $transaccion = Transaccion::find($id);
+        if($transaccion != NULL){
+          $transaccion->fill($request->all());
+          $transaccion->save();
+          return $transaccion;
+        }
+        else{
+          return "No puede modificar una transaccion no existente.";
+        }
     }
 
     /**
@@ -80,6 +98,13 @@ class TransaccionController extends Controller
      */
     public function destroy(transaccion $transaccion)
     {
-        //
+      $transaccion = Transaccion::find($id);
+      if($transaccion != NULL){
+          $transaccion->delete();
+          return "Transaccion eliminado.";
+      }
+      else{
+          return "Transaccion no existente.";
+      }
     }
 }

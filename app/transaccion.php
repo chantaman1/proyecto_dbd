@@ -13,4 +13,9 @@ class Transaccion extends Model
       'descripcion',
   ];
 
+  public function auditoria()
+  {
+      return $this->hasMany('App\Auditoria');
+  }
+
 }

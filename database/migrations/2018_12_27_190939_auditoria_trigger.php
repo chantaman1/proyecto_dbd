@@ -16,7 +16,7 @@ class AuditoriaTrigger extends Migration
     DECLARE result TEXT;
     BEGIN
       SELECT CONCAT(transaccions.descripcion, usuarios.correo) INTO result FROM transaccions, usuarios WHERE transaccions.id = 1 AND usuarios.id = NEW.id;
-      INSERT INTO auditorias (tipo_transaccion, usuario_id) VALUES (result, NEW.id);
+      INSERT INTO auditorias (tipo_transaccion, usuario_id, transaccion_id) VALUES (result, NEW.id, 1);
       RETURN NEW;
     END
     $$ LANGUAGE plpgsql;
