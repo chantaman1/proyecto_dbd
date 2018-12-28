@@ -13,7 +13,7 @@ class Compania_alquilersRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,13 @@ class Compania_alquilersRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+          'nombre' => 'required|string',
+          'direccion' => 'required|string',
+          'telefono' => 'required|string',
+          'ciudad' => 'required|string',
+          'pais' => 'required|string',
+          'webpage' => 'required|string'
+          'activo' => 'required|boolean'
         ];
     }
 }

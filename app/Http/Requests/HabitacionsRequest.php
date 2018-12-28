@@ -13,7 +13,7 @@ class HabitacionsRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,14 @@ class HabitacionsRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+          'numero' => 'required|integer',
+          'capacidad' => 'required|integer',
+          'disponibilidad' => 'required|boolean',
+          'tipo_cama' => 'required|string',
+          'categoria' => 'required|string',
+          'precio' => 'required|integer',
+          'activo' => 'required|boolean',
+          'hotel_id' => 'required|integer'
         ];
     }
 }

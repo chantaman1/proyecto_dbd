@@ -13,7 +13,7 @@ class AeropuertoRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -27,7 +27,7 @@ class AeropuertoRequest extends FormRequest
           'nombre' => 'required|string',
           'ciudad' => 'required|string',
           'direccion' => 'required|string',
-          'pais' => 'required|string',
+          'pais' => 'required|string'
       ];
     }
 }

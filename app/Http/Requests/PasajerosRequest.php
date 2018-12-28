@@ -13,7 +13,7 @@ class PasajerosRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,15 @@ class PasajerosRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+          'nombre' => 'required|string',
+          'apellido_paterno' => 'required|string',
+          'apellido_materno' => 'required|string',
+          'fecha_nacimiento' => 'required|date',
+          'telefono' => 'required|string',
+          'correo' => 'required|string',
+          'nacionalidad' => 'required|string',
+          'pasaporte' => 'required|string',
+          'asiento_id' => 'required|unsignedInteger'
         ];
     }
 }

@@ -13,7 +13,7 @@ class AsientosRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,13 @@ class AsientosRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+          'codigo' => 'required|string',
+          'tipo' => 'required|string',
+          'disponibilidad' => 'required|boolean',
+          'precio' => 'required|integer',
+          'pais' => 'required|string',
+          'activo' => 'required|boolean',
+          'vuelo_id' => 'required|unsignedInteger'
         ];
     }
 }

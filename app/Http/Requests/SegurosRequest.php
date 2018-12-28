@@ -13,7 +13,7 @@ class SegurosRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,10 @@ class SegurosRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+          'tipo' => 'required|string',
+          'precio' => 'required|integer',
+          'descripcion' => 'required|text',
+          'aseguradora_id' => 'required|unsignedInteger'
         ];
     }
 }

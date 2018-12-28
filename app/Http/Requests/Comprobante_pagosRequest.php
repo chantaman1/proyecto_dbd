@@ -13,7 +13,7 @@ class Comprobante_pagosRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,10 @@ class Comprobante_pagosRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+          'total_pagado' => 'required|integer',
+          'descripcion_pago' => 'required|text',
+          'metodo_pago_id' => 'required|integer',
+          'reserva_id' => 'required|integer'
         ];
     }
 }

@@ -13,7 +13,7 @@ class VehiculosRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,15 @@ class VehiculosRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+          'patente' => 'required|string',
+          'marca' => 'required|string',
+          'modelo' => 'required|string',
+          'año' => 'required|integer',
+          'precio' => 'required|integer',
+          'cantidad_asientos' => 'required|integer',
+          'tipo_transmision' => 'required|string',
+          'descripcion' => 'required|string'.
+          'compania_alquiler_id' => 'required|unsignedInteger'
         ];
     }
 }

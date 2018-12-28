@@ -13,7 +13,7 @@ class PaquetesRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,15 @@ class PaquetesRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+          'pais_destino' => 'required|string',
+          'ciudad_destino' => 'required|string',
+          'precio' => 'required|integer',
+          'descuento' => 'required|float',
+          'cupos' => 'required|integer',
+          'disponibilidad' => 'required|boolean',
+          'posee_vehiculo' => 'required|boolean',
+          'posee_hotel' => 'required|boolean',
+          'posee_seguro' => 'required|boolean'
         ];
     }
 }
