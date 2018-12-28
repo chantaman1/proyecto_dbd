@@ -11,6 +11,6 @@ class vueloTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(App\Vuelo::class, 40)->create();
+        factory(App\Vuelo::class, 100)->create();
     }
 }
