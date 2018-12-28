@@ -241,12 +241,10 @@ CREATE TABLE rol_usuario (
     usuario_id              INTEGER REFERENCES "usuarios"
 );
 
-INSERT INTO aerolineas (id, nombre, created_at, updated_at) VALUES (1, 'Qatar Airways', '2018-12-27 16:05:25', NULL);
-INSERT INTO aerolineas (id, nombre, created_at, updated_at) VALUES (2, 'Emirates', '2018-12-27 16:05:25', NULL);
-INSERT INTO aerolineas (id, nombre, created_at, updated_at) VALUES (3, 'LATAM', '2018-12-27 16:05:25', NULL);
-INSERT INTO aerolineas (id, nombre, created_at, updated_at) VALUES (4, 'United Airlines', '2018-12-27 16:05:25', NULL);
-INSERT INTO aerolineas (id, nombre, created_at, updated_at) VALUES (5, 'Aeromexico', '2018-12-27 16:05:25', NULL);
-
-INSERT INTO aeropuertos (id, nombre, ciudad, direccion, pais, created_at, updated_at) VALUES (1, 'Charles de Gaulle', 'Francia', '95700 Roissy-en-France', 'Paris', '2018-12-27 16:05:26', NULL);
+INSERT INTO aerolineas (id, nombre) VALUES (1, 'Qatar Airways');
+INSERT INTO aerolineas (id, nombre) VALUES (2, 'Emirates');
+INSERT INTO aerolineas (id, nombre) VALUES (3, 'LATAM');
+INSERT INTO aerolineas (id, nombre) VALUES (4, 'United Airlines');
+INSERT INTO aerolineas (id, nombre) VALUES (5, 'Aeromexico');
 
 COMMIT;
