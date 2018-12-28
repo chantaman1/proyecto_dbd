@@ -10,7 +10,7 @@ CREATE TABLE aeropuertos (
     nombre                  VARCHAR(60),
     ciudad                  VARCHAR(100),
     direccion               VARCHAR(100),
-    Pais                    VARCHAR(35)
+    pais                    VARCHAR(35)
 );
 
 CREATE TABLE aseguradoras (
@@ -21,7 +21,7 @@ CREATE TABLE aseguradoras (
     ciudad                  VARCHAR(100),
     pais                    VARCHAR(35),
     webpage                 VARCHAR(256),
-    activo                  BOOLEAN;
+    activo                  BOOLEAN
 );
 
 CREATE TABLE asientos (
@@ -60,20 +60,6 @@ CREATE TABLE comprobante_pagos (
     reserva_id              INTEGER REFERENCES reservas
 );
 
-CREATE TABLE habitacion_paquete (
-    fecha_inicio            DATE,
-    fecha_termino           DATE,
-    paquete_id              INTEGER REFERENCES paquete,
-    habitacion_id           INTEGER REFERENCES habitacion
-);
-
-CREATE TABLE habitacion_reserva (
-    fecha_inicio            DATE,
-    fecha_termino           DATE,
-    reserva_id              INTEGER REFERENCES reservas,
-    habitacion_id           INTEGER REFERENCES habitacions
-);
-
 CREATE TABLE habitacions (
     id                      SERIAL PRIMARY KEY,
     numero                  INTEGER,
@@ -98,34 +84,10 @@ CREATE TABLE hotel (
     activo                  BOOLEAN
 );
 
-CREATE TABLE metodo_pago_usuario (
-    usuario_id              INTEGER REFERENCES usuarios,
-    metodo_pago_id          INTEGER REFERENCES metodo_pagos
-);
-
 CREATE TABLE metodo_pagos (
     id                      SERIAL PRIMARY KEY,
     tipo                    VARCHAR(30),
     nombre                  VARCHAR(40)
-);
-
-CREATE TABLE paquete_reserva (
-    reserva_id              INTEGER REFERENCES reservas,
-    paquete_id              INTEGER REFERENCES paquetes
-);
-
-CREATE TABLE paquete_servicio (
-    paquete_id              INTEGER REFERENCES paquetes,
-    servicio_id             INTEGER REFERENCES servicios
-);
-
-CREATE TABLE paquete_vehiculo (
-    fecha_inicio            DATE,
-    hora_inicio             TIME(0),
-    fecha_termino           DATE,
-    hora_termino            TIME(0),
-    paquete_id              INTEGER REFERENCES paquetes,
-    vehiculo_id             INTEGER REFERENCES vehiculos
 );
 
 CREATE TABLE paquetes (
@@ -141,11 +103,6 @@ CREATE TABLE paquetes (
     posee_seguro            BOOLEAN
 );
 
-CREATE TABLE pasajero_seguro (
-    pasajero_id             INTEGER REFERENCES pasajeros,
-    seguro_id               INTEGER REFERENCES seguros
-);
-
 CREATE TABLE pasajeros (
     id                      SERIAL PRIMARY KEY,
     nombre                  VARCHAR(63),
@@ -157,23 +114,6 @@ CREATE TABLE pasajeros (
     nacionalidad            VARCHAR(63),
     pasaporte               VARCHAR(255),
     asiento_id              INTEGER REFERENCES asientos
-);
-
-CREATE TABLE reserva_vehiculo (
-    reserva_id              INTEGER REFERENCES reservas,
-    vehiculo_id             INTEGER REFERENCES vehiculos,
-    fecha_inicio            DATE,
-    hora_inicio             TIME(0),
-    fecha_termino           DATE,
-    hora_termino            TIME(0)
-);
-
-CREATE TABLE reserva_vehiculo (
-    reserva_id              INTEGER REFERENCES reservas,
-    vuelo_id                INTEGER REFERENCES vuelos,
-    cant_ninos              INTEGER,
-    cant_adultos            INTEGER,
-    cant_infantes           INTEGER
 );
 
 CREATE TABLE reservas (
@@ -247,6 +187,66 @@ CREATE TABLE vuelos (
     fecha_inicio            DATE,
     hora                    TIME(0),
     aerolinea_id            INTEGER REFERENCES aerolineas
+);
+
+CREATE TABLE habitacion_paquete (
+    fecha_inicio            DATE,
+    fecha_termino           DATE,
+    paquete_id              INTEGER REFERENCES paquete,
+    habitacion_id           INTEGER REFERENCES habitacion
+);
+
+CREATE TABLE habitacion_reserva (
+    fecha_inicio            DATE,
+    fecha_termino           DATE,
+    reserva_id              INTEGER REFERENCES reservas,
+    habitacion_id           INTEGER REFERENCES habitacions
+);
+
+CREATE TABLE metodo_pago_usuario (
+    usuario_id              INTEGER REFERENCES usuarios,
+    metodo_pago_id          INTEGER REFERENCES metodo_pagos
+);
+
+CREATE TABLE paquete_reserva (
+    reserva_id              INTEGER REFERENCES reservas,
+    paquete_id              INTEGER REFERENCES paquetes
+);
+
+CREATE TABLE paquete_servicio (
+    paquete_id              INTEGER REFERENCES paquetes,
+    servicio_id             INTEGER REFERENCES servicios
+);
+
+CREATE TABLE paquete_vehiculo (
+    fecha_inicio            DATE,
+    hora_inicio             TIME(0),
+    fecha_termino           DATE,
+    hora_termino            TIME(0),
+    paquete_id              INTEGER REFERENCES paquetes,
+    vehiculo_id             INTEGER REFERENCES vehiculos
+);
+
+CREATE TABLE pasajero_seguro (
+    pasajero_id             INTEGER REFERENCES pasajeros,
+    seguro_id               INTEGER REFERENCES seguros
+);
+
+CREATE TABLE reserva_vehiculo (
+    reserva_id              INTEGER REFERENCES reservas,
+    vehiculo_id             INTEGER REFERENCES vehiculos,
+    fecha_inicio            DATE,
+    hora_inicio             TIME(0),
+    fecha_termino           DATE,
+    hora_termino            TIME(0)
+);
+
+CREATE TABLE reserva_vehiculo (
+    reserva_id              INTEGER REFERENCES reservas,
+    vuelo_id                INTEGER REFERENCES vuelos,
+    cant_ninos              INTEGER,
+    cant_adultos            INTEGER,
+    cant_infantes           INTEGER
 );
 
 COMMIT;
