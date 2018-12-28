@@ -247,6 +247,13 @@ INSERT INTO aerolineas (id, nombre) VALUES (3, 'LATAM');
 INSERT INTO aerolineas (id, nombre) VALUES (4, 'United Airlines');
 INSERT INTO aerolineas (id, nombre) VALUES (5, 'Aeromexico');
 
+INSERT INTO aeropuerto_vuelo VALUES (54, 45);
+INSERT INTO aeropuerto_vuelo VALUES (23, 45);
+INSERT INTO aeropuerto_vuelo VALUES (31, 25);
+INSERT INTO aeropuerto_vuelo VALUES (16, 1);
+INSERT INTO aeropuerto_vuelo VALUES (66, 44);
+
+
 INSERT INTO aseguradoras (id, nombre, direccion, telefono, ciudad, pais, webpage, activo) VALUES (1, 'Mapfre', 'Isidora Goyenechea #3520', '600 700 4000', 'Las Condes', 'Chile', 'https://www.mapfre.cl/seguros-cl/', true);
 INSERT INTO aseguradoras (id, nombre, direccion, telefono, ciudad, pais, webpage, activo) VALUES (2, 'Travel Ace Assistance', 'San Sebastián #2812', '+56 2 2495 6000', 'Las Condes', 'Chile', 'https://www.travel-ace.com/cl-la/home.html', true);
 INSERT INTO aseguradoras (id, nombre, direccion, telefono, ciudad, pais, webpage, activo) VALUES (3, 'Assist 365', '80 S.W. 8 Th Street Suite 2000', '+54 11 5218 4207', 'Miami', 'United States', 'https://assist-365.com', true);
@@ -265,6 +272,12 @@ INSERT INTO asientos (id, codigo, tipo, disponibilidad, precio, vuelo_id) VALUES
 INSERT INTO asientos (id, codigo, tipo, disponibilidad, precio, vuelo_id) VALUES (5, '475', 'Economico', true, 177628, 3);
 INSERT INTO asientos (id, codigo, tipo, disponibilidad, precio, vuelo_id) VALUES (6, '363', 'Business Premium', true, 285533, 5);
 
+INSERT INTO auditorias VALUES (1, 'Creado usuario con correo: hruecker@example.net', 1, 1);
+INSERT INTO auditorias VALUES (2, 'Creado usuario con correo: geovany.schmidt@example.net', 2, 1);
+INSERT INTO auditorias VALUES (3, 'Creado usuario con correo: moen.emmy@example.net', 3, 1);
+INSERT INTO auditorias VALUES (4, 'Creado usuario con correo: shaun.bashirian@example.com', 4, 1);
+INSERT INTO auditorias VALUES (5, 'Creado usuario con correo: herman.carmela@example.com', 5, 1);
+
 INSERT INTO compania_alquilers (id, nombre, direccion, telefono, ciudad, pais, webpage, activo) VALUES (1, 'Hertz', 'Avenida Americo Vespucio #1601', '+56 2 2360 8617', 'Quilicura', 'Chile', 'https://www.hertz.cl', true);
 INSERT INTO compania_alquilers (id, nombre, direccion, telefono, ciudad, pais, webpage, activo) VALUES (2, 'Europcar', 'Avenida Americo Vespucio #1373', '+56 2 2598 3263', 'Pudahuel', 'Chile', 'https://www.europcar.cl', true);
 INSERT INTO compania_alquilers (id, nombre, direccion, telefono, ciudad, pais, webpage, activo) VALUES (3, 'Avis Rent a Car', 'Luz #2934', '+56 2 2795 3916', 'Las Condes', 'Chile', 'https://www.avis.cl', true);
@@ -281,16 +294,56 @@ INSERT INTO habitacions (id, numero, capacidad, disponibilidad, tipo_cama, categ
 INSERT INTO habitacions (id, numero, capacidad, disponibilidad, tipo_cama, categoria, precio, activo, hotel_id) VALUES (4, 607, 2, false, 'doble', 'premium', 148320, true, 3);
 INSERT INTO habitacions (id, numero, capacidad, disponibilidad, tipo_cama, categoria, precio, activo, hotel_id) VALUES (5, 405, 6, true, 'doble', 'comun', 127624, true, 5);
 
+INSERT INTO habitacion_paquete VALUES ('2007-08-31', '2004-12-17', 53, 27);
+INSERT INTO habitacion_paquete VALUES ('1982-11-09', '1989-07-27', 30, 42);
+INSERT INTO habitacion_paquete VALUES ('1992-10-12', '1997-05-13', 16, 30);
+INSERT INTO habitacion_paquete VALUES ('1993-07-25', '2007-02-06', 16, 3);
+INSERT INTO habitacion_paquete VALUES ('1974-06-16', '1985-02-24', 25, 2);
+
+INSERT INTO habitacion_reserva VALUES ('1980-10-10', '2005-08-06', 1, 16);
+INSERT INTO habitacion_reserva VALUES ('1984-05-28', '1998-03-26', 2, 5);
+INSERT INTO habitacion_reserva VALUES ('1991-03-13', '2017-12-12', 14, 10);
+INSERT INTO habitacion_reserva VALUES ('1980-09-04', '2012-04-15', 11, 11);
+INSERT INTO habitacion_reserva VALUES ('1993-12-29', '1999-07-23', 15, 50);
+
 INSERT INTO hotels (id, nombre, direccion, telefono, ciudad, pais, calificacion, webpage, activo) VALUES (1, 'Park Inn by Radisson Resort', '3011 Maingate Lane', '+1 407 396 1400', 'Orlando', 'United States', 4, 'https://www.parkinn.com/orlando', true);
 INSERT INTO hotels (id, nombre, direccion, telefono, ciudad, pais, calificacion, webpage, activo) VALUES (2, 'Wyndham Garden Lake Buena Vista', '1850 B Hotel Plaza Boulevard', '+1 407 828 4444', 'Orlando', 'United States', 5, 'http://www.wyndhamlakebuenavista.com', true);
 INSERT INTO hotels (id, nombre, direccion, telefono, ciudad, pais, calificacion, webpage, activo) VALUES (3, 'Courtyard by Marriott', '1201 Northwest Le Jeune Road', '+1 305 642 8200', 'Miami', 'United States', 4, 'https://www.espanol.marriott.com/', true);
 INSERT INTO hotels (id, nombre, direccion, telefono, ciudad, pais, calificacion, webpage, activo) VALUES (4, 'Conrad Miami', '1395 Brickell Avenue', '+1 305 503 6500', 'Miami', 'United States', 5, 'http://conrad.miamiallhotels.com/es/', true);
 INSERT INTO hotels (id, nombre, direccion, telefono, ciudad, pais, calificacion, webpage, activo) VALUES (5, 'Hotel Republic San Diego', '421 West B Street', '+1 619 398 3100', 'San Diego', 'United States', 5, 'http://hotelrepublicsd.com', true);
 
+INSERT INTO metodo_pago_usuario VALUES (10, 3);
+INSERT INTO metodo_pago_usuario VALUES (11, 3);
+INSERT INTO metodo_pago_usuario VALUES (4, 1);
+INSERT INTO metodo_pago_usuario VALUES (9, 3);
+INSERT INTO metodo_pago_usuario VALUES (6, 4);
+
 INSERT INTO metodo_pagos (id, tipo, nombre) VALUES (1, 'Tarjeta Debito', 'WebPay');
 INSERT INTO metodo_pagos (id, tipo, nombre) VALUES (2, 'Tarjeta Credito', 'WebPay');
 INSERT INTO metodo_pagos (id, tipo, nombre) VALUES (3, 'Tarjeta Credito', 'Mastercard');
 INSERT INTO metodo_pagos (id, tipo, nombre) VALUES (4, 'Tarjeta Credito', 'Visa');
+
+INSERT INTO paquete_reserva VALUES (19, 52);
+INSERT INTO paquete_reserva VALUES (19, 29);
+INSERT INTO paquete_reserva VALUES (10, 7);
+INSERT INTO paquete_reserva VALUES (8, 9);
+INSERT INTO paquete_reserva VALUES (5, 19);
+
+INSERT INTO paquete_servicio VALUES (2, 1);
+INSERT INTO paquete_servicio VALUES (5, 6);
+INSERT INTO paquete_servicio VALUES (46, 5);
+
+INSERT INTO paquete_vehiculo VALUES ('1971-12-15', '06:58:20', '2012-07-10', '19:51:52', 48, 5);
+INSERT INTO paquete_vehiculo VALUES ('1987-11-21', '14:17:56', '1987-06-23', '04:00:11', 19, 7);
+INSERT INTO paquete_vehiculo VALUES ('2010-01-07', '01:26:55', '1985-03-19', '17:18:13', 5, 7);
+INSERT INTO paquete_vehiculo VALUES ('2016-05-14', '21:48:20', '1975-04-14', '08:19:05', 52, 4);
+INSERT INTO paquete_vehiculo VALUES ('1985-07-24', '03:39:08', '1982-05-03', '02:58:50', 39, 3);
+
+INSERT INTO pasajero_seguro VALUES (26, 11);
+INSERT INTO pasajero_seguro VALUES (86, 13);
+INSERT INTO pasajero_seguro VALUES (95, 8);
+INSERT INTO pasajero_seguro VALUES (38, 5);
+INSERT INTO pasajero_seguro VALUES (21, 2);
 
 INSERT INTO paquetes (id, pais_destino, ciudad_destino, precio, descuento, cupos, disponibilidad, posee_vehiculo, posee_hotel, posee_seguro) VALUES (1, 'Mexico', 'Cancun', 649230, 33, 50, true, false, true, false);
 INSERT INTO paquetes (id, pais_destino, ciudad_destino, precio, descuento, cupos, disponibilidad, posee_vehiculo, posee_hotel, posee_seguro) VALUES (2, 'Republica Dominicana', 'Punta Cana', 595000, 0, 50, true, false, true, false);
@@ -304,11 +357,29 @@ INSERT INTO pasajeros (id, nombre, apellido_paterno, apellido_materno, fecha_nac
 INSERT INTO pasajeros (id, nombre, apellido_paterno, apellido_materno, fecha_nacimiento, telefono, correo, nacionalidad, pasaporte, asiento_id) VALUES (4, 'Johnny', 'Adams', 'Baumbach', '1973-10-14', '(764) 295-2828', 'dallin.collins@example.org', 'Svalbard & Jan Mayen Islands', '6152062964296', 302);
 INSERT INTO pasajeros (id, nombre, apellido_paterno, apellido_materno, fecha_nacimiento, telefono, correo, nacionalidad, pasaporte, asiento_id) VALUES (5, 'Quincy', 'Luettgen', 'Kuhn', '1987-09-26', '1-993-346-5860 x6181', 'bauch.mac@example.org', 'Martinique', '7221058986754', 61);
 
+INSERT INTO reserva_vehiculo VALUES ('2014-06-14', '08:09:43', '1979-07-02', '07:27:40', 7, 1);
+INSERT INTO reserva_vehiculo VALUES ('1973-11-06', '08:50:03', '2018-02-09', '23:43:04', 5, 3);
+INSERT INTO reserva_vehiculo VALUES ('2012-11-07', '18:21:43', '1973-02-21', '10:00:13', 5, 2);
+INSERT INTO reserva_vehiculo VALUES ('2001-05-27', '00:46:53', '1971-05-07', '04:25:41', 12, 2);
+INSERT INTO reserva_vehiculo VALUES ('2017-03-17', '02:19:04', '2014-12-31', '21:19:02', 20, 7);
+
+INSERT INTO reserva_vuelo VALUES (4, 2, 3, 7, 96);
+INSERT INTO reserva_vuelo VALUES (0, 7, 3, 1, 69);
+INSERT INTO reserva_vuelo VALUES (4, 1, 3, 15, 21);
+INSERT INTO reserva_vuelo VALUES (4, 6, 3, 5, 45);
+INSERT INTO reserva_vuelo VALUES (0, 4, 1, 18, 1);
+
 INSERT INTO reservas (id, "totalAPagar", estado_pago, usuario_id) VALUES (1, 462848, 'pagado', 10);
 INSERT INTO reservas (id, "totalAPagar", estado_pago, usuario_id) VALUES (2, 454238, 'pagado', 7);
 INSERT INTO reservas (id, "totalAPagar", estado_pago, usuario_id) VALUES (3, 719368, 'pagado', 11);
 INSERT INTO reservas (id, "totalAPagar", estado_pago, usuario_id) VALUES (4, 651041, 'pagado', 18);
 INSERT INTO reservas (id, "totalAPagar", estado_pago, usuario_id) VALUES (5, 556031, 'pagado', 14);
+
+INSERT INTO rol_usuario VALUES (1, 1);
+INSERT INTO rol_usuario VALUES (2, 1);
+INSERT INTO rol_usuario VALUES (3, 1);
+INSERT INTO rol_usuario VALUES (4, 1);
+INSERT INTO rol_usuario VALUES (5, 1);
 
 INSERT INTO rols (id, tipo) VALUES (1, 'usuario');
 INSERT INTO rols (id, tipo) VALUES (2, 'premium');
