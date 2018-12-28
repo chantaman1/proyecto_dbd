@@ -37,6 +37,10 @@ Route::get('/aerolinea/show/{id}', 'aerolineaController@show');
 
 Route::get('/aerolinea/all/', 'aerolineaController@index');
 
+Route::post('/aerolinea/register', 'aerolineaController@store');
+
+Route::post('/aerolinea/update/{id}', 'aerolineaController@update');
+
 Route::get('/aerolinea/destroy/{id}', 'aerolineaController@destroy');
 
 //Route::get('/aerolinea/create/{id}', 'aerolineaController@destroy');
