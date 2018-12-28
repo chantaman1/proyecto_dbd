@@ -24,7 +24,9 @@ class AuditoriasRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+          'tipo_transaccion' => 'required|string',
+          'usuario_id' => 'required|unsignedInteger',
+          'transaccion_id' => 'required|unsignedInteger'
         ];
     }
 }

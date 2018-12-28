@@ -241,4 +241,10 @@ CREATE TABLE rol_usuario (
     usuario_id              INTEGER REFERENCES "usuarios"
 );
 
+INSERT INTO aerolineas (id, nombre) VALUES (1, 'Qatar Airways');
+INSERT INTO aerolineas (id, nombre) VALUES (2, 'Emirates');
+INSERT INTO aerolineas (id, nombre) VALUES (3, 'LATAM');
+INSERT INTO aerolineas (id, nombre) VALUES (4, 'United Airlines');
+INSERT INTO aerolineas (id, nombre) VALUES (5, 'Aeromexico');
+
 COMMIT;
