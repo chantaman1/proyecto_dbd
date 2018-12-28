@@ -21,10 +21,6 @@ class Vuelo extends Migration
           $table->string('codigo');
           $table->string('ciudad_destino', 100);
           $table->string('pais_destino', 100);
-          $table->string('pais_origen', 63);
-          $table->string('codigo');
-          $table->string('ciudad_destino', 100);
-          $table->string('pais_destino', 63);
           $table->date('fecha');
           $table->time('hora');
           $table->unsignedInteger('aerolinea_id');
