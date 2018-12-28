@@ -26,9 +26,11 @@ Route::get('/usuario/show/{id}', 'usuarioController@show');
 
 Route::get('/usuario/all/', 'usuarioController@index');
 
-Route::post('/usuario', 'usuarioController@store');
+Route::post('/usuario/register', 'usuarioController@store');
 
-Route::get('/usuario/destroy/{id}', 'usuarioController@destroy');
+Route::post('/usuario/update/{id}', 'usuarioController@update');
+
+Route::post('/usuario/destroy/{id}', 'usuarioController@destroy');
 
 //RUTAS DE LA AEROLINEA
 Route::get('/aerolinea/show/{id}', 'aerolineaController@show');
