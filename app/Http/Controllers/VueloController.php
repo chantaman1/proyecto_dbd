@@ -18,6 +18,16 @@ class VueloController extends Controller
         return $vuelos;
     }
 
+    public function getFlightByDate($date){
+        $vuelos = Vuelo::where('fecha', $date)->get();
+        return $vuelos;
+    }
+
+    public function getFlightByDestination($city){
+        $vuelos = Vuelo::where('ciudad_destino', $city)->get();
+        return $vuelos;
+    }
+
     /**
      * Show the form for creating a new resource.
      *
