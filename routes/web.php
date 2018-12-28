@@ -76,6 +76,10 @@ Route::get('/asiento/show/{id}', 'asientoController@show');
 
 Route::get('/asiento/all/', 'asientoController@index');
 
+Route::get('/asiento/getSeats/{id}', 'asientoController@getSeatsByFlightId');
+
+Route::post('/asiento/useSeat/{id}', 'asientoController@updateSeat');
+
 Route::post('/asiento/register', 'asientoController@store');
 
 Route::post('/asiento/update/{id}', 'asientoController@update');

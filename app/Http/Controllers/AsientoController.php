@@ -42,6 +42,11 @@ class AsientoController extends Controller
         return $asiento;
     }
 
+    public function getSeatsByFlightId($id){
+        $asientos = Asiento::where('vuelo_id', $id)->where('disponibilidad', true)->get();
+        return $asientos;
+    }
+
     /**
      * Display the specified resource.
      *
@@ -88,6 +93,25 @@ class AsientoController extends Controller
         else{
           return "No puede modificar un asiento no existente.";
         }
+    }
+
+    public function updateSeat($id){
+      $asiento = Asiento::find($id);
+      if($asiento != NULL){
+        if($asiento->disponibilidad == true){
+          $asiento->disponibilidad = false;
+          $asiento->save();
+          return $asiento;
+        }
+        else{
+          $asiento->disponibilidad = true;
+          $asiento->save();
+          return $asiento;
+        }
+      }
+      else{
+        return "No puede modificar un asiento no existente.";
+      }
     }
 
     /**
