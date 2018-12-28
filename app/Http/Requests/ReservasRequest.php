@@ -13,7 +13,7 @@ class ReservasRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,9 @@ class ReservasRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+          'totalAPagar' => 'required|integer',
+          'estado_pago' => 'required|string',
+          'usuario_id' => 'required|unsignedInteger'
         ];
     }
 }

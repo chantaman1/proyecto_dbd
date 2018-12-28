@@ -13,7 +13,7 @@ class HotelsRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,14 @@ class HotelsRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+          'nombre' => 'required|string',
+          'direccion' => 'required|string',
+          'telefono' => 'required|string',
+          'ciudad' => 'required|string',
+          'pais' => 'required|string',
+          'calificacion' => 'required|integer',
+          'activo' => 'required|boolean',
+          'webpage' => 'required|string'
         ];
     }
 }
