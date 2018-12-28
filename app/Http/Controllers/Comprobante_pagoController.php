@@ -36,7 +36,10 @@ class Comprobante_pagoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $comprobante_pago = new Comprobante_pago;
+        $comprobante_pago->fill($request->all());
+        $comprobante_pago->save();
+        return $comprobante_pago;
     }
 
     /**
@@ -48,7 +51,12 @@ class Comprobante_pagoController extends Controller
     public function show($id)
     {
         $comprobante_pago = Comprobante_pago::find($id);
-        return $comprobante_pago;
+        if($comprobante_pago != NULL){
+            return $comprobante_pago;
+        }
+        else{
+            return "Comprobante de pago no existe.";
+        }
     }
 
     /**
@@ -71,7 +79,15 @@ class Comprobante_pagoController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $comprobante_pago = Comprobante_pago::find($id);
+        if($comprobante_pago != NULL){
+          $comprobante_pago->fill($request->all());
+          $comprobante_pago->save();
+          return $comprobante_pago;
+        }
+        else{
+          return "No puede modificar un comprobante de pago no existente.";
+        }
     }
 
     /**
@@ -83,7 +99,12 @@ class Comprobante_pagoController extends Controller
     public function destroy($id)
     {
       $comprobante_pago = Comprobante_pago::find($id);
-      $comprobante_pago->delete();
-      return Comprobante_pago::All();
+      if($comprobante_pago != NULL){
+          $comprobante_pago->delete();
+          return "Comprobante de pago eliminado.";
+      }
+      else{
+          return "Comprobante de pago no existente.";
+      }
     }
 }

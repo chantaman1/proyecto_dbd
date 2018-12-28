@@ -37,7 +37,10 @@ class AuditoriaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $auditoria = new Auditoria;
+        $auditoria->fill($request->all());
+        $auditoria->save();
+        return $auditoria;
     }
 
     /**
@@ -49,7 +52,12 @@ class AuditoriaController extends Controller
     public function show($id)
     {
         $auditoria = Auditoria::find($id);
-        return $auditoria;
+        if($auditoria != NULL){
+            return $auditoria;
+        }
+        else{
+            return "ID de auditoria no existe.";
+        }
     }
 
     /**
@@ -72,7 +80,15 @@ class AuditoriaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $auditoria = Auditoria::find($id);
+        if($auditoria != NULL){
+          $auditoria->fill($request->all());
+          $auditoria->save();
+          return $auditoria;
+        }
+        else{
+          return "No puede modificar una auditoria no existente.";
+        }
     }
 
     /**
@@ -84,7 +100,12 @@ class AuditoriaController extends Controller
     public function destroy($id)
     {
       $auditoria = Auditoria::find($id);
-      $auditoria->delete();
-      return Auditoria::All();
+      if($auditoria != NULL){
+          $auditoria->delete();
+          return "Registro de auditoria eliminado.";
+      }
+      else{
+          return "Registro no existente.";
+      }
     }
 }
