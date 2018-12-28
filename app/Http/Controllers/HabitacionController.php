@@ -36,7 +36,10 @@ class HabitacionController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $habitacion = new Habitacion;
+        $habitacion->fill($request->all());
+        $habitacion->save();
+        return $habitacion;
     }
 
     /**
@@ -48,7 +51,12 @@ class HabitacionController extends Controller
     public function show($id)
     {
         $habitacion = Habitacion::find($id);
-        return $habitacion;
+        if($habitacion != NULL){
+            return $habitacion;
+        }
+        else{
+            return "Habitacion no existe.";
+        }
     }
 
     /**
@@ -71,7 +79,15 @@ class HabitacionController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $habitacion = Habitacion::find($id);
+        if($habitacion != NULL){
+          $habitacion->fill($request->all());
+          $habitacion->save();
+          return $habitacion;
+        }
+        else{
+          return "No puede modificar una habitacion no existente.";
+        }
     }
 
     /**
@@ -83,7 +99,12 @@ class HabitacionController extends Controller
     public function destroy($id)
     {
       $habitacion = Habitacion::find($id);
-      $habitacion->delete();
-      return Habitacion::All();
+      if($habitacion != NULL){
+          $habitacion->delete();
+          return "Habitacion eliminada.";
+      }
+      else {
+          return "ID de habitacion no existe.";
+      }
     }
 }

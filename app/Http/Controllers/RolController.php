@@ -36,7 +36,10 @@ class RolController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $rol = new Rol;
+        $rol->fill($request->all());
+        $rol->save();
+        return $rol;
     }
 
     /**
@@ -48,7 +51,12 @@ class RolController extends Controller
     public function show($id)
     {
         $rol = Rol::find($id);
-        return $rol;
+        if($rol != NULL){
+            return $rol;
+        }
+        else{
+            return "Rol no existente.";
+        }
     }
 
     /**
@@ -71,7 +79,15 @@ class RolController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $rol = Rol::find($id);
+        if($rol != NULL){
+          $rol->fill($request->all());
+          $rol->save();
+          return $rol;
+        }
+        else{
+          return "No puede modificar un rol no existente.";
+        }
     }
 
     /**
@@ -83,7 +99,12 @@ class RolController extends Controller
     public function destroy($id)
     {
       $rol = Rol::find($id);
-      $rol->delete();
-      return Rol::All();
+      if($rol != NULL){
+          $rol->delete();
+          return "Rol eliminado.";
+      }
+      else{
+          return "Rol no existente.";
+      }
     }
 }
