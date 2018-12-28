@@ -32,6 +32,8 @@ Route::post('/usuario/register', 'usuarioController@store');
 
 Route::post('/usuario/update/{id}', 'usuarioController@update');
 
+Route::post('/usuario/updateByEmail/{email}', 'usuarioController@updatePasswordByEmail');
+
 Route::post('/usuario/destroy/{id}', 'usuarioController@destroy');
 
 //RUTAS DE LA AEROLINEA
