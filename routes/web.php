@@ -160,6 +160,7 @@ Route::get('/vuelo/all/', 'vueloController@index');
 
 Route::get('/vuelo/destroy/{id}', 'vueloController@destroy');
 //-------------------------------------------------------------
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
