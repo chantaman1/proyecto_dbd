@@ -18,6 +18,16 @@ class UsuarioController extends Controller
         return $usuarios;
     }
 
+    public function getUserByEmail($email){
+        $usuario = Usuario::where('correo', $email)->first();
+        if($usuario != NULL){
+            return $usuario;
+        }
+        else{
+            return "No se encontro ningun usuario con ese correo.";
+        }
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -36,10 +46,16 @@ class UsuarioController extends Controller
      */
     public function store(Request $request)
     {
-        $usuario = new Usuario;
-        $usuario->fill($request->all());
-        $usuario->save();
-        return $usuario;
+        $existUser = Usuario::where('correo', request('correo'));
+        if($existUser == NULL){
+            $usuario = new Usuario;
+            $usuario->fill($request->all());
+            $usuario->save();
+            return $usuario;
+        }
+        else{
+            return "Usuario ya existe.";
+        }
     }
 
     /**
@@ -82,6 +98,20 @@ class UsuarioController extends Controller
         $usuario = Usuario::find($id);
         if($usuario != NULL){
           $usuario->fill($request->all());
+          $usuario->password = bcrypt(request('password'));
+          $usuario->save();
+          return $usuario;
+        }
+        else{
+          return "No puede modificar un usuario no existente.";
+        }
+    }
+
+    public function updatePasswordByEmail(Request $request, $email){
+        $usuario = Usuario::where('correo', $email)->first();
+        if($usuario != NULL){
+          $usuario->fill($request->all());
+          $usuario->password = bcrypt(request('password'));
           $usuario->save();
           return $usuario;
         }
@@ -101,10 +131,10 @@ class UsuarioController extends Controller
       $usuario = Usuario::find($id);
       if($usuario != NULL){
         $usuario->delete();
-        return "Usuario elimimado correctamente.";
+        return "Usuario eliminado.";
       }
       else{
-        return "El usuario ingresado no existe.";
+        return "Usuario no existente.";
       }
     }
 }

@@ -36,7 +36,10 @@ class Compania_alquilerController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $compania_alquiler = new Compania_alquiler;
+        $compania_alquiler->fill($request->all());
+        $compania_alquiler->save();
+        return $compania_alquiler;
     }
 
     /**
@@ -48,7 +51,12 @@ class Compania_alquilerController extends Controller
     public function show($id)
     {
         $compania_alquiler = Compania_alquiler::find($id);
-        return $compania_alquiler;
+        if($compania_alquiler != NULL){
+            return $compania_alquiler;
+        }
+        else{
+            return "Compania no existe.";
+        }
     }
 
     /**
@@ -71,7 +79,15 @@ class Compania_alquilerController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $compania_alquiler = Compania_alquiler::find($id);
+        if($compania_alquiler != NULL){
+          $compania_alquiler->fill($request->all());
+          $compania_alquiler->save();
+          return $compania_alquiler;
+        }
+        else{
+          return "No puede modificar una compañia de alquiler no existente.";
+        }
     }
 
     /**
@@ -83,7 +99,12 @@ class Compania_alquilerController extends Controller
     public function destroy($id)
     {
       $compania_alquiler = Compania_alquiler::find($id);
-      $compania_alquiler->delete();
-      return Compania_alquiler::All();
+      if($compania_alquiler != NULL){
+          $compania_alquiler->delete();
+          return "Compania de alquiler eliminada.";
+      }
+      else{
+          return "Compania de alquiler no existente.";
+      }
     }
 }

@@ -36,7 +36,10 @@ class PasajeroController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $pasajero = new Pasajero;
+        $pasajero->fill($request->all());
+        $pasajero->save();
+        return $pasajero;
     }
 
     /**
@@ -48,7 +51,12 @@ class PasajeroController extends Controller
     public function show($id)
     {
         $pasajero = Pasajero::find($id);
-        return $pasajero;
+        if($pasajero != NULL){
+            return $pasajero;
+        }
+        else{
+            return "Pasajero no existente.";
+        }
     }
 
     /**
@@ -71,7 +79,15 @@ class PasajeroController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $pasajero = Pasajero::find($id);
+        if($pasajero != NULL){
+          $pasajero->fill($request->all());
+          $pasajero->save();
+          return $pasajero;
+        }
+        else{
+          return "No puede modificar un pasajero no existente.";
+        }
     }
 
     /**
@@ -83,7 +99,12 @@ class PasajeroController extends Controller
     public function destroy($id)
     {
       $pasajero = Pasajero::find($id);
-      $pasajero->delete();
-      return Pasajero::All();
+      if($pasajero != NULL){
+          $pasajero->delete();
+          return "Pasajero eliminado.";
+      }
+      else{
+          return "Pasajero no existente.";
+      }
     }
 }

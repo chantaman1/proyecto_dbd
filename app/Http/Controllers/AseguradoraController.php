@@ -36,7 +36,10 @@ class AseguradoraController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $aseguradora = new Aseguradora;
+        $aseguradora->fill($request->all());
+        $aseguradora->save();
+        return $aseguradora;
     }
 
     /**
@@ -48,7 +51,12 @@ class AseguradoraController extends Controller
     public function show($id)
     {
         $aseguradora = Aseguradora::find($id);
-        return $aseguradora;
+        if($aseguradora != NULL){
+            return $aseguradora;
+        }
+        else{
+            return "Aseguradora no existe.";
+        }
     }
 
     /**
@@ -71,7 +79,15 @@ class AseguradoraController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $aseguradora = Aseguradora::find($id);
+        if($aseguradora != NULL){
+          $aseguradora->fill($request->all());
+          $aseguradora->save();
+          return $aseguradora;
+        }
+        else{
+          return "No puede modificar una aseguradora no existente.";
+        }
     }
 
     /**
@@ -83,7 +99,12 @@ class AseguradoraController extends Controller
     public function destroy($id)
     {
         $aseguradora = Aseguradora::find($id);
-        $aseguradora->delete();
-        return Aseguradora::All();
+        if($aseguradora != NULL){
+            $aseguradora->delete();
+            return "Aseguradora eliminada.";
+        }
+        else{
+            return "Aseguradora no existe.";
+        }
     }
 }

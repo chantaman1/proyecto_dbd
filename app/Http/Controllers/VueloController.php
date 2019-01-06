@@ -18,6 +18,16 @@ class VueloController extends Controller
         return $vuelos;
     }
 
+    public function getFlightByDate($date){
+        $vuelos = Vuelo::where('fecha', $date)->get();
+        return $vuelos;
+    }
+
+    public function getFlightByDestination($city){
+        $vuelos = Vuelo::where('ciudad_destino', $city)->get();
+        return $vuelos;
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -36,7 +46,10 @@ class VueloController extends Controller
      */
     public function store(Request $request)
     {
-        //
+      $vuelo = new Vuelo;
+      $vuelo->fill($request->all());
+      $vuelo->save();
+      return $vuelo;
     }
 
     /**
@@ -48,7 +61,12 @@ class VueloController extends Controller
     public function show($id)
     {
         $vuelo = Vuelo::find($id);
-        return $vuelo;
+        if($vuelo != NULL){
+          return $vuelo;
+        }
+        else{
+          return "El vuelo no existe.";
+        }
     }
 
     /**
@@ -71,7 +89,15 @@ class VueloController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+      $vuelo = Vuelo::find($id);
+      if($vuelo != NULL){
+        $vuelo->fill($request->all());
+        $vuelo->save();
+        return $vuelo;
+      }
+      else{
+        return "No puede modificar un vuelo no existente.";
+      }
     }
 
     /**
@@ -83,7 +109,12 @@ class VueloController extends Controller
     public function destroy($id)
     {
       $vuelo = Vuelo::find($id);
-      $vuelo->delete();
-      return Vuelo::All();
+      if($vuelo != NULL){
+        $vuelo->delete();
+        return "Vuelo eliminado.";
+      }
+      else{
+        return "Vuelo no existente.";
+      }
     }
 }

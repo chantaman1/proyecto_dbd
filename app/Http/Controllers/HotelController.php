@@ -36,7 +36,10 @@ class HotelController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $hotel = new Hotel;
+        $hotel->fill($request->all());
+        $hotel->save();
+        return $hotel;
     }
 
     /**
@@ -48,7 +51,12 @@ class HotelController extends Controller
     public function show($id)
     {
         $hotel = Hotel::find($id);
-        return $hotel;
+        if($hotel != NULL){
+            return $hotel;
+        }
+        else{
+            return "Hotel no existe.";
+        }
     }
 
     /**
@@ -71,7 +79,15 @@ class HotelController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $hotel = Hotel::find($id);
+        if($hotel != NULL){
+          $hotel->fill($request->all());
+          $hotel->save();
+          return $hotel;
+        }
+        else{
+          return "No puede modificar un hotel no existente.";
+        }
     }
 
     /**
@@ -83,7 +99,12 @@ class HotelController extends Controller
     public function destroy($id)
     {
       $hotel = Hotel::find($id);
-      $hotel->delete();
-      return Hotel::All();
+      if($hotel != NULL){
+          $hotel->delete();
+          return "Hotel eliminado.";
+      }
+      else{
+          return "Hotel no existente.";
+      }
     }
 }

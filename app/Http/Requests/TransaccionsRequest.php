@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class AuditoriasRequest extends FormRequest
+class TransaccionsRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,9 +24,7 @@ class AuditoriasRequest extends FormRequest
     public function rules()
     {
         return [
-          'tipo_transaccion' => 'required|string',
-          'usuario_id' => 'required|unsignedInteger',
-          'transaccion_id' => 'required|unsignedInteger'
+          'descripcion' => 'required|string'
         ];
     }
 }

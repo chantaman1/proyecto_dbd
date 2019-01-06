@@ -36,7 +36,10 @@ class ServicioController extends Controller
      */
     public function store(Request $request)
     {
-        //
+      $servicio = new Servicio;
+      $servicio->fill($request->all());
+      $servicio->save();
+      return $servicio;
     }
 
     /**
@@ -48,7 +51,12 @@ class ServicioController extends Controller
     public function show($id)
     {
         $servicio = Servicio::find($id);
-        return $servicio;
+        if($servicio != NULL){
+            return $servicio;
+        }
+        else{
+            return "Servicio no existente.";
+        }
     }
 
     /**
@@ -71,7 +79,15 @@ class ServicioController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+      $servicio = Servicio::find($id);
+      if($servicio != NULL){
+        $servicio->fill($request->all());
+        $servicio->save();
+        return $servicio;
+      }
+      else{
+        return "No puede modificar un servicio no existente.";
+      }
     }
 
     /**
@@ -83,7 +99,12 @@ class ServicioController extends Controller
     public function destroy($id)
     {
       $servicio = Servicio::find($id);
-      $servicio->delete();
-      return Servicio::All();
+      if($servicio != NULL){
+          $servicio->delete();
+          return "Servicio eliminado.";
+      }
+      else{
+          return "Servicio no existente.";
+      }
     }
 }

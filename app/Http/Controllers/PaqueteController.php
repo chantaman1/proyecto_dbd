@@ -37,7 +37,10 @@ class PaqueteController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $paquete = new Paquete;
+        $paquete->fill($request->all());
+        $paquete->save();
+        return $paquete;
     }
 
     /**
@@ -49,7 +52,12 @@ class PaqueteController extends Controller
     public function show($id)
     {
         $paquete = Paquete::find($id);
-        return $paquete;
+        if($paquete != NULL){
+            return $paquete;
+        }
+        else{
+            return "Paquete no existe.";
+        }
     }
 
     /**
@@ -72,7 +80,15 @@ class PaqueteController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $paquete = Paquete::find($id);
+        if($paquete != NULL){
+          $paquete->fill($request->all());
+          $paquete->save();
+          return $paquete;
+        }
+        else{
+          return "No puede modificar un paquete no existente.";
+        }
     }
 
     /**
@@ -84,7 +100,12 @@ class PaqueteController extends Controller
     public function destroy($id)
     {
       $paquete = Paquete::find($id);
-      $paquete->delete();
-      return Paquete::All();
+      if($paquete != NULL){
+          $paquete->delete();
+          return "Paquete eliminado.";
+      }
+      else{
+          return "Paquete no existente.";
+      }
     }
 }

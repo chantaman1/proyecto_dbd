@@ -31,7 +31,7 @@ class HabitacionsRequest extends FormRequest
           'categoria' => 'required|string',
           'precio' => 'required|integer',
           'activo' => 'required|boolean',
-          'hotel_id' => 'required|integer'
+          'hotel_id' => 'required|unsignedInteger'
         ];
     }
 }

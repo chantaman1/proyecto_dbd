@@ -36,7 +36,15 @@ class AsientoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $asiento = new Asiento;
+        $asiento->fill($request->all());
+        $asiento->save();
+        return $asiento;
+    }
+
+    public function getSeatsByFlightId($id){
+        $asientos = Asiento::where('vuelo_id', $id)->where('disponibilidad', true)->get();
+        return $asientos;
     }
 
     /**
@@ -48,7 +56,12 @@ class AsientoController extends Controller
     public function show($id)
     {
         $asiento = Asiento::find($id);
-        return $asiento;
+        if($asiento != NULL){
+            return $asiento;
+        }
+        else{
+            return "Asiento no existe.";
+        }
     }
 
     /**
@@ -71,7 +84,34 @@ class AsientoController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $asiento = Asiento::find($id);
+        if($asiento != NULL){
+          $asiento->fill($request->all());
+          $asiento->save();
+          return $asiento;
+        }
+        else{
+          return "No puede modificar un asiento no existente.";
+        }
+    }
+
+    public function updateSeat($id){
+      $asiento = Asiento::find($id);
+      if($asiento != NULL){
+        if($asiento->disponibilidad == true){
+          $asiento->disponibilidad = false;
+          $asiento->save();
+          return $asiento;
+        }
+        else{
+          $asiento->disponibilidad = true;
+          $asiento->save();
+          return $asiento;
+        }
+      }
+      else{
+        return "No puede modificar un asiento no existente.";
+      }
     }
 
     /**
@@ -83,7 +123,12 @@ class AsientoController extends Controller
     public function destroy($id)
     {
       $asiento = Asiento::find($id);
-      $asiento->delete();
-      return Asiento::All();
+      if($asiento != NULL){
+          $asiento->delete();
+          return "Asiento eliminado.";
+      }
+      else{
+          return "Asiento no existe.";
+      }
     }
 }

@@ -18,7 +18,7 @@ class transaccionSeeder extends Seeder
       ]);
 
       DB::table('transaccions')->insert([
-          'descripcion' => 'Actualizda informacon de usuario con correo: ',
+          'descripcion' => 'Actualizada informacion de usuario con correo: ',
           'created_at' => now(),
           'updated_at' => null,
       ]);

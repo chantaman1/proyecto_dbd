@@ -26,8 +26,8 @@ class Comprobante_pagosRequest extends FormRequest
         return [
           'total_pagado' => 'required|integer',
           'descripcion_pago' => 'required|text',
-          'metodo_pago_id' => 'required|integer',
-          'reserva_id' => 'required|integer'
+          'metodo_pago_id' => 'required|unsignedInteger',
+          'reserva_id' => 'required|unsignedInteger'
         ];
     }
 }
