@@ -47,7 +47,11 @@
             .title {
                 font-size: 84px;
             }
-
+            h1 {
+              font-size: 100%;
+              color: #BE0000;
+              text-transform: uppercase;
+            }
             .links > a {
                 color: #636b6f;
                 padding: 0 25px;
@@ -81,16 +85,13 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Laravel
+                  <h1>URSS AIRLINES</h1>
                 </div>
 
                 <div class="links">
-                    <a href="https://laravel.com/docs">Documentation</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://nova.laravel.com">Nova</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://github.com/laravel/laravel">NIGGERS</a>
+                  @foreach($data as $aerolinea)
+                    <a href="https://laravel.com/docs">{{$aerolinea->nombre}}</a>
+                  @endforeach
                 </div>
             </div>
         </div>

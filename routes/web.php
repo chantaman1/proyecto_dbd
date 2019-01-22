@@ -12,8 +12,13 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
 });
+
+Route::get('/vuelos', function () {
+    return view('flight');
+});
+
 
 Auth::routes();
 

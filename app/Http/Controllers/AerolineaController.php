@@ -15,7 +15,7 @@ class AerolineaController extends Controller
     public function index()
     {
       $aerolineas = Aerolinea::All();
-      return $aerolineas;
+      return view('welcome')->with('data', $aerolineas);
     }
 
     /**
