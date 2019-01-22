@@ -249,6 +249,7 @@ Route::post('/vuelo/update/{id}', 'vueloController@update');
 
 Route::get('/vuelo/destroy/{id}', 'vueloController@destroy');
 //-------------------------------------------------------------
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
