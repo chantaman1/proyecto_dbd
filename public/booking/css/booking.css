@@ -116,6 +116,14 @@ textarea::-moz-placeholder
   padding-left: 21px;
   padding-right: 21px;
 }
+
+#bookingForm a.btnz {
+  margin-top: 16px;
+  padding-left: 21px;
+  padding-right: 21px;
+}
+#bookingForm a.btnz:hover {
+}
 #bookingForm a.btn:hover {
 }
 .controlHolder {
