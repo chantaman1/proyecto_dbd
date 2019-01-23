@@ -236,6 +236,8 @@ Route::get('/servicio/destroy/{id}', 'servicioController@destroy');
 //RUTAS DEL VEHICULO
 Route::get('/vehiculo/show/{id}', 'vehiculoController@show');
 
+Route::get('/cars','vehiculoController@filter');
+
 Route::get('/vehiculo/all/', 'vehiculoController@index');
 
 Route::post('/vehiculo/register', 'vehiculoController@store');
