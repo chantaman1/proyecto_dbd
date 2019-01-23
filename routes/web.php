@@ -233,7 +233,7 @@ Route::get('/vuelo/show/{id}', 'vueloController@show');
 
 Route::get('/vuelo/all/', 'vueloController@index');
 
-Route::get('/vuelo/search/', 'vueloController@getFlights');
+Route::get('/results', 'vueloController@getFlights');
 
 Route::get('/vuelo/byDate/{date}/', 'vueloController@getFlightByDate');
 

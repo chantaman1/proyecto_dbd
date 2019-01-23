@@ -33,7 +33,7 @@ class VueloController extends Controller
           'ciudad_origen' => $request->get('origen'),
           'ciudad_destino' => $request->get('destino')
         ])->get();
-        return $vuelos;
+        return view('flightResult')->with('vuelos', $vuelos);
     }
 
     /**
