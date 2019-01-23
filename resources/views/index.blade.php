@@ -71,10 +71,10 @@
 						<nav class="horizontal-nav full-width horizontalNav-notprocessed">
 							<ul class="sf-menu">
 								<li class="current"><a href="index.html">HOME</a></li>
-								<li><a href="index-1.html">VUELOS</a></li>
-								<li><a href="index-2.html">HABITACIONES</a></li>
-								<li><a href="index-3.html">PAQUETES</a></li>
-								<li><a href="index-4.html">AUTOS</a></li>
+								<li><a href="/vuelos">VUELOS</a></li>
+								<li><a href="/hoteles">HABITACIONES</a></li>
+								<li><a href="/paquetes">PAQUETES</a></li>
+								<li><a href="/vehiculos">AUTOS</a></li>
 							</ul>
 						</nav>
 						<div class="clear"></div>
