@@ -131,7 +131,7 @@
 					<h3>Asientos disponibles</h3>
           @foreach ($asientos as $data)
             <div class="grid_4">
-              <a href="pasajero" class="btn"> <strong>Codigo de asiento:</strong> {{$data->codigo}} <br/> <strong>Tipo de asiento:</strong> {{$data->tipo}} <br/> <strong>Precio:</strong> ${{$data->precio}}</a>
+              <a href="pasajero?id={{ $data->id }}" class="btn"> <strong>Codigo de asiento:</strong> {{$data->codigo}} <br/> <strong>Tipo de asiento:</strong> {{$data->tipo}} <br/> <strong>Precio:</strong> ${{$data->precio}}</a>
             </div>
           @endforeach
 				</div>
