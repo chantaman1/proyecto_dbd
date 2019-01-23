@@ -70,7 +70,7 @@
 					<div class="menu_block">
 						<nav class="horizontal-nav full-width horizontalNav-notprocessed">
 							<ul class="sf-menu">
-								<li class="current"><a href="index.html">HOME</a></li>
+								<li><a href="/">YOUR TRIP</a></li>
 								<li><a href="/vuelos">VUELOS</a></li>
 								<li><a href="/hoteles">HOTELES</a></li>
 								<li><a href="/paquetes">PAQUETES</a></li>
@@ -95,30 +95,27 @@
 					<div class="caption fadeIn">
 						<h2>LONDON</h2>
 						<div class="price">
-							FROM
+							DESDE
 							<span>$1000</span>
 						</div>
-						<a href="#">LEARN MORE</a>
 					</div>
 				</div>
 				<div data-src="images/slide1.jpg">
 					<div class="caption fadeIn">
 						<h2>Maldives</h2>
 						<div class="price">
-							FROM
+							DESDE
 							<span>$2000</span>
 						</div>
-						<a href="#">LEARN MORE</a>
 					</div>
 				</div>
 				<div data-src="images/slide2.jpg">
 					<div class="caption fadeIn">
 						<h2>Venice</h2>
 						<div class="price">
-							FROM
+							DESDE
 							<span>$1600</span>
 						</div>
-						<a href="#">LEARN MORE</a>
 					</div>
 				</div>
 			</div>
@@ -131,8 +128,7 @@
 						<img src="images/ban_img1.jpg" alt="">
 						<div class="label">
 							<div class="title">Barcelona</div>
-							<div class="price">FROM<span>$ 1000</span></div>
-							<a href="#">LEARN MORE</a>
+							<div class="price">DESDE<span>$ 1000</span></div>
 						</div>
 					</div>
 				</div>
@@ -141,8 +137,7 @@
 						<img src="images/ban_img2.jpg" alt="">
 						<div class="label">
 							<div class="title">GOA</div>
-							<div class="price">FROM<span>$ 1.500</span></div>
-							<a href="#">LEARN MORE</a>
+							<div class="price">DESDE<span>$ 1.500</span></div>
 						</div>
 					</div>
 				</div>
@@ -151,8 +146,7 @@
 						<img src="images/ban_img3.jpg" alt="">
 						<div class="label">
 							<div class="title">PARIS</div>
-							<div class="price">FROM<span>$ 1.600</span></div>
-							<a href="#">LEARN MORE</a>
+							<div class="price">DESDE<span>$ 1.600</span></div>
 						</div>
 					</div>
 				</div>

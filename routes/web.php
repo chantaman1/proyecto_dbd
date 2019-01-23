@@ -23,6 +23,11 @@ Route::get('/hoteles', function () {
     return view('hotel');
 });
 
+Route::get('/home', function () {
+    return view('index');
+});
+
+
 //RUTAS DEL USUARIO
 Route::get('/usuario/show/{id}', 'usuarioController@show');
 
