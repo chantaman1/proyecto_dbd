@@ -19,6 +19,9 @@ Route::get('/vuelos', function () {
     return view('flight');
 });
 
+Route::get('/hoteles', function () {
+    return view('hotel');
+});
 
 //RUTAS DEL USUARIO
 Route::get('/usuario/show/{id}', 'usuarioController@show');
