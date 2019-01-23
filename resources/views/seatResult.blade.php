@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<title>Vuelos</title>
+		<title>About</title>
 		<meta charset="utf-8">
 		<meta name="format-detection" content="telephone=no" />
 		<link rel="icon" href="images/favicon.ico">
@@ -63,16 +63,16 @@
 		<![endif]-->
 	</head>
 	<body class="page1" id="top">
-	<!--==============================header=================================-->
+<!--==============================header=================================-->
 		<header>
 			<div class="container_12">
 				<div class="grid_12">
 					<div class="menu_block">
 						<nav class="horizontal-nav full-width horizontalNav-notprocessed">
 							<ul class="sf-menu">
-								<li><a href="/">YOUR TRIP</a></li>
+								<li class="current"><a href="index.html">HOME</a></li>
 								<li><a href="/vuelos">VUELOS</a></li>
-								<li><a href="/hoteles">HOTELES</a></li>
+								<li><a href="/hoteles">HABITACIONES</a></li>
 								<li><a href="/paquetes">PAQUETES</a></li>
 								<li><a href="/vehiculos">AUTOS</a></li>
 							</ul>
@@ -95,27 +95,30 @@
 					<div class="caption fadeIn">
 						<h2>LONDON</h2>
 						<div class="price">
-							DESDE
+							FROM
 							<span>$1000</span>
 						</div>
+						<a href="#">LEARN MORE</a>
 					</div>
 				</div>
 				<div data-src="images/slide1.jpg">
 					<div class="caption fadeIn">
 						<h2>Maldives</h2>
 						<div class="price">
-							DESDE
+							FROM
 							<span>$2000</span>
 						</div>
+						<a href="#">LEARN MORE</a>
 					</div>
 				</div>
 				<div data-src="images/slide2.jpg">
 					<div class="caption fadeIn">
 						<h2>Venice</h2>
 						<div class="price">
-							DESDE
+							FROM
 							<span>$1600</span>
 						</div>
+						<a href="#">LEARN MORE</a>
 					</div>
 				</div>
 			</div>
@@ -125,10 +128,10 @@
 			<div class="container_12 offset-by-six">
 				<div class="clear"></div>
 				<div class="grid_6">
-					<h3>Vuelos disponibles</h3>
-          @foreach ($vuelos as $data)
+					<h3>Asientos disponibles</h3>
+          @foreach ($asientos as $data)
             <div class="grid_4">
-              <a href="selecAsiento?id={{ $data->id }}" class="btn"> <strong>Pais de origen:</strong> {{$data->pais_origen}} <br/> <strong>Ciudad de origen:</strong> {{$data->ciudad_origen}} <br/> <strong>Pais de destino:</strong> {{$data->pais_destino}} <br/> <strong>Ciudad de destino:</strong> {{$data->ciudad_destino}} <br/> <strong>Fecha de salida:</strong> {{$data->fecha}} <br/> <strong>Hora de salida:</strong> {{$data->hora}}</a>
+              <a href="pasajero" class="btn"> <strong>Codigo de asiento:</strong> {{$data->codigo}} <br/> <strong>Tipo de asiento:</strong> {{$data->tipo}} <br/> <strong>Precio:</strong> ${{$data->precio}}</a>
             </div>
           @endforeach
 				</div>

@@ -261,6 +261,9 @@ Route::post('/vuelo/update/{id}', 'vueloController@update');
 
 Route::get('/vuelo/destroy/{id}', 'vueloController@destroy');
 
+Route::get('/selecAsiento', 'asientoController@getSeatsByFlightId');
+
+Route::get('/pasajero', 'pasajeroController@index');
 //-------------------------------------------------------------
 
 Route::post('/login/doLogin', 'Auth\LoginController@authenticate');
