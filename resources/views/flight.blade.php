@@ -147,14 +147,14 @@
 						<div id="startFlight">
 							<strong>Fecha de ida</strong>
 							<label class="tmDatepicker">
-								<input type="text" name="fecha_origen" placeHolder={{ date('d-m-Y') }} data-constraints="@NotEmpty @Required @Date">
+								<input type="text" name="fecha_origen" placeHolder={{ date('d/m/Y') }} data-constraints="@NotEmpty @Required @Date">
 							</label>
 						</div>
 						<div class="clear"></div>
 						<div id="returnFligth">
 							<strong>Fecha de regreso</strong>
 							<label class="tmDatepicker">
-								<input type="text" name="fecha_destino" placeHolder={{ date('d-m-Y') }} data-constraints="@NotEmpty @Required @Date">
+								<input type="text" name="fecha_destino" placeHolder={{ date('d/m/Y') }} data-constraints="@NotEmpty @Required @Date">
 							</label>
 						</div>
 						<div class="clear"></div>

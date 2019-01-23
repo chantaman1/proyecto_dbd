@@ -19,7 +19,7 @@ class Usuario extends Migration
           $table->string('apellido_paterno', 40);//apellido más largo 39 char
           $table->string('apellido_materno', 40);//apellido más largo 39 char
           $table->string('password', 127);
-          $table->date('fecha_nacimiento');
+          $table->string('fecha_nacimiento', 30);
           $table->string('direccion', 100);
           $table->string('telefono', 30);
           $table->string('correo')->unique();
