@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<title>About</title>
+		<title>Hoteles</title>
 		<meta charset="utf-8">
 		<meta name="format-detection" content="telephone=no" />
 		<link rel="icon" href="images/favicon.ico">
@@ -125,23 +125,21 @@
 			<div class="container_12 offset-by-six">
 				<div class="clear"></div>
 				<div class="grid_6">
-					<h3>Vuelos</h3>
+					<h3>HOTELES</h3>
 					<form id="bookingForm">
 						<div class="fl1">
-							<div class="tmInput">
-								<input name="origen" placeHolder="Origen: Ciudad" type="text" data-constraints='@NotEmpty @Required @AlphaSpecial'>
-							</div>
-							<div class="tmInput">
-								<input name="destino" placeHolder="Destino: Ciudad" type="text" data-constraints="@NotEmpty @Required">
+							<div class="tmInput" id="destino">
+								Destino, nombre de alojamiento o dirección:
+								<input name="origen" placeHolder="Escriba destino" type="text" data-constraints='@NotEmpty @Required @AlphaSpecial'>
 							</div>
 						</div>
 						<div class="clear"></div>
-						<strong>Check-in</strong>
+						Fecha de Check-in
 						<label class="tmDatepicker">
 							<input type="text" name="Check-in" placeHolder='10/05/2014' data-constraints="@NotEmpty @Required @Date">
 						</label>
 						<div class="clear"></div>
-						<strong>Check-out</strong>
+						Fecha de Check-out
 						<label class="tmDatepicker">
 							<input type="text" name="Check-out" placeHolder='20/05/2014' data-constraints="@NotEmpty @Required @Date">
 						</label>

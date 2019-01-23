@@ -31,6 +31,10 @@ Route::get('/home', function () {
     return view('index');
 });
 
+Route::get('/paquetes', function () {
+    return view('package');
+});
+
 
 //RUTAS DEL USUARIO
 Route::get('/usuario/show/{id}', 'usuarioController@show');
