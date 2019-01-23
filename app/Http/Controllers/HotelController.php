@@ -107,4 +107,20 @@ class HotelController extends Controller
           return "Hotel no existente.";
       }
     }
+
+    public function search(Request $request){
+      $hoteles_validos = array();
+      foreach (Hotel::all() as $hotel) {
+        if($hotel->$ciudad == $request->$ciudad){
+            $hoteles_validos[] = $hotel->$id;
+        }
+      }
+    }
+
+    public function getAllRooms(Request $request){
+      $habitaciones_validas = array();
+      $hotel = Hotel::find($request->$hotel_id);
+
+      foreach()
+    }
 }

@@ -113,7 +113,6 @@ class VehiculoController extends Controller
             'fecha_arriendo' => 'required|date|after:today',
             'fecha_devolucion' => 'required|date|after:fecha_arriendo',
         ]);
-    }
     if ($validator->fails()) {
             return redirect()->back()
                 ->withErrors($validator);
@@ -144,7 +143,5 @@ class VehiculoController extends Controller
     ->whereNotIn('id',$reservados)
     ->whereNotIn('id',$enpaquetados)
     ->get();
-
-
-
+  }
 }
