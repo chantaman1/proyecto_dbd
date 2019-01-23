@@ -19,6 +19,16 @@ document.addEventListener( 'DOMContentLoaded', function() {
 	try { $('body').unmousewheel(); } catch( error ) {}
 });
 
+$(document).ready(function(){
+    $('input[name="tmBtn"]').change(function(){
+        if($('#tmRadio1').prop('checked')){
+            hideFlight();
+        }else{
+            showFlight();
+        }
+    });
+});
+
 $(function(){
 // IPad/IPhone
   var viewportmeta = document.querySelector && document.querySelector('meta[name="viewport"]'),
@@ -32,7 +42,7 @@ $(function(){
       document.addEventListener("gesturestart", gestureStart, false);
     }
   };
-  
+
   scaleFix();
   // Menu Android
   if(window.orientation!=undefined){
@@ -49,7 +59,7 @@ $(function(){
        window.location.href = $(this).attr("href");
       }
      );
-    } 
+    }
    })
   }
  }
@@ -71,3 +81,13 @@ var currentYear = (new Date).getFullYear();
   $(function(){
   $('.sf-menu').superfish({autoArrows: true})
 })
+
+function hideFlight() {
+  var x = document.getElementById("returnFligth");
+  x.style.display = "none";
+}
+
+function showFlight() {
+  var x = document.getElementById("returnFligth");
+  x.style.display = "block";
+}
