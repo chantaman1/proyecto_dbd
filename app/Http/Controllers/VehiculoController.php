@@ -110,39 +110,8 @@ class VehiculoController extends Controller
     }
 
     public function filter(Request $request){
-    /*  $validator = Validator::make($request->all(), [
-            'fecha_arriendo' => 'required|date|after:today',
-            'fecha_devolucion' => 'required|date|after:fecha_arriendo',
-        ]);
-    if ($validator->fails()) {
-            return redirect()->back()
-                ->withErrors($validator);
-        }*/
-    /*$companias_validas = array();
-    foreach (Compania_alquiler::all() as $compania) {
-      if($compania->ciudad == $request->get('ciudad')){
-          $companias_validas[] = $compania->get('id');
-      }
-    }
-    $id_vehiculos = Vehiculo::whereIn('compania_alquiler_id', $companias)
-            ->pluck('id');
-    //Se obtienen todos los vehiculos que ya están reservados en la fecha solicitada
-    /*$reservados = Reserva::join('reserva_vehiculo', 'reserva_vehiculo.reserva_id', '=', 'reservas.id')
-    ->whereIn('reserva_vehiculo.vehiculo_id',$id_vehiculos)
-    ->where('reserva_vehiculo.fecha_inicio','<',$request->get('fecha_devolucion'))
-    ->where('reserva_vehiculo.fecha_termino','>',$request->get('fecha_arriendo'))
-    ->pluck('reserva_vehiculo.vehiculo_id');*/
-    //Se obtienen todos los vehiculos que fueron arrendados para un paquete ene la fecha solicitada
-    /*$enpaquetados = Paquete::join('paquete_vehiculo','paquete_vehiculo.paquete_id','=','´paquetes.id')
-    ->whereIn('paquete_vehiculo.vehiculo_id',$id_vehiculos)
-    ->where('paquete_vehiculo.fecha_inicio','<',$request->$fecha_devolucion)
-    ->where('paquete_vehiculo.fecha_termino','>',$request->fecha_arriendo)
-    ->pluck('paquete_vehiculo.vehiculo_id')*/
-    //Se filtran los vehiculos disponibles, descartando los ya reservados o que fueron vendidos en un paquete
-    /*$vehiculos_encontrados = Vehiculo::whereIn('id',$id_vehiculos)
-    //->whereNotIn('id',$reservados)
-    //->whereNotIn('id',$enpaquetados)
-    ->get();*/
-    return view('vehicle-list')->with('vehiculos',Vehiculo::All());
+      $alquiler = Compania_alquiler::where('ciudad', $request->get('ciudad'))->first();
+      $vehiculos = Vehiculo::where('compania_alquiler_id', $alquiler->id)->get();
+    return view('vehicle-list')->with('vehiculos', $vehiculos);
   }
 }

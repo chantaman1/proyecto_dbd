@@ -156,6 +156,10 @@ Route::post('/hotel/update/{id}', 'hotelController@update');
 
 Route::get('/hotel/destroy/{id}', 'hotelController@destroy');
 
+Route::get('/getHotels','hotelController@filter');
+
+Route::get('mostrar_habitaciones','hotelController@getAllRooms');
+
 //RUTAS DEL METODO PAGO
 Route::get('/metodo_pago/show/{id}', 'metodo_pagoController@show');
 

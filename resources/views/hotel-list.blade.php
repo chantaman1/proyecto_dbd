@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<title>Hoteles</title>
+		<title>Vehículos</title>
 		<meta charset="utf-8">
 		<meta name="format-detection" content="telephone=no" />
 		<link rel="icon" href="images/favicon.ico">
@@ -61,7 +61,7 @@
 		<script src="js/html5shiv.js"></script>
 		<link rel="stylesheet" media="screen" href="css/ie.css">
 		<![endif]-->
-  </head>
+	</head>
 	<body class="page1" id="top">
 <!--==============================header=================================-->
 		<header>
@@ -121,66 +121,19 @@
 			</div>
 		</div>
 <!--==============================Content=================================-->
-		<div class="content"><div class="ic">More Website Templates @ TemplateMonster.com - February 10, 2014!</div>
-			<div class="container_12 offset-by-six">
-				<div class="clear"></div>
-				<div class="grid_6">
-					<h3>HOTELES</h3>
-					<form id="bookingForm" action="{{ url('getHotels') }}">
-						<div class="fl1">
-							<div class="tmInput">
-								Ciudad
-								<input name="ciudad" placeHolder="Escriba ciudad" type="text" data-constraints='@NotEmpty @Required @AlphaSpecial'>
-							</div>
-						</div>
-						<div class="clear"></div>
-						Fecha inicio
-						<label class="tmDatepicker">
-							<input type="text" name="fecha_inicio" placeHolder='10/05/2014' data-constraints="@NotEmpty @Required @Date">
-						</label>
-						<div class="clear"></div>
-						Fecha fin
-						<label class="tmDatepicker">
-							<input type="text" name="fecha_fin" placeHolder='20/05/2014' data-constraints="@NotEmpty @Required @Date">
-						</label>
-						<div class="clear"></div>
-						<div class="clear"></div>
-						<div class="fl1 fl2">
-							<em>Adultos</em>
-							<select name="adults" class="tmSelect auto" data-class="tmSelect tmSelect2" data-constraints="">
-								<option>1</option>
-								<option>1</option>
-								<option>2</option>
-								<option>3</option>
-								<option>4</option>
-								<option>5</option>
-								<option>6</option>
-								<option>7</option>
-							</select>
-							<div class="clear"></div>
-						</div>
-						<div class="fl1 fl2">
-							<em>Niños</em>
-							<select name="children" class="tmSelect auto" data-class="tmSelect tmSelect2" data-constraints="">
-								<option>0</option>
-								<option>1</option>
-								<option>2</option>
-								<option>3</option>
-								<option>4</option>
-								<option>5</option>
-								<option>6</option>
-								<option>7</option>
-							</select>
-						</div>
-						<div class="clear"></div>
-						<div class="fl1 fl2">
-						</div>
-						<div class="clear"></div>
-						<a href="javascript:" onclick="parentNode.submit();" class="btn" data-type="submit">Buscar hoteles</a>
-					</form>
+<div class="content"><div class="ic">More Website Templates @ TemplateMonster.com - February 10, 2014!</div>
+	<div class="container_12 offset-by-six">
+		<div class="clear"></div>
+		<div class="grid_6">
+			<h3>Hoteles disponibles en la ciudad</h3>
+			@foreach ($hotels as $data)
+				<div class="grid_4">
+					<a href="mostrar_habitaciones?id={{ $data->id }}" class="btn"> <strong>Nombre:</strong> {{$data->nombre}} <br/> <strong>Dirección:</strong> {{$data->direccion}} <br/> <strong>Teléfono:</strong> {{$data->telefono}} <br/> <strong>Ciudad:</strong> {{$data->ciudad}} <br/> <strong>País:</strong> {{$data->pais}} <br/> <strong>Calificación:</strong> {{$data->calificacion}} <strong>WebPage:</strong> {{$data->webpage}} <br/></a>
 				</div>
-			</div>
+			@endforeach
 		</div>
+	</div>
+</div>
 <!--==============================footer=================================-->
 		<footer>
 			<div class="container_12">
