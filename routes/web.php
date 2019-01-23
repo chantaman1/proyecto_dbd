@@ -19,8 +19,12 @@ Route::get('/vuelos', function () {
     return view('flight');
 });
 
-Route::get('/hoteles', function () {
-    return view('hotel');
+Route::get('/vehiculos',function(){
+  return view('vehicle');
+});
+
+Route::get('/hoteles',function(){
+  return view('hotel');
 });
 
 Route::get('/home', function () {
