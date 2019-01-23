@@ -236,7 +236,7 @@
 							</select>
 						</div>
 						<div class="clear"></div>
-						<a href="#" class="btn" data-type="submit">Buscar vuelos</a>
+						<a href="#" class="btn" data-type="submit">Buscar hoteles</a>
 					</form>
 				</div>
 			</div>
