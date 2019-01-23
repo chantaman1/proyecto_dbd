@@ -20,12 +20,6 @@ Route::get('/vuelos', function () {
 });
 
 
-Auth::routes();
-
-Route::get('activate/{token}', 'Auth\RegisterController@activate')
-    ->name('activate');
-Route::get('/home', 'HomeController@index')->name('home');
-
 //RUTAS DEL USUARIO
 Route::get('/usuario/show/{id}', 'usuarioController@show');
 
@@ -256,4 +250,14 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Auth::routes();
 
+Route::get('/home', 'HomeController@index')->name('home');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Auth::routes();
+
+Route::get('activate/{token}', 'Auth\RegisterController@activate')
+    ->name('activate');
 Route::get('/home', 'HomeController@index')->name('home');

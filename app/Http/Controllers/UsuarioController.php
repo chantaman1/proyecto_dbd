@@ -46,7 +46,7 @@ class UsuarioController extends Controller
      */
     public function store(Request $request)
     {
-        $existUser = Usuario::where('correo', request('correo'));
+        $existUser = Usuario::where('correo', request('correo'))->first();
         if($existUser == NULL){
             $usuario = new Usuario;
             $usuario->fill($request->all());
