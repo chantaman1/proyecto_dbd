@@ -12,8 +12,9 @@ class PasajeroController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($id)
     {
+        session(['asiento' => $id]);
         return view('passengerFlight');
     }
 

@@ -31,7 +31,8 @@ class VueloController extends Controller
     public function getFlights(Request $request){
         $vuelos = Vuelo::where([
           'ciudad_origen' => $request->get('origen'),
-          'ciudad_destino' => $request->get('destino')
+          'ciudad_destino' => $request->get('destino'),
+          'fecha' => $request->get('fecha_origen')
         ])->get();
         return view('flightResult')->with('vuelos', $vuelos);
     }
