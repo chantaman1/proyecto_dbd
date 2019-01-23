@@ -72,7 +72,7 @@
 							<ul class="sf-menu">
 								<li class="current"><a href="index.html">HOME</a></li>
 								<li><a href="/vuelos">VUELOS</a></li>
-								<li><a href="/hoteles">HABITACIONES</a></li>
+								<li><a href="/hoteles">HOTELES</a></li>
 								<li><a href="/paquetes">PAQUETES</a></li>
 								<li><a href="/vehiculos">AUTOS</a></li>
 							</ul>
@@ -128,12 +128,40 @@
 			<div class="container_12 offset-by-six">
 				<div class="clear"></div>
 				<div class="grid_6">
-					<h3>Vuelos disponibles</h3>
-          @foreach ($vuelos as $data)
-            <div class="grid_4">
-              <a href="selecAsiento?id={{ $data->id }}" class="btn"> <strong>Pais de origen:</strong> {{$data->pais_origen}} <br/> <strong>Ciudad de origen:</strong> {{$data->ciudad_origen}} <br/> <strong>Pais de destino:</strong> {{$data->pais_destino}} <br/> <strong>Ciudad de destino:</strong> {{$data->ciudad_destino}} <br/> <strong>Fecha de salida:</strong> {{$data->fecha}} <br/> <strong>Hora de salida:</strong> {{$data->hora}}</a>
-            </div>
-          @endforeach
+					<h3>Datos del pasajero</h3>
+					<form id="bookingForm" action="{{ url('comprar') }}">
+						<div class="fl1">
+							<div class="tmInput">
+								<input name="nombres" placeHolder="Nombre..." type="text" data-constraints='@NotEmpty @Required @AlphaSpecial'>
+							</div>
+							<div class="tmInput">
+								<input name="apellido_paterno" placeHolder="Apellido paterno..." type="text" data-constraints="@NotEmpty @Required">
+							</div>
+              <div class="tmInput">
+								<input name="apellido_materno" placeHolder="Apellido materno..." type="text" data-constraints="@NotEmpty @Required">
+							</div>
+              <div id="startFlight">
+  							<strong>Fecha de nacimiento</strong>
+  							<label class="tmDatepicker">
+  								<input type="text" name="fecha_nacimiento" placeHolder={{ date('d-m-Y') }} data-constraints="@NotEmpty @Required @Date">
+  							</label>
+  						</div>
+              <div class="tmInput">
+								<input name="telefono" placeHolder="Telefono..." type="text" data-constraints="@NotEmpty @Required">
+							</div>
+              <div class="tmInput">
+								<input name="correo" placeHolder="Correo electronico..." type="text" data-constraints="@NotEmpty @Required">
+							</div>
+              <div class="tmInput">
+								<input name="nacionalidad" placeHolder="Nacionalidad..." type="text" data-constraints="@NotEmpty @Required">
+							</div>
+              <div class="tmInput">
+								<input name="pasaporte" placeHolder="ID pasaporte..." type="text" data-constraints="@NotEmpty @Required">
+							</div>
+						</div>
+						<div class="clear"></div>
+						<a href="javascript:;" onclick="parentNode.submit();" class="btn" type="submit">Continuar compra!</a>
+					</form>
 				</div>
 				<div class="grid_12">
 					<h3 class="head1">Latest News</h3>

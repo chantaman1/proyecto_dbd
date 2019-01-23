@@ -128,10 +128,10 @@
 			<div class="container_12 offset-by-six">
 				<div class="clear"></div>
 				<div class="grid_6">
-					<h3>Vuelos disponibles</h3>
-          @foreach ($vuelos as $data)
+					<h3>Asientos disponibles</h3>
+          @foreach ($asientos as $data)
             <div class="grid_4">
-              <a href="selecAsiento?id={{ $data->id }}" class="btn"> <strong>Pais de origen:</strong> {{$data->pais_origen}} <br/> <strong>Ciudad de origen:</strong> {{$data->ciudad_origen}} <br/> <strong>Pais de destino:</strong> {{$data->pais_destino}} <br/> <strong>Ciudad de destino:</strong> {{$data->ciudad_destino}} <br/> <strong>Fecha de salida:</strong> {{$data->fecha}} <br/> <strong>Hora de salida:</strong> {{$data->hora}}</a>
+              <a href="pasajero" class="btn"> <strong>Codigo de asiento:</strong> {{$data->codigo}} <br/> <strong>Tipo de asiento:</strong> {{$data->tipo}} <br/> <strong>Precio:</strong> ${{$data->precio}}</a>
             </div>
           @endforeach
 				</div>
