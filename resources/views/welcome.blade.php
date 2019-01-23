@@ -85,7 +85,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                  <h1>URSS AIRLINES</h1>
+                  <h1>YOUR TRIP</h1>
                 </div>
 
                 <div class="links">

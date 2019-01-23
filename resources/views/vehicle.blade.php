@@ -161,7 +161,7 @@
 						<a href="#" class="fa fa-google-plus"></a>
 					</div>
 					<div class="copy">
-						Your Trip (c) 2014 | <a href="#">Privacy Policy</a> | Website Template Designed by <a href="http://www.templatemonster.com/" rel="nofollow">TemplateMonster.com</a>
+						Your Trip 2019 | <a href="#">Privacy Policy</a> | Website Template Designed by <a href="http://www.templatemonster.com/" rel="nofollow">TemplateMonster.com</a>
 					</div>
 				</div>
 			</div>

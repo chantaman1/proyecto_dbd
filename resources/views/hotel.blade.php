@@ -147,7 +147,7 @@
 						<div class="clear"></div>
 						<div class="fl1 fl2">
 							<em>Adultos</em>
-							<select name="Adultos" class="tmSelect auto" data-class="tmSelect tmSelect2" data-constraints="">
+							<select name="Adults" class="tmSelect auto" data-class="tmSelect tmSelect2" data-constraints="">
 								<option>1</option>
 								<option>1</option>
 								<option>2</option>
@@ -184,7 +184,7 @@
 						</div>
 						<div class="fl1 fl2">
 							<em>Niños</em>
-							<select name="Niños" class="tmSelect auto" data-class="tmSelect tmSelect2" data-constraints="">
+							<select name="Children" class="tmSelect auto" data-class="tmSelect tmSelect2" data-constraints="">
 								<option>0</option>
 								<option>1</option>
 								<option>2</option>
@@ -201,7 +201,7 @@
 						<div class="clear"></div>
 						<div class="fl1 fl2">
 							<em>Habitaciones</em>
-							<select name="Habitaciones" class="tmSelect auto" data-class="tmSelect tmSelect2" data-constraints="">
+							<select name="Rooms" class="tmSelect auto" data-class="tmSelect tmSelect2" data-constraints="">
 								<option>0</option>
 								<option>1</option>
 								<option>2</option>
@@ -236,38 +236,8 @@
 							</select>
 						</div>
 						<div class="clear"></div>
-						<a href="#" class="btn" data-type="submit">Buscar vuelos</a>
+						<a href="#" class="btn" data-type="submit">Buscar hoteles</a>
 					</form>
-				</div>
-				<div class="grid_12">
-					<h3 class="head1">Latest News</h3>
-				</div>
-				<div class="grid_4">
-					<div class="block1">
-						<time datetime="2014-01-01">10<span>Jan</span></time>
-						<div class="extra_wrapper">
-							<div class="text1 col1"><a href="#">Aliquam nibh</a></div>
-							Proin pharetra luctus diam, any scelerisque eros convallisumsan. Maecenas vehicula egestas
-						</div>
-					</div>
-				</div>
-				<div class="grid_4">
-					<div class="block1">
-						<time datetime="2014-01-01">21<span>Jan</span></time>
-						<div class="extra_wrapper">
-							<div class="text1 col1"><a href="#">Etiam dui eros</a></div>
-							Any scelerisque eros vallisumsan. Maecenas vehicula egestas natis. Duis massa elit, auctor non
-						</div>
-					</div>
-				</div>
-				<div class="grid_4">
-					<div class="block1">
-						<time datetime="2014-01-01">15<span>Feb</span></time>
-						<div class="extra_wrapper">
-							<div class="text1 col1"><a href="#">uamnibh Edeto</a></div>
-							Ros convallisumsan. Maecenas vehicula egestas venenatis. Duis massa elit, auctor non
-						</div>
-					</div>
 				</div>
 			</div>
 		</div>
@@ -281,7 +251,7 @@
 						<a href="#" class="fa fa-google-plus"></a>
 					</div>
 					<div class="copy">
-						Your Trip (c) 2014 | <a href="#">Privacy Policy</a> | Website Template Designed by <a href="http://www.templatemonster.com/" rel="nofollow">TemplateMonster.com</a>
+						Your Trip 2019 | <a href="#">Privacy Policy</a> | Website Template Designed by <a href="http://www.templatemonster.com/" rel="nofollow">TemplateMonster.com</a>
 					</div>
 				</div>
 			</div>
