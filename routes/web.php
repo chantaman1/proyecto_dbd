@@ -27,6 +27,15 @@ Route::get('/hoteles',function(){
   return view('hotel');
 });
 
+Route::get('/home', function () {
+    return view('index');
+});
+
+Route::get('/paquetes', function () {
+    return view('package');
+});
+
+
 //RUTAS DEL USUARIO
 Route::get('/usuario/show/{id}', 'usuarioController@show');
 
@@ -252,6 +261,9 @@ Route::post('/vuelo/update/{id}', 'vueloController@update');
 
 Route::get('/vuelo/destroy/{id}', 'vueloController@destroy');
 
+Route::get('/selecAsiento', 'asientoController@getSeatsByFlightId');
+
+Route::get('/pasajero', 'pasajeroController@index');
 //-------------------------------------------------------------
 
 Route::post('/login/doLogin', 'Auth\LoginController@authenticate');

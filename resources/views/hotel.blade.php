@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<title>About</title>
+		<title>Hoteles</title>
 		<meta charset="utf-8">
 		<meta name="format-detection" content="telephone=no" />
 		<link rel="icon" href="images/favicon.ico">
@@ -61,7 +61,7 @@
 		<script src="js/html5shiv.js"></script>
 		<link rel="stylesheet" media="screen" href="css/ie.css">
 		<![endif]-->
-	</head>
+  </head>
 	<body class="page1" id="top">
 <!--==============================header=================================-->
 		<header>
@@ -70,7 +70,7 @@
 					<div class="menu_block">
 						<nav class="horizontal-nav full-width horizontalNav-notprocessed">
 							<ul class="sf-menu">
-								<li class="current"><a href="index.html">HOME</a></li>
+								<li><a href="/">YOUR TRIP</a></li>
 								<li><a href="/vuelos">VUELOS</a></li>
 								<li><a href="/hoteles">HOTELES</a></li>
 								<li><a href="/paquetes">PAQUETES</a></li>
@@ -95,30 +95,27 @@
 					<div class="caption fadeIn">
 						<h2>LONDON</h2>
 						<div class="price">
-							FROM
+							DESDE
 							<span>$1000</span>
 						</div>
-						<a href="#">LEARN MORE</a>
 					</div>
 				</div>
 				<div data-src="images/slide1.jpg">
 					<div class="caption fadeIn">
 						<h2>Maldives</h2>
 						<div class="price">
-							FROM
+							DESDE
 							<span>$2000</span>
 						</div>
-						<a href="#">LEARN MORE</a>
 					</div>
 				</div>
 				<div data-src="images/slide2.jpg">
 					<div class="caption fadeIn">
 						<h2>Venice</h2>
 						<div class="price">
-							FROM
+							DESDE
 							<span>$1600</span>
 						</div>
-						<a href="#">LEARN MORE</a>
 					</div>
 				</div>
 			</div>
@@ -128,23 +125,21 @@
 			<div class="container_12 offset-by-six">
 				<div class="clear"></div>
 				<div class="grid_6">
-					<h3>Vuelos</h3>
+					<h3>HOTELES</h3>
 					<form id="bookingForm">
 						<div class="fl1">
-							<div class="tmInput">
-								<input name="origen" placeHolder="Origen: Ciudad" type="text" data-constraints='@NotEmpty @Required @AlphaSpecial'>
-							</div>
-							<div class="tmInput">
-								<input name="destino" placeHolder="Destino: Ciudad" type="text" data-constraints="@NotEmpty @Required">
+							<div class="tmInput" id="destino">
+								Destino, nombre de alojamiento o dirección:
+								<input name="origen" placeHolder="Escriba destino" type="text" data-constraints='@NotEmpty @Required @AlphaSpecial'>
 							</div>
 						</div>
 						<div class="clear"></div>
-						<strong>Check-in</strong>
+						Fecha de Check-in
 						<label class="tmDatepicker">
 							<input type="text" name="Check-in" placeHolder='10/05/2014' data-constraints="@NotEmpty @Required @Date">
 						</label>
 						<div class="clear"></div>
-						<strong>Check-out</strong>
+						Fecha de Check-out
 						<label class="tmDatepicker">
 							<input type="text" name="Check-out" placeHolder='20/05/2014' data-constraints="@NotEmpty @Required @Date">
 						</label>

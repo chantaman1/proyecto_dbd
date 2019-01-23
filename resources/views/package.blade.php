@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<title>Vuelos</title>
+		<title>Hoteles</title>
 		<meta charset="utf-8">
 		<meta name="format-detection" content="telephone=no" />
 		<link rel="icon" href="images/favicon.ico">
@@ -61,9 +61,9 @@
 		<script src="js/html5shiv.js"></script>
 		<link rel="stylesheet" media="screen" href="css/ie.css">
 		<![endif]-->
-	</head>
+  </head>
 	<body class="page1" id="top">
-	<!--==============================header=================================-->
+<!--==============================header=================================-->
 		<header>
 			<div class="container_12">
 				<div class="grid_12">
@@ -125,12 +125,90 @@
 			<div class="container_12 offset-by-six">
 				<div class="clear"></div>
 				<div class="grid_6">
-					<h3>Vuelos disponibles</h3>
-          @foreach ($vuelos as $data)
-            <div class="grid_4">
-              <a href="selecAsiento?id={{ $data->id }}" class="btn"> <strong>Pais de origen:</strong> {{$data->pais_origen}} <br/> <strong>Ciudad de origen:</strong> {{$data->ciudad_origen}} <br/> <strong>Pais de destino:</strong> {{$data->pais_destino}} <br/> <strong>Ciudad de destino:</strong> {{$data->ciudad_destino}} <br/> <strong>Fecha de salida:</strong> {{$data->fecha}} <br/> <strong>Hora de salida:</strong> {{$data->hora}}</a>
-            </div>
-          @endforeach
+					<h3>HOTELES</h3>
+					<form id="bookingForm">
+						<div class="fl1">
+							<div class="tmInput">
+								<strong>Destino, nombre de alojamiento o dirección:</strong>
+								<input name="origen" placeHolder="Más sitios de los que podrías llegar a visitar... ¿O si?" type="text" data-constraints='@NotEmpty @Required @AlphaSpecial'>
+							</div>
+							<div class="tmInput">
+								<input name="destino" placeHolder="Destino: Ciudad" type="text" data-constraints="@NotEmpty @Required">
+							</div>
+						</div>
+						<div class="clear"></div>
+						<strong>Fecha de Check-in</strong>
+						<label class="tmDatepicker">
+							<input type="text" name="Check-in" placeHolder='10/05/2014' data-constraints="@NotEmpty @Required @Date">
+						</label>
+						<div class="clear"></div>
+						<strong>Fecha de Check-out</strong>
+						<label class="tmDatepicker">
+							<input type="text" name="Check-out" placeHolder='20/05/2014' data-constraints="@NotEmpty @Required @Date">
+						</label>
+						<div class="clear"></div>
+						<div class="tmRadio">
+							<p>Tipo de vuelo</p>
+							<input name="Comfort" type="radio" id="tmRadio0" data-constraints='@RadioGroupChecked(name="Comfort", groups=[RadioGroup])' checked/>
+							<span>Economy</span>
+							<input name="Comfort" type="radio" id="tmRadio1" data-constraints='@RadioGroupChecked(name="Comfort", groups=[RadioGroup])' />
+							<span>Economy Premium</span>
+							<input name="Comfort" type="radio" id="tmRadio2" data-constraints='@RadioGroupChecked(name="Comfort", groups=[RadioGroup])' />
+							<span>Business</span>
+						</div>
+						<div class="clear"></div>
+						<div class="fl1 fl2">
+							<em>Adults</em>
+							<select name="Adults" class="tmSelect auto" data-class="tmSelect tmSelect2" data-constraints="">
+								<option>1</option>
+								<option>1</option>
+								<option>2</option>
+								<option>3</option>
+							</select>
+							<div class="clear"></div>
+						</div>
+						<div class="fl1 fl2">
+							<em>Children</em>
+							<select name="Children" class="tmSelect auto" data-class="tmSelect tmSelect2" data-constraints="">
+								<option>0</option>
+								<option>0</option>
+								<option>1</option>
+								<option>2</option>
+							</select>
+						</div>
+						<div class="clear"></div>
+						<a href="#" class="btn" data-type="submit">Buscar vuelos</a>
+					</form>
+				</div>
+				<div class="grid_12">
+					<h3 class="head1">Latest News</h3>
+				</div>
+				<div class="grid_4">
+					<div class="block1">
+						<time datetime="2014-01-01">10<span>Jan</span></time>
+						<div class="extra_wrapper">
+							<div class="text1 col1"><a href="#">Aliquam nibh</a></div>
+							Proin pharetra luctus diam, any scelerisque eros convallisumsan. Maecenas vehicula egestas
+						</div>
+					</div>
+				</div>
+				<div class="grid_4">
+					<div class="block1">
+						<time datetime="2014-01-01">21<span>Jan</span></time>
+						<div class="extra_wrapper">
+							<div class="text1 col1"><a href="#">Etiam dui eros</a></div>
+							Any scelerisque eros vallisumsan. Maecenas vehicula egestas natis. Duis massa elit, auctor non
+						</div>
+					</div>
+				</div>
+				<div class="grid_4">
+					<div class="block1">
+						<time datetime="2014-01-01">15<span>Feb</span></time>
+						<div class="extra_wrapper">
+							<div class="text1 col1"><a href="#">uamnibh Edeto</a></div>
+							Ros convallisumsan. Maecenas vehicula egestas venenatis. Duis massa elit, auctor non
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>

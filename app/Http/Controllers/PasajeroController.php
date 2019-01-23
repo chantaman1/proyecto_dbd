@@ -14,8 +14,7 @@ class PasajeroController extends Controller
      */
     public function index()
     {
-        $pasajeros = Pasajero::All();
-        return $pasajeros;
+        return view('passengerFlight');
     }
 
     /**

@@ -42,9 +42,9 @@ class AsientoController extends Controller
         return $asiento;
     }
 
-    public function getSeatsByFlightId($id){
-        $asientos = Asiento::where('vuelo_id', $id)->where('disponibilidad', true)->get();
-        return $asientos;
+    public function getSeatsByFlightId(Request $request){
+        $asientos = Asiento::where('vuelo_id', $request->get('id'))->where('disponibilidad', true)->get();
+        return view('seatResult')->with('asientos', $asientos);
     }
 
     /**
