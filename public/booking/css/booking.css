@@ -90,16 +90,16 @@
   width: 100%;
   font: 14px/20px 'Open Sans', sans-serif;
   height: 30px;
- 
+
 }
 
 
-#bookingForm input::-webkit-input-placeholder { 
-  color: #737272; 
+#bookingForm input::-webkit-input-placeholder {
+  color: #737272;
 }
 
 input::-webkit-input-placeholder ,
-textarea::-webkit-input-placeholder 
+textarea::-webkit-input-placeholder
 {color:#737272;}
 
 input::-moz-placeholder,
