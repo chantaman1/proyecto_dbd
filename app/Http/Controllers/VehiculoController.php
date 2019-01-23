@@ -123,7 +123,6 @@ class VehiculoController extends Controller
           $companias_validas[] = $compania->$id;
       }
     }
-
     $id_vehiculos = Vehiculo::whereIn('compania_alquiler_id', $companias)
             ->pluck('id');
     //Se obtienen todos los vehiculos que ya están reservados en la fecha solicitada
@@ -143,5 +142,6 @@ class VehiculoController extends Controller
     ->whereNotIn('id',$reservados)
     ->whereNotIn('id',$enpaquetados)
     ->get();
+    return view('vehicle-list')->with('vehiculos',$vehiculos_encontrados);
   }
 }
