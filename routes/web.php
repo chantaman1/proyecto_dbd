@@ -23,6 +23,9 @@ Route::get('/vehiculos',function(){
   return view('vehicle');
 });
 
+Route::get('/hoteles',function(){
+  return view('hotel');
+});
 
 //RUTAS DEL USUARIO
 Route::get('/usuario/show/{id}', 'usuarioController@show');
@@ -236,6 +239,8 @@ Route::get('/vehiculo/destroy/{id}', 'vehiculoController@destroy');
 Route::get('/vuelo/show/{id}', 'vueloController@show');
 
 Route::get('/vuelo/all/', 'vueloController@index');
+
+Route::get('/results', 'vueloController@getFlights');
 
 Route::get('/vuelo/byDate/{date}/', 'vueloController@getFlightByDate');
 

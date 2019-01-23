@@ -72,7 +72,7 @@
 							<ul class="sf-menu">
 								<li class="current"><a href="index.html">HOME</a></li>
 								<li><a href="/vuelos">VUELOS</a></li>
-								<li><a href="/hoteles">HABITACIONES</a></li>
+								<li><a href="/hoteles">HOTELES</a></li>
 								<li><a href="/paquetes">PAQUETES</a></li>
 								<li><a href="/vehiculos">AUTOS</a></li>
 							</ul>
@@ -129,7 +129,7 @@
 				<div class="clear"></div>
 				<div class="grid_6">
 					<h3>Vuelos</h3>
-					<form id="bookingForm">
+					<form id="bookingForm" action="{{ url('results') }}">
 						<div class="fl1">
 							<div class="tmInput">
 								<input name="origen" placeHolder="Origen: Ciudad" type="text" data-constraints='@NotEmpty @Required @AlphaSpecial'>
@@ -139,24 +139,26 @@
 							</div>
 						</div>
 						<div class="clear"></div>
-						<strong>Check-in</strong>
-						<label class="tmDatepicker">
-							<input type="text" name="Check-in" placeHolder='10/05/2014' data-constraints="@NotEmpty @Required @Date">
-						</label>
-						<div class="clear"></div>
-						<strong>Check-out</strong>
-						<label class="tmDatepicker">
-							<input type="text" name="Check-out" placeHolder='20/05/2014' data-constraints="@NotEmpty @Required @Date">
-						</label>
-						<div class="clear"></div>
 						<div class="tmRadio">
-							<p>Tipo de vuelo</p>
-							<input name="Comfort" type="radio" id="tmRadio0" data-constraints='@RadioGroupChecked(name="Comfort", groups=[RadioGroup])' checked/>
-							<span>Economy</span>
-							<input name="Comfort" type="radio" id="tmRadio1" data-constraints='@RadioGroupChecked(name="Comfort", groups=[RadioGroup])' />
-							<span>Economy Premium</span>
-							<input name="Comfort" type="radio" id="tmRadio2" data-constraints='@RadioGroupChecked(name="Comfort", groups=[RadioGroup])' />
-							<span>Business</span>
+							<p>Tipo de viaje</p>
+							<input name="tmBtn" value="both" type="radio" id="tmRadio0" data-constraints='@RadioGroupChecked(name="tmBtn", groups=[RadioGroup])' checked/>
+							<span>Ida y vuelta</span>
+							<input name="tmBtn" value="oneWay" type="radio" id="tmRadio1" data-constraints='@RadioGroupChecked(name="tmBtn", groups=[RadioGroup])' />
+							<span>Solo ida</span>
+						</div>
+						<div class="clear"></div>
+						<div id="startFlight">
+							<strong>Fecha de ida</strong>
+							<label class="tmDatepicker">
+								<input type="text" name="fecha_origen" placeHolder={{ date('d-m-Y') }} data-constraints="@NotEmpty @Required @Date">
+							</label>
+						</div>
+						<div class="clear"></div>
+						<div id="returnFligth">
+							<strong>Fecha de regreso</strong>
+							<label class="tmDatepicker">
+								<input type="text" name="fecha_destino" placeHolder={{ date('d-m-Y') }} data-constraints="@NotEmpty @Required @Date">
+							</label>
 						</div>
 						<div class="clear"></div>
 						<div class="fl1 fl2">
@@ -179,7 +181,7 @@
 							</select>
 						</div>
 						<div class="clear"></div>
-						<a href="#" class="btn" data-type="submit">Buscar vuelos</a>
+						<a href="javascript:;" onclick="parentNode.submit();" class="btn" type="submit">Buscar vuelos!</a>
 					</form>
 				</div>
 				<div class="grid_12">

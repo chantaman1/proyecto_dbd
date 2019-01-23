@@ -19,13 +19,21 @@ class VueloController extends Controller
     }
 
     public function getFlightByDate($date){
-        $vuelos = Vuelo::where('fecha', $date)->get();
+        $vuelos = Vuelo::where('fecha', '=', $date)->get();
         return $vuelos;
     }
 
     public function getFlightByDestination($city){
-        $vuelos = Vuelo::where('ciudad_destino', $city)->get();
+        $vuelos = Vuelo::where('ciudad_destino', '=', $city)->get();
         return $vuelos;
+    }
+
+    public function getFlights(Request $request){
+        $vuelos = Vuelo::where([
+          'ciudad_origen' => $request->get('origen'),
+          'ciudad_destino' => $request->get('destino')
+        ])->get();
+        return view('flightResult')->with('vuelos', $vuelos);
     }
 
     /**

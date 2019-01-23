@@ -144,7 +144,7 @@
 	min-width: 86px;
 	display: inline-block;
 	text-align: center;
-	
+
 }
 
 .btns a.btn+a.btn {
@@ -191,7 +191,7 @@
 }
 
 .success_wrapper {
-	position: relative;	
+	position: relative;
 }
 
 @media only screen and (max-width: 995px) {
@@ -201,7 +201,7 @@
 
 
 #form label {
-	float: none !important;	
+	float: none !important;
 	width: 100%;
 	margin-left: 0 !important;
 }
@@ -242,21 +242,39 @@
 	margin-right: 0px !important;
 }
   .btns {
-		padding-bottom: 0;  
+		padding-bottom: 0;
   }
-  
+
   #form textarea {
-		height: 300px !important; 
+		height: 300px !important;
   }
 
    #form {
  	padding-right: 0;
  }
-  
+
 }
 @media only screen and (max-width: 479px) {
 
   #form textarea {
-		height: 200px !important;  
+		height: 200px !important;
   }
+}
+
+.form button[type="submit"] {
+    font-family: "Latam-Sans-Light", Arial, sans-serif;
+    color: #fff;
+    background-color: #008D87 !important;
+    margin: 30px 0 25px 0;
+    border-radius: 3px !important;
+    background-image: none;
+    border: none;
+    box-shadow: none;
+    font-size: 24px;
+    font-weight: normal;
+    min-height: 50px;
+    text-align: center;
+    text-shadow: none;
+    width: 100%;
+    outline: none;
 }
