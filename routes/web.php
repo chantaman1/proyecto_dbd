@@ -242,7 +242,10 @@ Route::post('/vuelo/register', 'vueloController@store');
 Route::post('/vuelo/update/{id}', 'vueloController@update');
 
 Route::get('/vuelo/destroy/{id}', 'vueloController@destroy');
+
 //-------------------------------------------------------------
+
+Route::post('/login/doLogin', 'Auth\LoginController@authenticate');
 
 Auth::routes();
 

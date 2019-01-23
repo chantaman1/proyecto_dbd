@@ -1,6 +1,9 @@
 <?php
 namespace App\Http\Controllers\Auth;
+use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use validator;
+use Auth;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 class LoginController extends Controller
 {
@@ -31,15 +34,35 @@ class LoginController extends Controller
         $this->middleware('guest')->except('logout');
     }
 
+    public function authenticate(Request $request)
+    {
+        $this->validate($request, [
+            'correo' => 'required|email',
+            'password' => 'required|alphaNum|min:6'
+        ]);
+
+        $credentials = Array(
+            'correo' => $request->get('correo'),
+            'password' => $request->get('password')
+        );
+
+        if (Auth::attempt($credentials)) {
+            echo "F";
+            return redirect('/');
+        }
+        else{
+          echo "GG";
+          return back()->with('error', 'Datos de login incorrectos!');
+        }
+    }
+
+    public function logout(){
+        Auth::logout();
+        return redirectTo('/');
+    }
+
     public function username()
     {
         return 'correo';
-    }
-
-    protected function guard()
-    {
-        $user = Auth::user();
-        echo "$user";
-        return Auth::guard('login-guard');
     }
 }
