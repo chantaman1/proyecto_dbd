@@ -130,7 +130,7 @@
     <div class="grid_6">
       <h3>Resumen de pago</h3>
         <div class="grid_4">
-          <a class="btn"> <strong>Pasajero:</strong> {{$data->nombre}} <br/> <strong>Codigo del asiento:</strong> {{$data->cod}} <br/> <strong>Tipo de asiento:</strong> {{$data->tipo}} <br/> <strong>Precio:</strong> ${{$data->precio}} <br/> <strong>Destino:</strong> {{$data->destino}} </a>
+          <a class="btn"> <strong>Pasajero:</strong> {{$data->nombre}} <br/> <strong>Asiento:</strong> {{$data->codigo}} <br/> <strong>Tipo de asiento:</strong> {{$data->tipo}} <br/> <strong>Precio:</strong> ${{$data->precio}} <br/> <strong>Destino:</strong> {{$data->destino}} </a>
         </div>
         <div class="clear"></div>
         <div class="grid_4">

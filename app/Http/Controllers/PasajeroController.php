@@ -14,9 +14,10 @@ class PasajeroController extends Controller
      */
     public function index(Request $request)
     {
+        $request->session()->put('asiento_codigo', $request->get('codigo'));
         $request->session()->put('asiento_id', $request->get('id'));
         $request->session()->put('asiento_precio', $request->get('precio'));
-        $request->session()->put('asiento_cod', $request->get('cod'));
+
         return view('passengerFlight');
     }
 
@@ -41,7 +42,6 @@ class PasajeroController extends Controller
     public function store(Request $request)
     {
         $pasajero = new Pasajero;
-        //$pasajero->fill($request->all());
         $pasajero->fill(array('nombre' => $request->get('nombre'),
                               'apellido_paterno' => $request->get('apellido_paterno'),
                               'apellido_materno' => $request->get('apellido_materno'),
@@ -53,8 +53,8 @@ class PasajeroController extends Controller
                               'asiento_id' => $request->session()->get('asiento_id')));
         $pasajero->save();
         $data = (object)["nombre" => $request->get('nombre'), "precio" => $request->session()->get('asiento_precio'),
-                 "tipo" => $request->session()->get('asiento_tipo'), "cod" => $request->session()->get('asiento_cod'),
-                 "destino" => $request->session()->get('destino'),];
+                 "tipo" => $request->session()->get('asiento_tipo'), "codigo" => $request->session()->get('asiento_codigo'),
+                 "destino" => $request->session()->get('destino')];
         return view('buyFlight')->with('data', $data);
     }
 
