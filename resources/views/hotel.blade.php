@@ -126,28 +126,28 @@
 				<div class="clear"></div>
 				<div class="grid_6">
 					<h3>HOTELES</h3>
-					<form id="bookingForm">
+					<form id="bookingForm" action="{{ url('getHotels') }}">
 						<div class="fl1">
 							<div class="tmInput">
-								Destino, nombre de alojamiento o dirección:
-								<input name="origen" placeHolder="Escriba destino" type="text" data-constraints='@NotEmpty @Required @AlphaSpecial'>
+								Ciudad
+								<input name="ciudad" placeHolder="Escriba ciudad" type="text" data-constraints='@NotEmpty @Required @AlphaSpecial'>
 							</div>
 						</div>
 						<div class="clear"></div>
-						Fecha de Check-in
+						Fecha inicio
 						<label class="tmDatepicker">
-							<input type="text" name="Check-in" placeHolder='10/05/2014' data-constraints="@NotEmpty @Required @Date">
+							<input type="text" name="fecha_inicio" placeHolder='10/05/2014' data-constraints="@NotEmpty @Required @Date">
 						</label>
 						<div class="clear"></div>
-						Fecha de Check-out
+						Fecha fin
 						<label class="tmDatepicker">
-							<input type="text" name="Check-out" placeHolder='20/05/2014' data-constraints="@NotEmpty @Required @Date">
+							<input type="text" name="fecha_fin" placeHolder='20/05/2014' data-constraints="@NotEmpty @Required @Date">
 						</label>
 						<div class="clear"></div>
 						<div class="clear"></div>
 						<div class="fl1 fl2">
 							<em>Adultos</em>
-							<select name="Adults" class="tmSelect auto" data-class="tmSelect tmSelect2" data-constraints="">
+							<select name="adults" class="tmSelect auto" data-class="tmSelect tmSelect2" data-constraints="">
 								<option>1</option>
 								<option>1</option>
 								<option>2</option>
@@ -156,35 +156,12 @@
 								<option>5</option>
 								<option>6</option>
 								<option>7</option>
-								<option>8</option>
-								<option>9</option>
-								<option>10</option>
-								<option>11</option>
-								<option>12</option>
-								<option>13</option>
-								<option>14</option>
-								<option>15</option>
-								<option>16</option>
-								<option>17</option>
-								<option>18</option>
-								<option>19</option>
-								<option>20</option>
-								<option>21</option>
-								<option>22</option>
-								<option>23</option>
-								<option>24</option>
-								<option>25</option>
-								<option>26</option>
-								<option>27</option>
-								<option>28</option>
-								<option>29</option>
-								<option>30</option>
 							</select>
 							<div class="clear"></div>
 						</div>
 						<div class="fl1 fl2">
 							<em>Niños</em>
-							<select name="Children" class="tmSelect auto" data-class="tmSelect tmSelect2" data-constraints="">
+							<select name="children" class="tmSelect auto" data-class="tmSelect tmSelect2" data-constraints="">
 								<option>0</option>
 								<option>1</option>
 								<option>2</option>
@@ -193,50 +170,13 @@
 								<option>5</option>
 								<option>6</option>
 								<option>7</option>
-								<option>8</option>
-								<option>9</option>
-								<option>10</option>
 							</select>
 						</div>
 						<div class="clear"></div>
 						<div class="fl1 fl2">
-							<em>Habitaciones</em>
-							<select name="Rooms" class="tmSelect auto" data-class="tmSelect tmSelect2" data-constraints="">
-								<option>0</option>
-								<option>1</option>
-								<option>2</option>
-								<option>3</option>
-								<option>4</option>
-								<option>5</option>
-								<option>6</option>
-								<option>7</option>
-								<option>8</option>
-								<option>9</option>
-								<option>10</option>
-								<option>11</option>
-								<option>12</option>
-								<option>13</option>
-								<option>14</option>
-								<option>15</option>
-								<option>16</option>
-								<option>17</option>
-								<option>18</option>
-								<option>19</option>
-								<option>20</option>
-								<option>21</option>
-								<option>22</option>
-								<option>23</option>
-								<option>24</option>
-								<option>25</option>
-								<option>26</option>
-								<option>27</option>
-								<option>28</option>
-								<option>29</option>
-								<option>30</option>
-							</select>
 						</div>
 						<div class="clear"></div>
-						<a href="#" class="btn" data-type="submit">Buscar hoteles</a>
+						<a href="javascript:" onclick="parentNode.submit();" class="btn" data-type="submit">Buscar hoteles</a>
 					</form>
 				</div>
 			</div>
