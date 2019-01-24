@@ -17,7 +17,7 @@ class PasajeroController extends Controller
         $request->session()->put('asiento_codigo', $request->get('codigo'));
         $request->session()->put('asiento_id', $request->get('id'));
         $request->session()->put('asiento_precio', $request->get('precio'));
-
+        $request->session()->put('asiento_tipo', $request->get('tipo'));
         return view('passengerFlight');
     }
 
