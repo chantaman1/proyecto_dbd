@@ -31,9 +31,6 @@ Route::get('/home', function () {
     return view('index');
 });
 
-Route::get('/paquetes', function () {
-    return view('package');
-});
 
 
 //RUTAS DEL USUARIO
@@ -181,6 +178,8 @@ Route::post('/paquete/register', 'paqueteController@store');
 Route::post('/paquete/update/{id}', 'paqueteController@update');
 
 Route::get('/paquete/destroy/{id}', 'paqueteController@destroy');
+
+Route::get('/paquetes', 'PaqueteController@start');
 
 //RUTAS DEL PASAJERO
 Route::get('/pasajero/show/{id}', 'pasajeroController@show');

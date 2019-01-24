@@ -10,6 +10,7 @@
 		<link rel="stylesheet" href="css/camera.css">
 		<link rel="stylesheet" href="css/owl.carousel.css">
 		<link rel="stylesheet" href="css/style.css">
+		<link rel="stylesheet" href="css/card.css">
 		<script src="js/jquery.js"></script>
 		<script src="js/jquery-migrate-1.2.1.js"></script>
 		<script src="js/script.js"></script>
@@ -121,67 +122,25 @@
 			</div>
 		</div>
 <!--==============================Content=================================-->
-		<div class="content"><div class="ic">More Website Templates @ TemplateMonster.com - February 10, 2014!</div>
-			<div class="container_12 offset-by-six">
-				<div class="clear"></div>
-				<div class="grid_6">
-					<h3>HOTELES</h3>
-					<form id="bookingForm">
-						<div class="fl1">
-							<div class="tmInput">
-								<strong>Destino, nombre de alojamiento o dirección:</strong>
-								<input name="origen" placeHolder="Más sitios de los que podrías llegar a visitar... ¿O si?" type="text" data-constraints='@NotEmpty @Required @AlphaSpecial'>
-							</div>
-							<div class="tmInput">
-								<input name="destino" placeHolder="Destino: Ciudad" type="text" data-constraints="@NotEmpty @Required">
-							</div>
-						</div>
-						<div class="clear"></div>
-						<strong>Fecha de Check-in</strong>
-						<label class="tmDatepicker">
-							<input type="text" name="Check-in" placeHolder='10/05/2014' data-constraints="@NotEmpty @Required @Date">
-						</label>
-						<div class="clear"></div>
-						<strong>Fecha de Check-out</strong>
-						<label class="tmDatepicker">
-							<input type="text" name="Check-out" placeHolder='20/05/2014' data-constraints="@NotEmpty @Required @Date">
-						</label>
-						<div class="clear"></div>
-						<div class="tmRadio">
-							<p>Tipo de vuelo</p>
-							<input name="Comfort" type="radio" id="tmRadio0" data-constraints='@RadioGroupChecked(name="Comfort", groups=[RadioGroup])' checked/>
-							<span>Economy</span>
-							<input name="Comfort" type="radio" id="tmRadio1" data-constraints='@RadioGroupChecked(name="Comfort", groups=[RadioGroup])' />
-							<span>Economy Premium</span>
-							<input name="Comfort" type="radio" id="tmRadio2" data-constraints='@RadioGroupChecked(name="Comfort", groups=[RadioGroup])' />
-							<span>Business</span>
-						</div>
-						<div class="clear"></div>
-						<div class="fl1 fl2">
-							<em>Adultos</em>
-							<select name="Adults" class="tmSelect auto" data-class="tmSelect tmSelect2" data-constraints="">
-								<option>1</option>
-								<option>1</option>
-								<option>2</option>
-								<option>3</option>
-							</select>
-							<div class="clear"></div>
-						</div>
-						<div class="fl1 fl2">
-							<em>Niños</em>
-							<select name="Children" class="tmSelect auto" data-class="tmSelect tmSelect2" data-constraints="">
-								<option>0</option>
-								<option>0</option>
-								<option>1</option>
-								<option>2</option>
-							</select>
-						</div>
-						<div class="clear"></div>
-						<a href="#" class="btn" data-type="submit">Buscar paquetes</a>
-					</form>
-				</div>
-			</div>
+<div class="content"><div class="ic">More Website Templates @ TemplateMonster.com - February 10, 2014!</div>
+	<div class="container_12">
+		<div class="grid_4">
 		</div>
+		<div class="clear"></div>
+  <h1>PAQUETES</h1>
+<!-- punkut-->
+@foreach($paquetes as $paquete)
+<div class="viini-kortti p-marjaisa" style="background-image: url('images/cancun1.jpg')">
+  <h2>{{$paquete->ciudad_destino}}</h2>
+  <ul>
+    <li>Espanja, La Mancha</li>
+    <li>Tempranillo, Cabernet Sauvignon</li>
+    <li>{{$paquete->precio}}</li>
+  </ul>
+</div>
+@endforeach
+	</div>
+</div>
 <!--==============================footer=================================-->
 		<footer>
 			<div class="container_12">

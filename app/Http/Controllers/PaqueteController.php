@@ -108,4 +108,10 @@ class PaqueteController extends Controller
           return "Paquete no existente.";
       }
     }
+
+    public function start()
+    {
+      $paquete = Paquete::All();
+      return view('package')->with('paquetes', $paquete);
+    }
 }
