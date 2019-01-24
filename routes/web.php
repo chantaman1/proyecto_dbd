@@ -264,6 +264,8 @@ Route::get('/vuelo/destroy/{id}', 'vueloController@destroy');
 Route::get('/selecAsiento', 'asientoController@getSeatsByFlightId');
 
 Route::get('/pasajero', 'pasajeroController@index');
+
+Route::get('/comprar', 'pasajeroController@store');
 //-------------------------------------------------------------
 
 Route::post('/login/doLogin', 'Auth\LoginController@authenticate');
