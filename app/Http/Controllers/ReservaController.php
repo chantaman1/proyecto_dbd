@@ -14,8 +14,8 @@ class ReservaController extends Controller
      */
     public function index()
     {
-        
-        return view('buyFlight');
+
+        return view('payment');
     }
 
     /**
