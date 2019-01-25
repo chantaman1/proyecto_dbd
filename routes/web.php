@@ -278,7 +278,12 @@ Route::get('/finalizar', 'reservaController@store');
 //-------------------------------------------------------------
 
 Auth::routes();
+
 Route::post('/login/doLogin', 'Auth\LoginController@authenticate');
+
+Auth::routes();
+
+Route::get('/login/destroy', 'Auth\LoginController@getLogout');
 
 Auth::routes();
 

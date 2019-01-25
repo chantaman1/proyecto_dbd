@@ -70,11 +70,15 @@
 					<div class="menu_block">
 						<nav class="horizontal-nav full-width horizontalNav-notprocessed">
 							<ul class="sf-menu">
-								<li><a href="/vuelos">VUELOS</a></li>
-								<li><a href="/hoteles">HOTELES</a></li>
-								<li><a href="/paquetes">PAQUETES</a></li>
-								<li><a href="/vehiculos">AUTOS</a></li>
-								<li><a href="/login">INICIAR SESIÓN</a></li>
+								<li><a href="/vuelos"><br/>VUELOS</a></li>
+								<li><a href="/hoteles"><br/>HOTELES</a></li>
+								<li><a href="/paquetes"><br/>PAQUETES</a></li>
+								<li><a href="/vehiculos"><br/>AUTOS</a></li>
+								@if(Auth::check())
+									<li><a href="/login/destroy">CERRAR SESIÓN<br/>{{ Auth::user()->nombre }} {{ Auth::user()->apellido_paterno }}</a></li>
+								@else
+									<li><a href="/login"><br/>INICIAR SESIÓN</a></li>
+								@endif
 							</ul>
 						</nav>
 						<div class="clear"></div>
