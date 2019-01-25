@@ -114,4 +114,9 @@ class VehiculoController extends Controller
       $vehiculos = Vehiculo::where('compania_alquiler_id', $alquiler->id)->get();
     return view('vehicle-list')->with('vehiculos', $vehiculos);
   }
+
+    public function buy_vehicle(Request $request){
+      $vehiculo = Vehiculo::find($request->get('id'));
+      return view('reservar_vehiculo')->with('vehiculo',$vehiculo);
+    }
 }
