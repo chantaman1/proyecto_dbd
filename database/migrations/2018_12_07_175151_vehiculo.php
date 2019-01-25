@@ -23,6 +23,7 @@ class Vehiculo extends Migration
          $table->integer('cantidad_asientos');
          $table->string('tipo_transmision',20);
          $table->text('descripcion');
+         $table->boolean('disponibilidad');
          $table->unsignedInteger('compania_alquiler_id');
          $table->foreign('compania_alquiler_id')->references('id')->on('compania_alquilers')->onDelete('cascade');
          $table->timestamps();

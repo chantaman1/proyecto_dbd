@@ -21,6 +21,7 @@ class vehiculoTableSeeder extends Seeder
           'tipo_transmision' => 'mecanico',
           'descripcion' => '',
           'compania_alquiler_id' => 1,
+          'disponibilidad' => true,
           'created_at' => now(),
           'updated_at' => null,
       ]);
@@ -35,6 +36,7 @@ class vehiculoTableSeeder extends Seeder
           'tipo_transmision' => 'mecanico',
           'descripcion' => '',
           'compania_alquiler_id' => 1,
+          'disponibilidad' => true,
           'created_at' => now(),
           'updated_at' => null,
       ]);
@@ -49,6 +51,7 @@ class vehiculoTableSeeder extends Seeder
           'tipo_transmision' => 'mecanico',
           'descripcion' => '',
           'compania_alquiler_id' => 2,
+          'disponibilidad' => true,
           'created_at' => now(),
           'updated_at' => null,
       ]);
@@ -63,6 +66,7 @@ class vehiculoTableSeeder extends Seeder
           'tipo_transmision' => 'mecanico',
           'descripcion' => '',
           'compania_alquiler_id' => 2,
+          'disponibilidad' => true,
           'created_at' => now(),
           'updated_at' => null,
       ]);
@@ -77,6 +81,7 @@ class vehiculoTableSeeder extends Seeder
           'tipo_transmision' => 'mecanico',
           'descripcion' => '',
           'compania_alquiler_id' => 3,
+          'disponibilidad' => true,
           'created_at' => now(),
           'updated_at' => null,
       ]);
@@ -91,6 +96,7 @@ class vehiculoTableSeeder extends Seeder
           'tipo_transmision' => 'mecanico',
           'descripcion' => '',
           'compania_alquiler_id' => 3,
+          'disponibilidad' => true,
           'created_at' => now(),
           'updated_at' => null,
       ]);
@@ -105,6 +111,7 @@ class vehiculoTableSeeder extends Seeder
           'tipo_transmision' => 'automatico',
           'descripcion' => '',
           'compania_alquiler_id' => 3,
+          'disponibilidad' => true,
           'created_at' => now(),
           'updated_at' => null,
       ]);
@@ -119,6 +126,7 @@ class vehiculoTableSeeder extends Seeder
           'tipo_transmision' => 'mecanico',
           'descripcion' => '',
           'compania_alquiler_id' => 3,
+          'disponibilidad' => true,
           'created_at' => now(),
           'updated_at' => null,
       ]);
