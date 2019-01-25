@@ -9,11 +9,11 @@ class Reserva extends Model
     protected $table = 'reservas';
       protected $totalAPagar;
       protected $estado_pago;
-      protected $usuario_id;
+      protected $user_id;
 
     //atributos que pueden ser rellenables
     protected $fillable=[
-      'totalAPagar', 'estado_pago', 'usuario_id',
+      'totalAPagar', 'estado_pago', 'user_id',
     ];
 
     //la reserva tiene un comprobante de pago
@@ -49,6 +49,6 @@ class Reserva extends Model
     //la reserva pertenece a un usuario
     public function usuario()
     {
-        return $this->belongsTo('App\Usuario');
+        return $this->belongsTo('App\User');
     }
 }

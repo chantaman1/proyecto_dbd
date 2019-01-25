@@ -13,7 +13,7 @@ class DatabaseSeeder extends Seeder
     {
         $this->call(transaccionSeeder::class);
         $this->call(rolTableSeeder::class);
-        $this->call(usuariosTableSeeder::class);
+        $this->call(usersTableSeeder::class);
         $this->call(reservaTableSeeder::class);
         $this->call(metodo_pagoTableSeeder::class);
         $this->call(comprobante_pagoTableSeeder::class);
@@ -40,5 +40,6 @@ class DatabaseSeeder extends Seeder
         $this->call(pasajero_seguroSeeder::class);
         $this->call(reserva_vehiculoSeeder::class);
         $this->call(reserva_vueloSeeder::class);
+
     }
 }

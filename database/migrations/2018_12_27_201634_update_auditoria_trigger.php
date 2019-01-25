@@ -14,8 +14,8 @@ class UpdateAuditoriaTrigger extends Migration
     $$
     DECLARE result TEXT;
     BEGIN
-      SELECT CONCAT(transaccions.descripcion, usuarios.correo) INTO result FROM transaccions, usuarios WHERE transaccions.id = 2 AND usuarios.id = OLD.id;
-      INSERT INTO auditorias (tipo_transaccion, usuario_id, transaccion_id) VALUES (result, OLD.id, 2);
+      SELECT CONCAT(transaccions.descripcion, users.email) INTO result FROM transaccions, users WHERE transaccions.id = 2 AND users.id = OLD.id;
+      INSERT INTO auditorias (tipo_transaccion, user_id, transaccion_id) VALUES (result, OLD.id, 2);
       RETURN NEW;
     END
     $$ LANGUAGE plpgsql;
@@ -23,7 +23,7 @@ class UpdateAuditoriaTrigger extends Migration
 
     DB::unprepared('
       CREATE TRIGGER tg_usuario_update_auditoria
-      AFTER UPDATE ON usuarios
+      AFTER UPDATE ON users
       FOR EACH ROW
       EXECUTE PROCEDURE updateUsuarioAuditoria()');
   }

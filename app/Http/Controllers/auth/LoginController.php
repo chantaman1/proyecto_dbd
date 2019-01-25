@@ -37,22 +37,17 @@ class LoginController extends Controller
     public function authenticate(Request $request)
     {
         $this->validate($request, [
-            'correo' => 'required|email',
+            'email' => 'required|email',
             'password' => 'required|alphaNum|min:6'
         ]);
-
-        $credentials = Array(
-            'correo' => $request->get('correo'),
-            'password' => $request->get('password')
-        );
-
-        if (Auth::attempt($credentials)) {
-            echo "F";
+        $email = $request->get('email');
+        $password = $request->get('password');
+        $credenciales = array('email' => $email, 'password' => $password);
+        if (Auth::attempt($credenciales)) {
             return redirect('/');
         }
         else{
-          echo "GG";
-          return back()->with('error', 'Datos de login incorrectos!');
+          return redirect('/vuelos');
         }
     }
 
@@ -61,8 +56,4 @@ class LoginController extends Controller
         return redirectTo('/');
     }
 
-    public function username()
-    {
-        return 'correo';
-    }
 }

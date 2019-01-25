@@ -17,8 +17,8 @@ class Reserva extends Migration
           $table->increments('id');
           $table->integer('totalAPagar');
           $table->string('estado_pago',30);
-          $table->unsignedInteger('usuario_id');
-          $table->foreign('usuario_id')->references('id')->on('usuarios')->onDelete('cascade');
+          $table->unsignedInteger('user_id');
+          $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
           $table->timestamps();
       });
     }
