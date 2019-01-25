@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('index');
+    return redirect('vuelos');
 });
 
 Route::get('/vuelos', function () {
