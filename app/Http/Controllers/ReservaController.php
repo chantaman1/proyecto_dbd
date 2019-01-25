@@ -37,6 +37,7 @@ class ReservaController extends Controller
     public function store(Request $request)
     {
         $save = app('App\Http\Controllers\PasajeroController')->store($request);
+        $update = app('App\Http\Controllers\AsientoController')->updateSeat($request->session()->get('asiento_id'));
         $reserva = new Reserva;
         $data = ['totalAPagar' => intVal($request->session()->get('asiento_precio')), 'estado_pago' => 'Pagado', 'user_id' => Auth::id()];
         $reserva->fill($data);

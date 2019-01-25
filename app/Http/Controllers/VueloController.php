@@ -29,12 +29,17 @@ class VueloController extends Controller
     }
 
     public function getFlights(Request $request){
+      if($request->get('origen') == NULL || $request->get('destino') == NULL || $request->get('fecha_origen') == NULL){
+        return redirect('/');
+      }
+      else{
         $vuelos = Vuelo::where([
           'ciudad_origen' => $request->get('origen'),
           'ciudad_destino' => $request->get('destino'),
           'fecha' => $request->get('fecha_origen')
         ])->get();
-        return view('flightResult')->with('vuelos', $vuelos);
+        return view('flightResult')->with('vuelos', $vuelos);  
+      }
     }
 
     /**

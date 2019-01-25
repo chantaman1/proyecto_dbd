@@ -135,7 +135,7 @@
 <!-- punkut-->
 @foreach($paquetes as $paquete)
 <div class="viini-kortti p-marjaisa" style="background-image: url({{$paquete->image}})">
-	<a  href="comprar_paquete?id={{ $paquete->id }}" style="color:white">
+	<a  href="comprar_paquete?id={{ $paquete->id }}&precio={{ $paquete->precio }}&destino={{ $paquete->ciudad_destino }}" style="color:white">
   <h2 style="font-size: 20px; font-weight: bold">{{$paquete->ciudad_destino}}</h2>
   <ul>
 		<li style="font-size: 10px">Directo</li>

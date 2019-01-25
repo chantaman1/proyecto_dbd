@@ -183,6 +183,8 @@ Route::get('/paquetes', 'PaqueteController@start');
 
 Route::get('/comprar_paquete','PaqueteController@comprar_paquete');
 
+Route::get('/finalizarPaquete', 'PaqueteController@finalizarCompra')->middleware('auth');
+
 //RUTAS DEL PASAJERO
 Route::get('/pasajero/show/{id}', 'pasajeroController@show');
 
@@ -274,9 +276,9 @@ Route::get('/selecAsiento', 'asientoController@getSeatsByFlightId');
 
 Route::get('/pasajero', 'pasajeroController@index');
 
-Route::get('/comprar', 'pasajeroController@saveData');
+Route::get('/comprar', 'pasajeroController@saveData')->middleware('auth');
 
-Route::get('/finalizar', 'reservaController@store');
+Route::get('/finalizar', 'reservaController@store')->middleware('auth');
 
 Route::get('/auth/facebook', 'facebookController@redirectToFacebookProvider');
 
