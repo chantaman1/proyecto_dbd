@@ -274,9 +274,9 @@ Route::get('/selecAsiento', 'asientoController@getSeatsByFlightId');
 
 Route::get('/pasajero', 'pasajeroController@index');
 
-Route::get('/comprar', 'pasajeroController@saveData');
+Route::get('/comprar', 'pasajeroController@saveData')->middleware('auth');
 
-Route::get('/finalizar', 'reservaController@store');
+Route::get('/finalizar', 'reservaController@store')->middleware('auth');
 
 Route::get('/auth/facebook', 'facebookController@redirectToFacebookProvider');
 

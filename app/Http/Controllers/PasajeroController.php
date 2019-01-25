@@ -14,11 +14,16 @@ class PasajeroController extends Controller
      */
     public function index(Request $request)
     {
+      if($request->get('codigo') == NULL || $request->get('id') == NULL || $request->get('precio') == NULL || $request->get('tipo') == NULL){
+        return redirect('/');
+      }
+      else{
         $request->session()->put('asiento_codigo', $request->get('codigo'));
         $request->session()->put('asiento_id', $request->get('id'));
         $request->session()->put('asiento_precio', $request->get('precio'));
         $request->session()->put('asiento_tipo', $request->get('tipo'));
         return view('passengerFlight');
+      }
     }
 
     public function saveData(Request $request)
