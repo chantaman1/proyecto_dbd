@@ -45,12 +45,25 @@ class ReservaController extends Controller
         return view('index');
     }
 
+<<<<<<< HEAD
     public function reservaPaquete(Request $request){
         $reserva = new Reserva;
         $data = ['totalAPagar' => intVal($request->session()->get('paquete_precio')), 'estado_pago' => 'Pagado', 'user_id' => Auth::id()];
         $reserva->fill($data);
         $reserva->save();
         return $reserva;
+=======
+    public function store_reserva_vehiculo(Request $request)
+    {
+        $vehiculo = Vehiculo::find($request->get('id'));
+        $vehiculo->disponibilidad = false;
+        $save = app('App\Http\Controllers\VehiculoController')->update($vehiculo,$request->get('id'));
+        $reserva = new Reserva;
+        $data = ['totalAPagar' => $vehiculo->precio, 'estado_pago' => 'Pagado', 'user_id' => Auth::id()];
+        $reserva->fill($data);
+        $reserva->save();
+        return view('index');
+>>>>>>> a27334ce26c57031b7c4037dc0c78b8758c2b56b
     }
 
     /**

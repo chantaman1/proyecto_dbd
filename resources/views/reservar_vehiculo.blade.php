@@ -138,7 +138,7 @@
     </div>
 		<div class="grid_6">
 			<h3>Datos tarjeta de credito</h3>
-			<form id="bookingForm" action="{{ url('finalizar_reserva_vehiculo') }}">
+			<form id="bookingForm" action="{{ url('finalizar_reserva_vehiculo?id={{ vehiculo->id }}') }}">
 				<div class="fl1">
 					<div class="tmInput">
 						<input id="owner" name="nombre" placeHolder="Nombre tarjeta..." type="text" data-constraints='@NotEmpty @Required'>
