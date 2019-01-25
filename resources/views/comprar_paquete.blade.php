@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<title>Hoteles</title>
+		<title>Vuelos</title>
 		<meta charset="utf-8">
 		<meta name="format-detection" content="telephone=no" />
 		<link rel="icon" href="images/favicon.ico">
@@ -10,7 +10,6 @@
 		<link rel="stylesheet" href="css/camera.css">
 		<link rel="stylesheet" href="css/owl.carousel.css">
 		<link rel="stylesheet" href="css/style.css">
-		<link rel="stylesheet" href="css/card.css">
 		<script src="js/jquery.js"></script>
 		<script src="js/jquery-migrate-1.2.1.js"></script>
 		<script src="js/script.js"></script>
@@ -62,7 +61,7 @@
 		<script src="js/html5shiv.js"></script>
 		<link rel="stylesheet" media="screen" href="css/ie.css">
 		<![endif]-->
-  </head>
+	</head>
 	<body class="page1" id="top">
 <!--==============================header=================================-->
 		<header>
@@ -83,8 +82,8 @@
 				</div>
 				<div class="grid_12">
 					<h1>
-						<a href="/paquetes">
-							<img src="images/logo.png">
+						<a href="index.html">
+							<img src="images/logo.png" alt="Your Happy Family">
 						</a>
 					</h1>
 				</div>
@@ -92,12 +91,12 @@
 		</header>
 		<div class="slider_wrapper">
 			<div id="camera_wrap" class="">
-				<div data-src="images/cancunslide1.jpg">
+				<div data-src="images/slide.jpg">
 					<div class="caption fadeIn">
-						<h2>CANCÚN</h2>
+						<h2>LONDON</h2>
 						<div class="price">
 							DESDE
-							<span>$649.230</span>
+							<span>$1000</span>
 						</div>
 					</div>
 				</div>
@@ -122,44 +121,18 @@
 			</div>
 		</div>
 <!--==============================Content=================================-->
-<div class="content"><div class="ic"></div>
-	<div class="container_12">
-		<div class="grid_4">
-		</div>
-		<div class="clear"></div>
-  <h1>PAQUETES</h1>
-<!-- punkut-->
-@foreach($paquetes as $paquete)
-<div class="viini-kortti p-marjaisa" style="background-image: url({{$paquete->image}})">
-	<a  href="comprar_paquete?id={{ $paquete->id }}" style="color:white">
-  <h2 style="font-size: 20px; font-weight: bold">{{$paquete->ciudad_destino}}</h2>
-  <ul>
-		<li style="font-size: 10px">Directo</li>
-    <li style="font-size: 20px">Cupos: {{$paquete->cupos}}</li>
-    <li style="font-size: 30px; font-weight: bold">CLP$ {{number_format($paquete->precio, 0, '', '.')}}</li>
-		@if($paquete->posee_hotel == true)
-		<li>7 noches en hotel</li>
-		@else
-		<li>No incluye hospedaje</li>
-		@endif
-		@if($paquete->posee_vehiculo == true)
-		<li>Incluye traslados</li>
-		@else
-		<li>No incluye traslados</li>
-		@endif
-		@if($paquete->posee_seguro == true)
-		<li>Incluye seguro de viaje</li>
-		@else
-		<li>No incluye seguro de viaje</li>
-		@endif
-		@if($paquete->descuento > 0)
-		<strong style="font-size: 30px; color: #c73430; font-weight: bold">{{$paquete->descuento}}% Descuento</strong>
-		@endif
-  </ul>
-</a>
-</div>
-@endforeach
-	</div>
+<div class="content"><div class="ic">More Website Templates @ TemplateMonster.com - February 10, 2014!</div>
+  <div class="container_12 offset-by-six">
+    <div class="clear"></div>
+    <div class="grid_6">
+      <h3>Vuelos disponibles</h3>
+      @foreach ($data->vuelos as $data)
+        <div class="grid_4">
+          <a href="selecAsiento?id={{ $data->id }}&destino={{ $data->ciudad_destino }}" class="btn"> <strong>Pais de origen:</strong> {{$data->pais_origen}} <br/> <strong>Ciudad de origen:</strong> {{$data->ciudad_origen}} <br/> <strong>Pais de destino:</strong> {{$data->pais_destino}} <br/> <strong>Ciudad de destino:</strong> {{$data->ciudad_destino}} <br/> <strong>Fecha de salida:</strong> {{$data->fecha}} <br/> <strong>Hora de salida:</strong> {{$data->hora}}</a>
+        </div>
+      @endforeach
+    </div>
+  </div>
 </div>
 <!--==============================footer=================================-->
 		<footer>

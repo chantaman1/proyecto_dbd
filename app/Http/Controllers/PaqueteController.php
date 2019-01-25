@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Paquete;
+use App\Vuelo;
 
 class PaqueteController extends Controller
 {
@@ -113,5 +114,12 @@ class PaqueteController extends Controller
     {
       $paquete = Paquete::All();
       return view('package')->with('paquetes', $paquete);
+    }
+
+    public function comprar_paquete(Request $request){
+      $paquete = Paquete::find($request->get('id'));
+      $vuelos = $paquete->vuelo();
+      $data = (object)["paquete"=>$paquete, "vuelos"=>$vuelos];
+      return view('comprar_paquete')->with('data',$data);
     }
 }
