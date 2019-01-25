@@ -20,6 +20,7 @@
 		<script src="js/jquery.easing.1.3.js"></script>
 		<script src="js/owl.carousel.js"></script>
 		<script src="js/camera.js"></script>
+		<script src="assets/js/jquery.payform.min.js" charset="utf-8"></script>
 		<!--[if (gt IE 9)|!(IE)]><!-->
 		<script src="js/jquery.mobile.customized.min.js"></script>
 		<!--<![endif]-->
@@ -139,10 +140,10 @@
 			<form id="bookingForm" action="{{ url('finalizar') }}">
 				<div class="fl1">
 					<div class="tmInput">
-						<input name="nombre" placeHolder="Nombre tarjeta..." type="text" data-constraints='@NotEmpty @Required'>
+						<input id="owner" name="nombre" placeHolder="Nombre tarjeta..." type="text" data-constraints='@NotEmpty @Required'>
 					</div>
 					<div class="tmInput">
-						<input name="numero" placeHolder="Numero de tarjeta..." type="text" data-constraints="@NotEmpty @Required">
+						<input id="cardNumber" name="numero" placeHolder="Numero de tarjeta..." type="text" data-constraints="@NotEmpty @Required">
 					</div>
 					<div class="fl1 fl2">
 						<em>Mes</em>
@@ -174,11 +175,11 @@
 						</select>
 					</div>
 					<div class="tmInput">
-						<input name="ccv" placeHolder="CCV..." type="text" data-constraints="@NotEmpty @Required">
+						<input id="cvv" name="cvv" placeHolder="CVV..." type="text" data-constraints="@NotEmpty @Required">
 					</div>
 				</div>
 				<div class="clear"></div>
-				<a href="javascript:;" onclick="parentNode.submit();" class="btn" type="submit">Realizar pago</a>
+				<a href="javascript:;" onclick="parentNode.submit();" id="confirmButton" class="btn" type="submit">Realizar pago</a>
 			</form>
 		</div>
   </div>
