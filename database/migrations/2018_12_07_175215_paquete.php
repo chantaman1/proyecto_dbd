@@ -24,6 +24,7 @@ class Paquete extends Migration
          $table->boolean('posee_vehiculo');
          $table->boolean('posee_hotel');
          $table->boolean('posee_seguro');
+         $table->string('image');
          $table->timestamps();
 
       });
