@@ -131,7 +131,7 @@
 <!-- punkut-->
 @foreach($paquetes as $paquete)
 <div class="viini-kortti p-marjaisa" style="background-image: url({{$paquete->image}})">
-  <h2 style="font-size: 30px; font-weight: bold">{{$paquete->ciudad_destino}}</h2>
+  <h2 style="font-size: 20px; font-weight: bold">{{$paquete->ciudad_destino}}</h2>
   <ul>
 		<li style="font-size: 10px">Directo</li>
     <li style="font-size: 20px">Cupos: {{$paquete->cupos}}</li>
