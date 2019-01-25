@@ -119,7 +119,7 @@ class PaqueteController extends Controller
     public function comprar_paquete(Request $request){
       $paquete = Paquete::find($request->get('id'));
       if($paquete->cupos > 0){
-        $data = (object)['destino' => $request->get('destino', 'precio' => $request->get('precio')];
+        $data = (object)['destino' => $request->get('destino'), 'precio' => $request->get('precio')];
         $request->session()->put('paquete_destino', $request->get('destino'));
         $request->session()->put('paquete_id', $request->get('id'));
         $request->session()->put('paquete_precio', $request->get('precio'));
