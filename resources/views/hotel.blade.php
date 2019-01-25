@@ -70,7 +70,6 @@
 					<div class="menu_block">
 						<nav class="horizontal-nav full-width horizontalNav-notprocessed">
 							<ul class="sf-menu">
-								<li><a href="/">YOUR TRIP</a></li>
 								<li><a href="/vuelos">VUELOS</a></li>
 								<li><a href="/hoteles">HOTELES</a></li>
 								<li><a href="/paquetes">PAQUETES</a></li>

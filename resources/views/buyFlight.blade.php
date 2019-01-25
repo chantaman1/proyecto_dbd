@@ -72,7 +72,6 @@
 						<nav class="horizontal-nav full-width horizontalNav-notprocessed">
 							<ul class="sf-menu">
 								<li class="current"><a href="index.html">HOME</a></li>
-								<li><a href="/vuelos">VUELOS</a></li>
 								<li><a href="/hoteles">HOTELES</a></li>
 								<li><a href="/paquetes">PAQUETES</a></li>
 								<li><a href="/vehiculos">AUTOS</a></li>
