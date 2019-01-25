@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\User;
-class UsuarioController extends Controller
+class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -35,7 +35,7 @@ class UsuarioController extends Controller
      */
     public function create()
     {
-        //
+      
     }
 
     /**
@@ -46,6 +46,7 @@ class UsuarioController extends Controller
      */
     public function store(Request $request)
     {
+        dd($request);
         $existUser = User::where('email', $request->get('email'))->first();
         if($existUser == NULL){
             $usuario = new User;
@@ -53,6 +54,7 @@ class UsuarioController extends Controller
               'nombre' => $request->get('nombre'),
               'apellido_paterno' => $request->get('apellido_paterno'),
               'apellido_materno' => $request->get('apellido_materno'),
+              'facebook_id' => $request->get('facebook_id'),
               'password' => $request->get('password'),
               'email' => $request->get('email'),
               'fecha_nacimiento' => $request->get('fecha_nacimiento'),
@@ -67,6 +69,26 @@ class UsuarioController extends Controller
         else{
             return "Usuario ya existe.";
         }
+    }
+
+    public function storeFacebook($data)
+    {
+        $usuario = new User;
+        $usuario->fill([
+          'nombre' => $data->nombre,
+          'apellido_paterno' => '',
+          'apellido_materno' => 'not avalaible',
+          'facebook_id' => $data->facebook_id,
+          'password' => 'not avalaible',
+          'email' => $data->email,
+          'fecha_nacimiento' => 'not avalaible',
+          'direccion' => 'not avalaible',
+          'telefono' => 'not avalaible',
+          'nacionalidad' => 'not avalaible',
+          'pasaporte' => 'not avalaible'
+        ]);
+        $usuario->save();
+        return $usuario;
     }
 
     /**

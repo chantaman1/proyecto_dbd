@@ -275,6 +275,10 @@ Route::get('/pasajero', 'pasajeroController@index');
 Route::get('/comprar', 'pasajeroController@saveData');
 
 Route::get('/finalizar', 'reservaController@store');
+
+Route::get('/auth/facebook', 'facebookController@redirectToFacebookProvider');
+
+Route::get('/auth/facebook/callback', 'facebookController@handleProviderFacebookCallback');
 //-------------------------------------------------------------
 
 Auth::routes();

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Reserva;
+use Auth;
 use PasajeroController;
 class ReservaController extends Controller
 {
@@ -15,8 +16,7 @@ class ReservaController extends Controller
      */
     public function index()
     {
-
-        return view('payment');
+        return;
     }
 
     /**
@@ -37,9 +37,9 @@ class ReservaController extends Controller
      */
     public function store(Request $request)
     {
-        PasajeroController::store($request);
+        app('App\Http\Controllers\UserController')->store($request);
         $reserva = new Reserva;
-        $reserva->fill([('totalAPagar' => $request->session()->get('precio'), 'estado_pago' => 'Pagado', 'usuario_id' => $request->session()->get('usuario_id'))]);
+        $reserva->fill([('totalAPagar' => $request->session()->get('precio'), 'estado_pago' => 'Pagado', 'usuario_id' => Auth::id())]);
         $reserva->save();
         return view('index');
     }
