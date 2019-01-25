@@ -183,6 +183,8 @@ Route::get('/paquetes', 'PaqueteController@start');
 
 Route::get('/comprar_paquete','PaqueteController@comprar_paquete');
 
+Route::get('/finalizarPaquete', 'PaqueteController@finalizarCompra')->middleware('auth');
+
 //RUTAS DEL PASAJERO
 Route::get('/pasajero/show/{id}', 'pasajeroController@show');
 

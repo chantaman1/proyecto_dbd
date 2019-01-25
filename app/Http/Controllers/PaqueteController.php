@@ -118,8 +118,15 @@ class PaqueteController extends Controller
 
     public function comprar_paquete(Request $request){
       $paquete = Paquete::find($request->get('id'));
-      $vuelos = $paquete->vuelo();
-      $data = (object)["paquete"=>$paquete, "vuelos"=>$vuelos];
-      return view('comprar_paquete')->with('data',$data);
+      if($paquete->cupos > 0){
+        $data = (object)['destino' => $request->get('destino', 'precio' => $request->get('precio')];
+        $request->session()->put('paquete_destino', $request->get('destino'));
+        $request->session()->put('paquete_id', $request->get('id'));
+        $request->session()->put('paquete_precio', $request->get('precio'));
+        return view('comprar_paquete')->with('data',$data);
+      }
+      else{
+        return redirect('/');
+      }
     }
 }
