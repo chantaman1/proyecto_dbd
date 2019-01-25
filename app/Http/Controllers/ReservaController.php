@@ -45,6 +45,14 @@ class ReservaController extends Controller
         return view('index');
     }
 
+    public function reservaPaquete(Request $request){
+        $reserva = new Reserva;
+        $data = ['totalAPagar' => intVal($request->session()->get('paquete_precio')), 'estado_pago' => 'Pagado', 'user_id' => Auth::id()];
+        $reserva->fill($data);
+        $reserva->save();
+        return $reserva;
+    }
+
     /**
      * Display the specified resource.
      *

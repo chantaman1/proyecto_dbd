@@ -129,4 +129,19 @@ class PaqueteController extends Controller
         return redirect('/');
       }
     }
+
+    public function finalizarCompra(Request $request){
+      $paquete = Paquete::find($request->session()->get('paquete_id'));
+      $paquete->cupos = $paquete->cupos - 1;
+      $paquete->save();
+      $reserva = app('App\Http\Controllers\ReservaController')->reservaPaquete($request);
+      DB::table('paquete_reserva')->insert(
+        [
+          'paquete_id' => $request->session()->get('paquete_id'),
+          'reserva_id' => $reserva->id,
+        ]
+      );
+
+      return redirect('/');
+    }
 }
