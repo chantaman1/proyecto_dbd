@@ -97,7 +97,7 @@
 					<div class="caption fadeIn">
 						<h2>CANCÚN</h2>
 						<div class="price">
-							PAQUETES DESDE
+							DESDE
 							<span>$649.230</span>
 						</div>
 					</div>
