@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('index');
+    return redirect('vuelos');
 });
 
 Route::get('/vuelos', function () {
@@ -181,6 +181,8 @@ Route::get('/paquete/destroy/{id}', 'paqueteController@destroy');
 
 Route::get('/paquetes', 'PaqueteController@start');
 
+Route::get('/comprar_paquete','PaqueteController@comprar_paquete');
+
 //RUTAS DEL PASAJERO
 Route::get('/pasajero/show/{id}', 'pasajeroController@show');
 
@@ -251,7 +253,7 @@ Route::get('/vehiculo/destroy/{id}', 'vehiculoController@destroy');
 
 Route::get('/comprar_auto','vehiculoController@buy_vehicle');
 
-//RUTAS DEL VEHICULO
+//RUTAS DEL VUELO
 Route::get('/vuelo/show/{id}', 'vueloController@show');
 
 Route::get('/vuelo/all/', 'vueloController@index');

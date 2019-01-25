@@ -64,65 +64,66 @@
 	</head>
 	<body class="page1" id="top">
 <!--==============================header=================================-->
-		<header>
-			<div class="container_12">
-				<div class="grid_12">
-					<div class="menu_block">
-						<nav class="horizontal-nav full-width horizontalNav-notprocessed">
-							<ul class="sf-menu">
-								<li><a href="/vuelos">VUELOS</a></li>
-								<li><a href="/hoteles">HABITACIONES</a></li>
-								<li><a href="/paquetes">PAQUETES</a></li>
-								<li><a href="/vehiculos">AUTOS</a></li>
-								<li><a href="/login">INICIAR SESIÓN</a></li>
-							</ul>
-						</nav>
-						<div class="clear"></div>
-					</div>
-				</div>
-				<div class="grid_12">
-					<h1>
-						<a href="index.html">
-							<img src="images/logo.png" alt="Your Happy Family">
-						</a>
-					</h1>
-				</div>
+<header>
+	<div class="container_12">
+		<div class="grid_12">
+			<div class="menu_block">
+				<nav class="horizontal-nav full-width horizontalNav-notprocessed">
+					<ul class="sf-menu">
+						<li><a href="/vuelos"><br/>VUELOS</a></li>
+						<li><a href="/hoteles"><br/>HOTELES</a></li>
+						<li><a href="/paquetes"><br/>PAQUETES</a></li>
+						<li><a href="/vehiculos"><br/>AUTOS</a></li>
+						@if(Auth::check())
+							<li><a href="/login/destroy">CERRAR SESIÓN<br/>{{ Auth::user()->nombre }} {{ Auth::user()->apellido_paterno }}</a></li>
+						@else
+							<li><a href="/login"><br/>INICIAR SESIÓN</a></li>
+						@endif
+					</ul>
+				</nav>
+				<div class="clear"></div>
 			</div>
-		</header>
-		<div class="slider_wrapper">
-			<div id="camera_wrap" class="">
-				<div data-src="images/slide.jpg">
-					<div class="caption fadeIn">
-						<h2>LONDON</h2>
-						<div class="price">
-							FROM
-							<span>$1000</span>
-						</div>
-						<a href="#">LEARN MORE</a>
-					</div>
-				</div>
-				<div data-src="images/slide1.jpg">
-					<div class="caption fadeIn">
-						<h2>Maldives</h2>
-						<div class="price">
-							FROM
-							<span>$2000</span>
-						</div>
-						<a href="#">LEARN MORE</a>
-					</div>
-				</div>
-				<div data-src="images/slide2.jpg">
-					<div class="caption fadeIn">
-						<h2>Venice</h2>
-						<div class="price">
-							FROM
-							<span>$1600</span>
-						</div>
-						<a href="#">LEARN MORE</a>
-					</div>
+		</div>
+		<div class="grid_12">
+			<h1>
+				<a href="/paquetes">
+					<img src="images/logo.png">
+				</a>
+			</h1>
+		</div>
+	</div>
+</header>
+<div class="slider_wrapper">
+	<div id="camera_wrap" class="">
+		<div data-src="images/miamislide1.jpg">
+			<div class="caption fadeIn">
+				<h2>MIAMI</h2>
+				<div class="price">
+					DESDE
+					<span>$879.106</span>
 				</div>
 			</div>
 		</div>
+		<div data-src="images/cancunslide1.jpg">
+			<div class="caption fadeIn">
+				<h2>CANCÚN</h2>
+				<div class="price">
+					DESDE
+					<span>$649.230</span>
+				</div>
+			</div>
+		</div>
+		<div data-src="images/riodejaneiroslide1.jpg">
+			<div class="caption fadeIn">
+				<h2>RÍO DE JANEIRO</h2>
+				<div class="price">
+					DESDE
+					<span>$492.075</span>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
 <!--==============================Content=================================-->
 		<div class="content"><div class="ic">More Website Templates @ TemplateMonster.com - February 10, 2014!</div>
 			<div class="container_12 offset-by-six">

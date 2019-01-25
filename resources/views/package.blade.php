@@ -71,11 +71,15 @@
 					<div class="menu_block">
 						<nav class="horizontal-nav full-width horizontalNav-notprocessed">
 							<ul class="sf-menu">
-								<li><a href="/vuelos">VUELOS</a></li>
-								<li><a href="/hoteles">HOTELES</a></li>
-								<li><a href="/paquetes">PAQUETES</a></li>
-								<li><a href="/vehiculos">AUTOS</a></li>
-								<li><a href="/login">INICIAR SESIÓN</a></li>
+								<li><a href="/vuelos"><br/>VUELOS</a></li>
+								<li><a href="/hoteles"><br/>HOTELES</a></li>
+								<li><a href="/paquetes"><br/>PAQUETES</a></li>
+								<li><a href="/vehiculos"><br/>AUTOS</a></li>
+								@if(Auth::check())
+									<li><a href="/login/destroy">CERRAR SESIÓN<br/>{{ Auth::user()->nombre }} {{ Auth::user()->apellido_paterno }}</a></li>
+								@else
+									<li><a href="/login"><br/>INICIAR SESIÓN</a></li>
+								@endif
 							</ul>
 						</nav>
 						<div class="clear"></div>
@@ -92,6 +96,15 @@
 		</header>
 		<div class="slider_wrapper">
 			<div id="camera_wrap" class="">
+				<div data-src="images/miamislide1.jpg">
+					<div class="caption fadeIn">
+						<h2>MIAMI</h2>
+						<div class="price">
+							DESDE
+							<span>$879.106</span>
+						</div>
+					</div>
+				</div>
 				<div data-src="images/cancunslide1.jpg">
 					<div class="caption fadeIn">
 						<h2>CANCÚN</h2>
@@ -101,21 +114,12 @@
 						</div>
 					</div>
 				</div>
-				<div data-src="images/slide1.jpg">
+				<div data-src="images/riodejaneiroslide1.jpg">
 					<div class="caption fadeIn">
-						<h2>Maldives</h2>
+						<h2>RÍO DE JANEIRO</h2>
 						<div class="price">
 							DESDE
-							<span>$2000</span>
-						</div>
-					</div>
-				</div>
-				<div data-src="images/slide2.jpg">
-					<div class="caption fadeIn">
-						<h2>Venice</h2>
-						<div class="price">
-							DESDE
-							<span>$1600</span>
+							<span>$492.075</span>
 						</div>
 					</div>
 				</div>
@@ -131,7 +135,7 @@
 <!-- punkut-->
 @foreach($paquetes as $paquete)
 <div class="viini-kortti p-marjaisa" style="background-image: url({{$paquete->image}})">
-	<a  href="comprar_paquete/{{ $paquete->id }}" style="color:white">
+	<a  href="comprar_paquete?id={{ $paquete->id }}" style="color:white">
   <h2 style="font-size: 20px; font-weight: bold">{{$paquete->ciudad_destino}}</h2>
   <ul>
 		<li style="font-size: 10px">Directo</li>
