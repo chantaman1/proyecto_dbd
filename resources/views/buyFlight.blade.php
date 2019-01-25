@@ -76,6 +76,7 @@
 								<li><a href="/hoteles">HOTELES</a></li>
 								<li><a href="/paquetes">PAQUETES</a></li>
 								<li><a href="/vehiculos">AUTOS</a></li>
+								<li><a href="/login">INICIAR SESIÓN</a></li>
 							</ul>
 						</nav>
 						<div class="clear"></div>

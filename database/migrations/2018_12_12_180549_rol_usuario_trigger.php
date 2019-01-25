@@ -15,7 +15,7 @@ class RolUsuarioTrigger extends Migration
       RETURNS trigger AS
       $$
       BEGIN
-        INSERT INTO rol_usuario (id_usuario, id_rol) VALUES (NEW.id, 1);
+        INSERT INTO rol_user (id_user, id_rol) VALUES (NEW.id, 1);
         RETURN NEW;
       END
       $$ LANGUAGE plpgsql;
@@ -23,7 +23,7 @@ class RolUsuarioTrigger extends Migration
 
       DB::unprepared('
         CREATE TRIGGER tg_usuario_insert_rol
-        AFTER INSERT ON usuarios
+        AFTER INSERT ON users
         FOR EACH ROW
         EXECUTE PROCEDURE asignarRol()');
     }

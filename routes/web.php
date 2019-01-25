@@ -277,6 +277,7 @@ Route::get('/comprar', 'pasajeroController@saveData');
 Route::get('/finalizar', 'reservaController@store');
 //-------------------------------------------------------------
 
+Auth::routes();
 Route::post('/login/doLogin', 'Auth\LoginController@authenticate');
 
 Auth::routes();
