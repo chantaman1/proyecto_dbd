@@ -35,7 +35,7 @@ class UserController extends Controller
      */
     public function create()
     {
-      
+
     }
 
     /**
@@ -46,7 +46,6 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request);
         $existUser = User::where('email', $request->get('email'))->first();
         if($existUser == NULL){
             $usuario = new User;
@@ -54,7 +53,6 @@ class UserController extends Controller
               'nombre' => $request->get('nombre'),
               'apellido_paterno' => $request->get('apellido_paterno'),
               'apellido_materno' => $request->get('apellido_materno'),
-              'facebook_id' => $request->get('facebook_id'),
               'password' => $request->get('password'),
               'email' => $request->get('email'),
               'fecha_nacimiento' => $request->get('fecha_nacimiento'),

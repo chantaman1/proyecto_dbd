@@ -6,7 +6,6 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Reserva;
 use Auth;
-use PasajeroController;
 class ReservaController extends Controller
 {
     /**
@@ -37,9 +36,10 @@ class ReservaController extends Controller
      */
     public function store(Request $request)
     {
-        app('App\Http\Controllers\UserController')->store($request);
+        $save = app('App\Http\Controllers\PasajeroController')->store($request);
         $reserva = new Reserva;
-        $reserva->fill([('totalAPagar' => $request->session()->get('precio'), 'estado_pago' => 'Pagado', 'usuario_id' => Auth::id())]);
+        $data = ['totalAPagar' => intVal($request->session()->get('asiento_precio')), 'estado_pago' => 'Pagado', 'user_id' => Auth::id()];
+        $reserva->fill($data);
         $reserva->save();
         return view('index');
     }
