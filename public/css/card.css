@@ -1,5 +1,5 @@
 body {
-  font-family: "Ubuntu", sans-serif;
+  font-family: "Droid Sans", sans-serif;
   font-size: 1.3em;
   line-height: 1.4;
   color: #fff;
@@ -38,6 +38,7 @@ h1 {
   -o-transition:margin-top 0.3s ease-in;
   transition:margin-top 0.3s ease-in;
 }
+
 .viini-kortti ul {
   font-size: 0.8em;
   list-style: none;
@@ -48,6 +49,7 @@ h1 {
   padding-left: 20px;
   padding-bottom: 50px
 }
+
 .viini-kortti:hover h2 {
   margin-top: 40px;
 }

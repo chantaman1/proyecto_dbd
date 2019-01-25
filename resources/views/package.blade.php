@@ -76,6 +76,7 @@
 								<li><a href="/hoteles">HOTELES</a></li>
 								<li><a href="/paquetes">PAQUETES</a></li>
 								<li><a href="/vehiculos">AUTOS</a></li>
+								<li><a href="/login">INICIAR SESIÓN</a></li>
 							</ul>
 						</nav>
 						<div class="clear"></div>
@@ -83,8 +84,8 @@
 				</div>
 				<div class="grid_12">
 					<h1>
-						<a href="index.html">
-							<img src="images/logo.png" alt="Your Happy Family">
+						<a href="/paquetes">
+							<img src="images/logo.png">
 						</a>
 					</h1>
 				</div>
@@ -92,12 +93,12 @@
 		</header>
 		<div class="slider_wrapper">
 			<div id="camera_wrap" class="">
-				<div data-src="images/slide.jpg">
+				<div data-src="images/cancunslide1.jpg">
 					<div class="caption fadeIn">
-						<h2>LONDON</h2>
+						<h2>CANCÚN</h2>
 						<div class="price">
-							DESDE
-							<span>$1000</span>
+							PAQUETES DESDE
+							<span>$649.230</span>
 						</div>
 					</div>
 				</div>
