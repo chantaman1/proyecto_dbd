@@ -21,6 +21,7 @@ class paqueteTableSeeder extends Seeder
           'posee_vehiculo' => false,
           'posee_hotel' => true,
           'posee_seguro' => false,
+          'image' => 'images/cancun1.jpg',
           'created_at' => now(),
           'updated_at' => null,
       ]);
@@ -30,25 +31,12 @@ class paqueteTableSeeder extends Seeder
           'ciudad_destino' => 'Punta Cana',
           'precio' => 595000,
           'descuento' => 0,
-          'cupos' => 50,
+          'cupos' => 47,
           'disponibilidad' => true,
           'posee_vehiculo' => false,
           'posee_hotel' => true,
           'posee_seguro' => false,
-          'created_at' => now(),
-          'updated_at' => null,
-      ]);
-
-      DB::table('paquetes')->insert([
-          'pais_destino' => 'Mexico',
-          'ciudad_destino' => 'Riviera Maya',
-          'precio' => 947892,
-          'descuento' => 0,
-          'cupos' => 50,
-          'disponibilidad' => true,
-          'posee_vehiculo' => false,
-          'posee_hotel' => true,
-          'posee_seguro' => true,
+          'image' => 'images/puntacana1.jpg',
           'created_at' => now(),
           'updated_at' => null,
       ]);
@@ -63,6 +51,7 @@ class paqueteTableSeeder extends Seeder
           'posee_vehiculo' => true,
           'posee_hotel' => true,
           'posee_seguro' => false,
+          'image' => 'images/playadelcarmen1.jpg',
           'created_at' => now(),
           'updated_at' => null,
       ]);
@@ -77,6 +66,7 @@ class paqueteTableSeeder extends Seeder
           'posee_vehiculo' => false,
           'posee_hotel' => true,
           'posee_seguro' => false,
+          'image' => 'images/camboriu1.jpg',
           'created_at' => now(),
           'updated_at' => null,
       ]);
@@ -91,20 +81,7 @@ class paqueteTableSeeder extends Seeder
           'posee_vehiculo' => false,
           'posee_hotel' => true,
           'posee_seguro' => false,
-          'created_at' => now(),
-          'updated_at' => null,
-      ]);
-
-      DB::table('paquetes')->insert([
-          'pais_destino' => 'Brasil',
-          'ciudad_destino' => 'Florianopolis',
-          'precio' => 923910,
-          'descuento' => 0,
-          'cupos' => 50,
-          'disponibilidad' => true,
-          'posee_vehiculo' => true,
-          'posee_hotel' => true,
-          'posee_seguro' => false,
+          'image' => 'images/riodejaneiro1.jpg',
           'created_at' => now(),
           'updated_at' => null,
       ]);
@@ -119,23 +96,27 @@ class paqueteTableSeeder extends Seeder
           'posee_vehiculo' => false,
           'posee_hotel' => true,
           'posee_seguro' => false,
+          'image' => 'images/buzios.jpg',
           'created_at' => now(),
           'updated_at' => null,
       ]);
 
       DB::table('paquetes')->insert([
-          'pais_destino' => 'Brasil',
-          'ciudad_destino' => 'Salvador de Bahia',
-          'precio' => 471965,
+          'pais_destino' => 'Chile',
+          'ciudad_destino' => 'Puerto Varas',
+          'precio' => 125700,
           'descuento' => 0,
           'cupos' => 50,
           'disponibilidad' => true,
           'posee_vehiculo' => false,
           'posee_hotel' => true,
-          'posee_seguro' => true,
+          'posee_seguro' => false,
+          'image' => 'images/puertovaras1.jpg',
           'created_at' => now(),
           'updated_at' => null,
       ]);
+
+      /*
 
       DB::table('paquetes')->insert([
           'pais_destino' => 'Estados Unidos',
@@ -179,19 +160,6 @@ class paqueteTableSeeder extends Seeder
           'updated_at' => null,
       ]);
 
-      DB::table('paquetes')->insert([
-          'pais_destino' => 'Chile',
-          'ciudad_destino' => 'Puerto Varas',
-          'precio' => 125700,
-          'descuento' => 0,
-          'cupos' => 50,
-          'disponibilidad' => true,
-          'posee_vehiculo' => false,
-          'posee_hotel' => true,
-          'posee_seguro' => false,
-          'created_at' => now(),
-          'updated_at' => null,
-      ]);
 
       DB::table('paquetes')->insert([
           'pais_destino' => 'Chile',
@@ -821,6 +789,6 @@ class paqueteTableSeeder extends Seeder
           'posee_seguro' => false,
           'created_at' => now(),
           'updated_at' => null,
-      ]);
+      ]);*/
     }
 }

@@ -1,5 +1,5 @@
 body {
-  font-family: "Arista Pro Sans", sans-serif;
+  font-family: "Ubuntu", sans-serif;
   font-size: 1.3em;
   line-height: 1.4;
   color: #fff;
@@ -56,32 +56,4 @@ h1 {
 .p-marjaisa {
   background-size: cover;
   background-repeat: no-repeat;
-  back
-}
-.p-pehmea {
-  background: #b41212;
-}
-.p-meheva {
-  background: #981a50;
-}
-.p-vivahteikas {
-  background: #722d78;
-}
-.p-roteva {
-  background: #4f2659;
-}
-.v-pehmea {
-  background: #fbf148;
-}
-.v-lempea {
-  background: #cee538;
-}
-.v-pirtea {
-  background: #7bc943;
-}
-.v-vivahteikas {
-  background: #519e72;
-}
-.v-runsas {
-  background: #325936;
 }
