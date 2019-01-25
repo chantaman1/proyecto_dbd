@@ -12,8 +12,8 @@ class paqueteTableSeeder extends Seeder
     public function run()
     {
       DB::table('paquetes')->insert([
-          'pais_destino' => 'Mexico',
-          'ciudad_destino' => 'Cancun',
+          'pais_destino' => 'México',
+          'ciudad_destino' => 'Cancún',
           'precio' => 649230,
           'descuento' => 33,
           'cupos' => 50,
@@ -27,7 +27,7 @@ class paqueteTableSeeder extends Seeder
       ]);
 
       DB::table('paquetes')->insert([
-          'pais_destino' => 'Republica Dominicana',
+          'pais_destino' => 'República Dominicana',
           'ciudad_destino' => 'Punta Cana',
           'precio' => 595000,
           'descuento' => 0,
@@ -42,7 +42,7 @@ class paqueteTableSeeder extends Seeder
       ]);
 
       DB::table('paquetes')->insert([
-          'pais_destino' => 'Mexico',
+          'pais_destino' => 'México',
           'ciudad_destino' => 'Playa del Carmen',
           'precio' => 1014692,
           'descuento' => 0,
@@ -58,7 +58,7 @@ class paqueteTableSeeder extends Seeder
 
       DB::table('paquetes')->insert([
           'pais_destino' => 'Brasil',
-          'ciudad_destino' => 'Camboriu',
+          'ciudad_destino' => 'Camboriú',
           'precio' => 530610,
           'descuento' => 0,
           'cupos' => 43,
@@ -73,7 +73,7 @@ class paqueteTableSeeder extends Seeder
 
       DB::table('paquetes')->insert([
           'pais_destino' => 'Brasil',
-          'ciudad_destino' => 'Rio de Janeiro',
+          'ciudad_destino' => 'Río de Janeiro',
           'precio' => 492075,
           'descuento' => 15,
           'cupos' => 17,
@@ -88,7 +88,7 @@ class paqueteTableSeeder extends Seeder
 
       DB::table('paquetes')->insert([
           'pais_destino' => 'Brasil',
-          'ciudad_destino' => 'Buzios',
+          'ciudad_destino' => 'Búzios',
           'precio' => 530875,
           'descuento' => 0,
           'cupos' => 33,
@@ -118,7 +118,7 @@ class paqueteTableSeeder extends Seeder
 
       DB::table('paquetes')->insert([
           'pais_destino' => 'Chile',
-          'ciudad_destino' => 'Pucon',
+          'ciudad_destino' => 'Pucón',
           'precio' => 167600,
           'descuento' => 0,
           'cupos' => 14,
@@ -208,7 +208,7 @@ class paqueteTableSeeder extends Seeder
 
       DB::table('paquetes')->insert([
           'pais_destino' => 'Estados Unidos',
-          'ciudad_destino' => 'Los Angeles',
+          'ciudad_destino' => 'Los Ángeles',
           'precio' => 879106,
           'descuento' => 0,
           'cupos' => 34,
