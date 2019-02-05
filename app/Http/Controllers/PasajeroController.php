@@ -17,12 +17,22 @@ class PasajeroController extends Controller
       if($request->get('codigo') == NULL || $request->get('id') == NULL || $request->get('precio') == NULL || $request->get('tipo') == NULL){
         return redirect('/');
       }
-      else{
-        $request->session()->put('asiento_codigo', $request->get('codigo'));
-        $request->session()->put('asiento_id', $request->get('id'));
-        $request->session()->put('asiento_precio', $request->get('precio'));
-        $request->session()->put('asiento_tipo', $request->get('tipo'));
+      else if($request->session()->get('idaVuelta') && $request->session()->get('pasoActual') == 2){
+        $request->session()->put('vuelta_asiento_codigo', $request->get('codigo'));
+        $request->session()->put('vuelta_asiento_id', $request->get('id'));
+        $request->session()->put('vuelta_asiento_precio', $request->get('precio'));
+        $request->session()->put('vuelta_asiento_tipo', $request->get('tipo'));
         return view('passengerFlight');
+      }
+      else if($request->session()->get('idaVuelta') == false){
+        $request->session()->put('ida_asiento_codigo', $request->get('codigo'));
+        $request->session()->put('ida_asiento_id', $request->get('id'));
+        $request->session()->put('ida_asiento_precio', $request->get('precio'));
+        $request->session()->put('ida_asiento_tipo', $request->get('tipo'));
+        return view('passengerFlight');
+      }
+      else{
+        return view('index');
       }
     }
 

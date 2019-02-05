@@ -133,10 +133,10 @@
 					<form id="bookingForm" action="{{ url('results') }}">
 						<div class="fl1">
 							<div class="tmInput">
-								<input name="origen" placeHolder="Origen: Ciudad" type="text" data-constraints='@NotEmpty @Required @AlphaSpecial'>
+								<input name="origen" id="origen" placeHolder="Origen: Ciudad" type="text" data-constraints='@NotEmpty @Required @AlphaSpecial'>
 							</div>
 							<div class="tmInput">
-								<input name="destino" placeHolder="Destino: Ciudad" type="text" data-constraints="@NotEmpty @Required">
+								<input name="destino" id="destino" placeHolder="Destino: Ciudad" type="text" data-constraints="@NotEmpty @Required">
 							</div>
 						</div>
 						<div class="clear"></div>
@@ -151,14 +151,14 @@
 						<div id="startFlight">
 							<strong>Fecha de ida</strong>
 							<label class="tmDatepicker">
-								<input type="text" name="fecha_origen" placeHolder={{ date('d/m/Y') }} data-constraints="@NotEmpty @Required @Date">
+								<input type="text" id="fecha_origen" name="fecha_origen" placeHolder={{ date('m/d/Y') }} data-constraints="@NotEmpty @Required @Date">
 							</label>
 						</div>
 						<div class="clear"></div>
 						<div id="returnFligth">
 							<strong>Fecha de regreso</strong>
 							<label class="tmDatepicker">
-								<input type="text" name="fecha_destino" placeHolder={{ date('d/m/Y') }} data-constraints="@NotEmpty @Required @Date">
+								<input type="text" id="fecha_regreso" name="fecha_regreso" placeHolder={{ "Fecha" }} data-constraints="@NotEmpty @Required @Date">
 							</label>
 						</div>
 						<div class="clear"></div>
@@ -182,7 +182,7 @@
 							</select>
 						</div>
 						<div class="clear"></div>
-						<a href="javascript:;" onclick="parentNode.submit();" class="btn" type="submit">Buscar vuelos</a>
+						<a href="javascript:;" onclick="" class="btn" id="submitBtn" type="submit">Buscar vuelos</a>
 					</form>
 				</div>
 			</div>

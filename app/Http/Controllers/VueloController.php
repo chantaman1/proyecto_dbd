@@ -12,10 +12,10 @@ class VueloController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $vuelos = Vuelo::All();
-        return $vuelos;
+        $this->initializeFlightData($request);
+        return view('flight');
     }
 
     public function getFlightByDate($date){
@@ -29,16 +29,50 @@ class VueloController extends Controller
     }
 
     public function getFlights(Request $request){
-      if($request->get('origen') == NULL || $request->get('destino') == NULL || $request->get('fecha_origen') == NULL){
-        return redirect('/');
+      if($request->session()->get('pasoActual') == 0){
+        if($request->get('origen') == NULL || $request->get('destino') == NULL || $request->get('fecha_origen') == NULL){
+          return redirect('/');
+        }
+        else if($request->get('fecha_regreso') != NULL){
+          $request->session()->put('idaVuelta', true);
+          $request->session()->put('fecha_regreso', $request->get('fecha_regreso'));
+          $request->session()->put('fecha_ida', $request->get('fecha_origen'));
+          $request->session()->put('ida_ciudad_origen', $request->get('origen'));
+          $request->session()->put('ida_ciudad_destino', $request->get('destino'));
+          $request->session()->put('vuelta_ciudad_origen', $request->get('destino'));
+          $request->session()->put('vuelta_ciudad_destino', $request->get('origen'));
+          $vuelos = Vuelo::where([
+            'ciudad_origen' => $request->get('origen'),
+            'ciudad_destino' => $request->get('destino'),
+            'fecha' => $request->get('fecha_origen')
+          ])->get();
+          return view('flightResult')->with('vuelos', $vuelos);
+        }
+        else{
+          $request->session()->put('fecha_ida', $request->get('fecha_origen'));
+          $request->session()->put('ida_ciudad_origen', $request->get('origen'));
+          $request->session()->put('ida_ciudad_destino', $request->get('destino'));
+          $vuelos = Vuelo::where([
+            'ciudad_origen' => $request->get('origen'),
+            'ciudad_destino' => $request->get('destino'),
+            'fecha' => $request->get('fecha_origen')
+          ])->get();
+          return view('flightResult')->with('vuelos', $vuelos);
+        }
       }
       else{
+        $this->getReturnFlight($request);
+      }
+    }
+
+    public function getReturnFlight(Request $request){
+      if($request->session()->get('pasoActual') == 1){
         $vuelos = Vuelo::where([
-          'ciudad_origen' => $request->get('origen'),
-          'ciudad_destino' => $request->get('destino'),
-          'fecha' => $request->get('fecha_origen')
+          'ciudad_origen' => $request->session()->get('vuelta_ciudad_origen'),
+          'ciudad_destino' => $request->session()->get('vuelta_ciudad_destino'),
+          'fecha' => $request->session()->get('fecha_regreso')
         ])->get();
-        return view('flightResult')->with('vuelos', $vuelos);  
+        return view('flightResult')->with('vuelos', $vuelos);
       }
     }
 
@@ -130,5 +164,38 @@ class VueloController extends Controller
       else{
         return "Vuelo no existente.";
       }
+    }
+
+    private function initializeFlightData(Request $request){
+        //INDICA SI ES VUELO DE IDA O AMBOS.
+        $request->session()->put('idaVuelta', false);
+        $request->session()->put('pasoActual', 0);
+        //DATOS DE LA IDA.
+        $request->session()->put('fecha_ida', NULL);
+        $request->session()->put('ida_ciudad_origen', NULL);
+        $request->session()->put('ida_ciudad_destino', NULL);
+        $request->session()->put('ida_asiento_id', NULL);
+        $request->session()->put('ida_asiento_codigo', NULL);
+        $request->session()->put('ida_asiento_precio', NULL);
+        $request->session()->put('ida_asiento_tipo', NULL);
+        //DATOS DE LA VUELTA.
+        $request->session()->put('fecha_regreso', NULL);
+        $request->session()->put('vuelta_ciudad_origen', NULL);
+        $request->session()->put('vuelta_ciudad_destino', NULL);
+        $request->session()->put('vuelta_asiento_id', NULL);
+        $request->session()->put('vuelta_asiento_codigo', NULL);
+        $request->session()->put('vuelta_asiento_precio', NULL);
+        $request->session()->put('vuelta_asiento_tipo', NULL);
+        //DATOS DEL PASAJERO.
+        $request->session()->put('nombre', NULL);
+        $request->session()->put('apellido_paterno', NULL);
+        $request->session()->put('apellido_materno', NULL);
+        $request->session()->put('correo', NULL);
+        $request->session()->put('fecha_nacimiento', NULL);
+        $request->session()->put('telefono', NULL);
+        $request->session()->put('nacionalidad', NULL);
+        $request->session()->put('pasaporte', NULL);
+
+        return;
     }
 }

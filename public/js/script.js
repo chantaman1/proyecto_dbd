@@ -22,12 +22,52 @@ document.addEventListener( 'DOMContentLoaded', function() {
 $(document).ready(function(){
     $('input[name="tmBtn"]').change(function(){
         if($('#tmRadio1').prop('checked')){
+						checkData();
             hideFlight();
         }else{
+						checkData();
             showFlight();
         }
     });
+
+		$("#bookingForm a").mouseenter(function(){
+			checkData();
+		});
+
 });
+
+function checkData(){
+	var origen = document.getElementById("origen");
+	var destino = document.getElementById("destino");
+	var fecha_ida = document.getElementById("fecha_origen");
+	if($('#tmRadio1').prop('checked')){
+		if(origen && destino && fecha_ida){
+			if(origen.value.length > 0 && destino.value.length > 0 && fecha_ida.value.length > 0){
+				$("#bookingForm a").attr("onclick","parentNode.submit();");
+			}
+			else{
+				$("#bookingForm a").attr("onclick","");
+			}
+		}
+		else{
+			$("#bookingForm a").attr("onclick","");
+		}
+	}
+	else{
+		var fecha_destino = document.getElementById("fecha_regreso");
+		if(origen && destino && fecha_ida && fecha_destino){
+			if(origen.value.length > 0 && destino.value.length > 0 && fecha_ida.value.length > 0 && fecha_destino.value.length > 0){
+				$("#bookingForm a").attr("onclick","parentNode.submit();");
+			}
+			else{
+				$("#bookingForm a").attr("onclick","");
+			}
+		}
+		else{
+			$("#bookingForm a").attr("onclick","");
+		}
+	}
+}
 
 $(function(){
 // IPad/IPhone
@@ -91,39 +131,3 @@ function showFlight() {
   var x = document.getElementById("returnFligth");
   x.style.display = "block";
 }
-
-$(function() {
-
-    var owner = $('#owner');
-    var cardNumber = $('#cardNumber');
-    var CVV = $("#cvv");
-    var confirmButton = $('#confirm-purchase');
-
-    // Use the payform library to format and validate
-    // the payment fields.
-
-    cardNumber.payform('formatCardNumber');
-    CVV.payform('formatCardCVC');
-
-
-    cardNumber.keyup(function() {
-
-    confirmButton.click(function(e) {
-
-        e.preventDefault();
-
-        var isCardValid = $.payform.validateCardNumber(cardNumber.val());
-        var isCvvValid = $.payform.validateCardCVC(CVV.val());
-
-        if(owner.val().length < 5){
-            alert("Wrong owner name");
-        } else if (!isCardValid) {
-            alert("Wrong card number");
-        } else if (!isCvvValid) {
-            alert("Wrong CVV");
-        } else {
-            // Everything is correct. Add your form submission code here.
-            alert("Everything is correct");
-        }
-    });
-});

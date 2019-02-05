@@ -15,9 +15,7 @@ Route::get('/', function () {
     return redirect('vuelos');
 });
 
-Route::get('/vuelos', function () {
-    return view('flight');
-});
+Route::get('/vuelos', 'vueloController@index');
 
 Route::get('/vehiculos',function(){
   return view('vehicle');
@@ -28,7 +26,7 @@ Route::get('/hoteles',function(){
 });
 
 Route::get('/home', function () {
-    return view('index');
+    return redirect('vuelos');
 });
 
 
