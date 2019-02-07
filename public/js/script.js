@@ -22,49 +22,49 @@ document.addEventListener( 'DOMContentLoaded', function() {
 $(document).ready(function(){
     $('input[name="tmBtn"]').change(function(){
         if($('#tmRadio1').prop('checked')){
-						checkData();
+						checkDataFligth();
             hideFlight();
         }else{
-						checkData();
+						checkDataFligth();
             showFlight();
         }
     });
 
-		$("#bookingForm a").mouseenter(function(){
-			checkData();
+		$("#bookingForm #submitBtnFligth").mouseenter(function(){
+			checkDataFligth();
 		});
 
 });
 
-function checkData(){
+function checkDataFligth(){
 	var origen = document.getElementById("origen");
 	var destino = document.getElementById("destino");
 	var fecha_ida = document.getElementById("fecha_origen");
 	if($('#tmRadio1').prop('checked')){
 		if(origen && destino && fecha_ida){
 			if(origen.value.length > 0 && destino.value.length > 0 && fecha_ida.value.length > 0){
-				$("#bookingForm a").attr("onclick","parentNode.submit();");
+				$("#bookingForm #submitBtnFligth").attr("onclick","parentNode.submit();");
 			}
 			else{
-				$("#bookingForm a").attr("onclick","");
+				$("#bookingForm #submitBtnFligth").attr("onclick","");
 			}
 		}
 		else{
-			$("#bookingForm a").attr("onclick","");
+			$("#bookingForm #submitBtnFligth").attr("onclick","");
 		}
 	}
 	else{
 		var fecha_destino = document.getElementById("fecha_regreso");
 		if(origen && destino && fecha_ida && fecha_destino){
 			if(origen.value.length > 0 && destino.value.length > 0 && fecha_ida.value.length > 0 && fecha_destino.value.length > 0){
-				$("#bookingForm a").attr("onclick","parentNode.submit();");
+				$("#bookingForm #submitBtnFligth").attr("onclick","parentNode.submit();");
 			}
 			else{
-				$("#bookingForm a").attr("onclick","");
+				$("#bookingForm #submitBtnFligth").attr("onclick","");
 			}
 		}
 		else{
-			$("#bookingForm a").attr("onclick","");
+			$("#bookingForm #submitBtnFligth").attr("onclick","");
 		}
 	}
 }

@@ -182,7 +182,7 @@
 							</select>
 						</div>
 						<div class="clear"></div>
-						<a href="javascript:;" onclick="" class="btn" id="submitBtn" type="submit">Buscar vuelos</a>
+						<a href="javascript:;" onclick="" class="btn" id="submitBtnFligth" type="submit">Buscar vuelos</a>
 					</form>
 				</div>
 			</div>

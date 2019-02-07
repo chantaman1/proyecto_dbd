@@ -161,7 +161,7 @@
 							</div>
 						</div>
 						<div class="clear"></div>
-						<a href="javascript:;" onclick="parentNode.submit();" class="btn" type="submit">Continuar compra!</a>
+						<a href="javascript:;" onclick="parentNode.submit();" class="btn" id="submitBtnPassenger" type="submit">Continuar compra!</a>
 					</form>
 				</div>
 			</div>

@@ -17,12 +17,21 @@ class PasajeroController extends Controller
       if($request->get('codigo') == NULL || $request->get('id') == NULL || $request->get('precio') == NULL || $request->get('tipo') == NULL){
         return redirect('/');
       }
-      else if($request->session()->get('idaVuelta') && $request->session()->get('pasoActual') == 2){
+      else if($request->session()->get('idaVuelta') && $request->session()->get('pasoActual') == 1){
         $request->session()->put('vuelta_asiento_codigo', $request->get('codigo'));
         $request->session()->put('vuelta_asiento_id', $request->get('id'));
         $request->session()->put('vuelta_asiento_precio', $request->get('precio'));
         $request->session()->put('vuelta_asiento_tipo', $request->get('tipo'));
+        $request->session()->put('pasoActual', 2);
         return view('passengerFlight');
+      }
+      else if($request->session()->get('idaVuelta') && $request->session()->get('pasoActual') == 0){
+        $request->session()->put('ida_asiento_codigo', $request->get('codigo'));
+        $request->session()->put('ida_asiento_id', $request->get('id'));
+        $request->session()->put('ida_asiento_precio', $request->get('precio'));
+        $request->session()->put('ida_asiento_tipo', $request->get('tipo'));
+        $request->session()->put('pasoActual', 1);
+        return redirect('/results');
       }
       else if($request->session()->get('idaVuelta') == false){
         $request->session()->put('ida_asiento_codigo', $request->get('codigo'));
@@ -46,10 +55,23 @@ class PasajeroController extends Controller
         $request->session()->put('telefono', $request->get('telefono'));
         $request->session()->put('nacionalidad', $request->get('nacionalidad'));
         $request->session()->put('pasaporte', $request->get('pasaporte'));
-        $data = (object)["nombre" => $request->get('nombre'), "precio" => $request->session()->get('asiento_precio'),
-                 "tipo" => $request->session()->get('asiento_tipo'), "codigo" => $request->session()->get('asiento_codigo'),
-                 "destino" => $request->session()->get('destino')];
-        return view('buyFlight')->with('data', $data);
+        if($request->session()->get('idaVuelta')){
+          $data = (object)[(object)["tipo_viaje" => "IDA", "nombre" => $request->get('nombre'), "precio" => $request->session()->get('ida_asiento_precio'),
+                   "tipo" => $request->session()->get('ida_asiento_tipo'), "codigo" => $request->session()->get('ida_asiento_codigo'),
+                   "destino" => $request->session()->get('ida_ciudad_destino'), "origen" => $request->session()->get('ida_ciudad_origen')],
+                   (object)["tipo_viaje" => "REGRESO", "nombre" => $request->get('nombre'), "precio" => $request->session()->get('vuelta_asiento_precio'),
+                    "tipo" => $request->session()->get('vuelta_asiento_tipo'), "codigo" => $request->session()->get('vuelta_asiento_codigo'),
+                    "destino" => $request->session()->get('vuelta_ciudad_destino'), "origen" => $request->session()->get('vuelta_ciudad_origen')]];
+          $total = intval($request->session()->get('ida_asiento_precio')) + intval($request->session()->get('vuelta_asiento_precio'));
+          return view('buyFlight')->with('data', $data)->with('total', $total);
+        }
+        else{
+          $data = (object)[(object)["tipo_viaje" => "IDA", "nombre" => $request->get('nombre'), "precio" => $request->session()->get('ida_asiento_precio'),
+                   "tipo" => $request->session()->get('ida_asiento_tipo'), "codigo" => $request->session()->get('ida_asiento_codigo'),
+                   "destino" => $request->session()->get('ida_ciudad_destino'), "origen" => $request->session()->get('ida_ciudad_origen')]];
+          $total = intval($request->session()->get('ida_asiento_precio'));
+          return view('buyFlight')->with('data', $data)->with('total', $total);
+        }
     }
 
     /**

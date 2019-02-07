@@ -281,6 +281,8 @@ Route::get('/finalizar', 'reservaController@store')->middleware('auth');
 Route::get('/auth/facebook', 'facebookController@redirectToFacebookProvider');
 
 Route::get('/auth/facebook/callback', 'facebookController@handleProviderFacebookCallback');
+
+Route::get('/erase', 'vueloController@eraseData');
 //-------------------------------------------------------------
 
 Auth::routes();

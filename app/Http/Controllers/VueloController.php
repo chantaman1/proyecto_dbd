@@ -61,7 +61,7 @@ class VueloController extends Controller
         }
       }
       else{
-        $this->getReturnFlight($request);
+        return $this->getReturnFlight($request);
       }
     }
 
@@ -164,6 +164,12 @@ class VueloController extends Controller
       else{
         return "Vuelo no existente.";
       }
+    }
+
+    public function eraseData(Request $request){
+        $request->session()->flush();
+        $this->initializeFlightData($request);
+        return view('index');
     }
 
     private function initializeFlightData(Request $request){

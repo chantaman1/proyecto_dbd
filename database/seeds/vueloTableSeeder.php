@@ -17,12 +17,12 @@ class vueloTableSeeder extends Seeder
 
         DB::table('vuelos')->insert([
             'tipo' => 'ida',
-            'ciudad_origen' => 'Santiago de Chile',
+            'ciudad_origen' => 'Santiago',
             'pais_origen' => 'Chile',
             'codigo' => $faker->ean8,
-            'ciudad_destino' => 'Cancún',
+            'ciudad_destino' => 'Cancun',
             'pais_destino' => 'México',
-            'fecha' => '01/25/2019',
+            'fecha' => '02/07/2019',
             'hora' => '00:00:00',
             'aerolinea_id' => 1,
             'created_at' => now(),
@@ -31,12 +31,12 @@ class vueloTableSeeder extends Seeder
 
         DB::table('vuelos')->insert([
             'tipo' => 'vuelta',
-            'ciudad_origen' => 'Cancún',
+            'ciudad_origen' => 'Cancun',
             'pais_origen' => 'México',
             'codigo' => $faker->ean8,
-            'ciudad_destino' => 'Santiago de Chile',
+            'ciudad_destino' => 'Santiago',
             'pais_destino' => 'Chile',
-            'fecha' => '01/25/2019',
+            'fecha' => '02/07/2019',
             'hora' => '00:00:00',
             'aerolinea_id' => 1,
             'created_at' => now(),

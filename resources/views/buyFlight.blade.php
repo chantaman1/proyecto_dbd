@@ -131,10 +131,15 @@
     <div class="clear"></div>
     <div class="grid_6">
       <h3>Resumen de pago</h3>
+			@foreach ($data as $dt)
         <div class="grid_4">
-          <a class="btn"> <strong>Pasajero:</strong> {{$data->nombre}} <br/> <strong>Numero de asiento:</strong> {{$data->codigo}} <br/> <strong>Tipo de asiento:</strong> {{$data->tipo}} <br/> <strong>Precio:</strong> ${{$data->precio}} <br/> <strong>Destino:</strong> {{$data->destino}} </a>
+          <a class="btn"> <strong>Pasajero:</strong> {{$dt->nombre}} <br/> <strong>Numero de asiento:</strong> {{$dt->codigo}} <br/> <strong>Tipo de asiento:</strong> {{$dt->tipo}} <br/> <strong>Precio:</strong> ${{$dt->precio}} <br/> <strong>Ciudad origen:</strong> {{$dt->origen}} <br/> <strong>Ciudad destino:</strong> {{$dt->destino}} </a>
         </div>
-        <div class="clear"></div>
+			@endforeach
+				<div class="grid_4">
+					<a class="btn"> <strong>Total a pagar:</strong> {{$total}} </a>
+				</div>
+      <div class="clear"></div>
     </div>
 		<div class="grid_6">
 			<h3>Datos tarjeta de credito</h3>
