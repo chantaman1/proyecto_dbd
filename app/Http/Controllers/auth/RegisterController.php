@@ -64,13 +64,14 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \App\Usuario
      */
-    protected function create(array $data)
+    protected function createUser(Request $request)
     {
+        dd('hola');
         $faker = Faker::create();
 
-        $this->session()->put('usuario_nombre', $data['nombre']);
-        $this->session()->put('usuario_apellido_paterno', $data['apellido_paterno']);
-        $this->session()->put('usuario_correo', $data['correo']);
+        $this->session()->put('usuario_nombre', $request->nombre);
+        $this->session()->put('usuario_apellido_paterno', $request->apellido_paterno);
+        $this->session()->put('usuario_correo', $request->correo);
 
         $token = $faker->sha256;
         $this->session()->put('usuario_mail_token', $token);
@@ -79,17 +80,18 @@ class RegisterController extends Controller
         Mail::to($data['correo'])->send(new verificarMail());
 
         return Usuario::store([
-            'nombre' => $data['nombre'],
-            'apellido_paterno' => $data['apellido_paterno'],
-            'apellido_materno' => $data['apellido_materno'],
-            'fecha_nacimiento' => $data['fecha_nacimiento'],
-            'direccion' => $data['direccion'],
-            'telefono' => $data['telefono'],
-            'nacionalidad' => $data['nacionalidad'],
-            'pasaporte' => $data['pasaporte'],
-            'correo' => $data['correo'],
-            'password' => $data['password'],
+            'nombre' => $request->nombre,
+            'apellido_paterno' => $request->apellido_paterno,
+            'apellido_materno' => $request->apellido_materno,
+            'fecha_nacimiento' => $request->fecha_nacimiento,
+            'direccion' => $request->direccion,
+            'telefono' => $request->telefono,
+            'nacionalidad' => $request->nacionalidad,
+            'pasaporte' => $request->pasaporte,
+            'correo' => $request->correo,
+            'password' => $request->password,
             'mail_token' => $token,
+            'verified' => false,
         ]);
     }
 }

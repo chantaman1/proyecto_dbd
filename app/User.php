@@ -20,11 +20,14 @@ class User extends Authenticatable
        protected $email;
        protected $nacionalidad;
        protected $pasaporte;
+       protected $verified;
+       protected $email_token;
 
        protected $fillable = [
            'nombre', 'apellido_paterno', 'apellido_materno',
            'password', 'fecha_nacimiento', 'direccion',
            'telefono', 'email', 'nacionalidad', 'pasaporte', 'facebook_id',
+           'verified', 'email_token',
        ];
     /**
      * The attributes that should be hidden for arrays.

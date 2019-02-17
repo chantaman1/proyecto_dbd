@@ -130,7 +130,7 @@
 				<div class="clear"></div>
 				<div class="grid_6">
 					<h3>Formulario de registro</h3>
-					<form id="bookingForm" action="{{ route('register') }}">
+					<form id="bookingForm" action="{{ url('register/doRegister') }}">
 						<div class="fl1">
 							<div class="tmInput">
 								<input name="nombre" id="nombre" placeHolder="Nombres..." type="text" data-constraints='@NotEmpty @Required @AlphaSpecial'>
@@ -167,11 +167,11 @@
 								<input name="correo" id="correo" placeHolder="Email..." type="text" data-constraints='@NotEmpty @Required @AlphaSpecial'>
 							</div>
               <div class="tmInput">
-								<input name="password" id="password" placeHolder="Password..." type="text" data-constraints='@NotEmpty @Required @AlphaSpecial'>
+								<input name="password" id="password" placeHolder="Password..." type="password" data-constraints='@NotEmpty @Required @AlphaSpecial'>
 							</div>
             </div>
 						<div class="clear"></div>
-						<a href="javascript:;" onclick="" class="btn" id="submitBtnRegister" type="submit">Registrar</a>
+						<a href="javascript:;" onclick="parentNode.submit();" class="btn" id="submitBtnRegister" type="submit">Registrar</a>
 					</form>
 				</div>
 			</div>

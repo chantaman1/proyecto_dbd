@@ -6,20 +6,21 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Queue\ShouldQueue;
-
+use Illuminate\Http\Request;
 class verificarMail extends Mailable
 {
     use Queueable, SerializesModels;
 
+    public $requestData;
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct()
-    {
-        //
-    }
+     public function __construct(Request $request)
+     {
+         $this->requestData = $request;
+     }
 
     /**
      * Build the message.
@@ -32,9 +33,9 @@ class verificarMail extends Mailable
           ->subject('Verifique su correo Aerolineas Alaya')
           ->markdown('mails.verificarMail')
           ->with([
-              'name' => $this->session()->get('usuario_nombre') + ' ' + $this->session()->get('usuario_apellido_paterno'),
-              'mail_token' => $this->session()->get('usuario_mail_token'),
-              'mail' => $this->session()->get('usuario_correo')
+              'userName' => $this->requestData->session()->get('usuario_nombre').' '.$this->requestData->session()->get('usuario_apellido_paterno'),
+              'mail_token' => $this->requestData->session()->get('usuario_mail_token'),
+              'mail' => $this->requestData->session()->get('usuario_correo')
           ]);
     }
 }

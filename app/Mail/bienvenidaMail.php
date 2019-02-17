@@ -5,20 +5,23 @@ namespace App\Mail;
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
+use Illuminate\Http\Request;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
 class bienvenidaMail extends Mailable
 {
     use Queueable, SerializesModels;
 
+    public $requestData;
+
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(Request $request)
     {
-        //
+        $this->requestData = $request;
     }
 
     /**
@@ -32,7 +35,7 @@ class bienvenidaMail extends Mailable
           ->subject('Bienvenido a Aerolineas Alaya')
           ->markdown('mails.bienvenidaMail')
           ->with([
-              'name' => $this->session()->get('usuario_nombre') + ' ' + $this->session()->get('usuario_apellido_paterno'),
+              'userName' => $this->requestData->session()->get('usuario_nombre').' '.$this->requestData->session()->get('usuario_apellido_paterno'),
               'link' => 'https://www.google.cl'
           ]);
     }

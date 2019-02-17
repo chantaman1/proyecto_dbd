@@ -25,8 +25,8 @@
 								</tr>
 								<tr>
 									<td style="padding: 20px 0 30px 0; color: #153643; font-family: Arial, sans-serif; font-size: 16px; line-height: 20px;">
-										Estimado <strong>{{ name }}</strong>, para que pueda iniciar sesion en nuestra plataforma, es necesario que verifique su correo electronico. Para eso haga click en el siguiente link: <a href="https://192.168.10.10/verify?token={{ mail_token }}&mail={{ mail }}" style="color: #ffffff;"><font color="#ffffff">Verificar correo</font></a><br/>
-                    En caso de no poder usar ese link, ingrese manualmente el siguiente en el navegador: https://192.168.10.10/verify?token={{ mail_token }}&mail={{ mail }}
+										Estimado <strong>{{ $userName }}</strong>, para que pueda iniciar sesion en nuestra plataforma, es necesario que verifique su correo electronico. Para eso haga click en el siguiente link: <a href="https://192.168.10.10/verify?token={{ $mail_token }}&mail={{ $mail }}" style="color: #ffffff;"><font color="#000000">Verificar correo</font></a><br/>
+                    En caso de no poder usar ese link, ingrese manualmente el siguiente en el navegador: https://192.168.10.10/verify?token={{ $mail_token }}&mail={{ $mail }}
 									</td>
 								</tr>
 							</table>

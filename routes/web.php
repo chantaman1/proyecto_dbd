@@ -289,6 +289,8 @@ Route::get('/auth/facebook/callback', 'facebookController@handleProviderFacebook
 Route::get('/erase', 'vueloController@eraseData');
 //-------------------------------------------------------------
 
+Route::get('/register/doRegister', 'UserController@store');
+
 Auth::routes();
 
 Route::post('/login/doLogin', 'Auth\LoginController@authenticate');
