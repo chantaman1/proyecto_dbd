@@ -130,7 +130,7 @@
 				<div class="clear"></div>
 				<div class="grid_6">
 					<h3>Formulario de registro</h3>
-					<form id="bookingForm" action="{{ url('register/doRegister') }}">
+					<form id="bookingForm" method="POST" action="{{ url('register/doRegister') }}">
 						<div class="fl1">
 							<div class="tmInput">
 								<input name="nombre" id="nombre" placeHolder="Nombres..." type="text" data-constraints='@NotEmpty @Required @AlphaSpecial'>

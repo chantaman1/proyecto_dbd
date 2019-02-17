@@ -92,6 +92,28 @@ class UserController extends Controller
         }
     }
 
+    public function verifyEmail(Request $request){
+        $user = User::where('email', $request->get('mail'))->first();
+        if($user != NULL){
+          if($user->verified){
+            dd('cuenta ya verificada');
+          }
+          else{
+            if($user->email_token === $request->get('token')){
+              $user->verified = true;
+              $user->save();
+              dd('verificado');
+            }
+            else{
+              dd('token incorrecto');
+            }
+          }
+        }
+        else{
+          dd('usuario no existe');
+        }
+    }
+
     public function storeFacebook($data)
     {
         $usuario = new User;
@@ -106,7 +128,9 @@ class UserController extends Controller
           'direccion' => 'not avalaible',
           'telefono' => 'not avalaible',
           'nacionalidad' => 'not avalaible',
-          'pasaporte' => 'not avalaible'
+          'pasaporte' => 'not avalaible',
+          'verified' => true,
+          'email_token' => 'not avalaible'
         ]);
         $usuario->save();
         return $usuario;
