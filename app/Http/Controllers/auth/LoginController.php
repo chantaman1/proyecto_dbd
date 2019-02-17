@@ -4,6 +4,8 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use validator;
 use Auth;
+use App\User;
+use App\Http\Controllers\UserController;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 class LoginController extends Controller
 {
@@ -43,11 +45,25 @@ class LoginController extends Controller
         $email = $request->get('email');
         $password = $request->get('password');
         $credenciales = array('email' => $email, 'password' => $password);
-        if (Auth::attempt($credenciales)) {
-            return redirect('/');
+        $userData = User::where('email', $email)->first();
+        if($userData != NULL){
+          if($userData->verified){
+            if (Auth::attempt($credenciales)) {
+                $request->session()->put('usuario_correo', $email);
+                $request->session()->put('usuario_nombre', $userData->nombre);
+                $request->session()->put('usuario_apellido_paterno', $userData->apellido_paterno);
+                return redirect('/');
+            }
+            else{
+              return redirect('/login');
+            }
+          }
+          else{
+            return redirect('/login');
+          }
         }
         else{
-          return redirect('/vuelos');
+          return redirect('/login');
         }
     }
 

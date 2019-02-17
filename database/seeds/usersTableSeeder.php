@@ -27,6 +27,8 @@ class usersTableSeeder extends Seeder
           'created_at' => now(),
           'updated_at' => now(),
           'email_verified_at' => now(),
+          'email_token' => '4sf6s5fg6fgs8s46fs68fs468f468fsdf684',
+          'verified' => true,
           'remember_token' => str_random(10),
         ]);
     }

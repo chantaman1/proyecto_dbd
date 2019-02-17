@@ -5,6 +5,10 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use App\Mail\bienvenidaMail;
+use App\Mail\verificarMail;
+use Illuminate\Support\Facades\Mail;
+use Faker\Factory as Faker;
 class RegisterController extends Controller
 {
     /*
@@ -62,6 +66,18 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        $faker = Faker::create();
+
+        $this->session()->put('usuario_nombre', $data['nombre']);
+        $this->session()->put('usuario_apellido_paterno', $data['apellido_paterno']);
+        $this->session()->put('usuario_correo', $data['correo']);
+
+        $token = $faker->sha256;
+        $this->session()->put('usuario_mail_token', $token);
+
+        Mail::to($data['correo'])->send(new bienvenidaMail());
+        Mail::to($data['correo'])->send(new verificarMail());
+
         return Usuario::store([
             'nombre' => $data['nombre'],
             'apellido_paterno' => $data['apellido_paterno'],
@@ -73,6 +89,7 @@ class RegisterController extends Controller
             'pasaporte' => $data['pasaporte'],
             'correo' => $data['correo'],
             'password' => $data['password'],
+            'mail_token' => $token,
         ]);
     }
 }

@@ -1,7 +1,6 @@
 <?php
 
-use App\Mail\confirmacionCompra;
-use Illuminate\Support\Facades\Mail;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -32,11 +31,7 @@ Route::get('/home', function () {
 });
 
 Route::get('/send-mail', function () {
-
-    Mail::to('edgar.blau@usach.cl')->send(new confirmacionCompra());
-
     return redirect('vuelos');
-
 });
 
 

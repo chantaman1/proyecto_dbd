@@ -24,7 +24,9 @@ class User extends Migration
           $table->string('facebook_id')->nullable();
           $table->timestamp('email_verified_at')->nullable();
           $table->string('nacionalidad', 63);//Pais más largo 31 char (republica democratica del congo)
-          $table->string('pasaporte')->unique();
+          $table->string('pasaporte');
+          $table->string('email_token');
+          $table->boolean('verified');
           $table->rememberToken();
           $table->timestamps();
         });
