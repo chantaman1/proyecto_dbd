@@ -14,6 +14,7 @@ $factory->define(App\Vuelo::class, function (Faker $faker) {
       'pais_destino' => $faker->country,
       'fecha' => $dt->format('m/d/Y') ,
       'hora' => $faker->time($format = 'H:i:s'),
+      'asientos' => 0,
       'aerolinea_id' => $faker->numberBetween(1, 8),
     ];
 });

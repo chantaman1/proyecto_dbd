@@ -164,7 +164,7 @@
 						<div class="clear"></div>
 						<div class="fl1 fl2">
 							<em>Adultos</em>
-							<select name="Adults" class="tmSelect auto" data-class="tmSelect tmSelect2" data-constraints="">
+							<select name="cant_adultos" class="tmSelect auto" data-class="tmSelect tmSelect2" data-constraints="">
 								<option>1</option>
 								<option>1</option>
 								<option>2</option>
@@ -174,7 +174,7 @@
 						</div>
 						<div class="fl1 fl2">
 							<em>Niños</em>
-							<select name="Children" class="tmSelect auto" data-class="tmSelect tmSelect2" data-constraints="">
+							<select name="cant_ninos" class="tmSelect auto" data-class="tmSelect tmSelect2" data-constraints="">
 								<option>0</option>
 								<option>0</option>
 								<option>1</option>

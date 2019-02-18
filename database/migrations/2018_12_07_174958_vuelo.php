@@ -22,6 +22,7 @@ class Vuelo extends Migration
           $table->string('ciudad_destino', 100);
           $table->string('pais_destino', 100);
           $table->string('fecha', 30);
+          $table->integer('asientos');
           $table->time('hora');
           $table->unsignedInteger('aerolinea_id');
           $table->foreign('aerolinea_id')->references('id')->on('aerolineas')->onDelete('cascade');

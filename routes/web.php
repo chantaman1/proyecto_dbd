@@ -288,33 +288,14 @@ Route::get('/auth/facebook/callback', 'facebookController@handleProviderFacebook
 
 Route::get('/erase', 'vueloController@eraseData');
 //-------------------------------------------------------------
+Route::get('/register', 'Auth\RegisterController@index');
 
 Route::post('/register/doRegister', 'UserController@store');
 
 Route::get('/verify', 'UserController@verifyEmail');
 
-Auth::routes();
+Route::get('/login', 'Auth\LoginController@index');
 
 Route::post('/login/doLogin', 'Auth\LoginController@authenticate');
 
-Auth::routes();
-
 Route::get('/login/destroy', 'Auth\LoginController@getLogout');
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
-
-Auth::routes();
-
-Route::get('activate/{token}', 'Auth\RegisterController@activate')
-    ->name('activate');
-Route::get('/home', 'HomeController@index')->name('home');

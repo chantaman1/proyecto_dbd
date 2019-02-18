@@ -25,6 +25,7 @@ class vueloTableSeeder extends Seeder
             'fecha' => '02/07/2019',
             'hora' => '00:00:00',
             'aerolinea_id' => 1,
+            'asientos' => 0,
             'created_at' => now(),
             'updated_at' => null,
         ]);
@@ -39,6 +40,7 @@ class vueloTableSeeder extends Seeder
             'fecha' => '02/07/2019',
             'hora' => '00:00:00',
             'aerolinea_id' => 1,
+            'asientos' => 0,
             'created_at' => now(),
             'updated_at' => null,
         ]);
@@ -53,6 +55,7 @@ class vueloTableSeeder extends Seeder
             'fecha' => '01/25/2019',
             'hora' => '00:00:00',
             'aerolinea_id' => 2,
+            'asientos' => 0,
             'created_at' => now(),
             'updated_at' => null,
         ]);
@@ -67,6 +70,7 @@ class vueloTableSeeder extends Seeder
             'fecha' => '01/25/2019',
             'hora' => '00:00:00',
             'aerolinea_id' => 2,
+            'asientos' => 0,
             'created_at' => now(),
             'updated_at' => null,
         ]);
@@ -81,6 +85,7 @@ class vueloTableSeeder extends Seeder
             'fecha' => '01/25/2019',
             'hora' => '00:00:00',
             'aerolinea_id' => 3,
+            'asientos' => 0,
             'created_at' => now(),
             'updated_at' => null,
         ]);
@@ -95,6 +100,7 @@ class vueloTableSeeder extends Seeder
             'fecha' => '01/25/2019',
             'hora' => '00:00:00',
             'aerolinea_id' => 3,
+            'asientos' => 0,
             'created_at' => now(),
             'updated_at' => null,
         ]);
@@ -109,6 +115,7 @@ class vueloTableSeeder extends Seeder
             'fecha' => '01/25/2019',
             'hora' => '00:00:00',
             'aerolinea_id' => 4,
+            'asientos' => 0,
             'created_at' => now(),
             'updated_at' => null,
         ]);
@@ -123,6 +130,7 @@ class vueloTableSeeder extends Seeder
             'fecha' => '01/25/2019',
             'hora' => '00:00:00',
             'aerolinea_id' => 4,
+            'asientos' => 0,
             'created_at' => now(),
             'updated_at' => null,
         ]);
@@ -137,6 +145,7 @@ class vueloTableSeeder extends Seeder
             'fecha' => '01/25/2019',
             'hora' => '00:00:00',
             'aerolinea_id' => 5,
+            'asientos' => 0,
             'created_at' => now(),
             'updated_at' => null,
         ]);
@@ -151,6 +160,7 @@ class vueloTableSeeder extends Seeder
             'fecha' => '01/25/2019',
             'hora' => '00:00:00',
             'aerolinea_id' => 5,
+            'asientos' => 0,
             'created_at' => now(),
             'updated_at' => null,
         ]);
@@ -165,6 +175,7 @@ class vueloTableSeeder extends Seeder
             'fecha' => '01/25/2019',
             'hora' => '00:00:00',
             'aerolinea_id' => 6,
+            'asientos' => 0,
             'created_at' => now(),
             'updated_at' => null,
         ]);
@@ -179,6 +190,7 @@ class vueloTableSeeder extends Seeder
             'fecha' => '01/25/2019',
             'hora' => '00:00:00',
             'aerolinea_id' => 6,
+            'asientos' => 0,
             'created_at' => now(),
             'updated_at' => null,
         ]);
@@ -193,6 +205,7 @@ class vueloTableSeeder extends Seeder
             'fecha' => '01/25/2019',
             'hora' => '00:00:00',
             'aerolinea_id' => 7,
+            'asientos' => 0,
             'created_at' => now(),
             'updated_at' => null,
         ]);
@@ -207,6 +220,7 @@ class vueloTableSeeder extends Seeder
             'fecha' => '01/25/2019',
             'hora' => '00:00:00',
             'aerolinea_id' => 7,
+            'asientos' => 0,
             'created_at' => now(),
             'updated_at' => null,
         ]);
@@ -221,6 +235,7 @@ class vueloTableSeeder extends Seeder
             'fecha' => '01/25/2019',
             'hora' => '00:00:00',
             'aerolinea_id' => 8,
+            'asientos' => 0,
             'created_at' => now(),
             'updated_at' => null,
         ]);
@@ -235,6 +250,7 @@ class vueloTableSeeder extends Seeder
             'fecha' => '01/25/2019',
             'hora' => '00:00:00',
             'aerolinea_id' => 8,
+            'asientos' => 0,
             'created_at' => now(),
             'updated_at' => null,
         ]);
@@ -249,6 +265,7 @@ class vueloTableSeeder extends Seeder
             'fecha' => '01/25/2019',
             'hora' => '00:00:00',
             'aerolinea_id' => 1,
+            'asientos' => 0,
             'created_at' => now(),
             'updated_at' => null,
         ]);
@@ -263,6 +280,7 @@ class vueloTableSeeder extends Seeder
             'fecha' => '01/25/2019',
             'hora' => '00:00:00',
             'aerolinea_id' => 1,
+            'asientos' => 0,
             'created_at' => now(),
             'updated_at' => null,
         ]);
@@ -277,6 +295,7 @@ class vueloTableSeeder extends Seeder
             'fecha' => '01/25/2019',
             'hora' => '00:00:00',
             'aerolinea_id' => 2,
+            'asientos' => 0,
             'created_at' => now(),
             'updated_at' => null,
         ]);
@@ -291,6 +310,7 @@ class vueloTableSeeder extends Seeder
             'fecha' => '01/25/2019',
             'hora' => '00:00:00',
             'aerolinea_id' => 2,
+            'asientos' => 0,
             'created_at' => now(),
             'updated_at' => null,
         ]);
@@ -305,6 +325,7 @@ class vueloTableSeeder extends Seeder
             'fecha' => '01/25/2019',
             'hora' => '00:00:00',
             'aerolinea_id' => 3,
+            'asientos' => 0,
             'created_at' => now(),
             'updated_at' => null,
         ]);
@@ -319,6 +340,7 @@ class vueloTableSeeder extends Seeder
             'fecha' => '01/25/2019',
             'hora' => '00:00:00',
             'aerolinea_id' => 3,
+            'asientos' => 0,
             'created_at' => now(),
             'updated_at' => null,
         ]);
@@ -333,6 +355,7 @@ class vueloTableSeeder extends Seeder
             'fecha' => '01/25/2019',
             'hora' => '00:00:00',
             'aerolinea_id' => 4,
+            'asientos' => 0,
             'created_at' => now(),
             'updated_at' => null,
         ]);
@@ -347,6 +370,7 @@ class vueloTableSeeder extends Seeder
             'fecha' => '01/25/2019',
             'hora' => '00:00:00',
             'aerolinea_id' => 4,
+            'asientos' => 0,
             'created_at' => now(),
             'updated_at' => null,
         ]);
@@ -361,6 +385,7 @@ class vueloTableSeeder extends Seeder
             'fecha' => '01/25/2019',
             'hora' => '00:00:00',
             'aerolinea_id' => 5,
+            'asientos' => 0,
             'created_at' => now(),
             'updated_at' => null,
         ]);
@@ -375,6 +400,7 @@ class vueloTableSeeder extends Seeder
             'fecha' => '01/25/2019',
             'hora' => '00:00:00',
             'aerolinea_id' => 5,
+            'asientos' => 0,
             'created_at' => now(),
             'updated_at' => null,
         ]);
@@ -389,6 +415,7 @@ class vueloTableSeeder extends Seeder
             'fecha' => '01/25/2019',
             'hora' => '00:00:00',
             'aerolinea_id' => 6,
+            'asientos' => 0,
             'created_at' => now(),
             'updated_at' => null,
         ]);
@@ -403,6 +430,7 @@ class vueloTableSeeder extends Seeder
             'fecha' => '01/25/2019',
             'hora' => '00:00:00',
             'aerolinea_id' => 6,
+            'asientos' => 0,
             'created_at' => now(),
             'updated_at' => null,
         ]);
@@ -417,6 +445,7 @@ class vueloTableSeeder extends Seeder
             'fecha' => '01/25/2019',
             'hora' => '00:00:00',
             'aerolinea_id' => 7,
+            'asientos' => 0,
             'created_at' => now(),
             'updated_at' => null,
         ]);
@@ -431,6 +460,7 @@ class vueloTableSeeder extends Seeder
             'fecha' => '01/25/2019',
             'hora' => '00:00:00',
             'aerolinea_id' => 7,
+            'asientos' => 0,
             'created_at' => now(),
             'updated_at' => null,
         ]);

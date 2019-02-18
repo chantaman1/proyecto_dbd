@@ -26,6 +26,7 @@ class LoginController extends Controller
      * @var string
      */
     protected $redirectTo = '/';
+    public $message;
     /**
      * Create a new controller instance.
      *
@@ -34,6 +35,17 @@ class LoginController extends Controller
     public function __construct()
     {
         $this->middleware('guest', ['except' => ['logout', 'getLogout']]);
+        $this->message = '';
+    }
+
+    public function index(Request $request){
+      if($request->session()->get('loginErrorMsg') == NULL){
+          return view('Auth/login')->with('message', '');
+      }
+      else{
+          return view('Auth/login')->with('message', $request->session()->get('loginErrorMsg'));
+          $request->session()->put('loginErrorMsg', NULL);
+      }
     }
 
     public function authenticate(Request $request)
@@ -55,14 +67,17 @@ class LoginController extends Controller
                 return redirect('/');
             }
             else{
+              $request->session()->put('loginErrorMsg', 'ERROR: Usuario/Contrasena incorrecta.');
               return redirect('/login');
             }
           }
           else{
+            $request->session()->put('loginErrorMsg', 'ERROR: Cuenta no verificada.');
             return redirect('/login');
           }
         }
         else{
+          $request->session()->put('loginErrorMsg', 'ERROR: Usuario/Contrasena incorrecta.');
           return redirect('/login');
         }
     }

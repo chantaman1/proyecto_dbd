@@ -140,6 +140,7 @@
 							</div>
 						</div>
 						<div class="clear"></div>
+						<h1 style="color:red;">{{ $message }}</h1>
 						<a href="javascript:;" onclick="parentNode.submit();" class="btn" id="submitBtnLogin" type="submit">Iniciar sesion!</a>
 					</form>
           <div class="clear"></div>

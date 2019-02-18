@@ -101,6 +101,7 @@ class UserController extends Controller
           else{
             if($user->email_token === $request->get('token')){
               $user->verified = true;
+              $user->email_verified_at = date('Y-m-d H:i:s');
               $user->save();
               dd('verificado');
             }
