@@ -30,46 +30,44 @@ class VueloController extends Controller
 
     public function getFlights(Request $request){
       if($request->session()->get('pasoActual') == 0){
-        if($request->session()->get('pasajeroActual') <= $request->session()->get('totalPasajeros')){
-          if($request->get('origen') == NULL || $request->get('destino') == NULL || $request->get('fecha_origen') == NULL){
-            return redirect('/');
-          }
-          else if($request->get('fecha_regreso') != NULL){
-            $request->session()->put('idaVuelta', true);
-            $request->session()->put('fecha_regreso', $request->get('fecha_regreso'));
-            $request->session()->put('fecha_ida', $request->get('fecha_origen'));
-            $request->session()->put('ida_ciudad_origen', $request->get('origen'));
-            $request->session()->put('ida_ciudad_destino', $request->get('destino'));
-            $request->session()->put('vuelta_ciudad_origen', $request->get('destino'));
-            $request->session()->put('vuelta_ciudad_destino', $request->get('origen'));
-            $request->session()->put('cant_adultos', $request->get('cant_adultos'));
-            $request->session()->put('cant_ninos', $request->get('cant_ninos'));
-            $pasajeros = $request->session()->get('cant_adultos') + $request->session()->get('cant_ninos');
-            $request->session()->put('totalPasajeros', $pasajeros);
-            $vuelos = Vuelo::where([
-              'ciudad_origen' => $request->get('origen'),
-              'ciudad_destino' => $request->get('destino'),
-              'fecha' => $request->get('fecha_origen'),
-              ['asientos', '>=', $request->session()->get('totalPasajeros')]
-            ])->get();
-            return view('flightResult')->with('vuelos', $vuelos);
-          }
-          else{
-            $request->session()->put('fecha_ida', $request->get('fecha_origen'));
-            $request->session()->put('ida_ciudad_origen', $request->get('origen'));
-            $request->session()->put('ida_ciudad_destino', $request->get('destino'));
-            $request->session()->put('cant_adultos', $request->get('cant_adultos'));
-            $request->session()->put('cant_ninos', $request->get('cant_ninos'));
-            $pasajeros = $request->session()->get('cant_adultos') + $request->session()->get('cant_ninos');
-            $request->session()->put('totalPasajeros', $pasajeros);
-            $vuelos = Vuelo::where([
-              'ciudad_origen' => $request->get('origen'),
-              'ciudad_destino' => $request->get('destino'),
-              'fecha' => $request->get('fecha_origen'),
-              ['asientos', '>=', $request->session()->get('totalPasajeros')]
-            ])->get();
-            return view('flightResult')->with('vuelos', $vuelos);
-          }
+        if($request->get('origen') == NULL || $request->get('destino') == NULL || $request->get('fecha_origen') == NULL){
+          return redirect('/');
+        }
+        else if($request->get('fecha_regreso') != NULL){
+          $request->session()->put('idaVuelta', true);
+          $request->session()->put('fecha_regreso', $request->get('fecha_regreso'));
+          $request->session()->put('fecha_ida', $request->get('fecha_origen'));
+          $request->session()->put('ida_ciudad_origen', $request->get('origen'));
+          $request->session()->put('ida_ciudad_destino', $request->get('destino'));
+          $request->session()->put('vuelta_ciudad_origen', $request->get('destino'));
+          $request->session()->put('vuelta_ciudad_destino', $request->get('origen'));
+          $request->session()->put('cant_adultos', $request->get('cant_adultos'));
+          $request->session()->put('cant_ninos', $request->get('cant_ninos'));
+          $pasajeros = $request->session()->get('cant_adultos') + $request->session()->get('cant_ninos');
+          $request->session()->put('totalPasajeros', $pasajeros);
+          $vuelos = Vuelo::where([
+            'ciudad_origen' => $request->get('origen'),
+            'ciudad_destino' => $request->get('destino'),
+            'fecha' => $request->get('fecha_origen'),
+            ['asientos', '>=', $request->session()->get('totalPasajeros')]
+          ])->get();
+          return view('flightResult')->with('vuelos', $vuelos);
+        }
+        else{
+          $request->session()->put('fecha_ida', $request->get('fecha_origen'));
+          $request->session()->put('ida_ciudad_origen', $request->get('origen'));
+          $request->session()->put('ida_ciudad_destino', $request->get('destino'));
+          $request->session()->put('cant_adultos', $request->get('cant_adultos'));
+          $request->session()->put('cant_ninos', $request->get('cant_ninos'));
+          $pasajeros = $request->session()->get('cant_adultos') + $request->session()->get('cant_ninos');
+          $request->session()->put('totalPasajeros', $pasajeros);
+          $vuelos = Vuelo::where([
+            'ciudad_origen' => $request->get('origen'),
+            'ciudad_destino' => $request->get('destino'),
+            'fecha' => $request->get('fecha_origen'),
+            ['asientos', '>=', $request->session()->get('totalPasajeros')]
+          ])->get();
+          return view('flightResult')->with('vuelos', $vuelos);
         }
       }
       else{
@@ -198,10 +196,12 @@ class VueloController extends Controller
         $request->session()->put('fecha_ida', NULL);
         $request->session()->put('ida_ciudad_origen', NULL);
         $request->session()->put('ida_ciudad_destino', NULL);
+        $request->session()->put('id_vuelo_ida', NULL);
         //DATOS DE LA VUELTA.
         $request->session()->put('fecha_regreso', NULL);
         $request->session()->put('vuelta_ciudad_origen', NULL);
         $request->session()->put('vuelta_ciudad_destino', NULL);
+        $request->session()->put('id_vuelo_vuelta', NULL);
         //CANTIDAD DE PASAJEROS.
         $request->session()->put('cant_adultos', NULL);
         $request->session()->put('cant_ninos', NULL);
