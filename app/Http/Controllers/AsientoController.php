@@ -47,6 +47,7 @@ class AsientoController extends Controller
         return redirect('/');
       }
       else{
+        $request->session()->put('id_vuelo', $request->get('id'));
         $asientos = Asiento::where('vuelo_id', $request->get('id'))->where('disponibilidad', true)->get();
         return view('seatResult')->with('asientos', $asientos);
       }

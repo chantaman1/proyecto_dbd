@@ -11,10 +11,11 @@ class Asiento extends Model
     protected $tipo;
     protected $disponibilidad;
     protected $precio;
+    protected $comprado;
 
   //atributos que pueden ser rellenables
   protected $fillable=[
-    'numero', 'tipo', 'disponibilidad', 'precio',
+    'numero', 'tipo', 'disponibilidad', 'precio', 'comprado',
   ];
 
   public function vuelo()

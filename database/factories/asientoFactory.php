@@ -13,6 +13,7 @@ $factory->define(App\Asiento::class, function (Faker $faker) {
         'disponibilidad' => true,
         'precio' => $faker->numberBetween($min = 100000, $max = 200000),
         'vuelo_id' => $faker->numberBetween($min = 1, $max = $count),
+        'comprado' => false,
     ];
   }
   else if($tipo == "Economico Premium"){
@@ -22,6 +23,7 @@ $factory->define(App\Asiento::class, function (Faker $faker) {
         'disponibilidad' => true,
         'precio' => $faker->numberBetween($min = 200000,$max = 300000),
         'vuelo_id' => $faker->numberBetween($min = 1, $max = $count),
+        'comprado' => false,
     ];
   }
   else if($tipo == "Business Premium"){
@@ -31,6 +33,7 @@ $factory->define(App\Asiento::class, function (Faker $faker) {
         'disponibilidad' => true,
         'precio' => $faker->numberBetween($min = 350000, $max = 500000),
         'vuelo_id' => $faker->numberBetween($min = 1, $max = $count),
+        'comprado' => false,
     ];
   }
 

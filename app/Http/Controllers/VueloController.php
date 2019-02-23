@@ -205,7 +205,7 @@ class VueloController extends Controller
         //CANTIDAD DE PASAJEROS.
         $request->session()->put('cant_adultos', NULL);
         $request->session()->put('cant_ninos', NULL);
-        $request->session()->put('pasajeroActual', 0);
+        $request->session()->put('pasajeroActual', 1);
         $request->session()->put('totalPasajeros', 1);
         //DATOS DE CADA PASAJERO Y SUS DATOS.
         $request->session()->put('nombre', NULL);

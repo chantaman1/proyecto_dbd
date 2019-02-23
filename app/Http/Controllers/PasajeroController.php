@@ -22,16 +22,27 @@ class PasajeroController extends Controller
         $request->session()->put('vuelta_asiento_id', $request->get('id'));
         $request->session()->put('vuelta_asiento_precio', $request->get('precio'));
         $request->session()->put('vuelta_asiento_tipo', $request->get('tipo'));
-        $request->session()->put('pasoActual', 2);
-        return view('passengerFlight');
+        if($request->session()->get('pasajeroActual') > $request->session()->get('totalPasajeros')){
+          $request->session()->put('pasoActual', 2);
+          return view('passengerFlight');
+        }
+        else{
+          return view('passengerFlight');
+        }
       }
       else if($request->session()->get('idaVuelta') && $request->session()->get('pasoActual') == 0){
         $request->session()->put('ida_asiento_codigo', $request->get('codigo'));
         $request->session()->put('ida_asiento_id', $request->get('id'));
         $request->session()->put('ida_asiento_precio', $request->get('precio'));
         $request->session()->put('ida_asiento_tipo', $request->get('tipo'));
-        $request->session()->put('pasoActual', 1);
-        return redirect('/results');
+        if($request->session()->get('pasajeroActual') > $request->session()->get('totalPasajeros')){
+          $request->session()->put('pasoActual', 1);
+          $request->session()->put('pasajeroActual', 1);
+          return redirect('/results');
+        }
+        else{
+          return view('passengerFlight');
+        }
       }
       else if($request->session()->get('idaVuelta') == false){
         $request->session()->put('ida_asiento_codigo', $request->get('codigo'));
@@ -50,12 +61,7 @@ class PasajeroController extends Controller
       if($request->session()->get('pasajeroActual') > $request->session()->get('totalPasajeros')){
           $total = 0;
           foreach($request->session()->get('passengers') as $passenger){
-            if($passenger->tipo_viaje == 'IDA'){
-              $this->total = $this->total + intval($passenger->ida_asiento_precio);
-            }
-            else{
-              $this->total = $this->total + intval($passenger->vuelta_asiento_precio);
-            }
+            $total = $total + intval($passenger->asiento_precio);
           }
           return view('buyFlight')->with('data', $request->session()->get('passengers'))->with('total', $total);
       }
@@ -65,33 +71,61 @@ class PasajeroController extends Controller
                                     'apellido_materno' => $request->get('apellido_materno'), 'correo' => $request->get('correo'),
                                     'fecha_nacimiento' => $request->get('fecha_nacimiento'), 'telefono' => $request->get('telefono'),
                                     'nacionalidad' => $request->get('nacionalidad'), 'pasaporte' => $request->get('pasaporte'),
-                                    'ida_asiento_id' => $request->session()->get('ida_asiento_id'), 'ida_asiento_codigo' => $request->session()->get('ida_asiento_codigo'),
-                                    'ida_asiento_precio' => $request->session()->get('ida_asiento_precio'), 'ida_asiento_tipo' => $request->session()->get('ida_asiento_tipo')];
+                                    'asiento_id' => $request->session()->get('ida_asiento_id'), 'asiento_codigo' => $request->session()->get('ida_asiento_codigo'),
+                                    'asiento_precio' => $request->session()->get('ida_asiento_precio'), 'asiento_tipo' => $request->session()->get('ida_asiento_tipo'),
+                                    'origen' => $request->session()->get('ida_ciudad_origen'), 'destino' => $request->session()->get('ida_ciudad_destino')];
           $request->session()->push('passengers', $passengerData);
           $request->session()->put('pasajeroActual', $request->session()->get('pasajeroActual') + 1);
-          return redirect('/selecAsiento?id='.$request->session()->get('id_vuelo_ida').'&destino='.$request->session()->get('ida_ciudad_destino'));
+          if($request->session()->get('pasajeroActual') > $request->session()->get('totalPasajeros')){
+            $request->session()->put('pasoActual', 1);
+            $request->session()->put('pasajeroActual', 1);
+            return redirect('/results');
+          }
+          else{
+            return redirect('/selecAsiento?id='.$request->session()->get('id_vuelo').'&destino='.$request->session()->get('ida_ciudad_destino'));
+          }
         }
         else if($request->session()->get('idaVuelta') && $request->session()->get('pasoActual') == 1){
           $passengerData = (object)['tipo_viaje' => 'REGRESO', 'nombre' => $request->get('nombre'), 'apellido_paterno' => $request->get('apellido_paterno'),
                                     'apellido_materno' => $request->get('apellido_materno'), 'correo' => $request->get('correo'),
                                     'fecha_nacimiento' => $request->get('fecha_nacimiento'), 'telefono' => $request->get('telefono'),
                                     'nacionalidad' => $request->get('nacionalidad'), 'pasaporte' => $request->get('pasaporte'),
-                                    'vuelta_asiento_id' => $request->session()->get('vuelta_asiento_id'), 'vuelta_asiento_codigo' => $request->session()->get('vuelta_asiento_codigo'),
-                                    'vuelta_asiento_precio' => $request->session()->get('vuelta_asiento_precio'), 'vuelta_asiento_tipo' => $request->session()->get('vuelta_asiento_tipo')];
+                                    'asiento_id' => $request->session()->get('vuelta_asiento_id'), 'asiento_codigo' => $request->session()->get('vuelta_asiento_codigo'),
+                                    'asiento_precio' => $request->session()->get('vuelta_asiento_precio'), 'asiento_tipo' => $request->session()->get('vuelta_asiento_tipo'),
+                                    'origen' => $request->session()->get('vuelta_ciudad_origen'), 'destino' => $request->session()->get('vuelta_ciudad_destino')];
           $request->session()->push('passengers', $passengerData);
           $request->session()->put('pasajeroActual', $request->session()->get('pasajeroActual') + 1);
-          return redirect('/selecAsiento?id='.$request->session()->get('id_vuelo_vuelta').'&destino='.$request->session()->get('vuelta_ciudad_destino'));
+          if($request->session()->get('pasajeroActual') > $request->session()->get('totalPasajeros')){
+            $total = 0;
+            foreach($request->session()->get('passengers') as $passenger){
+              $total = $total + intval($passenger->asiento_precio);
+            }
+            return view('buyFlight')->with('data', $request->session()->get('passengers'))->with('total', $total);
+          }
+          else{
+            return redirect('/selecAsiento?id='.$request->session()->get('id_vuelo').'&destino='.$request->session()->get('vuelta_ciudad_destino'));
+          }
         }
         else if($request->session()->get('idaVuelta') == false && $request->session()->get('pasoActual') == 0){
           $passengerData = (object)['tipo_viaje' => 'IDA', 'nombre' => $request->get('nombre'), 'apellido_paterno' => $request->get('apellido_paterno'),
                                     'apellido_materno' => $request->get('apellido_materno'), 'correo' => $request->get('correo'),
                                     'fecha_nacimiento' => $request->get('fecha_nacimiento'), 'telefono' => $request->get('telefono'),
                                     'nacionalidad' => $request->get('nacionalidad'), 'pasaporte' => $request->get('pasaporte'),
-                                    'ida_asiento_id' => $request->session()->get('ida_asiento_id'), 'ida_asiento_codigo' => $request->session()->get('ida_asiento_codigo'),
-                                    'ida_asiento_precio' => $request->session()->get('ida_asiento_precio'), 'ida_asiento_tipo' => $request->session()->get('ida_asiento_tipo')];
+                                    'asiento_id' => $request->session()->get('ida_asiento_id'), 'asiento_codigo' => $request->session()->get('ida_asiento_codigo'),
+                                    'asiento_precio' => $request->session()->get('ida_asiento_precio'), 'asiento_tipo' => $request->session()->get('ida_asiento_tipo'),
+                                    'origen' => $request->session()->get('ida_ciudad_origen'), 'destino' => $request->session()->get('ida_ciudad_destino')];
           $request->session()->push('passengers', $passengerData);
           $request->session()->put('pasajeroActual', $request->session()->get('pasajeroActual') + 1);
-          return redirect('/selecAsiento?id='.$request->session()->get('id_vuelo_ida').'&destino='.$request->session()->get('ida_ciudad_destino'));
+          if($request->session()->get('pasajeroActual') > $request->session()->get('totalPasajeros')){
+            $total = 0;
+            foreach($request->session()->get('passengers') as $passenger){
+              $total = $total + intval($passenger->asiento_precio);
+            }
+            return view('buyFlight')->with('data', $request->session()->get('passengers'))->with('total', $total);
+          }
+          else{
+            return redirect('/selecAsiento?id='.$request->session()->get('id_vuelo').'&destino='.$request->session()->get('ida_ciudad_destino'));
+          }
         }
       }
     }
