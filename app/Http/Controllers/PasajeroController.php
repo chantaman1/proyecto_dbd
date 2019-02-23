@@ -156,18 +156,18 @@ class PasajeroController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store($passenger)
     {
         $pasajero = new Pasajero;
-        $pasajero->fill(array('nombre' => $request->session()->get('nombre'),
-                              'apellido_paterno' => $request->session()->get('apellido_paterno'),
-                              'apellido_materno' => $request->session()->get('apellido_materno'),
-                              'correo' => $request->session()->get('correo'),
-                              'fecha_nacimiento' => $request->session()->get('fecha_nacimiento'),
-                              'telefono' => $request->session()->get('telefono'),
-                              'nacionalidad' => $request->session()->get('nacionalidad'),
-                              'pasaporte' => $request->session()->get('pasaporte'),
-                              'asiento_id' => $request->session()->get('asiento_id')));
+        $pasajero->fill(array('nombre' => $passenger->nombre,
+                              'apellido_paterno' => $passenger->apellido_paterno,
+                              'apellido_materno' => $passenger->apellido_materno,
+                              'correo' => $passenger->correo,
+                              'fecha_nacimiento' => $passenger->fecha_nacimiento,
+                              'telefono' => $passenger->telefono,
+                              'nacionalidad' => $passenger->nacionalidad,
+                              'pasaporte' => $passenger->pasaporte,
+                              'asiento_id' => $passenger->asiento_id));
         $pasajero->save();
         return;
     }

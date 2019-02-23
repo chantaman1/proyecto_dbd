@@ -10,10 +10,11 @@ class Reserva extends Model
       protected $totalAPagar;
       protected $estado_pago;
       protected $user_id;
+      protected $reserva;
 
     //atributos que pueden ser rellenables
     protected $fillable=[
-      'totalAPagar', 'estado_pago', 'user_id',
+      'totalAPagar', 'estado_pago', 'user_id', 'reserva',
     ];
 
     //la reserva tiene un comprobante de pago

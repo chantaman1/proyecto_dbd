@@ -8,5 +8,6 @@ $factory->define(App\Reserva::class, function (Faker $faker) {
         'totalAPagar' => $faker->numberBetween($min = 400000, $max = 800000),
         'estado_pago' => "pagado",
         'user_id' => $faker->numberBetween($min = 1, $max = $count_usuarios),
+        'reserva' => $faker->unique()->ean8,
     ];
 });

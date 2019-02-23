@@ -7,7 +7,6 @@ use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 
 class Kernel extends ConsoleKernel
 {
-    use Common;
     /**
      * The Artisan commands provided by your application.
      *
@@ -27,7 +26,7 @@ class Kernel extends ConsoleKernel
     {
         $schedule->call(function() {
           $this->resetSeats();
-        })->everyThirtyMinutes()->withoutOverlapping();
+        })->everyThirtyMinutes();
     }
 
     /**
