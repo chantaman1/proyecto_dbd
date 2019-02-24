@@ -39,7 +39,7 @@ class DatabaseSeeder extends Seeder
         $this->call(paquete_vehiculoSeeder::class);
         $this->call(pasajero_seguroSeeder::class);
         $this->call(reserva_vehiculoSeeder::class);
-        $this->call(reserva_vueloSeeder::class);
+        $this->call(reserva_asientoSeeder::class);
 
     }
 }
