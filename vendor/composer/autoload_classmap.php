@@ -3884,7 +3884,6 @@ return array(
     'phpDocumentor\\Reflection\\Types\\This' => $vendorDir . '/phpdocumentor/type-resolver/src/Types/This.php',
     'phpDocumentor\\Reflection\\Types\\Void_' => $vendorDir . '/phpdocumentor/type-resolver/src/Types/Void_.php',
     'reservaTableSeeder' => $baseDir . '/database/seeds/reservaTableSeeder.php',
-    'reserva_asientoSeeder' => $baseDir . '/database/seeds/reserva_asientoSeeder.php',
     'reserva_vehiculoSeeder' => $baseDir . '/database/seeds/reserva_vehiculoSeeder.php',
     'rolTableSeeder' => $baseDir . '/database/seeds/rolTableSeeder.php',
     'seguroTableSeeder' => $baseDir . '/database/seeds/seguroTableSeeder.php',

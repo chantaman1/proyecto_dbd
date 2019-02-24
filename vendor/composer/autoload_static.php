@@ -4308,7 +4308,6 @@ class ComposerStaticInitda5941214350eac20d7d17a7bec001f4
         'phpDocumentor\\Reflection\\Types\\This' => __DIR__ . '/..' . '/phpdocumentor/type-resolver/src/Types/This.php',
         'phpDocumentor\\Reflection\\Types\\Void_' => __DIR__ . '/..' . '/phpdocumentor/type-resolver/src/Types/Void_.php',
         'reservaTableSeeder' => __DIR__ . '/../..' . '/database/seeds/reservaTableSeeder.php',
-        'reserva_asientoSeeder' => __DIR__ . '/../..' . '/database/seeds/reserva_asientoSeeder.php',
         'reserva_vehiculoSeeder' => __DIR__ . '/../..' . '/database/seeds/reserva_vehiculoSeeder.php',
         'rolTableSeeder' => __DIR__ . '/../..' . '/database/seeds/rolTableSeeder.php',
         'seguroTableSeeder' => __DIR__ . '/../..' . '/database/seeds/seguroTableSeeder.php',

@@ -44,7 +44,7 @@ class Reserva extends Model
     //la reserva tiene muchos vuelos y el vuelo muchas reservas
     public function asientos()
     {
-        return $this->belongsToMany('App\Asiento')->withPivot('cant_ninos','cant_adultos','cant_infantes');
+        return $this->hasMany('App\Asiento');
     }
 
     //la reserva pertenece a un usuario

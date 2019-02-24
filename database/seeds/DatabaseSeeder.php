@@ -14,13 +14,13 @@ class DatabaseSeeder extends Seeder
         $this->call(transaccionSeeder::class);
         $this->call(rolTableSeeder::class);
         $this->call(usersTableSeeder::class);
-        $this->call(reservaTableSeeder::class);
-        $this->call(metodo_pagoTableSeeder::class);
-        $this->call(comprobante_pagoTableSeeder::class);
         $this->call(aerolineaTableSeeder::class);
         $this->call(aeropuertoTableSeeder::class);
         $this->call(vueloTableSeeder::class);
         $this->call(asientoTableSeeder::class);
+        $this->call(reservaTableSeeder::class);
+        $this->call(metodo_pagoTableSeeder::class);
+        $this->call(comprobante_pagoTableSeeder::class);
         $this->call(pasajeroTableSeeder::class);
         $this->call(compania_alquilerTableSeeder::class);
         $this->call(vehiculoTableSeeder::class);
@@ -39,7 +39,5 @@ class DatabaseSeeder extends Seeder
         $this->call(paquete_vehiculoSeeder::class);
         $this->call(pasajero_seguroSeeder::class);
         $this->call(reserva_vehiculoSeeder::class);
-        $this->call(reserva_asientoSeeder::class);
-
     }
 }
