@@ -9,10 +9,12 @@ class Reserva extends Model
     protected $table = 'reservas';
       protected $totalAPagar;
       protected $estado_pago;
+      protected $user_id;
+      protected $reserva;
 
     //atributos que pueden ser rellenables
     protected $fillable=[
-      'totalAPagar', 'estado_pago',
+      'totalAPagar', 'estado_pago', 'user_id', 'reserva',
     ];
 
     //la reserva tiene un comprobante de pago
@@ -40,14 +42,14 @@ class Reserva extends Model
     }
 
     //la reserva tiene muchos vuelos y el vuelo muchas reservas
-    public function vuelos()
+    public function asientos()
     {
-        return $this->belongsToMany('App\Vuelo')->withPivot('cant_ninos','cant_adultos','cant_infantes');
+        return $this->hasMany('App\Asiento');
     }
 
     //la reserva pertenece a un usuario
     public function usuario()
     {
-        return $this->belongsTo('App\Usuario');
+        return $this->belongsTo('App\User');
     }
 }

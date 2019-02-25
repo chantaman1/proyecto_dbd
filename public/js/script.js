@@ -19,6 +19,56 @@ document.addEventListener( 'DOMContentLoaded', function() {
 	try { $('body').unmousewheel(); } catch( error ) {}
 });
 
+$(document).ready(function(){
+    $('input[name="tmBtn"]').change(function(){
+        if($('#tmRadio1').prop('checked')){
+						checkDataFligth();
+            hideFlight();
+        }else{
+						checkDataFligth();
+            showFlight();
+        }
+    });
+
+		$("#bookingForm #submitBtnFligth").mouseenter(function(){
+			checkDataFligth();
+		});
+
+});
+
+function checkDataFligth(){
+	var origen = document.getElementById("origen");
+	var destino = document.getElementById("destino");
+	var fecha_ida = document.getElementById("fecha_origen");
+	if($('#tmRadio1').prop('checked')){
+		if(origen && destino && fecha_ida){
+			if(origen.value.length > 0 && destino.value.length > 0 && fecha_ida.value.length > 0){
+				$("#bookingForm #submitBtnFligth").attr("onclick","parentNode.submit();");
+			}
+			else{
+				$("#bookingForm #submitBtnFligth").attr("onclick","");
+			}
+		}
+		else{
+			$("#bookingForm #submitBtnFligth").attr("onclick","");
+		}
+	}
+	else{
+		var fecha_destino = document.getElementById("fecha_regreso");
+		if(origen && destino && fecha_ida && fecha_destino){
+			if(origen.value.length > 0 && destino.value.length > 0 && fecha_ida.value.length > 0 && fecha_destino.value.length > 0){
+				$("#bookingForm #submitBtnFligth").attr("onclick","parentNode.submit();");
+			}
+			else{
+				$("#bookingForm #submitBtnFligth").attr("onclick","");
+			}
+		}
+		else{
+			$("#bookingForm #submitBtnFligth").attr("onclick","");
+		}
+	}
+}
+
 $(function(){
 // IPad/IPhone
   var viewportmeta = document.querySelector && document.querySelector('meta[name="viewport"]'),
@@ -32,7 +82,7 @@ $(function(){
       document.addEventListener("gesturestart", gestureStart, false);
     }
   };
-  
+
   scaleFix();
   // Menu Android
   if(window.orientation!=undefined){
@@ -49,7 +99,7 @@ $(function(){
        window.location.href = $(this).attr("href");
       }
      );
-    } 
+    }
    })
   }
  }
@@ -71,3 +121,13 @@ var currentYear = (new Date).getFullYear();
   $(function(){
   $('.sf-menu').superfish({autoArrows: true})
 })
+
+function hideFlight() {
+  var x = document.getElementById("returnFligth");
+  x.style.display = "none";
+}
+
+function showFlight() {
+  var x = document.getElementById("returnFligth");
+  x.style.display = "block";
+}

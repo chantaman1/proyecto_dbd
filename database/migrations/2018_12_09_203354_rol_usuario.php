@@ -13,10 +13,10 @@ class RolUsuario extends Migration
      */
     public function up()
     {
-      Schema::create('rol_usuario', function (Blueprint $table) {
-        $table->unsignedInteger('id_usuario');
+      Schema::create('rol_user', function (Blueprint $table) {
+        $table->unsignedInteger('id_user');
         $table->unsignedInteger('id_rol');
-        $table->foreign('id_usuario')->references('id')->on('usuarios')->onDelete('cascade');
+        $table->foreign('id_user')->references('id')->on('users')->onDelete('cascade');
         $table->foreign('id_rol')->references('id')->on('rols')->onDelete('cascade');
         $table->timestamps();
       });
@@ -29,6 +29,6 @@ class RolUsuario extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('rol_usuario');
+        Schema::dropIfExists('rol_user');
     }
 }

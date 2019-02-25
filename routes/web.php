@@ -1,5 +1,6 @@
 <?php
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -12,19 +13,27 @@
 */
 
 Route::get('/', function () {
-    return view('index');
+    return redirect('vuelos');
 });
 
-Route::get('/vuelos', function () {
-    return view('flight');
+Route::get('/vuelos', 'vueloController@index');
+
+Route::get('/vehiculos',function(){
+  return view('vehicle');
 });
 
+Route::get('/hoteles',function(){
+  return view('hotel');
+});
 
-Auth::routes();
+Route::get('/home', function () {
+    return redirect('vuelos');
+});
 
-Route::get('activate/{token}', 'Auth\RegisterController@activate')
-    ->name('activate');
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/send-mail', function () {
+    return redirect('vuelos');
+});
+
 
 //RUTAS DEL USUARIO
 Route::get('/usuario/show/{id}', 'usuarioController@show');
@@ -146,6 +155,10 @@ Route::post('/hotel/update/{id}', 'hotelController@update');
 
 Route::get('/hotel/destroy/{id}', 'hotelController@destroy');
 
+Route::get('/getHotels','hotelController@filter');
+
+Route::get('mostrar_habitaciones','hotelController@getAllRooms');
+
 //RUTAS DEL METODO PAGO
 Route::get('/metodo_pago/show/{id}', 'metodo_pagoController@show');
 
@@ -167,6 +180,12 @@ Route::post('/paquete/register', 'paqueteController@store');
 Route::post('/paquete/update/{id}', 'paqueteController@update');
 
 Route::get('/paquete/destroy/{id}', 'paqueteController@destroy');
+
+Route::get('/paquetes', 'PaqueteController@start');
+
+Route::get('/comprar_paquete','PaqueteController@comprar_paquete');
+
+Route::get('/finalizarPaquete', 'PaqueteController@finalizarCompra')->middleware('auth');
 
 //RUTAS DEL PASAJERO
 Route::get('/pasajero/show/{id}', 'pasajeroController@show');
@@ -226,6 +245,8 @@ Route::get('/servicio/destroy/{id}', 'servicioController@destroy');
 //RUTAS DEL VEHICULO
 Route::get('/vehiculo/show/{id}', 'vehiculoController@show');
 
+Route::get('/cars','vehiculoController@filter');
+
 Route::get('/vehiculo/all/', 'vehiculoController@index');
 
 Route::post('/vehiculo/register', 'vehiculoController@store');
@@ -234,10 +255,14 @@ Route::post('/vehiculo/update/{id}', 'vehiculoController@update');
 
 Route::get('/vehiculo/destroy/{id}', 'vehiculoController@destroy');
 
-//RUTAS DEL VEHICULO
+Route::get('/comprar_auto','vehiculoController@buy_vehicle');
+
+//RUTAS DEL VUELO
 Route::get('/vuelo/show/{id}', 'vueloController@show');
 
 Route::get('/vuelo/all/', 'vueloController@index');
+
+Route::get('/results', 'vueloController@getFlights');
 
 Route::get('/vuelo/byDate/{date}/', 'vueloController@getFlightByDate');
 
@@ -248,12 +273,29 @@ Route::post('/vuelo/register', 'vueloController@store');
 Route::post('/vuelo/update/{id}', 'vueloController@update');
 
 Route::get('/vuelo/destroy/{id}', 'vueloController@destroy');
+
+Route::get('/selecAsiento', 'asientoController@getSeatsByFlightId');
+
+Route::get('/pasajero', 'pasajeroController@index');
+
+Route::get('/comprar', 'pasajeroController@saveData');
+
+Route::get('/finalizar', 'reservaController@store');
+
+Route::get('/auth/facebook', 'facebookController@redirectToFacebookProvider');
+
+Route::get('/auth/facebook/callback', 'facebookController@handleProviderFacebookCallback');
+
+Route::get('/erase', 'vueloController@eraseData');
 //-------------------------------------------------------------
+Route::get('/register', 'Auth\RegisterController@index');
 
-Auth::routes();
+Route::post('/register/doRegister', 'UserController@store');
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/verify', 'UserController@verifyEmail');
 
-Auth::routes();
+Route::get('/login', 'Auth\LoginController@index');
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::post('/login/doLogin', 'Auth\LoginController@authenticate');
+
+Route::get('/login/destroy', 'Auth\LoginController@getLogout');

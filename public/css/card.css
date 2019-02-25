@@ -1,0 +1,61 @@
+body {
+  font-family: "Droid Sans", sans-serif;
+  font-size: 1.3em;
+  line-height: 1.4;
+  color: #fff;
+  background: #002141;
+}
+
+h1 {
+  font-size: 1.5em;
+  font-weight: normal;
+  color: #444;
+  margin:-15px 0 0 0;
+  clear:both;
+}
+.viini-kortti {
+  width: 300px;
+  height: 350px;
+  overflow: hidden;
+  float: left;
+  margin: 0 5px 5px 0;
+  -webkit-box-shadow: inset 0px 0px 20px 0px rgba(0, 0, 0, 0.3);
+  box-shadow: inset 0px 0px 20px 0px rgba(0, 0, 0, 0.3);
+  -webkit-transition:all 0.3s ease-in;
+   -moz-transition:all 0.3s ease-in;
+   -o-transition:all 0.3s ease-in;
+   transition:all 0.3s ease-in;
+}
+.viini-kortti h2 {
+  font-size: 0.8em;
+  font-weight:normal;
+  font-size: 0.9em;
+  padding: 10px 20px 10px 20px;
+  margin: 300px 0 0 0;
+  background: rgba(0,0,0,0.5);
+  -webkit-transition:margin-top 0.3s ease-in;
+  -moz-transition:margin-top 0.3s ease-in;
+  -o-transition:margin-top 0.3s ease-in;
+  transition:margin-top 0.3s ease-in;
+}
+
+.viini-kortti ul {
+  font-size: 0.8em;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  background: rgba(0,0,0,0.5);
+  margin: 0;
+  padding-left: 20px;
+  padding-bottom: 50px
+}
+
+.viini-kortti:hover h2 {
+  margin-top: 40px;
+}
+
+/*colors*/
+.p-marjaisa {
+  background-size: cover;
+  background-repeat: no-repeat;
+}

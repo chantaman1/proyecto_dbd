@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<title>About</title>
+		<title>Home</title>
 		<meta charset="utf-8">
 		<meta name="format-detection" content="telephone=no" />
 		<link rel="icon" href="images/favicon.ico">
@@ -64,65 +64,66 @@
 	</head>
 	<body class="page1" id="top">
 <!--==============================header=================================-->
-		<header>
-			<div class="container_12">
-				<div class="grid_12">
-					<div class="menu_block">
-						<nav class="horizontal-nav full-width horizontalNav-notprocessed">
-							<ul class="sf-menu">
-								<li class="current"><a href="index.html">HOME</a></li>
-								<li><a href="index-1.html">VUELOS</a></li>
-								<li><a href="index-2.html">HABITACIONES</a></li>
-								<li><a href="index-3.html">PAQUETES</a></li>
-								<li><a href="index-4.html">AUTOS</a></li>
-							</ul>
-						</nav>
-						<div class="clear"></div>
-					</div>
-				</div>
-				<div class="grid_12">
-					<h1>
-						<a href="index.html">
-							<img src="images/logo.png" alt="Your Happy Family">
-						</a>
-					</h1>
-				</div>
+<header>
+	<div class="container_12">
+		<div class="grid_12">
+			<div class="menu_block">
+				<nav class="horizontal-nav full-width horizontalNav-notprocessed">
+					<ul class="sf-menu">
+						<li><a href="/vuelos"><br/>VUELOS</a></li>
+						<li><a href="/hoteles"><br/>HOTELES</a></li>
+						<li><a href="/paquetes"><br/>PAQUETES</a></li>
+						<li><a href="/vehiculos"><br/>AUTOS</a></li>
+						@if(Auth::check())
+							<li><a href="/login/destroy">CERRAR SESIÓN<br/>{{ Auth::user()->nombre }} {{ Auth::user()->apellido_paterno }}</a></li>
+						@else
+							<li><a href="/login"><br/>INICIAR SESIÓN</a></li>
+						@endif
+					</ul>
+				</nav>
+				<div class="clear"></div>
 			</div>
-		</header>
-		<div class="slider_wrapper">
-			<div id="camera_wrap" class="">
-				<div data-src="images/slide.jpg">
-					<div class="caption fadeIn">
-						<h2>LONDON</h2>
-						<div class="price">
-							FROM
-							<span>$1000</span>
-						</div>
-						<a href="#">LEARN MORE</a>
-					</div>
-				</div>
-				<div data-src="images/slide1.jpg">
-					<div class="caption fadeIn">
-						<h2>Maldives</h2>
-						<div class="price">
-							FROM
-							<span>$2000</span>
-						</div>
-						<a href="#">LEARN MORE</a>
-					</div>
-				</div>
-				<div data-src="images/slide2.jpg">
-					<div class="caption fadeIn">
-						<h2>Venice</h2>
-						<div class="price">
-							FROM
-							<span>$1600</span>
-						</div>
-						<a href="#">LEARN MORE</a>
-					</div>
+		</div>
+		<div class="grid_12">
+			<h1>
+				<a href="/paquetes">
+					<img src="images/logo.png">
+				</a>
+			</h1>
+		</div>
+	</div>
+</header>
+<div class="slider_wrapper">
+	<div id="camera_wrap" class="">
+		<div data-src="images/miamislide1.jpg">
+			<div class="caption fadeIn">
+				<h2>MIAMI</h2>
+				<div class="price">
+					DESDE
+					<span>$879.106</span>
 				</div>
 			</div>
 		</div>
+		<div data-src="images/cancunslide1.jpg">
+			<div class="caption fadeIn">
+				<h2>CANCÚN</h2>
+				<div class="price">
+					DESDE
+					<span>$649.230</span>
+				</div>
+			</div>
+		</div>
+		<div data-src="images/riodejaneiroslide1.jpg">
+			<div class="caption fadeIn">
+				<h2>RÍO DE JANEIRO</h2>
+				<div class="price">
+					DESDE
+					<span>$492.075</span>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
 <!--==============================Content=================================-->
 		<div class="content"><div class="ic">More Website Templates @ TemplateMonster.com - February 10, 2014!</div>
 			<div class="container_12">
@@ -131,8 +132,7 @@
 						<img src="images/ban_img1.jpg" alt="">
 						<div class="label">
 							<div class="title">Barcelona</div>
-							<div class="price">FROM<span>$ 1000</span></div>
-							<a href="#">LEARN MORE</a>
+							<div class="price">DESDE<span>$ 1000</span></div>
 						</div>
 					</div>
 				</div>
@@ -141,8 +141,7 @@
 						<img src="images/ban_img2.jpg" alt="">
 						<div class="label">
 							<div class="title">GOA</div>
-							<div class="price">FROM<span>$ 1.500</span></div>
-							<a href="#">LEARN MORE</a>
+							<div class="price">DESDE<span>$ 1.500</span></div>
 						</div>
 					</div>
 				</div>
@@ -151,8 +150,7 @@
 						<img src="images/ban_img3.jpg" alt="">
 						<div class="label">
 							<div class="title">PARIS</div>
-							<div class="price">FROM<span>$ 1.600</span></div>
-							<a href="#">LEARN MORE</a>
+							<div class="price">DESDE<span>$ 1.600</span></div>
 						</div>
 					</div>
 				</div>
@@ -198,7 +196,7 @@
 						</div>
 						<div class="clear"></div>
 						<div class="fl1 fl2">
-							<em>Adults</em>
+							<em>Adultos</em>
 							<select name="Adults" class="tmSelect auto" data-class="tmSelect tmSelect2" data-constraints="">
 								<option>1</option>
 								<option>1</option>
@@ -206,7 +204,7 @@
 								<option>3</option>
 							</select>
 							<div class="clear"></div>
-							<em>Rooms</em>
+							<em>Habitaciones</em>
 							<select name="Rooms" class="tmSelect auto" data-class="tmSelect tmSelect2" data-constraints="">
 								<option>1</option>
 								<option>1</option>
@@ -215,7 +213,7 @@
 							</select>
 						</div>
 						<div class="fl1 fl2">
-							<em>Children</em>
+							<em>Niños</em>
 							<select name="Children" class="tmSelect auto" data-class="tmSelect tmSelect2" data-constraints="">
 								<option>0</option>
 								<option>0</option>
@@ -253,36 +251,6 @@
 						</div>
 					</blockquote>
 				</div>
-				<div class="grid_12">
-					<h3 class="head1">Latest News</h3>
-				</div>
-				<div class="grid_4">
-					<div class="block1">
-						<time datetime="2014-01-01">10<span>Jan</span></time>
-						<div class="extra_wrapper">
-							<div class="text1 col1"><a href="#">Aliquam nibh</a></div>
-							Proin pharetra luctus diam, any scelerisque eros convallisumsan. Maecenas vehicula egestas
-						</div>
-					</div>
-				</div>
-				<div class="grid_4">
-					<div class="block1">
-						<time datetime="2014-01-01">21<span>Jan</span></time>
-						<div class="extra_wrapper">
-							<div class="text1 col1"><a href="#">Etiam dui eros</a></div>
-							Any scelerisque eros vallisumsan. Maecenas vehicula egestas natis. Duis massa elit, auctor non
-						</div>
-					</div>
-				</div>
-				<div class="grid_4">
-					<div class="block1">
-						<time datetime="2014-01-01">15<span>Feb</span></time>
-						<div class="extra_wrapper">
-							<div class="text1 col1"><a href="#">uamnibh Edeto</a></div>
-							Ros convallisumsan. Maecenas vehicula egestas venenatis. Duis massa elit, auctor non
-						</div>
-					</div>
-				</div>
 			</div>
 		</div>
 <!--==============================footer=================================-->
@@ -295,7 +263,7 @@
 						<a href="#" class="fa fa-google-plus"></a>
 					</div>
 					<div class="copy">
-						Your Trip (c) 2014 | <a href="#">Privacy Policy</a> | Website Template Designed by <a href="http://www.templatemonster.com/" rel="nofollow">TemplateMonster.com</a>
+						Your Trip 2019 | <a href="#">Privacy Policy</a> | Website Template Designed by <a href="http://www.templatemonster.com/" rel="nofollow">TemplateMonster.com</a>
 					</div>
 				</div>
 			</div>

@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Asiento;
 class AsientoController extends Controller
 {
+
     /**
      * Display a listing of the resource.
      *
@@ -42,9 +43,15 @@ class AsientoController extends Controller
         return $asiento;
     }
 
-    public function getSeatsByFlightId($id){
-        $asientos = Asiento::where('vuelo_id', $id)->where('disponibilidad', true)->get();
-        return $asientos;
+    public function getSeatsByFlightId(Request $request){
+      if($request->get('id') == NULL || $request->get('destino') == NULL){
+        return redirect('/');
+      }
+      else{
+        $request->session()->put('id_vuelo', $request->get('id'));
+        $asientos = Asiento::where('vuelo_id', $request->get('id'))->where('disponibilidad', true)->get();
+        return view('seatResult')->with('asientos', $asientos);
+      }
     }
 
     /**
@@ -112,6 +119,28 @@ class AsientoController extends Controller
       else{
         return "No puede modificar un asiento no existente.";
       }
+    }
+
+    public function confirmSeat($id){
+      $asiento = Asiento::find($id);
+      if($asiento != NULL){
+        if($asiento->disponibilidad == false){
+          $asiento->comprado = true;
+          $asiento->save();
+          return;
+        }
+      }
+    }
+
+    public function resetSeats(){
+      $asientos = Asiento::All();
+      foreach($asientos as $asiento){
+        if($asiento->disponibilidad == false && $asiento->comprado == false){
+          $asiento->disponibilidad = true;
+          $asiento->save();
+        }
+      }
+      return;
     }
 
     /**

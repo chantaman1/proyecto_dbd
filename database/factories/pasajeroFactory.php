@@ -10,7 +10,6 @@ $factory->define(App\Pasajero::class, function (Faker $faker) {
     $actual = $faker->numberBetween($min = 1, $max = $asientos);
     $asiento = App\Asiento::where([['disponibilidad', '=', true], ['id', '=', $actual]]);
   }
-  $asiento->update(array('disponibilidad' => false));
     return [
       'nombre' => $faker->firstName,
       'apellido_paterno' => $faker->lastName,

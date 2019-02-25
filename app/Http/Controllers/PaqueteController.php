@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Paquete;
+use App\Vuelo;
 
 class PaqueteController extends Controller
 {
@@ -107,5 +108,40 @@ class PaqueteController extends Controller
       else{
           return "Paquete no existente.";
       }
+    }
+
+    public function start()
+    {
+      $paquete = Paquete::All();
+      return view('package')->with('paquetes', $paquete);
+    }
+
+    public function comprar_paquete(Request $request){
+      $paquete = Paquete::find($request->get('id'));
+      if($paquete->cupos > 0){
+        $data = (object)['destino' => $request->get('destino'), 'precio' => $request->get('precio')];
+        $request->session()->put('paquete_destino', $request->get('destino'));
+        $request->session()->put('paquete_id', $request->get('id'));
+        $request->session()->put('paquete_precio', $request->get('precio'));
+        return view('comprar_paquete')->with('data',$data);
+      }
+      else{
+        return redirect('/');
+      }
+    }
+
+    public function finalizarCompra(Request $request){
+      $paquete = Paquete::find($request->session()->get('paquete_id'));
+      $paquete->cupos = $paquete->cupos - 1;
+      $paquete->save();
+      $reserva = app('App\Http\Controllers\ReservaController')->reservaPaquete($request);
+      DB::table('paquete_reserva')->insert(
+        [
+          'paquete_id' => $request->session()->get('paquete_id'),
+          'reserva_id' => $reserva->id,
+        ]
+      );
+
+      return redirect('/');
     }
 }

@@ -83,10 +83,10 @@ nav{ position:relative;padding: 0px 0 0 0;}
 	display: block;
 }
 
-.sf-menu>li.current>a.sf-with-ul:after, 
+.sf-menu>li.current>a.sf-with-ul:after,
 .sf-menu>li.sfHover>a.sf-with-ul:after {
 }
- 
+
 .sf-menu>li>ul>li>a.sf-with-ul:after {
 	content: '';
     font-family: 'FontAwesome';
@@ -108,7 +108,7 @@ nav{ position:relative;padding: 0px 0 0 0;}
 /*================================>> 2 Level <<========================================*/
 .sf-menu li ul,.sf-menu li.sfHover>ul{
 	left: 0;
-	z-index: 999; 
+	z-index: 999;
 	width: 100%;
 	padding-top: 38px;
 	background-color: #3498db;
@@ -158,15 +158,15 @@ nav{ position:relative;padding: 0px 0 0 0;}
 	text-transform: uppercase;
 	position: relative;
 	z-index: 999;
-	color: #fff;	
+	color: #fff;
 }
 
 
 
 
 
-.sf-menu li li a:hover, 
-.sf-menu li.sfHover li.sfHover>a {  
+.sf-menu li li a:hover,
+.sf-menu li.sfHover li.sfHover>a {
 	color: #3d454b;
 }
 
@@ -210,7 +210,7 @@ nav{ position:relative;padding: 0px 0 0 0;}
   		border: none;
 	}
 
-	
+
 
   .menu_block  nav{
   	border: none !important;
@@ -220,11 +220,11 @@ nav{ position:relative;padding: 0px 0 0 0;}
 		color:#927c67;
 		margin: 0 auto;
 		padding-left: 0 !important;
-		
-	
+
+
 	}
 
-	
+
 
   header nav ul {
   	border: none;
@@ -241,6 +241,6 @@ nav{ position:relative;padding: 0px 0 0 0;}
     outline: none;
 		border:2px solid #fff;
 	}
-	
+
 
 }

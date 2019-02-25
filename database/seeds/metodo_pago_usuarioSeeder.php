@@ -15,7 +15,7 @@ class metodo_pago_usuarioSeeder extends Seeder
         DB::table('metodo_pago_usuario')->insert(
           [
             'metodo_pago_id' => App\Metodo_pago::select('id')->inRandomOrder()->first()->id,
-            'usuario_id' => App\Usuario::select('id')->inRandomOrder()->first()->id,
+            'user_id' => App\User::select('id')->inRandomOrder()->first()->id,
           ]
         );
       }

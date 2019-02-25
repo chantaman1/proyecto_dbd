@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Vehiculo;
+use App\Compania_alquiler;
 class VehiculoController extends Controller
 {
     /**
@@ -109,6 +110,7 @@ class VehiculoController extends Controller
     }
 
     public function filter(Request $request){
+<<<<<<< HEAD
       $validator = Validator::make($request->all(), [
             'fecha_arriendo' => 'required|date|after:today',
             'fecha_devolucion' => 'required|date|after:fecha_arriendo',
@@ -146,5 +148,15 @@ class VehiculoController extends Controller
     ->get();
     //return view()
 
+=======
+      $alquiler = Compania_alquiler::where('ciudad', $request->get('ciudad'))->first();
+      $vehiculos = Vehiculo::where('compania_alquiler_id', $alquiler->id)->get();
+    return view('vehicle-list')->with('vehiculos', $vehiculos);
+  }
+>>>>>>> 85eb56e2b56a9943fed8ab5d04d1417fc8e5392a
 
+    public function buy_vehicle(Request $request){
+      $vehiculo = Vehiculo::find($request->get('id'));
+      return view('reservar_vehiculo')->with('vehiculo',$vehiculo);
+    }
 }

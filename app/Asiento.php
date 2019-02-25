@@ -11,15 +11,21 @@ class Asiento extends Model
     protected $tipo;
     protected $disponibilidad;
     protected $precio;
+    protected $comprado;
 
   //atributos que pueden ser rellenables
   protected $fillable=[
-    'numero', 'tipo', 'disponibilidad', 'precio',
+    'numero', 'tipo', 'disponibilidad', 'precio', 'comprado',
   ];
 
   public function vuelo()
   {
       return $this->belongsTo('App\Vuelo');
+  }
+
+  public function reserva()
+  {
+      return $this->belongsTo('App\Reserva');
   }
 
   public function pasajero()

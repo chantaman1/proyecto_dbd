@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Reserva;
+use Auth;
 class ReservaController extends Controller
 {
     /**
@@ -14,8 +15,7 @@ class ReservaController extends Controller
      */
     public function index()
     {
-        $reservas = Reserva::All();
-        return $reservas;
+        return;
     }
 
     /**
@@ -36,8 +36,23 @@ class ReservaController extends Controller
      */
     public function store(Request $request)
     {
+      $faker = Faker\Factory::create();
+      $passengers = $request->session()->get('passengers');
+      foreach($passengers as $passenger){
+        app('App\Http\Controllers\PasajeroController')->store($passenger);
+        app('App\Http\Controllers\AsientoController')->confirmSeat($passenger->asiento_id);
         $reserva = new Reserva;
-        $reserva->fill($request->all());
+        $data = ['totalAPagar' => intVal($passenger->asiento_precio), 'estado_pago' => 'Pagado', 'user_id' => Auth::id(), 'reserva' => $faker->unique()->ean8];
+        $reserva->fill($data);
+        $reserva->save();
+      }
+      return view('index');
+    }
+
+    public function reservaPaquete(Request $request){
+        $reserva = new Reserva;
+        $data = ['totalAPagar' => intVal($request->session()->get('paquete_precio')), 'estado_pago' => 'Pagado', 'user_id' => Auth::id()];
+        $reserva->fill($data);
         $reserva->save();
         return $reserva;
     }

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Hotel;
+use App\Habitacion;
 class HotelController extends Controller
 {
     /**
@@ -107,4 +108,26 @@ class HotelController extends Controller
           return "Hotel no existente.";
       }
     }
+
+    public function search(Request $request){
+      $hoteles_validos = array();
+      foreach (Hotel::all() as $hotel) {
+        if($hotel->$ciudad == $request->$ciudad){
+            $hoteles_validos[] = $hotel->$id;
+        }
+      }
+    }
+
+    public function getAllRooms(Request $request){
+      $habitacions = Habitacion::where('hotel_id', $request->get('id'))->get();
+      return view('habitacion-list')->with('habitacions',$habitacions);
+    }
+
+    public function filter(Request $request){
+      $hotels = Hotel::where([
+        'ciudad' => $request->get('ciudad'),
+        'activo' => true
+        ])->get();
+      return view('hotel-list')->with('hotels', $hotels);
+  }
 }

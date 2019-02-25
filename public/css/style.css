@@ -300,7 +300,6 @@ header h1 {
 	text-align: center;
 }
 
-
 header h1 a {
 	display: inline-block;
 	overflow: hidden;
@@ -308,7 +307,7 @@ header h1 a {
     height: 57px;
 	font-size: 0;
 	line-height: 0;
-	
+
 	text-indent: -999px;
 	transition: 0s ease;
 	-o-transition: 0s ease;
@@ -541,7 +540,7 @@ a.link1:hover {
     position: relative;
     padding-top: 18px;
 }
- 
+
 
 .map figure {
     margin-top: 8px;
@@ -721,7 +720,7 @@ footer {
 
 .camera_prev {
     margin-left: -374px;
-} 
+}
 
 .camera_next  {
     margin-right: -374px;
@@ -776,7 +775,7 @@ header {
     bottom: 60px;
     top: auto;
     margin-top: 0;
-} 
+}
 
 .camera_next  {
     margin-right: 0;
@@ -794,7 +793,7 @@ header {
 
 .banner {
     margin-bottom: 25px;
-} 
+}
 
 .block1 {
     margin-bottom: 30px;
@@ -898,4 +897,16 @@ header h1 a {
     margin-left: -140px;
 }
 
+}
+
+.btn-link{
+  border:none;
+  outline:none;
+  background:none;
+  cursor:pointer;
+  color:#0000EE;
+  padding:0;
+  text-decoration:underline;
+  font-family:inherit;
+  font-size:inherit;
 }
