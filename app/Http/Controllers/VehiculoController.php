@@ -144,7 +144,7 @@ class VehiculoController extends Controller
     ->whereNotIn('id',$reservados)
     ->whereNotIn('id',$enpaquetados)
     ->get();
-
+    //return view()
 
 
 }
