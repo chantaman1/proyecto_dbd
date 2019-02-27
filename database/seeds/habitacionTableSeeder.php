@@ -11,6 +11,8 @@ class habitacionTableSeeder extends Seeder
      */
     public function run()
     {
+      factory(App\Habitacion::class, 500)->create();
+
       DB::table('habitacions')->insert([
         'numero' => 101,
         'capacidad' => 2,

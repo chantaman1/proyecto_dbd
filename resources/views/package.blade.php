@@ -1,9 +1,10 @@
 @extends('layouts.app')
 
+<link rel="stylesheet" href="css/card.css">
+
 @section('title', 'Paquetes')
 
 @section('content')
-<!--==============================Content=================================-->
 <div class="content"><div class="ic"></div>
 	<div class="container_12">
 		<div class="grid_4">
