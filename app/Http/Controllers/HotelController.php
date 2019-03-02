@@ -124,10 +124,17 @@ class HotelController extends Controller
     }
 
     public function filter(Request $request){
+      if($request->get('fecha_inicio') > $request->get('fecha_fin') || $request->get('ciudad') == NULL || $request->get('fecha_inicio') == NULL || $request->get('fecha_fin') == NULL){
+        return redirect('/hoteles');
+      }
       $hotels = Hotel::where([
         'ciudad' => $request->get('ciudad'),
         'activo' => true
         ])->get();
+      $request->session()->put('hotel_fecha_inicio', $request->get('fecha_inicio'));
+      $request->session()->put('hotel_fecha_fin', $request->get('fecha_fin'));
+      $request->session()->put('hotel_cant_adultos', $request->get('adults'));
+      $request->session()->put('hotel_cant_ninos', $request->get('children'));
       return view('hotel-list')->with('hotels', $hotels);
   }
 }

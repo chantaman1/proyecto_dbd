@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Vuelos')
+@section('title', 'Hoteles')
 
 @section('content')
 		<div class="content"><div class="ic">More Website Templates @ TemplateMonster.com - February 10, 2014!</div>
@@ -18,12 +18,12 @@
 						<div class="clear"></div>
 						Fecha inicio
 						<label class="tmDatepicker">
-							<input type="text" name="fecha_inicio" placeHolder='10/05/2014' data-constraints="@NotEmpty @Required @Date">
+							<input type="text" name="fecha_inicio" placeHolder={{ date('d/m/Y') }} data-constraints="@NotEmpty @Required @Date">
 						</label>
 						<div class="clear"></div>
 						Fecha fin
 						<label class="tmDatepicker">
-							<input type="text" name="fecha_fin" placeHolder='20/05/2014' data-constraints="@NotEmpty @Required @Date">
+							<input type="text" name="fecha_fin" placeHolder={{ date('d/m/Y') }} data-constraints="@NotEmpty @Required @Date">
 						</label>
 						<div class="clear"></div>
 						<div class="clear"></div>
