@@ -20,7 +20,7 @@ class vueloTableSeeder extends Seeder
             'ciudad_origen' => 'Santiago',
             'pais_origen' => 'Chile',
             'codigo' => $faker->ean8,
-            'ciudad_destino' => 'Cancun',
+            'ciudad_destino' => 'Cancún',
             'pais_destino' => 'México',
             'fecha' => '02/07/2019',
             'hora' => '00:00:00',
@@ -32,7 +32,7 @@ class vueloTableSeeder extends Seeder
 
         DB::table('vuelos')->insert([
             'tipo' => 'vuelta',
-            'ciudad_origen' => 'Cancun',
+            'ciudad_origen' => 'Cancún',
             'pais_origen' => 'México',
             'codigo' => $faker->ean8,
             'ciudad_destino' => 'Santiago',
@@ -77,7 +77,7 @@ class vueloTableSeeder extends Seeder
 
         DB::table('vuelos')->insert([
             'tipo' => 'ida',
-            'ciudad_origen' => 'Santiago de Chile',
+            'ciudad_origen' => 'Santiago',
             'pais_origen' => 'Chile',
             'codigo' => $faker->ean8,
             'ciudad_destino' => 'Playa del Carmen',
@@ -95,7 +95,7 @@ class vueloTableSeeder extends Seeder
             'ciudad_origen' => 'Playa del Carmen',
             'pais_origen' => 'México',
             'codigo' => $faker->ean8,
-            'ciudad_destino' => 'Santiago de Chile',
+            'ciudad_destino' => 'Santiago',
             'pais_destino' => 'Chile',
             'fecha' => '01/25/2019',
             'hora' => '00:00:00',
@@ -107,7 +107,7 @@ class vueloTableSeeder extends Seeder
 
         DB::table('vuelos')->insert([
             'tipo' => 'ida',
-            'ciudad_origen' => 'Santiago de Chile',
+            'ciudad_origen' => 'Santiago',
             'pais_origen' => 'Chile',
             'codigo' => $faker->ean8,
             'ciudad_destino' => 'Camboriú',
@@ -125,7 +125,7 @@ class vueloTableSeeder extends Seeder
             'ciudad_origen' => 'Camboriú',
             'pais_origen' => 'Brasil',
             'codigo' => $faker->ean8,
-            'ciudad_destino' => 'Santiago de Chile',
+            'ciudad_destino' => 'Santiago',
             'pais_destino' => 'Chile',
             'fecha' => '01/25/2019',
             'hora' => '00:00:00',
@@ -137,7 +137,7 @@ class vueloTableSeeder extends Seeder
 
         DB::table('vuelos')->insert([
             'tipo' => 'ida',
-            'ciudad_origen' => 'Santiago de Chile',
+            'ciudad_origen' => 'Santiago',
             'pais_origen' => 'Chile',
             'codigo' => $faker->ean8,
             'ciudad_destino' => 'Río de Janeiro',
@@ -155,7 +155,7 @@ class vueloTableSeeder extends Seeder
             'ciudad_origen' => 'Río de Janeiro',
             'pais_origen' => 'Brasil',
             'codigo' => $faker->ean8,
-            'ciudad_destino' => 'Santiago de Chile',
+            'ciudad_destino' => 'Santiago',
             'pais_destino' => 'Chile',
             'fecha' => '01/25/2019',
             'hora' => '00:00:00',
@@ -167,7 +167,7 @@ class vueloTableSeeder extends Seeder
 
         DB::table('vuelos')->insert([
             'tipo' => 'ida',
-            'ciudad_origen' => 'Santiago de Chile',
+            'ciudad_origen' => 'Santiago',
             'pais_origen' => 'Chile',
             'codigo' => $faker->ean8,
             'ciudad_destino' => 'Búzios',
@@ -185,7 +185,7 @@ class vueloTableSeeder extends Seeder
             'ciudad_origen' => 'Búzios',
             'pais_origen' => 'Brasil',
             'codigo' => $faker->ean8,
-            'ciudad_destino' => 'Santiago de Chile',
+            'ciudad_destino' => 'Santiago',
             'pais_destino' => 'Chile',
             'fecha' => '01/25/2019',
             'hora' => '00:00:00',
@@ -197,7 +197,7 @@ class vueloTableSeeder extends Seeder
 
         DB::table('vuelos')->insert([
             'tipo' => 'ida',
-            'ciudad_origen' => 'Santiago de Chile',
+            'ciudad_origen' => 'Santiago',
             'pais_origen' => 'Chile',
             'codigo' => $faker->ean8,
             'ciudad_destino' => 'Puerto Varas',
@@ -215,7 +215,7 @@ class vueloTableSeeder extends Seeder
             'ciudad_origen' => 'Puerto Varas',
             'pais_origen' => 'Chile',
             'codigo' => $faker->ean8,
-            'ciudad_destino' => 'Santiago de Chile',
+            'ciudad_destino' => 'Santiago',
             'pais_destino' => 'Chile',
             'fecha' => '01/25/2019',
             'hora' => '00:00:00',
@@ -227,7 +227,7 @@ class vueloTableSeeder extends Seeder
 
         DB::table('vuelos')->insert([
             'tipo' => 'ida',
-            'ciudad_origen' => 'Santiago de Chile',
+            'ciudad_origen' => 'Santiago',
             'pais_origen' => 'Chile',
             'codigo' => $faker->ean8,
             'ciudad_destino' => 'Pucón',
@@ -245,7 +245,7 @@ class vueloTableSeeder extends Seeder
             'ciudad_origen' => 'Pucón',
             'pais_origen' => 'Chile',
             'codigo' => $faker->ean8,
-            'ciudad_destino' => 'Santiago de Chile',
+            'ciudad_destino' => 'Santiago',
             'pais_destino' => 'Chile',
             'fecha' => '01/25/2019',
             'hora' => '00:00:00',
@@ -257,7 +257,7 @@ class vueloTableSeeder extends Seeder
 
         DB::table('vuelos')->insert([
             'tipo' => 'ida',
-            'ciudad_origen' => 'Santiago de Chile',
+            'ciudad_origen' => 'Santiago',
             'pais_origen' => 'Chile',
             'codigo' => $faker->ean8,
             'ciudad_destino' => 'Puerto Natales',
@@ -275,7 +275,7 @@ class vueloTableSeeder extends Seeder
             'ciudad_origen' => 'Puerto Natales',
             'pais_origen' => 'Chile',
             'codigo' => $faker->ean8,
-            'ciudad_destino' => 'Santiago de Chile',
+            'ciudad_destino' => 'Santiago',
             'pais_destino' => 'Chile',
             'fecha' => '01/25/2019',
             'hora' => '00:00:00',

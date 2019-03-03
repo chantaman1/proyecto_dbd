@@ -71,7 +71,7 @@
             </p>
           </div>
           <div class="col-md probootstrap-animate">
-            <form action="#" class="probootstrap-form">
+            <form action="{{ url('results') }}" class="probootstrap-form">
               <div class="form-group">
                 <div class="row mb-3">
                   <div class="col-md">
@@ -79,7 +79,7 @@
                       <label for="id_label_single">Origen</label>
 
                       <label for="id_label_single" style="width: 100%;">
-                        <select class="js-example-basic-single js-states form-control" id="id_label_single" style="width: 100%;">
+                        <select name="origen" class="js-example-basic-single js-states form-control" id="id_label_single" style="width: 100%;">
 													<option></option>
                           <option value="Cancún">Cancún</option>
                           <option value="Punta Cana">Punta Cana</option>
@@ -107,7 +107,7 @@
                       <label for="id_label_single2">Destino</label>
                       <div class="probootstrap_select-wrap">
                         <label for="id_label_single2" style="width: 100%;">
-                        <select class="js-example-basic-single js-states form-control" id="id_label_single2" style="width: 100%;">
+                        <select name="destino" class="js-example-basic-single js-states form-control" id="id_label_single2" style="width: 100%;">
 													<option></option>
 													<option value="Cancún">Cancún</option>
                           <option value="Punta Cana">Punta Cana</option>
@@ -139,7 +139,7 @@
                       <label for="probootstrap-date-departure">IDA</label>
                       <div class="probootstrap-date-wrap">
                         <span class="icon ion-calendar"></span>
-                        <input type="text" id="probootstrap-date-departure" class="form-control" placeHolder={{ date('d/m/Y') }} data-constraints="@NotEmpty @Required @Date">
+                        <input name="fecha_origen" type="text" id="probootstrap-date-departure" class="form-control" placeHolder={{ date('d/m/Y') }} data-constraints="@NotEmpty @Required @Date">
                       </div>
                     </div>
                   </div>
@@ -148,7 +148,7 @@
                       <label for="probootstrap-date-arrival">VUELTA</label>
                       <div class="probootstrap-date-wrap">
                         <span class="icon ion-calendar"></span>
-                        <input type="text" id="probootstrap-date-arrival" class="form-control" placeHolder={{ "Fecha" }} data-constraints="@NotEmpty @Required @Date">
+                        <input name="fecha_regreso" type="text" id="probootstrap-date-arrival" class="form-control" placeHolder={{ "Fecha" }} data-constraints="@NotEmpty @Required @Date">
                       </div>
                     </div>
                   </div>
@@ -158,19 +158,23 @@
 								<div class="row mb-5">
 									<div class="col-md">
 										<div class="form-group">
-											<select class="js-example-basic-single" style="width: 100%;">
-												<option selected>1 adulto</option>
-												<option>2 adultos</option>
-												<option>3 adultos</option>
+											<label for="id_label_single">Adultos</label>
+											<select name="cant_adultos" class="js-example-basic-single" style="width: 100%;">
+												<option selected>1</option>
+												<option>2</option>
+												<option>3</option>
+												<option>4</option>
 											</select>
 										</div>
 									</div>
 									<div class="col-md">
 										<div class="form-group">
-											<select class="js-example-basic-single" style="width: 100%;">
-												<option>Sin niños</option>
-												<option>1 niño</option>
-												<option>2 niños</option>
+											<label for="id_label_single2">Ninos</label>
+											<select name="cant_ninos" class="js-example-basic-single" style="width: 100%;">
+												<option selected>0</option>
+												<option>1</option>
+												<option>2</option>
+												<option>3</option>
 											</select>
 										</div>
 									</div>

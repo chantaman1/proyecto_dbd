@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Reserva;
+use Faker\Factory as Faker;
 use Auth;
 class ReservaController extends Controller
 {
@@ -36,17 +37,29 @@ class ReservaController extends Controller
      */
     public function store(Request $request)
     {
-      $faker = Faker\Factory::create();
+      $faker = Faker::create();
       $passengers = $request->session()->get('passengers');
+      $reserva_id = $faker->unique()->ean8;
       foreach($passengers as $passenger){
         app('App\Http\Controllers\PasajeroController')->store($passenger);
         app('App\Http\Controllers\AsientoController')->confirmSeat($passenger->asiento_id);
         $reserva = new Reserva;
-        $data = ['totalAPagar' => intVal($passenger->asiento_precio), 'estado_pago' => 'Pagado', 'user_id' => Auth::id(), 'reserva' => $faker->unique()->ean8];
+        $data = ['totalAPagar' => intVal($passenger->asiento_precio), 'estado_pago' => 'Pagado', 'user_id' => Auth::id(), 'reserva' => $reserva_id, 'asiento_id' => $passenger->asiento_id, 'cant_ninos' => $request->session()->get('cant_ninos'),
+                 'cant_adultos' => $request->session()->get('cant_adultos')];
         $reserva->fill($data);
         $reserva->save();
       }
-      return view('index');
+      if($request->session()->get('fecha_regreso') != NULL){
+        return view('buyFinished', ['tipoVuelo' => 'Ida y regreso', 'pOrigen' => $request->session()->get('pais_origen'), 'pDestino' => $request->session()->get('pais_destino'),
+                                    'cOrigen' => $request->session()->get('ida_ciudad_origen'), 'cDestino' => $request->session()->get('ida_ciudad_destino'),
+                                    'pasajeros' => $request->session()->get('totalPasajeros'), 'reserva' => $reserva_id]);
+      }
+      else{
+
+        return view('buyFinished', ['tipoVuelo' => 'Solo ida', 'pOrigen' => $request->session()->get('pais_origen'), 'pDestino' => $request->session()->get('pais_destino'),
+                                    'cOrigen' => $request->session()->get('ida_ciudad_origen'), 'cDestino' => $request->session()->get('ida_ciudad_destino'),
+                                    'pasajeros' => $request->session()->get('totalPasajeros'), 'reserva' => $reserva_id]);
+      }
     }
 
     public function reservaPaquete(Request $request){
@@ -55,6 +68,10 @@ class ReservaController extends Controller
         $reserva->fill($data);
         $reserva->save();
         return $reserva;
+    }
+
+    public function test(){
+      return view('buyFinished');
     }
 
     /**

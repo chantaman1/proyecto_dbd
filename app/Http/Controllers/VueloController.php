@@ -51,7 +51,15 @@ class VueloController extends Controller
             'fecha' => $request->get('fecha_origen'),
             ['asientos', '>=', $request->session()->get('totalPasajeros')]
           ])->get();
-          return view('flightResult')->with('vuelos', $vuelos);
+          $firstFlight = $vuelos->first();
+          if($firstFlight != NULL){
+            $request->session()->put('pais_origen', $firstFlight->pais_origen);
+            $request->session()->put('pais_destino', $firstFlight->pais_destino);
+            return view('flightResult')->with('vuelos', $vuelos);
+          }
+          else{
+            return view('flightResult')->with('vuelos', $vuelos);
+          }
         }
         else{
           $request->session()->put('fecha_ida', $request->get('fecha_origen'));
@@ -67,7 +75,15 @@ class VueloController extends Controller
             'fecha' => $request->get('fecha_origen'),
             ['asientos', '>=', $request->session()->get('totalPasajeros')]
           ])->get();
-          return view('flightResult')->with('vuelos', $vuelos);
+          $firstFlight = $vuelos->first();
+          if($firstFlight != NULL){
+            $request->session()->put('pais_origen', $firstFlight->pais_origen);
+            $request->session()->put('pais_destino', $firstFlight->pais_destino);
+            return view('flightResult')->with('vuelos', $vuelos);
+          }
+          else{
+            return view('flightResult')->with('vuelos', $vuelos);
+          }
         }
       }
       else{
@@ -195,6 +211,8 @@ class VueloController extends Controller
         //DATOS DE LA IDA.
         $request->session()->put('fecha_ida', NULL);
         $request->session()->put('ida_ciudad_origen', NULL);
+        $request->session()->put('pais_origen', NULL);
+        $request->session()->put('pais_destino', NULL);
         $request->session()->put('ida_ciudad_destino', NULL);
         $request->session()->put('id_vuelo_ida', NULL);
         //DATOS DE LA VUELTA.
@@ -203,8 +221,8 @@ class VueloController extends Controller
         $request->session()->put('vuelta_ciudad_destino', NULL);
         $request->session()->put('id_vuelo_vuelta', NULL);
         //CANTIDAD DE PASAJEROS.
-        $request->session()->put('cant_adultos', NULL);
-        $request->session()->put('cant_ninos', NULL);
+        $request->session()->put('cant_adultos', 0);
+        $request->session()->put('cant_ninos', 0);
         $request->session()->put('pasajeroActual', 1);
         $request->session()->put('totalPasajeros', 1);
         //DATOS DE CADA PASAJERO Y SUS DATOS.
