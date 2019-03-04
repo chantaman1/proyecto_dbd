@@ -48,7 +48,7 @@
 
 
             </p>
-              <a href="onepage.html" role="button" class="btn btn-primary p-3 mr-3 pl-5 pr-5 text-uppercase d-lg-inline d-md-inline d-sm-block d-block mb-3">VER OFERTAS</a>
+              <a href="/paquetes" role="button" class="btn btn-primary p-3 mr-3 pl-5 pr-5 text-uppercase d-lg-inline d-md-inline d-sm-block d-block mb-3">VER OFERTAS</a>
             </p>
           </div>
           <div class="col-md probootstrap-animate">
@@ -150,7 +150,7 @@
 									</div>
 									<div class="col-md">
 										<div class="form-group">
-											<label for="id_label_single2">Ninos</label>
+											<label for="id_label_single2">Niños</label>
 											<select name="cant_ninos" class="js-example-basic-single" style="width: 100%;">
 												<option selected>0</option>
 												<option>1</option>
