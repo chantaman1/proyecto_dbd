@@ -10,8 +10,13 @@
 <li class="nav-item">
 	<a class="nav-link" href="/paquetes">Paquetes</a>
 </li>
-<li class="nav-item">
-	<a class="nav-link active" href="/autos">Autos</a>
+<li class="nav-item dropdown dmenu">
+	<a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Servicios
+	</a>
+	<div class="dropdown-menu sm-menu">
+		<a class="dropdown-item" href="/autos">Arriendo de autos</a>
+		<a class="dropdown-item" href="/seguros">Seguro de viajes</a>
+	</div>
 </li>
 @if(auth()->check())
 	<li class="nav-item dropdown dmenu">
@@ -132,7 +137,7 @@
           </div>
 
 					<div class="col-md">
-            <h2 class="heading mb-2 display-4 font-light probootstrap-animate">RESERVA TU AUTO	</h2>
+						<h2 class="display-4 border-bottom probootstrap-section-heading" style="text-align: center;">RESERVA TU AUTO</h2>
             <p class="lead mb-5 probootstrap-animate">
 
 

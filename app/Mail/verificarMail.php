@@ -35,7 +35,7 @@ class verificarMail extends Mailable
           ->with([
               'userName' => $this->requestData->session()->get('usuario_nombre').' '.$this->requestData->session()->get('usuario_apellido_paterno'),
               'mail_token' => $this->requestData->session()->get('usuario_mail_token'),
-              'mail' => $this->requestData->session()->get('usuario_correo')
+              'mail' => $this->requestData->session()->get('nuevo_usuario_correo')
           ]);
     }
 }

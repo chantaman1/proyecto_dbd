@@ -10,8 +10,13 @@
 	<li class="nav-item">
 		<a class="nav-link" href="/paquetes">Paquetes</a>
 	</li>
-	<li class="nav-item">
-		<a class="nav-link" href="/autos">Autos</a>
+	<li class="nav-item dropdown dmenu">
+		<a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Servicios
+		</a>
+		<div class="dropdown-menu sm-menu">
+			<a class="dropdown-item" href="/autos">Arriendo de autos</a>
+			<a class="dropdown-item" href="/seguros">Seguro de viajes</a>
+		</div>
 	</li>
 	@if(auth()->check())
 		<li class="nav-item dropdown dmenu">
@@ -41,7 +46,7 @@
 		        <div class="card card-signin my-5">
 		          <div class="card-body">
 		            <h5 class="card-title text-center">Ingresa a tu cuenta</h5>
-		            <form class="form-signin" method="POST" action="{{ url('login/doLogin') }}">
+		            <form class="form-signin" method="POST" action="{{ url('login') }}">
 		              <div class="form-label-group">
 		                <input name="email" type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
 		                <label for="inputEmail">Correo electrónico</label>
@@ -49,6 +54,7 @@
 		              <div class="form-label-group">
 		                <input name="password" type="password" id="inputPassword" class="form-control" placeholder="Password" required>
 		                <label for="inputPassword">Contraseña</label>
+										<b style="color:red;"><br/>{{ $loginErrorMsg }}</b>
 		              </div>
 		              <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Ingresar</button>
 		              <hr class="my-4">
@@ -61,7 +67,7 @@
 					<div class="card card-signin my-5">
 						<div class="card-body">
 							<h5 class="card-title text-center">¿No tienes una cuenta? ¡Regístrate gratis!</h5>
-							<form class="form-signin">
+							<form class="form-signin" method="POST" action="{{ url('register') }}">
 								<div class="form-label-group">
 									<input name="email" type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
 									<label for="inputEmail">Correo electrónico</label>
@@ -69,6 +75,7 @@
 								<div class="form-label-group">
 									<input name="password" type="password" id="inputPassword" class="form-control" placeholder="Password" required>
 									<label for="inputPassword">Contraseña</label>
+									<b style="color:red;"><br/>{{ $regErr }}</b>
 								</div>
 								<button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Registrarse</button>
 								<hr class="my-4">

@@ -39,13 +39,7 @@ class LoginController extends Controller
     }
 
     public function index(Request $request){
-      if($request->session()->get('loginErrorMsg') == NULL){
-          return view('Auth/login')->with('message', '');
-      }
-      else{
-          return view('Auth/login')->with('message', $request->session()->get('loginErrorMsg'));
-          $request->session()->put('loginErrorMsg', NULL);
-      }
+      return view('Auth/login', ['loginErrorMsg' => '', 'regErr' => '']);
     }
 
     public function authenticate(Request $request)
@@ -64,21 +58,19 @@ class LoginController extends Controller
                 $request->session()->put('usuario_correo', $email);
                 $request->session()->put('usuario_nombre', $userData->nombre);
                 $request->session()->put('usuario_apellido_paterno', $userData->apellido_paterno);
-                return redirect('/');
+                return redirect('/vuelos');
             }
             else{
-              $request->session()->put('loginErrorMsg', 'ERROR: Usuario/Contrasena incorrecta.');
-              return redirect('/login');
+              view('Auth/login', ['loginErrorMsg' => 'ERROR: Usuario/Contrasena incorrecta.', 'regErr' => '']);
             }
           }
           else{
-            $request->session()->put('loginErrorMsg', 'ERROR: Cuenta no verificada.');
-            return redirect('/login');
+            return view('Auth/login', ['loginErrorMsg' => 'ERROR: Cuenta no verificada, revise su correo.', 'regErr' => '']);
           }
         }
         else{
           $request->session()->put('loginErrorMsg', 'ERROR: Usuario/Contrasena incorrecta.');
-          return redirect('/login');
+          return view('Auth/login', ['loginErrorMsg' => 'ERROR: Usuario/Contrasena incorrecta.', 'regErr' => '']);
         }
     }
 
