@@ -11,7 +11,7 @@
 	<a class="nav-link" href="/paquetes">Paquetes</a>
 </li>
 <li class="nav-item">
-	<a class="nav-link" href="/autos">Autos</a>
+	<a class="nav-link active" href="/autos">Autos</a>
 </li>
 @if(auth()->check())
 	<li class="nav-item dropdown dmenu">
