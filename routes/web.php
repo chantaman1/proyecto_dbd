@@ -176,6 +176,10 @@ Route::get('/getHotels','hotelController@filter');
 
 Route::get('mostrar_habitaciones','hotelController@getAllRooms');
 
+Route::get('reservar_habitacion', 'habitacionController@iniciarReserva');
+
+Route::post('comprar_habitacion', 'habitacionController@terminarReserva');
+
 //RUTAS DEL METODO PAGO
 Route::get('/metodo_pago/show/{id}', 'metodo_pagoController@show');
 

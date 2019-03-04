@@ -129,7 +129,7 @@ class HotelController extends Controller
 
     public function filter(Request $request){
       if($request->get('fecha_inicio') > $request->get('fecha_fin') || $request->get('ciudad') == NULL || $request->get('fecha_inicio') == NULL || $request->get('fecha_fin') == NULL){
-        return redirect('/hoteles1');
+        return redirect('/hoteles');
       }
       $hotels = Hotel::where([
         'ciudad' => $request->get('ciudad'),

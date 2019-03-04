@@ -25,7 +25,7 @@ class Asiento extends Model
 
   public function reserva()
   {
-      return $this->belongsTo('App\Reserva');
+      return $this->belongsToMany('App\Reserva');
   }
 
   public function pasajero()

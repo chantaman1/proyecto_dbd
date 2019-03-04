@@ -42,6 +42,25 @@ class HabitacionController extends Controller
         return $habitacion;
     }
 
+    public function iniciarReserva(Request $request){
+        $habitacion = Habitacion::find($request->get('id'));
+        if($habitacion != NULL){
+          $request->session()->put('reserva_habitacion_id', $request->get('id'));
+          $request->session()->put('reserva_habitacion_precio', $habitacion->precio);
+          return view('habitacion-compra', ['capacidad' => $habitacion->capacidad, 'precio' => $habitacion->precio, 'categoria' => $habitacion->categoria, 'tipo_cama' => $habitacion->tipo_cama]);
+        }
+        else{
+          return redirect('/hoteles');
+        }
+    }
+
+    public function reservarHabitacion($id){
+      $habitacion = Habitacion::find($id);
+      $habitacion->disponibilidad = false;
+      $habitacion->save();
+      return;
+    }
+
     /**
      * Display the specified resource.
      *

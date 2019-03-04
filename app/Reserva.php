@@ -44,7 +44,7 @@ class Reserva extends Model
     //la reserva tiene muchos vuelos y el vuelo muchas reservas
     public function asientos()
     {
-        return $this->hasMany('App\Asiento');
+        return $this->belongsToMany('App\Asiento');
     }
 
     //la reserva pertenece a un usuario
