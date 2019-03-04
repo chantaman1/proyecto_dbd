@@ -119,13 +119,17 @@ class HotelController extends Controller
     }
 
     public function getAllRooms(Request $request){
-      $habitacions = Habitacion::where('hotel_id', $request->get('id'))->get();
+      $capacidad = $request->session()->get('hotel_cant_adultos')+$request->session()->get('hotel_cant_ninos');
+      $habitacions = Habitacion::where([
+        'hotel_id' => $request->get('id'),
+        'capacidad' => $capacidad
+        ])->get();
       return view('habitacion-list')->with('habitacions',$habitacions);
     }
 
     public function filter(Request $request){
       if($request->get('fecha_inicio') > $request->get('fecha_fin') || $request->get('ciudad') == NULL || $request->get('fecha_inicio') == NULL || $request->get('fecha_fin') == NULL){
-        return redirect('/hoteles');
+        return redirect('/hoteles1');
       }
       $hotels = Hotel::where([
         'ciudad' => $request->get('ciudad'),

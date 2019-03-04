@@ -1,13 +1,23 @@
-@extends('layouts.app')
+@extends('layouts.main')
 
-@section('title', 'Habitaciones Disponibles')
+@section('selected')
+	<li class="nav-item"><a class="nav-link" href="/vuelos1">Vuelos</a></li>
+	<li class="nav-item active"><a class="nav-link" href="/hoteles1">Hoteles</a></li>
+	<li class="nav-item"><a class="nav-link" href="/paquetes1">Paquetes</a></li>
+	<li class="nav-item"><a class="nav-link" href="/autos1">Autos</a></li>
+	<li class="nav-item"><a class="nav-link" href="/login1">Iniciar Sesión</a></li>
+@endsection
 
 @section('content')
-<div class="content"><div class="ic">More Website Templates @ TemplateMonster.com - February 10, 2014!</div>
-	<div class="container_12 offset-by-six">
-		<div class="clear"></div>
-		<h3>Habitaciones disponibles en el hotel</h3>
-		<div class="container_12 offset-by-six" style="display: inline-block; vertical-align: top;">
+<section class="probootstrap-cover overflow-hidden relative"  style="background-image: url('assets/images/bg_1.jpg');" data-stellar-background-ratio="0.5"  id="section-home">
+	<div class="overlay"></div>
+
+</section>
+
+<section class="probootstrap_section" id="section-city-guides">
+		<h3 style="text-align: center">Habitaciones disponibles en el hotel</h3>
+		<br>
+		<div class="container_12" >
 			@foreach ($habitacions as $data)
 			<div class="card" style="
 		    font-weight: bold;
@@ -27,7 +37,7 @@
 		        <p>Numero: {{$data->numero}}</p>
 		        <p>Capacidad: {{$data->capacidad}}</p>
 		        <p>Categoría: {{$data->categoria}}</p>
-		        <h6><b style="color: black">Precio: ${{$data->precio}}</b></h6>
+		        <h6><b style="color: black; padding: 10px">Precio: ${{$data->precio}}</b></h6>
 						<br>
 	    		</div>
 				</a>
@@ -35,6 +45,5 @@
 			<br>
 			@endforeach
 		</div>
-	</div>
-</div>
+</section>
 @endsection

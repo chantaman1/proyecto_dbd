@@ -21,7 +21,7 @@
         <div class="row align-items-center">
 
           <div class="col-md probootstrap-animate">
-            <form action="#" class="probootstrap-form">
+            <form action="{{ url('getHotels') }}" class="probootstrap-form">
               <div class="form-group">
                 <div class="row mb-3">
                   <div class="col-md">
@@ -29,25 +29,7 @@
                       <label for="id_label_single">Ciudad</label>
 
                       <label for="id_label_single" style="width: 100%;">
-                        <select class="js-example-basic-single js-states form-control" id="id_label_single" style="width: 100%;">
-													<option></option>
-                          <option value="Cancún">Cancún</option>
-                          <option value="Punta Cana">Punta Cana</option>
-                          <option value="Playa del Carmen">Playa del Carmen</option>
-                          <option value="Camboriú">Camboriú</option>
-                          <option value="Río de Janeiro">Río de Janeiro</option>
-                          <option value="Búzios">Búzios</option>
-                          <option value="Buenos Aires">Buenos Aires</option>
-                          <option value="Bariloche">Bariloche</option>
-													<option value="Mendoza">Mendoza</option>
-													<option value="Nueva York">Nueva York</option>
-													<option value="Los Ángeles">Los Ángeles</option>
-													<option value="Miami">Miami</option>
-													<option value="Santiago">Santiago</option>
-													<option value="Puerto Varas">Puerto Varas</option>
-                          <option value="Pucón">Pucón</option>
-                          <option value="Puerto Natales">Puerto Natales</option>
-                        </select>
+												<input name="ciudad" type="text" class="form-control" required autofocus>
                       </label>
                     </div>
                   </div>
@@ -60,7 +42,7 @@
                       <label for="probootstrap-date-departure">Fecha de check-in</label>
                       <div class="probootstrap-date-wrap">
                         <span class="icon ion-calendar"></span>
-                        <input type="text" id="probootstrap-date-departure" class="form-control" placeHolder={{ date('d/m/Y') }} data-constraints="@NotEmpty @Required @Date">
+                        <input type="text" name="fecha_inicio" id="probootstrap-date-departure" class="form-control" placeHolder={{ date('d/m/Y') }} data-constraints="@NotEmpty @Required @Date">
                       </div>
                     </div>
                   </div>
@@ -69,7 +51,7 @@
                       <label for="probootstrap-date-arrival">Fecha de check-out</label>
                       <div class="probootstrap-date-wrap">
                         <span class="icon ion-calendar"></span>
-                        <input type="text" id="probootstrap-date-arrival" class="form-control" placeHolder={{ "Check-out" }} data-constraints="@NotEmpty @Required @Date">
+                        <input type="text" name="fecha_fin" id="probootstrap-date-arrival" class="form-control" placeHolder={{ "Check-out" }} data-constraints="@NotEmpty @Required @Date">
                       </div>
                     </div>
                   </div>
@@ -78,19 +60,30 @@
 								<div class="row mb-5">
                   <div class="col-md">
                     <div class="form-group">
-											<select class="js-example-basic-single" style="width: 100%;">
-												<option>1 adulto</option>
-												<option selected>2 adultos</option>
-												<option>3 adultos</option>
+											<label for="id_label_single">Adultos</label>
+											<select class="js-example-basic-single" name="adults" style="width: 100%;">
+												<option selected>1</option>
+												<option>2</option>
+												<option>3</option>
+												<option>4</option>
+												<option>5</option>
+												<option>6</option>
+												<option>7</option>
 											</select>
                     </div>
                   </div>
 									<div class="col-md">
                     <div class="form-group">
-											<select class="js-example-basic-single" style="width: 100%;">
-												<option>Sin niños</option>
-												<option>1 niño</option>
-												<option>2 niños</option>
+											<label for="id_label_single">Niños</label>
+											<select class="js-example-basic-single" name="children" style="width: 100%;">
+												<option>0</option>
+												<option>1</option>
+												<option>2</option>
+												<option>3</option>
+												<option>4</option>
+												<option>5</option>
+												<option>6</option>
+												<option>7</option>
 											</select>
                     </div>
                   </div>
@@ -101,7 +94,7 @@
 									<div class="col-md">
 										</div>
 									<div class="col-md">
-                    <input type="submit" value="Busca tu hotel" class="btn btn-primary btn-block">
+                    <input type="submit" value="Busca tu hotel" class="btn btn-primary btn-block" href="javascript:" onclick="parentNode.submit();">
                   </div>
                 </div>
               </div>
