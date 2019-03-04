@@ -132,7 +132,7 @@
           </div>
 
 					<div class="col-md">
-            <h2 class="heading mb-2 display-4 font-light probootstrap-animate">RESERVA TU AUTO	</h2>
+						<h2 class="display-4 border-bottom probootstrap-section-heading" style="text-align: center;">RESERVA TU AUTO</h2>
             <p class="lead mb-5 probootstrap-animate">
 
 
