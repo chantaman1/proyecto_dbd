@@ -49,42 +49,67 @@
 				<div class="col-md-6">
 		        <div class="card card-signin my-5">
 		          <div class="card-body">
-		            <h5 class="card-title text-center">Ingresa a tu cuenta</h5>
-		            <form class="form-signin" method="POST" action="{{ url('login') }}">
-		              <div class="form-label-group">
-		                <input name="email" type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
-		                <label for="inputEmail">Correo electrónico</label>
-		              </div>
-		              <div class="form-label-group">
-		                <input name="password" type="password" id="inputPassword" class="form-control" placeholder="Password" required>
-		                <label for="inputPassword">Contraseña</label>
-										<b style="color:red;"><br/>{{ $loginErrorMsg }}</b>
-		              </div>
-		              <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Ingresar</button>
-		              <hr class="my-4">
-									<a class="btn btn-lg btn-facebook btn-block text-uppercase" href="{{url('/auth/facebook')}}">Conectarse con Facebook</a>
-		            </form>
+		            <h5 class="card-title text-center">Administrar vuelos</h5>
+	              <div class="form-label-group">
+	                <label>Cantidad de aerolineas: {{ $aerolineas }}</label>
+	              </div>
+								<button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Administrar aerolineas</button>
+	              <div class="form-label-group">
+	                <label>Cantidad de vuelos activos: {{ $vueloActivos }}</label>
+	              </div>
+								<div class="form-label-group">
+									<label>Cantidad de vuelos inactivos: {{ $vueloInactivos }}</label>
+	              </div>
+								<div class="form-label-group">
+									<label>Cantidad de asientos disponibles: {{ $asientos }}</label>
+	              </div>
+	              <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Administrar vuelos</button>
+	              <hr class="my-4">
 		          </div>
 		        </div>
 				</div>
 				<div class="col-md-6">
 					<div class="card card-signin my-5">
 						<div class="card-body">
-							<h5 class="card-title text-center">¿No tienes una cuenta? ¡Regístrate gratis!</h5>
-							<form class="form-signin" method="POST" action="{{ url('register') }}">
+							<h5 class="card-title text-center">Administrar hoteles</h5>
+							<div class="form-label-group">
+								<label>Cantidad de hoteles: {{ $hoteles }}</label>
+							</div>
+							<div class="form-label-group">
+								<label>Cantidad de habitaciones disponibles: {{ $habitaciones }}</label>
+							</div>
+							<button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Administrar hoteles</button>
+							<hr class="my-4">
+						</div>
+					</div>
+				</div>
+				<div class="col-md-6">
+						<div class="card card-signin my-5">
+							<div class="card-body">
+								<h5 class="card-title text-center">Administrar automotoras</h5>
 								<div class="form-label-group">
-									<input name="email" type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
-									<label for="inputEmail">Correo electrónico</label>
+									<label>cantidad automotoras: {{ $companias }}</label>
 								</div>
 								<div class="form-label-group">
-									<input name="password" type="password" id="inputPassword" class="form-control" placeholder="Password" required>
-									<label for="inputPassword">Contraseña</label>
-									<b style="color:red;"><br/>{{ $regErr }}</b>
+									<label>Cantidad de vehiculos disponibles: {{ $vehiculos }}</label>
 								</div>
-								<button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Registrarse</button>
+								<button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Administrar automotoras</button>
 								<hr class="my-4">
-								<a class="btn btn-lg btn-facebook btn-block text-uppercase" href="{{url('/auth/facebook')}}">Conectarse con Facebook</a>
-							</form>
+							</div>
+						</div>
+				</div>
+				<div class="col-md-6">
+					<div class="card card-signin my-5">
+						<div class="card-body">
+							<h5 class="card-title text-center">Administrar seguros</h5>
+							<div class="form-label-group">
+								<label>Cantidad aseguradoras: {{ $aseguradoras }}</label>
+							</div>
+							<div class="form-label-group">
+								<label>Cantidad de seguros disponibles: {{ $seguros }}</label>
+							</div>
+							<button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Administrar seguros</button>
+							<hr class="my-4">
 						</div>
 					</div>
 				</div>

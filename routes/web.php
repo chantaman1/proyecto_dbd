@@ -323,4 +323,4 @@ Route::get('/logout', 'Auth\LoginController@getLogout');
 
 // RUTAS DE ADMINISTRACION
 
-Route::get('/administration', 'Administration/AdminController@index');
+Route::get('/administration', 'AdministrationController@index');

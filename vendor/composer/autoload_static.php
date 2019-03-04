@@ -468,6 +468,7 @@ class ComposerStaticInitda5941214350eac20d7d17a7bec001f4
         'App\\Http\\Controllers\\UserController' => __DIR__ . '/../..' . '/app/Http/Controllers/UserController.php',
         'App\\Http\\Controllers\\VehiculoController' => __DIR__ . '/../..' . '/app/Http/Controllers/VehiculoController.php',
         'App\\Http\\Controllers\\VueloController' => __DIR__ . '/../..' . '/app/Http/Controllers/VueloController.php',
+        'App\\Http\\Controllers\\administration\\AdministrationController\\AdministrationController' => __DIR__ . '/../..' . '/app/Http/Controllers/administration/AdministrationController.php',
         'App\\Http\\Controllers\\facebookController' => __DIR__ . '/../..' . '/app/Http/Controllers/facebookController.php',
         'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
         'App\\Http\\Middleware\\Authenticate' => __DIR__ . '/../..' . '/app/Http/Middleware/Authenticate.php',
