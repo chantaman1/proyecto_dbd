@@ -301,9 +301,9 @@ Route::get('/auth/facebook/callback', 'facebookController@handleProviderFacebook
 
 Route::get('/erase', 'vueloController@eraseData');
 //-------------------------------------------------------------
-Route::get('/register', 'Auth\RegisterController@index');
+Route::post('/register', 'Auth\RegisterController@start');
 
-Route::post('/registering', 'UserController@store');
+Route::post('/registering', 'Auth\RegisterController@createUser');
 
 Route::get('/verify', 'UserController@verifyEmail');
 
