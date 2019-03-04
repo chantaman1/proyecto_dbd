@@ -13,16 +13,16 @@
 	<li class="nav-item">
 		<a class="nav-link" href="/autos">Autos</a>
 	</li>
-	@if($userLogged)
+	@if(auth()->check())
 		<li class="nav-item dropdown dmenu">
 			<a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-				Bienvenido {{ $name }}
+				Bienvenido {{ Session::get('usuario_nombre') }}
 			</a>
 			<div class="dropdown-menu sm-menu">
-				<a class="dropdown-item" href="#">Historial de compras</a>
-				<a class="dropdown-item" href="#">Check-in</a>
+				<a class="dropdown-item" href="/buyHistory">Historial de compras</a>
+				<a class="dropdown-item" href="/checkin">Check-in</a>
 				<div class="dropdown-divider"></div>
-				<a class="dropdown-item" href="#">Cerrar sesion</a>
+				<a class="dropdown-item" href="/logout">Cerrar sesion</a>
 			</div>
 		</li>
 	@else

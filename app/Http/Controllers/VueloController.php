@@ -206,11 +206,6 @@ class VueloController extends Controller
     }
 
     private function initializeFlightData(Request $request){
-        //INDICA LOS DATOS DEL USUARIO LOGUEADO.
-        $request->session()->put('usuario_correo', NULL);
-        $request->session()->put('usuario_nombre', NULL);
-        $request->session()->put('usuario_apellido_paterno', NULL);
-        $request->session()->put('usuario_mail_token', NULL);
         //INDICA SI ES VUELO DE IDA O AMBOS.
         $request->session()->put('idaVuelta', false);
         $request->session()->put('pasoActual', 0);

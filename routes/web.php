@@ -327,4 +327,4 @@ Route::get('/login', 'Auth\LoginController@index');
 
 Route::post('/login/doLogin', 'Auth\LoginController@authenticate');
 
-Route::get('/login/destroy', 'Auth\LoginController@getLogout');
+Route::get('/logout', 'Auth\LoginController@getLogout');
