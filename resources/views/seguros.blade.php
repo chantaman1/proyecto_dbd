@@ -1,40 +1,44 @@
 @extends('layouts.main')
 
 @section('selected')
-<li class="nav-item">
-	<a class="nav-link" href="/vuelos">Vuelos <span class="sr-only">(current)</span></a>
-</li>
-<li class="nav-item">
-	<a class="nav-link" href="/hoteles">Hoteles</a>
-</li>
-<li class="nav-item">
-	<a class="nav-link" href="/paquetes">Paquetes</a>
-</li>
-<li class="nav-item dropdown dmenu">
-	<a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Servicios
-	</a>
-	<div class="dropdown-menu sm-menu">
-		<a class="dropdown-item" href="/autos">Arriendo de autos</a>
-		<a class="dropdown-item" href="/seguros">Seguro de viajes</a>
-	</div>
-</li>
-@if(auth()->check())
+	<li class="nav-item">
+		<a class="nav-link" href="/vuelos">Vuelos <span class="sr-only">(current)</span></a>
+	</li>
+	<li class="nav-item">
+		<a class="nav-link" href="/hoteles">Hoteles</a>
+	</li>
+	<li class="nav-item">
+		<a class="nav-link" href="/paquetes">Paquetes</a>
+	</li>
 	<li class="nav-item dropdown dmenu">
-		<a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-			Bienvenido {{ Session::get('usuario_nombre') }}
+		<a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Servicios
 		</a>
 		<div class="dropdown-menu sm-menu">
-			<a class="dropdown-item" href="/buyHistory">Historial de compras</a>
-			<a class="dropdown-item" href="/checkin">Check-in</a>
-			<div class="dropdown-divider"></div>
-			<a class="dropdown-item" href="/logout">Cerrar sesion</a>
+			<a class="dropdown-item" href="/autos">Arriendo de autos</a>
+			<a class="dropdown-item" href="/seguros">Seguro de viajes</a>
 		</div>
 	</li>
-@else
-	<li class="nav-item">
-		<a class="nav-link" href="/login">Iniciar sesion</a>
-	</li>
-@endif
+	@if(auth()->check())
+		<li class="nav-item dropdown dmenu">
+			<a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+				Bienvenido {{ Session::get('usuario_nombre') }}
+			</a>
+			<div class="dropdown-menu sm-menu">
+				<a class="dropdown-item" href="/buyHistory">Historial de compras</a>
+				<a class="dropdown-item" href="/checkin">Check-in</a>
+				@if(Session::get('usuario_rol') == 'administrador')
+					<div class="dropdown-divider"></div>
+					<a class="dropdown-item" href="/administration">Administration</a>
+				@endif
+				<div class="dropdown-divider"></div>
+				<a class="dropdown-item" href="/logout">Cerrar sesion</a>
+			</div>
+		</li>
+	@else
+		<li class="nav-item">
+			<a class="nav-link active" href="/login">Iniciar sesion</a>
+		</li>
+	@endif
 @endsection
 
 @section('content')

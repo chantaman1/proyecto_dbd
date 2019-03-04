@@ -1,7 +1,7 @@
 @extends('layouts.main')
 @section('selected')
 	<li class="nav-item">
-		<a class="nav-link active" href="/vuelos">Vuelos <span class="sr-only">(current)</span></a>
+		<a class="nav-link" href="/vuelos">Vuelos <span class="sr-only">(current)</span></a>
 	</li>
 	<li class="nav-item">
 		<a class="nav-link" href="/hoteles">Hoteles</a>
@@ -9,8 +9,13 @@
 	<li class="nav-item">
 		<a class="nav-link" href="/paquetes">Paquetes</a>
 	</li>
-	<li class="nav-item">
-		<a class="nav-link" href="/autos">Autos</a>
+	<li class="nav-item dropdown dmenu">
+		<a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Servicios
+		</a>
+		<div class="dropdown-menu sm-menu">
+			<a class="dropdown-item" href="/autos">Arriendo de autos</a>
+			<a class="dropdown-item" href="/seguros">Seguro de viajes</a>
+		</div>
 	</li>
 	@if(auth()->check())
 		<li class="nav-item dropdown dmenu">
@@ -20,17 +25,20 @@
 			<div class="dropdown-menu sm-menu">
 				<a class="dropdown-item" href="/buyHistory">Historial de compras</a>
 				<a class="dropdown-item" href="/checkin">Check-in</a>
+				@if(Session::get('usuario_rol') == 'administrador')
+					<div class="dropdown-divider"></div>
+					<a class="dropdown-item" href="/administration">Administration</a>
+				@endif
 				<div class="dropdown-divider"></div>
 				<a class="dropdown-item" href="/logout">Cerrar sesion</a>
 			</div>
 		</li>
 	@else
 		<li class="nav-item">
-			<a class="nav-link" href="/login">Iniciar sesion</a>
+			<a class="nav-link active" href="/login">Iniciar sesion</a>
 		</li>
 	@endif
 @endsection
-
 @section('content')
 <!--==============================Content=================================-->
 <section class="probootstrap-cover overflow-hidden relative"  style="background-image: url('assets/images/bg_1.jpg');" data-stellar-background-ratio="0.5"  id="section-home">

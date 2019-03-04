@@ -2,7 +2,7 @@
 
 @section('selected')
 	<li class="nav-item">
-		<a class="nav-link active" href="/vuelos">Vuelos <span class="sr-only">(current)</span></a>
+		<a class="nav-link" href="/vuelos">Vuelos <span class="sr-only">(current)</span></a>
 	</li>
 	<li class="nav-item">
 		<a class="nav-link" href="/hoteles">Hoteles</a>
@@ -26,13 +26,17 @@
 			<div class="dropdown-menu sm-menu">
 				<a class="dropdown-item" href="/buyHistory">Historial de compras</a>
 				<a class="dropdown-item" href="/checkin">Check-in</a>
+				@if(Session::get('usuario_rol') == 'administrador')
+					<div class="dropdown-divider"></div>
+					<a class="dropdown-item" href="/administration">Administration</a>
+				@endif
 				<div class="dropdown-divider"></div>
 				<a class="dropdown-item" href="/logout">Cerrar sesion</a>
 			</div>
 		</li>
 	@else
 		<li class="nav-item">
-			<a class="nav-link" href="/login">Iniciar sesion</a>
+			<a class="nav-link active" href="/login">Iniciar sesion</a>
 		</li>
 	@endif
 @endsection
