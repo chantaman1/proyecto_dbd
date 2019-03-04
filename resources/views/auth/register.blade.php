@@ -41,7 +41,7 @@
 		        <div class="card card-signin my-5">
 		          <div class="card-body">
 		            <h5 class="card-title text-center">Continue con el registro</h5>
-		            <form class="form-signin" method="POST" action="{{ url('register/doRegister') }}">
+		            <form class="form-signin" method="POST" action="{{ url('registering') }}">
 		              <div class="form-label-group">
 		                <input name="nombre" type="name" id="inputName" class="form-control" placeholder="Names" required autofocus>
 		                <label for="inputName">Nombres</label>

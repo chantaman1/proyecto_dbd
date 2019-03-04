@@ -303,12 +303,12 @@ Route::get('/erase', 'vueloController@eraseData');
 //-------------------------------------------------------------
 Route::get('/register', 'Auth\RegisterController@index');
 
-Route::post('/register/doRegister', 'UserController@store');
+Route::post('/registering', 'UserController@store');
 
 Route::get('/verify', 'UserController@verifyEmail');
 
 Route::get('/login', 'Auth\LoginController@index');
 
-Route::post('/login/doLogin', 'Auth\LoginController@authenticate');
+Route::post('/login', 'Auth\LoginController@authenticate');
 
 Route::get('/logout', 'Auth\LoginController@getLogout');

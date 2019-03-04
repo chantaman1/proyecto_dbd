@@ -71,7 +71,7 @@ class RegisterController extends Controller
         $request->session()->put('nuevo_usuario_pw', $request->get('password'));
         $user = User::where('email', $request->get('email'))->first();
         if($user != NULL){
-          return view('Auth/login')->with('regErr', 'Email ya registrado.');
+          return view('Auth/login', ['loginErrorMsg'] => '', 'regErr' => 'ERROR: Correo ya existente.');
         }
         else{
           return view('Auth/register');
@@ -107,6 +107,6 @@ class RegisterController extends Controller
             'verified' => false,
         ]);
         $user->save();
-        return redirect('/login')->with('regErr', 'Cuenta registrada satisfactoriamente.');
+        return redirect('/login', ['loginErrorMsg' => '', 'regErr' => 'Cuenta registrada satisfactoriamente.']);
     }
 }
