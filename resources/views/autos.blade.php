@@ -10,8 +10,13 @@
 <li class="nav-item">
 	<a class="nav-link" href="/paquetes">Paquetes</a>
 </li>
-<li class="nav-item">
-	<a class="nav-link active" href="/autos">Autos</a>
+<li class="nav-item dropdown dmenu">
+	<a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Servicios
+	</a>
+	<div class="dropdown-menu sm-menu">
+		<a class="dropdown-item" href="/autos">Arriendo de autos</a>
+		<a class="dropdown-item" href="/seguros">Seguro de viajes</a>
+	</div>
 </li>
 @if(auth()->check())
 	<li class="nav-item dropdown dmenu">

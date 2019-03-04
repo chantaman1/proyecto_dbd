@@ -12,8 +12,13 @@
 <li class="nav-item">
 	<a class="nav-link active" href="/paquetes">Paquetes</a>
 </li>
-<li class="nav-item">
-	<a class="nav-link" href="/autos">Autos</a>
+<li class="nav-item dropdown dmenu">
+	<a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Servicios
+	</a>
+	<div class="dropdown-menu sm-menu">
+		<a class="dropdown-item" href="/autos">Arriendo de autos</a>
+		<a class="dropdown-item" href="/seguros">Seguro de viajes</a>
+	</div>
 </li>
 @if(auth()->check())
 	<li class="nav-item dropdown dmenu">
@@ -49,11 +54,11 @@
 						@foreach($paquetes as $paquete)
 						<div class="viini-kortti p-marjaisa" style="background-image: url({{$paquete->image}})">
 							<a  href="comprar_paquete?id={{ $paquete->id }}&precio={{ $paquete->precio }}&destino={{ $paquete->ciudad_destino }}" style="color:white">
-						  <h2 style="font-size: 20px; font-weight: bold">{{$paquete->ciudad_destino}}</h2>
+						  <h2 style="font-size: 30px; font-weight: bold; text-shadow: 1px 1px black; color: white">{{$paquete->ciudad_destino}}</h2>
 						  <ul>
 								<li style="font-size: 10px">Directo</li>
 						    <li style="font-size: 20px">Cupos: {{$paquete->cupos}}</li>
-						    <li style="font-size: 30px; font-weight: bold">CLP$ {{number_format($paquete->precio, 0, '', '.')}}</li>
+						    <li style="font-size: 30px; font-weight: bold; text-shadow: 1px 1px black">CLP$ {{number_format($paquete->precio, 0, '', '.')}}</li>
 								@if($paquete->posee_hotel == true)
 								<li>7 noches en hotel</li>
 								@else
@@ -70,7 +75,7 @@
 								<li>No incluye seguro de viaje</li>
 								@endif
 								@if($paquete->descuento > 0)
-								<strong style="font-size: 30px; color: #c73430; font-weight: bold">{{$paquete->descuento}}% Descuento</strong>
+								<strong style="font-size: 30px; color: #ed1650; font-weight: bold; background-color: #ffe200">-{{$paquete->descuento}}%</strong>
 								@endif
 						  </ul>
 						</a>
