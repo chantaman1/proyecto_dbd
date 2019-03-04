@@ -320,3 +320,7 @@ Route::get('/login', 'Auth\LoginController@index');
 Route::post('/login', 'Auth\LoginController@authenticate');
 
 Route::get('/logout', 'Auth\LoginController@getLogout');
+
+// RUTAS DE ADMINISTRACION
+
+Route::get('/administration', 'Administration/AdminController@index');
