@@ -113,7 +113,7 @@ class PaqueteController extends Controller
     public function start()
     {
       $paquete = Paquete::All();
-      return view('package')->with('paquetes', $paquete);
+      return view('paquetes')->with('paquetes', $paquete);
     }
 
     public function comprar_paquete(Request $request){

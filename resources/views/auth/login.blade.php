@@ -27,7 +27,7 @@
 		</li>
 	@else
 		<li class="nav-item">
-			<a class="nav-link" href="/login">Iniciar sesion</a>
+			<a class="nav-link active" href="/login">Iniciar sesion</a>
 		</li>
 	@endif
 @endsection
