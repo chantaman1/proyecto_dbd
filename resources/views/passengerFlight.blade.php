@@ -334,6 +334,13 @@
 									<label for="inputCountry">Nacionalidad</label>
 								</label>
 							</div>
+							<div class="row" style="margin-top:0">
+							<div class="col-md">
+								<label style="margin-right:20%">Incluir Seguro:     </label>
+								<label for="oneway" class="mr-5"><input type="radio" id="oneway" name="seguro">  Si</label>
+								<label for="round"><input type="radio" id="round" name="seguro">   No</label>
+							</div>
+						</div>
 							<button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Continuar compra!</button>
 							<hr class="my-4">
 						</form>
