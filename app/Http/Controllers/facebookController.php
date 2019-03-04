@@ -27,6 +27,8 @@ class facebookController extends Controller
       else{
         $data = (object)array('nombre' => $auth_user->name, 'facebook_id' => $auth_user->id, 'email' => $auth_user->email);
         $user = app('App\Http\Controllers\UserController')->storeFacebook($data);
+        $request->session()->put('usuario_correo', $auth_user->email);
+        $request->session()->put('usuario_nombre', $auth_user->name);
         Auth::login($user, true);
         return redirect('/');
       }
