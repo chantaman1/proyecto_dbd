@@ -70,6 +70,16 @@ class ReservaController extends Controller
         return $reserva;
     }
 
+    public function terminarReservaHabitacion(Request $request){
+        app('App\Http\Controllers\HabitacionController')->reservarHabitacion($request->session()->get('reserva_habitacion_id'));
+        $reserva = new Reserva;
+        $data = ['totalAPagar' => intVal($request->session()->get('reserva_habitacion_precio')), 'estado_pago' => 'Pagado', 'user_id' => Auth::id()];
+        $reserva->fill($data);
+        $reserva->save();
+        $reserva->habitacions()->attach([$request->session()->get('hotel_fecha_inicio'), $request->session()->get('hotel_fecha_fin')]);
+        return view('reciboHabitacion', ['inicio' => $request->session()->get('hotel_fecha_inicio'), 'fin' => $request->session()->get('hotel_fecha_fin'), 'id_reserva' => $reserva->reserva_id]);
+    }
+
     public function test(){
       return view('buyFinished');
     }

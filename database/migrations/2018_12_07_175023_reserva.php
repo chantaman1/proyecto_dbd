@@ -21,9 +21,7 @@ class Reserva extends Migration
           $table->integer('cant_ninos');
           $table->integer('cant_adultos');
           $table->unsignedInteger('user_id');
-          $table->unsignedInteger('asiento_id');
           $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-          $table->foreign('asiento_id')->references('id')->on('asientos')->onDelete('cascade');
           $table->timestamps();
       });
     }
