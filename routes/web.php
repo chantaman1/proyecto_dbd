@@ -295,7 +295,7 @@ Route::get('/selecAsiento', 'asientoController@getSeatsByFlightId');
 
 Route::get('/pasajero', 'pasajeroController@index');
 
-Route::get('/comprar', 'pasajeroController@saveData');
+Route::post('/comprar', 'pasajeroController@saveData');
 
 Route::get('/finalizar', 'reservaController@store');
 
