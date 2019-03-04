@@ -61,7 +61,7 @@
 					<div class="card card-signin my-5">
 						<div class="card-body">
 							<h5 class="card-title text-center">¿No tienes una cuenta? ¡Regístrate gratis!</h5>
-							<form class="form-signin">
+							<form class="form-signin" method="POST" action="{{ url('register') }}">
 								<div class="form-label-group">
 									<input name="email" type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
 									<label for="inputEmail">Correo electrónico</label>
@@ -69,6 +69,7 @@
 								<div class="form-label-group">
 									<input name="password" type="password" id="inputPassword" class="form-control" placeholder="Password" required>
 									<label for="inputPassword">Contraseña</label>
+									<b style="color:red;"><br/>{{ $regErr }}</b>
 								</div>
 								<button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Registrarse</button>
 								<hr class="my-4">

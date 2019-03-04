@@ -16,6 +16,11 @@ html {
   overflow-x: hidden;
   font-size: 1em; }
 
+.col-centered{
+    float: none;
+    margin: 0 auto;
+}
+
 body {
   font-family: "Work Sans", Arial, sans-serif; }
 

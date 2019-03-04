@@ -39,13 +39,7 @@ class LoginController extends Controller
     }
 
     public function index(Request $request){
-      if($request->session()->get('loginErrorMsg') == NULL){
-          return view('Auth/login')->with('message', '');
-      }
-      else{
-          return view('Auth/login')->with('message', $request->session()->get('loginErrorMsg'));
-          $request->session()->put('loginErrorMsg', NULL);
-      }
+      return view('Auth/login')->with('regErr', '');
     }
 
     public function authenticate(Request $request)

@@ -1,12 +1,14 @@
 <?php
 namespace App\Http\Controllers\Auth;
-use App\Usuario;
+use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use App\Mail\bienvenidaMail;
 use App\Mail\verificarMail;
+use Auth;
+use App\User;
 use Illuminate\Support\Facades\Mail;
 use Faker\Factory as Faker;
 class RegisterController extends Controller
@@ -62,36 +64,49 @@ class RegisterController extends Controller
      * Create a new user instance after a valid registration.
      *
      * @param  array  $data
-     * @return \App\Usuario
+     * @return \App\User
      */
+    public function start(Request $request){
+        $request->session()->put('nuevo_usuario_correo', $request->get('email'));
+        $request->session()->put('nuevo_usuario_pw', $request->get('password'));
+        $user = User::where('email', $request->get('email'))->first();
+        if($user != NULL){
+          return view('Auth/login')->with('regErr', 'Email ya registrado.');
+        }
+        else{
+          return view('Auth/register');
+        }
+
+    }
+
     protected function createUser(Request $request)
     {
-        dd('hola');
         $faker = Faker::create();
-
-        $this->session()->put('usuario_nombre', $request->nombre);
-        $this->session()->put('usuario_apellido_paterno', $request->apellido_paterno);
-        $this->session()->put('usuario_correo', $request->correo);
+        $request->session()->put('usuario_nombre', $request->get('nombre'));
+        $request->session()->put('usuario_apellido_paterno', $request->get('apellido_paterno'));
 
         $token = $faker->sha256;
-        $this->session()->put('usuario_mail_token', $token);
+        $request->session()->put('usuario_mail_token', $token);
 
-        Mail::to($data['correo'])->send(new bienvenidaMail());
-        Mail::to($data['correo'])->send(new verificarMail());
+        Mail::to($request->session()->get('nuevo_usuario_correo'))->send(new bienvenidaMail($request));
+        Mail::to($request->session()->get('nuevo_usuario_correo'))->send(new verificarMail($request));
 
-        return Usuario::store([
-            'nombre' => $request->nombre,
-            'apellido_paterno' => $request->apellido_paterno,
-            'apellido_materno' => $request->apellido_materno,
-            'fecha_nacimiento' => $request->fecha_nacimiento,
-            'direccion' => $request->direccion,
-            'telefono' => $request->telefono,
-            'nacionalidad' => $request->nacionalidad,
-            'pasaporte' => $request->pasaporte,
-            'correo' => $request->correo,
-            'password' => $request->password,
-            'mail_token' => $token,
+        $user = new User;
+        $user->fill([
+            'nombre' => $request->get('nombre'),
+            'apellido_paterno' => $request->get('apellido_paterno'),
+            'apellido_materno' => $request->get('apellido_materno'),
+            'fecha_nacimiento' => $request->get('fecha_nacimiento'),
+            'direccion' => $request->get('direccion'),
+            'telefono' => $request->get('telefono'),
+            'nacionalidad' => $request->get('nacionalidad'),
+            'pasaporte' => $request->get('pasaporte'),
+            'email' => $request->session()->get('nuevo_usuario_correo'),
+            'password' => Hash::make($request->session()->get('nuevo_usuario_pw')),
+            'email_token' => $token,
             'verified' => false,
         ]);
+        $user->save();
+        return redirect('/login')->with('regErr', 'Cuenta registrada satisfactoriamente.');
     }
 }
