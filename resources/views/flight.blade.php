@@ -1,68 +1,175 @@
-@extends('layouts.app')
+@extends('layouts.main')
 
-@section('title', 'Vuelos')
+@section('selected')
+	<li class="nav-item">
+		<a class="nav-link" href="/vuelos">Vuelos <span class="sr-only">(current)</span></a>
+	</li>
+	<li class="nav-item">
+		<a class="nav-link" href="/hoteles">Hoteles</a>
+	</li>
+	<li class="nav-item">
+		<a class="nav-link" href="/paquetes">Paquetes</a>
+	</li>
+	<li class="nav-item">
+		<a class="nav-link" href="/autos">Autos</a>
+	</li>
+	@if($userLogged)
+		<li class="nav-item dropdown dmenu">
+			<a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+				Bienvenido {{ $name }}
+			</a>
+			<div class="dropdown-menu sm-menu">
+				<a class="dropdown-item" href="#">Historial de compras</a>
+				<a class="dropdown-item" href="#">Check-in</a>
+				<div class="dropdown-divider"></div>
+				<a class="dropdown-item" href="#">Cerrar sesion</a>
+			</div>
+		</li>
+	@else
+		<li class="nav-item">
+			<a class="nav-link" href="/login">Iniciar sesion</a>
+		</li>
+	@endif
+@endsection
 
 @section('content')
-		<div class="content"><div class="ic">More Website Templates @ TemplateMonster.com - February 10, 2014!</div>
-			<div class="container_12 offset-by-six">
-				<div class="clear"></div>
-				<div class="grid_6">
-					<h3>Vuelos</h3>
-					<form id="bookingForm" action="{{ url('results') }}">
-						<div class="fl1">
-							<div class="tmInput">
-								<input name="origen" id="origen" placeHolder="Origen: Ciudad" type="text" data-constraints='@NotEmpty @Required @AlphaSpecial'>
-							</div>
-							<div class="tmInput">
-								<input name="destino" id="destino" placeHolder="Destino: Ciudad" type="text" data-constraints="@NotEmpty @Required">
-							</div>
-						</div>
-						<div class="clear"></div>
-						<div class="tmRadio">
-							<p>Tipo de viaje</p>
-							<input name="tmBtn" value="both" type="radio" id="tmRadio0" data-constraints='@RadioGroupChecked(name="tmBtn", groups=[RadioGroup])' checked/>
-							<span>Ida y vuelta</span>
-							<input name="tmBtn" value="oneWay" type="radio" id="tmRadio1" data-constraints='@RadioGroupChecked(name="tmBtn", groups=[RadioGroup])' />
-							<span>Solo ida</span>
-						</div>
-						<div class="clear"></div>
-						<div id="startFlight">
-							<strong>Fecha de ida</strong>
-							<label class="tmDatepicker">
-								<input type="text" id="fecha_origen" name="fecha_origen" placeHolder={{ date('m/d/Y') }} data-constraints="@NotEmpty @Required @Date">
-							</label>
-						</div>
-						<div class="clear"></div>
-						<div id="returnFligth">
-							<strong>Fecha de regreso</strong>
-							<label class="tmDatepicker">
-								<input type="text" id="fecha_regreso" name="fecha_regreso" placeHolder={{ "Fecha" }} data-constraints="@NotEmpty @Required @Date">
-							</label>
-						</div>
-						<div class="clear"></div>
-						<div class="fl1 fl2">
-							<em>Adultos</em>
-							<select name="cant_adultos" class="tmSelect auto" data-class="tmSelect tmSelect2" data-constraints="">
-								<option>1</option>
-								<option>1</option>
-								<option>2</option>
-								<option>3</option>
-							</select>
-							<div class="clear"></div>
-						</div>
-						<div class="fl1 fl2">
-							<em>Niños</em>
-							<select name="cant_ninos" class="tmSelect auto" data-class="tmSelect tmSelect2" data-constraints="">
-								<option>0</option>
-								<option>0</option>
-								<option>1</option>
-								<option>2</option>
-							</select>
-						</div>
-						<div class="clear"></div>
-						<a href="javascript:;" onclick="" class="btn" id="submitBtnFligth" type="submit">Buscar vuelos</a>
-					</form>
-				</div>
-			</div>
-		</div>
+    <section class="probootstrap-cover overflow-hidden relative"  style="background-image: url('assets/images/bg_1.jpg');" data-stellar-background-ratio="0.5"  id="section-home">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-md">
+            <h2 class="heading mb-2 display-4 font-light probootstrap-animate">RESERVA TU VUELO	</h2>
+            <p class="lead mb-5 probootstrap-animate">
+
+
+            </p>
+              <a href="onepage.html" role="button" class="btn btn-primary p-3 mr-3 pl-5 pr-5 text-uppercase d-lg-inline d-md-inline d-sm-block d-block mb-3">VER OFERTAS</a>
+            </p>
+          </div>
+          <div class="col-md probootstrap-animate">
+            <form action="{{ url('results') }}" class="probootstrap-form">
+              <div class="form-group">
+                <div class="row mb-3">
+                  <div class="col-md">
+                    <div class="form-group">
+                      <label for="id_label_single">Origen</label>
+
+                      <label for="id_label_single" style="width: 100%;">
+                        <select name="origen" class="js-example-basic-single js-states form-control" id="id_label_single" style="width: 100%;">
+													<option></option>
+                          <option value="Cancún">Cancún</option>
+                          <option value="Punta Cana">Punta Cana</option>
+                          <option value="Playa del Carmen">Playa del Carmen</option>
+                          <option value="Camboriú">Camboriú</option>
+                          <option value="Río de Janeiro">Río de Janeiro</option>
+                          <option value="Búzios">Búzios</option>
+                          <option value="Buenos Aires">Buenos Aires</option>
+                          <option value="Bariloche">Bariloche</option>
+													<option value="Mendoza">Mendoza</option>
+													<option value="Nueva York">Nueva York</option>
+													<option value="Los Ángeles">Los Ángeles</option>
+													<option value="Miami">Miami</option>
+													<option value="Santiago" selected>Santiago</option>
+													<option value="Puerto Varas">Puerto Varas</option>
+                          <option value="Pucón">Pucón</option>
+                          <option value="Puerto Natales">Puerto Natales</option>
+                        </select>
+                      </label>
+                    </div>
+                  </div>
+
+                  <div class="col-md">
+                    <div class="form-group">
+                      <label for="id_label_single2">Destino</label>
+                      <div class="probootstrap_select-wrap">
+                        <label for="id_label_single2" style="width: 100%;">
+                        <select name="destino" class="js-example-basic-single js-states form-control" id="id_label_single2" style="width: 100%;">
+													<option></option>
+													<option value="Cancún">Cancún</option>
+                          <option value="Punta Cana">Punta Cana</option>
+                          <option value="Playa del Carmen">Playa del Carmen</option>
+                          <option value="Camboriú">Camboriú</option>
+                          <option value="Río de Janeiro">Río de Janeiro</option>
+                          <option value="Búzios">Búzios</option>
+                          <option value="Buenos Aires">Buenos Aires</option>
+                          <option value="Bariloche">Bariloche</option>
+													<option value="Mendoza">Mendoza</option>
+													<option value="Nueva York">Nueva York</option>
+													<option value="Los Ángeles">Los Ángeles</option>
+													<option value="Miami">Miami</option>
+													<option value="Santiago">Santiago</option>
+													<option value="Puerto Varas">Puerto Varas</option>
+                          <option value="Pucón">Pucón</option>
+                          <option value="Puerto Natales">Puerto Natales</option>
+                        </select>
+                      </label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- END row -->
+                <div class="row mb-5">
+                  <div class="col-md">
+                    <div class="form-group">
+                      <label for="probootstrap-date-departure">IDA</label>
+                      <div class="probootstrap-date-wrap">
+                        <span class="icon ion-calendar"></span>
+                        <input name="fecha_origen" type="text" id="probootstrap-date-departure" class="form-control" placeHolder={{ date('d/m/Y') }} data-constraints="@NotEmpty @Required @Date">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md">
+                    <div class="form-group">
+                      <label for="probootstrap-date-arrival">VUELTA</label>
+                      <div class="probootstrap-date-wrap">
+                        <span class="icon ion-calendar"></span>
+                        <input name="fecha_regreso" type="text" id="probootstrap-date-arrival" class="form-control" placeHolder={{ "Fecha" }} data-constraints="@NotEmpty @Required @Date">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+
+								<div class="row mb-5">
+									<div class="col-md">
+										<div class="form-group">
+											<label for="id_label_single">Adultos</label>
+											<select name="cant_adultos" class="js-example-basic-single" style="width: 100%;">
+												<option selected>1</option>
+												<option>2</option>
+												<option>3</option>
+												<option>4</option>
+											</select>
+										</div>
+									</div>
+									<div class="col-md">
+										<div class="form-group">
+											<label for="id_label_single2">Ninos</label>
+											<select name="cant_ninos" class="js-example-basic-single" style="width: 100%;">
+												<option selected>0</option>
+												<option>1</option>
+												<option>2</option>
+												<option>3</option>
+											</select>
+										</div>
+									</div>
+								</div>
+
+                <!-- END row -->
+                <div class="row">
+                  <div class="col-md">
+                    <label for="oneway" class="mr-5"><input type="radio" id="oneway" name="direction">		SÓLO IDA</label>
+                    <label for="round"><input type="radio" id="round" name="direction">		IDA Y VUELTA</label>
+                  </div>
+                  <div class="col-md">
+                    <input type="submit" value="Busca tu vuelo" class="btn btn-primary btn-block">
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
 @endsection

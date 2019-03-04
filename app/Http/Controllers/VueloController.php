@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Vuelo;
+use Illuminate\Support\Facades\Auth;
 class VueloController extends Controller
 {
     /**
@@ -15,7 +16,12 @@ class VueloController extends Controller
     public function index(Request $request)
     {
         $this->initializeFlightData($request);
-        return view('flight');
+        if(Auth::check() == true){
+          return view('flight', ['userLogged' => true, 'name' => Auth::user()->nombre]);
+        }
+        else{
+          return view('flight', ['userLogged' => true, 'name' => 'null']);
+        }
     }
 
     public function getFlightByDate($date){
