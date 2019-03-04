@@ -31,6 +31,10 @@ Route::get('/autos',function(){
   return view('autos');
 });
 
+Route::get('/seguros',function(){
+  return view('seguros');
+});
+
 Route::get('/hoteles',function(){
   return view('hotel');
 });
