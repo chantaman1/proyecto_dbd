@@ -1,23 +1,76 @@
-@extends('layouts.app')
-
-@section('title', 'Vuelos')
+@extends('layouts.main')
+@section('selected')
+	<li class="nav-item">
+		<a class="nav-link active" href="/vuelos">Vuelos <span class="sr-only">(current)</span></a>
+	</li>
+	<li class="nav-item">
+		<a class="nav-link" href="/hoteles">Hoteles</a>
+	</li>
+	<li class="nav-item">
+		<a class="nav-link" href="/paquetes">Paquetes</a>
+	</li>
+	<li class="nav-item">
+		<a class="nav-link" href="/autos">Autos</a>
+	</li>
+	@if(auth()->check())
+		<li class="nav-item dropdown dmenu">
+			<a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+				Bienvenido {{ Session::get('usuario_nombre') }}
+			</a>
+			<div class="dropdown-menu sm-menu">
+				<a class="dropdown-item" href="/buyHistory">Historial de compras</a>
+				<a class="dropdown-item" href="/checkin">Check-in</a>
+				<div class="dropdown-divider"></div>
+				<a class="dropdown-item" href="/logout">Cerrar sesion</a>
+			</div>
+		</li>
+	@else
+		<li class="nav-item">
+			<a class="nav-link" href="/login">Iniciar sesion</a>
+		</li>
+	@endif
+@endsection
 
 @section('content')
-		<div class="content"><div class="ic">More Website Templates @ TemplateMonster.com - February 10, 2014!</div>
+<section class="probootstrap-cover overflow-hidden relative"  style="background-image: url('assets/images/bg_1.jpg');" data-stellar-background-ratio="0.5"  id="section-home">
+	<div class="overlay"></div>
+
+</section>
+<!-- END section -->
 			<div class="container_12 offset-by-six">
 				<div class="clear"></div>
 				<div class="grid_6">
+					<br>
 					@if(Session::get('pasoActual') === 0)
-						<h3>Vuelos disponibles IDA</h3>
+						<h1 style="text-align:center">Vuelos disponibles IDA</h1>
 					@else
-						<h3>Vuelos disponibles REGRESO</h3>
+						<h1 style="text-align:center">Vuelos disponibles REGRESO</h1>
 					@endif
-          @foreach ($vuelos as $data)
-            <div class="grid_4">
-              <a href="selecAsiento?id={{ $data->id }}&destino={{ $data->ciudad_destino }}" class="btn"> <strong>Pais de origen:</strong> {{$data->pais_origen}} <br/> <strong>Ciudad de origen:</strong> {{$data->ciudad_origen}} <br/> <strong>Pais de destino:</strong> {{$data->pais_destino}} <br/> <strong>Ciudad de destino:</strong> {{$data->ciudad_destino}} <br/> <strong>Fecha de salida:</strong> {{$data->fecha}} <br/> <strong>Hora de salida:</strong> {{$data->hora}}</a>
-            </div>
+					<br>
+	      	@foreach ($vuelos as $data)
+					<div class="card" style="
+				    font-weight: bold;
+				    border: 1px solid #0C0C19;
+				    border-radius: 10px;
+				    background: #0000FF;
+						margin-left:auto;
+    				margin-right:auto;
+				    box-shadow: inset 0px 0px 5px #0C0C19;
+				    -moz-box-shadow: inset 0px 0px 5px #0C0C19;
+				    -webkit-box-shadow: inset 0px 0px 5px #2B2B33;
+						text-align: center;
+						width: 45%;
+						height: 50%;
+				    text-shadow: 1px 1px 1px #fff;">
+						<a  href="selecAsiento?id={{ $data->id }}&destino={{ $data->ciudad_destino }}">
+				      <div class="card-body" style="color:black">
+				        <h6 style="color:#ffffff; margin: 0px; padding: 5px"><b>{{$data->hora}} del {{$data->fecha}}</b></h6>
+								<h6 style="color:#ffffff; margin: 0px; padding: 5px">Origen: {{$data->ciudad_origen}}, {{$data->pais_origen}}</h6>
+				        <h6 style="color:#ffffff; margin: 0px; padding: 5px">Destino: {{$data->ciudad_destino}}, {{$data->pais_destino}}</h6>
+			    		</div>
+						</a>
+					</div>
           @endforeach
 				</div>
 			</div>
-		</div>
 @endsection
