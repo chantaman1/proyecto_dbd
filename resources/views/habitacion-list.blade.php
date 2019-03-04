@@ -1,11 +1,11 @@
 @extends('layouts.main')
 
 @section('selected')
-	<li class="nav-item"><a class="nav-link" href="/vuelos1">Vuelos</a></li>
-	<li class="nav-item active"><a class="nav-link" href="/hoteles1">Hoteles</a></li>
-	<li class="nav-item"><a class="nav-link" href="/paquetes1">Paquetes</a></li>
-	<li class="nav-item"><a class="nav-link" href="/autos1">Autos</a></li>
-	<li class="nav-item"><a class="nav-link" href="/login1">Iniciar Sesión</a></li>
+	<li class="nav-item"><a class="nav-link" href="/vuelos">Vuelos</a></li>
+	<li class="nav-item active"><a class="nav-link" href="/hoteles">Hoteles</a></li>
+	<li class="nav-item"><a class="nav-link" href="/paquetes">Paquetes</a></li>
+	<li class="nav-item"><a class="nav-link" href="/autos">Autos</a></li>
+	<li class="nav-item"><a class="nav-link" href="/login">Iniciar Sesión</a></li>
 @endsection
 
 @section('content')

@@ -16,26 +16,6 @@ Route::get('/', function () {
     return redirect('vuelos');
 });
 
-Route::get('/vuelos1', function () {
-    return view('vuelos1');
-});
-
-Route::get('/hoteles1', function () {
-    return view('hoteles1');
-});
-
-Route::get('/paquetes1', function () {
-    return view('paquetes1');
-});
-
-Route::get('/autos1', function () {
-    return view('autos1');
-});
-
-Route::get('/login1', function () {
-    return view('login1');
-});
-
 Route::get('/test', function () {
     return view('test');
 });
@@ -47,8 +27,8 @@ Route::get('/test1', function () {
 
 Route::get('/vuelos', 'vueloController@index');
 
-Route::get('/vehiculos',function(){
-  return view('vehicle');
+Route::get('/autos',function(){
+  return view('autos');
 });
 
 Route::get('/hoteles',function(){
@@ -56,7 +36,11 @@ Route::get('/hoteles',function(){
 });
 
 Route::get('/home', function () {
-    return view('vuelos1');
+    return view('vuelos');
+});
+
+Route::get('/paquetes', function () {
+    return view('paquetes');
 });
 
 Route::get('/send-mail', function () {
