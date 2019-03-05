@@ -336,3 +336,11 @@ Route::post('administrationVuelo', 'administrationController@adminVueloView');
 Route::post('administrationVueloAdd', 'administrationController@adminVueloAdd');
 
 Route::post('administrationAsientoAdd', 'administrationController@adminAsientoAdd');
+
+Route::post('administrationHotel', 'administrationController@adminHotelView');
+
+Route::post('administrationHotelDisable', 'administrationController@adminHotelDisable');
+
+Route::post('administrationHotelAdd', 'administrationController@adminHotelAdd');
+
+Route::post('administrationHabitacion', 'administrationController@adminHabitacionView');

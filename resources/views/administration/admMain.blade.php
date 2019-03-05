@@ -76,14 +76,25 @@
 					<div class="card card-signin my-5">
 						<div class="card-body">
 							<h5 class="card-title text-center">Administrar hoteles</h5>
-							<div class="form-label-group">
-								<label>Cantidad de hoteles: {{ $hoteles }}</label>
-							</div>
-							<div class="form-label-group">
-								<label>Cantidad de habitaciones disponibles: {{ $habitaciones }}</label>
-							</div>
-							<button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Administrar hoteles</button>
-							<hr class="my-4">
+							<form class="form-signin" method="POST" action="{{ url('administrationHotel') }}">
+								<div class="form-label-group">
+									<label>Cantidad de hoteles: {{ $hoteles }}</label>
+								</div>
+								<button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Administrar hoteles</button>
+							</form>
+							<form class="form-signin" method="POST" action="{{ url('administrationHabitacion') }}">
+								<div class="form-label-group">
+									<label>Cantidad de habitaciones disponibles: {{ $habitacionesDisp }}</label>
+								</div>
+								<div class="form-label-group">
+									<label>Cantidad de habitaciones ocupadas: {{ $habitacionesOcu }}</label>
+								</div>
+								<div class="form-label-group">
+									<label>Cantidad total de habitaciones: {{ $totalHabitaciones }}</label>
+								</div>
+								<button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Administrar habitaciones</button>
+								<hr class="my-4">
+							</form>
 						</div>
 					</div>
 				</div>
