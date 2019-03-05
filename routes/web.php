@@ -344,3 +344,9 @@ Route::post('administrationHotelDisable', 'administrationController@adminHotelDi
 Route::post('administrationHotelAdd', 'administrationController@adminHotelAdd');
 
 Route::post('administrationHabitacion', 'administrationController@adminHabitacionView');
+
+Route::post('administrationHabitacionHotel', 'administrationController@adminHabitacionHotelView');
+
+Route::post('administrationHabitacionHotelDisable', 'administrationController@adminHabitacionHotelDisable');
+
+Route::post('administrationHabitacionHotelAdd', 'administrationController@adminHabitacionHotelAdd');

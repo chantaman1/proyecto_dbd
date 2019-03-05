@@ -49,32 +49,32 @@
 				<div class="col-md-6 col-centered">
 		        <div class="card card-signin my-5">
 		          <div class="card-body">
-		            <h5 class="card-title text-center">Administrar habitaciones</h5>
-								<form class="form-signin" method="POST" action="{{ url('administrationHabitacionAdd') }}">
+		            <h5 class="card-title text-center">Administrar habitaciones de un hotel</h5>
+								<form class="form-signin" method="POST" action="{{ url('administrationHabitacionHotel') }}">
 									<div class="form-group">
-										<label for="id_label_single">Aerolineas existentes</label>
+										<label for="id_label_single">Hoteles</label>
 										<label for="id_label_single" style="width: 100%;">
-											<select name="eliminarAero" class="js-example-basic-single js-states form-control" id="id_label_single" style="width: 100%;">
-												@foreach($aerolineas as $aero)
-													<option value="{{ $aero->nombre }}">{{ $aero->nombre }}</option>
+											<select name="hotel" class="js-example-basic-single js-states form-control" id="id_label_single" style="width: 100%;">
+                        @foreach($hoteles as $hotel)
+                          @if($hotel->activo)
+													  <option value="{{ $hotel->id }}">{{ $hotel->nombre }} STATUS: Activo</option>
+                          @else
+                            <option value="{{ $hotel->id }}">{{ $hotel->nombre }} STATUS: Inactivo</option>
+                          @endif
 												@endforeach
 											</select>
 										</label>
-										<button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Eliminar aerolinea</button>
+										<button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Administrar habitaciones</button>
 			              <hr class="my-4">
 									</div>
 								</form>
-								<form class="form-signin" method="POST" action="{{ url('administrationAerolineaAdd') }}">
-									<div class="form-label-group">
-										<input name="aerolinea" type="name" id="inputName" class="form-control" placeholder="Airline name" required autofocus>
-										<label>Agregue nueva aerolinea</label>
-									</div>
-									<div class="form-label-group">
-										<b style="color:red;">{{ $regErr }}</b>
-									</div>
-		              <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Agregar aerolinea</button>
-		              <hr class="my-4">
-								</form>
+								<h5 class="card-title text-center">Retorno a Administración</h5>
+                <form class="form-signin" method="GET" action="{{ url('administration') }}">
+                  <div class="form-group">
+                    <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Volver a administración</button>
+                    <hr class="my-4">
+                  </div>
+                </form>
 		          </div>
 		        </div>
 				</div>
