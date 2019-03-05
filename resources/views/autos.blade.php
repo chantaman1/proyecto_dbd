@@ -58,7 +58,7 @@
             </p>
           </div>
           <div class="col-md probootstrap-animate">
-            <form action="#" class="probootstrap-form">
+            <form action="{{ url('vehicle_list') }}" class="probootstrap-form">
               <div class="form-group">
                 <div class="row mb-3">
                   <div class="col-md">
@@ -66,24 +66,11 @@
                       <label for="id_label_single">Lugar de retiro</label>
 
                       <label for="id_label_single" style="width: 100%;">
-                        <select class="js-example-basic-single js-states form-control" id="id_label_single" style="width: 100%;">
+                        <select name="ciudad" class="js-example-basic-single js-states form-control" id="id_label_single" style="width: 100%;">
 													<option></option>
-                          <option value="Cancún">Cancún</option>
-                          <option value="Punta Cana">Punta Cana</option>
-                          <option value="Playa del Carmen">Playa del Carmen</option>
-                          <option value="Camboriú">Camboriú</option>
-                          <option value="Río de Janeiro">Río de Janeiro</option>
-                          <option value="Búzios">Búzios</option>
-                          <option value="Buenos Aires">Buenos Aires</option>
-                          <option value="Bariloche">Bariloche</option>
-													<option value="Mendoza">Mendoza</option>
-													<option value="Nueva York">Nueva York</option>
-													<option value="Los Ángeles">Los Ángeles</option>
-													<option value="Miami">Miami</option>
-													<option value="Santiago">Santiago</option>
-													<option value="Puerto Varas">Puerto Varas</option>
-                          <option value="Pucón">Pucón</option>
-                          <option value="Puerto Natales">Puerto Natales</option>
+													@foreach ($ciudades as $data)
+                          <option>{{$data->ciudad}}</option>
+                          @endforeach
                         </select>
                       </label>
                     </div>
@@ -97,7 +84,7 @@
                       <label for="probootstrap-date-departure">Fecha de retiro</label>
                       <div class="probootstrap-date-wrap">
                         <span class="icon ion-calendar"></span>
-                        <input type="text" id="probootstrap-date-departure" class="form-control" placeHolder={{ date('d/m/Y') }} data-constraints="@NotEmpty @Required @Date">
+                        <input name="fecha_retiro" type="text" id="probootstrap-date-departure" class="form-control" placeHolder={{ date('d/m/Y') }} data-constraints="@NotEmpty @Required @Date">
                       </div>
                     </div>
                   </div>
@@ -106,7 +93,7 @@
                       <label for="probootstrap-date-arrival">Fecha de devolución</label>
                       <div class="probootstrap-date-wrap">
                         <span class="icon ion-calendar"></span>
-                        <input type="text" id="probootstrap-date-arrival" class="form-control" placeHolder={{ "Check-out" }} data-constraints="@NotEmpty @Required @Date">
+                        <input name="fecha_devolucion" type="text" id="probootstrap-date-arrival" class="form-control" placeHolder={{ "Check-out" }} data-constraints="@NotEmpty @Required @Date">
                       </div>
                     </div>
                   </div>
