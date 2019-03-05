@@ -354,3 +354,21 @@ Route::post('administrationHabitacionHotel', 'administrationController@adminHabi
 Route::post('administrationHabitacionHotelDisable', 'administrationController@adminHabitacionHotelDisable');
 
 Route::post('administrationHabitacionHotelAdd', 'administrationController@adminHabitacionHotelAdd');
+
+Route::post('administrationAutomotora', 'administrationController@adminAutomotoraView');
+
+Route::post('administrationAutomotoraDisable', 'administrationController@adminAutomotoraDisable');
+
+Route::post('administrationAutomotoraAdd', 'administrationController@adminAutomotoraAdd');
+
+Route::post('administrationVehiculo', 'administrationController@adminVehiculoView');
+
+Route::post('administrationVehiculoDisable', 'administrationController@adminVehiculoDisable');
+
+Route::post('administrationVehiculoAdd', 'administrationController@adminVehiculoAdd');
+
+Route::post('administrationAseguradora', 'administrationController@adminAseguradoraView');
+
+Route::post('administrationAseguradoraDisable', 'administrationController@adminAseguradoraDisable');
+
+Route::post('administrationAseguradoraAdd', 'administrationController@adminAseguradoraAdd');

@@ -102,29 +102,33 @@
 						<div class="card card-signin my-5">
 							<div class="card-body">
 								<h5 class="card-title text-center">Administrar automotoras</h5>
-								<div class="form-label-group">
-									<label>cantidad automotoras: {{ $companias }}</label>
-								</div>
-								<div class="form-label-group">
-									<label>Cantidad de vehiculos disponibles: {{ $vehiculos }}</label>
-								</div>
-								<button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Administrar automotoras</button>
-								<hr class="my-4">
+								<form class="form-signin" method="POST" action="{{ url('administrationAutomotora') }}">
+									<div class="form-label-group">
+										<label>cantidad automotoras: {{ $companias }}</label>
+									</div>
+									<div class="form-label-group">
+										<label>Cantidad de vehiculos disponibles: {{ $vehiculos }}</label>
+									</div>
+									<button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Administrar automotoras</button>
+									<hr class="my-4">
+								</form>
 							</div>
 						</div>
 				</div>
 				<div class="col-md-6">
 					<div class="card card-signin my-5">
 						<div class="card-body">
-							<h5 class="card-title text-center">Administrar seguros</h5>
-							<div class="form-label-group">
-								<label>Cantidad aseguradoras: {{ $aseguradoras }}</label>
-							</div>
-							<div class="form-label-group">
-								<label>Cantidad de seguros disponibles: {{ $seguros }}</label>
-							</div>
-							<button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Administrar seguros</button>
-							<hr class="my-4">
+							<h5 class="card-title text-center">Administrar aseguradoras</h5>
+							<form class="form-signin" method="POST" action="{{ url('administrationAseguradora') }}">
+								<div class="form-label-group">
+									<label>Cantidad aseguradoras: {{ $aseguradoras }}</label>
+								</div>
+								<div class="form-label-group">
+									<label>Cantidad de seguros disponibles: {{ $seguros }}</label>
+								</div>
+								<button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Administrar aseguradoras</button>
+								<hr class="my-4">
+							</form>
 						</div>
 					</div>
 				</div>
