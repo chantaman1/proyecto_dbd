@@ -2,7 +2,7 @@
 
 @section('selected')
 	<li class="nav-item">
-		<a class="nav-link" href="/vuelos">Vuelos <span class="sr-only">(current)</span></a>
+		<a class="nav-link active" href="/vuelos">Vuelos <span class="sr-only">(current)</span></a>
 	</li>
 	<li class="nav-item">
 		<a class="nav-link" href="/hoteles">Hoteles</a>
@@ -169,7 +169,7 @@
                 <div class="row">
                   <div class="col-md">
                     <label for="oneway" class="mr-5"><input type="radio" id="oneway" name="direction">		SÓLO IDA</label>
-                    <label for="round"><input type="radio" id="round" name="direction">		IDA Y VUELTA</label>
+                    <label for="round"><input type="radio" id="round" name="direction" checked>		IDA Y VUELTA</label>
                   </div>
                   <div class="col-md">
                     <input type="submit" value="Busca tu vuelo" class="btn btn-primary btn-block">

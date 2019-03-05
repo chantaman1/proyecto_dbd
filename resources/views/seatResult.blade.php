@@ -1,7 +1,7 @@
 @extends('layouts.main')
 @section('selected')
 	<li class="nav-item">
-		<a class="nav-link" href="/vuelos">Vuelos <span class="sr-only">(current)</span></a>
+		<a class="nav-link active" href="/vuelos">Vuelos <span class="sr-only">(current)</span></a>
 	</li>
 	<li class="nav-item">
 		<a class="nav-link" href="/hoteles">Hoteles</a>
@@ -59,11 +59,11 @@
 							border: 1px solid #04B404;
 							display:inline-block;
 							display: flex;
-    					justify-content: space-between;
 					    border-radius: 10px;" class="btn">
-							  <strong>Codigo de asiento:</strong> {{$data->codigo}} <br/> <strong>Tipo de asiento:</strong> {{$data->tipo}} <br/> <strong>Precio:</strong> ${{$data->precio}}</a>
+							  <strong style="position: absolute; left:10%">Codigo de asiento:</strong><i style="position: absolute; left:25%"> {{$data->codigo}} </i><br/> <strong style="position: absolute; left:35%">Tipo de asiento:</strong><i style="position: absolute; left:50%"> {{$data->tipo}} </i> <br/> <strong style="position: absolute; left:75%">Precio:</strong><i style="position: absolute; left:85%"> ${{$data->precio}}</i></a>
             </div>
           @endforeach
 				</div>
 		</div>
+		<br>
 @endsection

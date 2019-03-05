@@ -5,7 +5,7 @@
 		<a class="nav-link" href="/vuelos">Vuelos <span class="sr-only">(current)</span></a>
 	</li>
 	<li class="nav-item">
-		<a class="nav-link" href="/hoteles">Hoteles</a>
+		<a class="nav-link active" href="/hoteles">Hoteles</a>
 	</li>
 	<li class="nav-item">
 		<a class="nav-link" href="/paquetes">Paquetes</a>

@@ -45,7 +45,8 @@ h1, h2, h3, h4, h5, h6 {
 a {
   -webkit-transition: .3s all ease;
   -o-transition: .3s all ease;
-  transition: .3s all ease; }
+  transition: .3s all ease;
+ }
 
 .probootstrap-cover {
   background-repeat: no-repeat;
@@ -79,6 +80,16 @@ a {
   .btn:hover, .btn:active, .btn:focus {
     -webkit-box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1); }
+  .btn.display{
+      display:inline-block;
+      background: #ffffff;
+      color: #04B404;
+      box-shadow: inset 0px 0px 5px #0C0C19;
+      -moz-box-shadow: inset 0px 0px 5px #0C0C19;
+      -webkit-box-shadow: inset 0px 0px 5px #2B2B33;
+      border: 1px solid #04B404;
+      border-radius: 10px;
+  }
 
 .bg_image, .probootstrap-section-half .probootstrap-image {
   background-size: cover;

@@ -10,7 +10,7 @@
 		<a class="nav-link" href="/hoteles">Hoteles</a>
 	</li>
 	<li class="nav-item">
-		<a class="nav-link" href="/paquetes">Paquetes</a>
+		<a class="nav-link active" href="/paquetes">Paquetes</a>
 	</li>
 	<li class="nav-item dropdown dmenu">
 		<a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Servicios
