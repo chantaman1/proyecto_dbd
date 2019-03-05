@@ -280,6 +280,8 @@ Route::get('/vehiculo/destroy/{id}', 'vehiculoController@destroy');
 
 Route::get('/reservar_vehiculo','vehiculoController@buy_vehicle');
 
+Route::get('/finalizar_pago_auto','reservaController@finalizar_pago_auto');
+
 //RUTAS DEL VUELO
 Route::get('/vuelo/show/{id}', 'vueloController@show');
 

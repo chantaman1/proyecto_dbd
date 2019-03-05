@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Reserva;
+use App\Vehiculo;
+use App\Comprobante_pago;
 use Faker\Factory as Faker;
 use Auth;
 class ReservaController extends Controller
@@ -68,6 +70,22 @@ class ReservaController extends Controller
         $reserva->fill($data);
         $reserva->save();
         return $reserva;
+    }
+
+    public function finalizar_pago_auto(Request $request){
+      $reserva = new Reserva;
+      $comprobante = new Comprobante_pago;
+      $faker = Faker::create();
+      $reserva_code = $faker->unique()->ean8;
+      $data = ['totalAPagar' => $request->session()->get('vehiculo_total_pago'), 'estado_pago' => 'Pagado', 'user_id' => Auth::id(), 'reserva'=> $reserva_code];
+      $reserva->fill($data);
+      $reserva->save();
+      $data_comprobante = ['total_pagado'=>$reserva->totalAPagar,'descripcion_pago'=>'Pago por renta de vehiculo','metodo_pago_id'=> 2, 'reserva_id'=>$reserva->id];
+      $comprobante->fill($data_comprobante);
+      $comprobante->save();
+      $reserva->vehiculos()->attach([$request->session()->get('vehiculo_id')],['fecha_inicio'=>$request->session()->get('vehiculo_fecha_retiro'), 'fecha_termino'=>$request->session()->get('vehiculo_fecha_devolucion')]);
+      Vehiculo::find($request->session()->get('vehiculo_id'))->update(['disponibilidad'=> false]);
+      return $reserva;
     }
 
     public function terminarReservaHabitacion(Request $request){

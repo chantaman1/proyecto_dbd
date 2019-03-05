@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Vehiculo;
 use App\Compania_alquiler;
+use Carbon\Carbon;
+use Auth;
 class VehiculoController extends Controller
 {
     /**
@@ -117,6 +119,7 @@ class VehiculoController extends Controller
     public function filter(Request $request){
         $vehiculos = Vehiculo::join('compania_alquilers','vehiculos.compania_alquiler_id','=','compania_alquilers.id')
           ->where('compania_alquilers.ciudad', $request->get('ciudad'))
+          ->where('vehiculos.disponibilidad', true)
           ->get();
         $request->session()->put('vehiculo_ciudad', $request->get('ciudad'));
         $request->session()->put('vehiculo_fecha_retiro', $request->get('fecha_retiro'));
@@ -125,7 +128,23 @@ class VehiculoController extends Controller
   }
 
     public function buy_vehicle(Request $request){
-      $vehiculo = Vehiculo::find($request->get('id'));
-      return view('reservar_vehiculo')->with('vehiculo',$vehiculo);
+      if(Auth::check()){
+        $vehiculo = Vehiculo::find($request->get('id'));
+        $request->session()->put('vehiculo_id', $request->get('id'));
+        $format = 'd/m/Y';
+        $fecha1 = Carbon::createFromFormat($format, $request->session()->get('vehiculo_fecha_retiro'));
+        $fecha2 = Carbon::createFromFormat($format, $request->session()->get('vehiculo_fecha_devolucion'));
+        $dias = $fecha2->diffInDays($fecha1);
+        $total = $vehiculo->precio*$dias;
+        $request->session()->put('vehiculo_total_pago', $total);
+        $detalle = (object)['ciudad'=> $request->session()->get('vehiculo_ciudad'),
+                            'fecha_retiro' => $request->session()->get('vehiculo_fecha_retiro'),
+                            'fecha_devolucion' => $request->session()->get('vehiculo_fecha_devolucion'),
+                            'total' => $total];
+        return view('reservar_vehiculo')->with('vehiculo',$vehiculo)->with('data',$detalle);
+     }
+      else{
+        return redirect('/login');
+      }
     }
 }

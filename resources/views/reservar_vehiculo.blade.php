@@ -2,7 +2,7 @@
 
 @section('selected')
 	<li class="nav-item">
-		<a class="nav-link active" href="/vuelos">Vuelos <span class="sr-only">(current)</span></a>
+		<a class="nav-link" href="/vuelos">Vuelos <span class="sr-only">(current)</span></a>
 	</li>
 	<li class="nav-item">
 		<a class="nav-link" href="/hoteles">Hoteles</a>
@@ -11,7 +11,7 @@
 		<a class="nav-link" href="/paquetes">Paquetes</a>
 	</li>
 	<li class="nav-item dropdown dmenu">
-		<a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Servicios
+		<a class="nav-link active dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Servicios
 		</a>
 		<div class="dropdown-menu sm-menu">
 			<a class="dropdown-item" href="/autos">Arriendo de autos</a>
@@ -55,12 +55,19 @@
     <div class="grid_6" style="margin-left:10%">
       <h3 style="text-align:center"><b>Resumen de pago</b></h3>
       <br>
-
+        <div>
+          <a class="btn display" style="color: #000000; width: 100%">
+             <strong>Patente vehículo:</strong> {{ $vehiculo->patente }} <br/> <strong>Marca:</strong> {{$vehiculo->marca}} <br/> <strong>Modelo:</strong> {{$vehiculo->modelo}} <strong>Año:</strong> {{$vehiculo->año}} <br/> <strong>Fecha de retiro:</strong> {{$data->fecha_retiro}} <br/> <strong>Fecha de devolución:</strong> {{$data->fecha_devolucion}} <br/> <strong>Ciudad:</strong> {{$data->ciudad}} <br/> <strong>Precio por día:</strong> {{$vehiculo->precio}} </a>
+        </div>
+        <div class="grid_4">
+					<a class="btn" style="color: #000000; text-align: center">
+             <strong>    Total a pagar:</strong> {{$data->total}} </a>
+				</div>
     </div>
 		<div class="grid_6" style="margin-left:25%">
 			<h3><b>Datos tarjeta de credito</b></h3>
       <div class="col-md probootstrap-animate">
-          <form action="{{ url('finalizar') }}" class="probootstrap-form">
+          <form action="{{ url('finalizar_pago_auto') }}" class="probootstrap-form">
             <div class="form-group">
               <div class="row mb-3">
                 <div class="col-md">
