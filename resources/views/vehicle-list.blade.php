@@ -64,7 +64,7 @@
 				    -webkit-box-shadow: inset 0px 0px 5px #2B2B33;
 						text-align: left;
 				    text-shadow: 1px 1px 1px #fff;">
-						<a  href="comprar_auto?id={{ $data->id }}">
+						<a  href="reservar_vehiculo?id={{ $data->id }}">
 							<img src='images/auto.jpg' align="left" height="300" width="350" style="margin:30px;  padding:10px">
 				      <div class="card-body" style="color:black">
 				        <h4 style="color:#3433FF; margin: 10px; padding: 10px"><ins>{{$data->marca}}</ins></h4>

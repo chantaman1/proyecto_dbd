@@ -278,7 +278,7 @@ Route::post('/vehiculo/update/{id}', 'vehiculoController@update');
 
 Route::get('/vehiculo/destroy/{id}', 'vehiculoController@destroy');
 
-Route::get('/comprar_auto','vehiculoController@buy_vehicle');
+Route::get('/reservar_vehiculo','vehiculoController@buy_vehicle');
 
 //RUTAS DEL VUELO
 Route::get('/vuelo/show/{id}', 'vueloController@show');
