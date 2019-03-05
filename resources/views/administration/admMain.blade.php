@@ -50,11 +50,13 @@
 		        <div class="card card-signin my-5">
 		          <div class="card-body">
 		            <h5 class="card-title text-center">Administrar vuelos</h5>
-	              <div class="form-label-group">
-	                <label>Cantidad de aerolineas: {{ $aerolineas }}</label>
-	              </div>
-								<button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Administrar aerolineas</button>
-	              <div class="form-label-group">
+								<form class="form-signin" method="GET" action="{{ url('administracionAerolinea') }}">
+		              <div class="form-label-group">
+		                <label>Cantidad de aerolineas: {{ $aerolineas }}</label>
+		              </div>
+									<button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Administrar aerolineas</button>
+								</form>
+								<div class="form-label-group">
 	                <label>Cantidad de vuelos activos: {{ $vueloActivos }}</label>
 	              </div>
 								<div class="form-label-group">
