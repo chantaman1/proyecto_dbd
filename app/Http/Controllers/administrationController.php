@@ -386,4 +386,55 @@ class administrationController extends Controller
         return view('Administration/admVehiculo', ['vehiculos' => $vehiculos, 'regErr' => 'Vehiculo con patente '.$vehiculo->patente.' ha sido activado.', 'regErr2' => '']);
       }
     }
+
+    public function adminAseguradoraView(Request $request){
+      $aseguradoras = Aseguradora::All();
+      return view('Administration/admAseguradora', ['aseguradoras' => $aseguradoras, 'regErr' => '', 'regErr2' => '']);
+    }
+
+    public function adminAseguradoraDisable(Request $request){
+      $aseguradora = Aseguradora::where('id', $request->get('aseguradoraId'))->first();
+      if($aseguradora->activo){
+        $aseguradora->activo = false;
+        $aseguradora->save();
+        $aseguradoras = Aseguradora::All();
+        return view('Administration/admAseguradora', ['aseguradoras' => $aseguradoras, 'regErr' => 'Aseguradora '.$aseguradora->nombre.' ha sido desactivada.', 'regErr2' => '']);
+      }
+      else{
+        $aseguradora->activo = true;
+        $aseguradora->save();
+        $aseguradoras = Aseguradora::All();
+        return view('Administration/admAseguradora', ['aseguradoras' => $aseguradoras, 'regErr' => 'Aseguradora '.$aseguradora->nombre.' ha sido activada.', 'regErr2' => '']);
+      }
+    }
+
+    public function adminAseguradoraAdd(Request $request){
+      $aseguraNombre = $request->get('name');
+      $aseguraDireccion = $request->get('address');
+      $aseguraTelefono = $request->get('phone');
+      $aseguraWeb = $request->get('webpage');
+      $aseguraCiudad = $request->get('city');
+      $aseguraPais = $request->get('country');
+
+      if($aseguraNombre == NULL || $aseguraDireccion == NULL || $aseguraTelefono == NULL || $aseguraWeb == NULL || $aseguraCiudad = NULL || $aseguraPais == NULL){
+        $aseguradoras = Aseguradora::All();
+        return view('Administration/admAseguradora', ['aseguradoras' => $aseguradoras, 'regErr' => '', 'regErr2' => 'Uno o mas campos están vacios.']);
+      }
+      else{
+        $aseguradora = new Aseguradora;
+        $aseguradora->fill(['nombre' => $aseguraNombre, 'direccion' => $aseguraDireccion,
+                            'telefono' => $aseguraTelefono, 'ciudad' => $aseguraCiudad,
+                            'pais' => $aseguraPais, 'webpage' => $aseguraWeb,
+                            'activo' => false, 'created_at' => now()]);
+        $created = $aseguradora->save();
+        if($created){
+          $aseguradoras = Aseguradora::All();
+          return view('Administration/admAseguradora', ['aseguradoras' => $aseguradoras, 'regErr' => '', 'regErr2' => 'Aseguradora '.$aseguraNombre.' ha sido agregada correctamente.']);
+        }
+        else{
+          $aseguradoras = Aseguradora::All();
+          return view('Administration/admAseguradora', ['aseguradoras' => $aseguradoras, 'regErr' => '', 'regErr2' => 'Error: No se pudo agregar la aseguradora.']);
+        }
+      }
+    }
 }

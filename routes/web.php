@@ -364,3 +364,9 @@ Route::post('administrationVehiculo', 'administrationController@adminVehiculoVie
 Route::post('administrationVehiculoDisable', 'administrationController@adminVehiculoDisable');
 
 Route::post('administrationVehiculoAdd', 'administrationController@adminVehiculoAdd');
+
+Route::post('administrationAseguradora', 'administrationController@adminAseguradoraView');
+
+Route::post('administrationAseguradoraDisable', 'administrationController@adminAseguradoraDisable');
+
+Route::post('administrationAseguradoraAdd', 'administrationController@adminAseguradoraAdd');
