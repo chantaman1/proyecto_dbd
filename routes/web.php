@@ -360,3 +360,7 @@ Route::post('administrationAutomotoraDisable', 'administrationController@adminAu
 Route::post('administrationAutomotoraAdd', 'administrationController@adminAutomotoraAdd');
 
 Route::post('administrationVehiculo', 'administrationController@adminVehiculoView');
+
+Route::post('administrationVehiculoDisable', 'administrationController@adminVehiculoDisable');
+
+Route::post('administrationVehiculoAdd', 'administrationController@adminVehiculoAdd');

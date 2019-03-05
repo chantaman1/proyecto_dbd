@@ -332,6 +332,58 @@ class administrationController extends Controller
     }
 
     public function adminVehiculoView(Request $request){
-      return view('Administration/admVehiculo');
+      $vehiculos = Vehiculo::where('compania_alquiler_id', $request->get('automotoraId'))->get();
+      $request->session()->put('add_automotora_id', $request->get('automotoraId'));
+      return view('Administration/admVehiculo', ['vehiculos' => $vehiculos, 'regErr' => '', 'regErr2' => '']);
+    }
+
+    public function adminVehiculoAdd(Request $request){
+      $vehiculoPatente = $request->get('patentt');
+      $vehiculoMarca = $request->get('brand');
+      $vehiculoModelo = $request->get('model');
+      $vehiculoAno = $request->get('year');
+      $vehiculoPrecio = $request->get('price');
+      $vehiculoAsientos = $request->get('seats');
+      $vehiculoTransmision = $request->get('transmission');
+      $vehiculoDescripcion = $request->get('description');
+
+      if($vehiculoPatente == NULL || $vehiculoMarca == NULL || $vehiculoModelo == NULL || $vehiculoAno == NULL || $vehiculoPrecio == NULL || $vehiculoAsientos == NULL || $vehiculoTransmision == NULL || $vehiculoDescripcion == NULL){
+        $vehiculos = Vehiculo::where('compania_alquiler_id', $request->session()->get('add_automotora_id'))->get();
+        return view('Administration/admVehiculo', ['vehiculos' => $vehiculos, 'regErr' => '', 'regErr2' => 'Uno o mas campos están vacios.']);
+      }
+      else{
+        $vehiculo = new Vehiculo;
+        $vehiculo->fill(['patente' => $vehiculoPatente, 'marca' => $vehiculoMarca,
+                         'modelo' => $vehiculoModelo, 'año' => $vehiculoAno,
+                         'precio' => $vehiculoPrecio, 'cantidad_asientos' => $vehiculoAsientos,
+                         'tipo_transmision' => $vehiculoTransmision, 'descripcion' => $vehiculoDescripcion,
+                         'disponibilidad' => true, 'compania_alquiler_id' => $request->session()->get('add_automotora_id'),
+                         'created_at' => now()]);
+        $created = $vehiculo->save();
+        if($created){
+          $vehiculos = Vehiculo::where('compania_alquiler_id', $request->session()->get('add_automotora_id'))->get();
+          return view('Administration/admVehiculo', ['vehiculos' => $vehiculos, 'regErr' => '', 'regErr2' => 'Vehiculo con patente '.$vehiculoPatente.' ha sido agregado correctamente.']);
+        }
+        else{
+          $vehiculos = Vehiculo::where('compania_alquiler_id', $request->session()->get('add_automotora_id'))->get();
+          return view('Administration/admVehiculo', ['vehiculos' => $vehiculos, 'regErr' => '', 'regErr2' => 'Error: No se pudo agregar el vehiculo.']);
+        }
+      }
+    }
+
+    public function adminVehiculoDisable(Request $request){
+      $vehiculo = Vehiculo::where('id', $request->get('vehiculoId'))->first();
+      if($vehiculo->disponibilidad){
+        $vehiculo->disponibilidad = false;
+        $vehiculo->save();
+        $vehiculos = Vehiculo::where('compania_alquiler_id', $request->session()->get('add_automotora_id'))->get();
+        return view('Administration/admVehiculo', ['vehiculos' => $vehiculos, 'regErr' => 'Vehiculo con patente '.$vehiculo->patente.' ha sido desactivado.', 'regErr2' => '']);
+      }
+      else{
+        $vehiculo->disponibilidad = true;
+        $vehiculo->save();
+        $vehiculos = Vehiculo::where('compania_alquiler_id', $request->session()->get('add_automotora_id'))->get();
+        return view('Administration/admVehiculo', ['vehiculos' => $vehiculos, 'regErr' => 'Vehiculo con patente '.$vehiculo->patente.' ha sido activado.', 'regErr2' => '']);
+      }
     }
 }
