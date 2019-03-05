@@ -35,6 +35,10 @@ Route::get('/seguros',function(){
   return view('seguros');
 });
 
+Route::get('/seleccionarSeguro',function(){
+  return view('seleccionarSeguro');
+});
+
 Route::get('/hoteles',function(){
   return view('hotel');
 });
