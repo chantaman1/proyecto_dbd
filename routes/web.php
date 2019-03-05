@@ -33,6 +33,10 @@ Route::get('/seguros',function(){
   return view('seguros');
 });
 
+Route::get('/seleccionarSeguro',function(){
+  return view('seleccionarSeguro');
+});
+
 Route::get('/hoteles',function(){
   return view('hotel');
 });
@@ -342,3 +346,9 @@ Route::post('administrationHotelDisable', 'administrationController@adminHotelDi
 Route::post('administrationHotelAdd', 'administrationController@adminHotelAdd');
 
 Route::post('administrationHabitacion', 'administrationController@adminHabitacionView');
+
+Route::post('administrationHabitacionHotel', 'administrationController@adminHabitacionHotelView');
+
+Route::post('administrationHabitacionHotelDisable', 'administrationController@adminHabitacionHotelDisable');
+
+Route::post('administrationHabitacionHotelAdd', 'administrationController@adminHabitacionHotelAdd');

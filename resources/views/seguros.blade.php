@@ -51,7 +51,12 @@
     <section class="probootstrap_section" id="section-city-guides">
 			<div class="container">
         <div class="row align-items-center">
-
+					<div class="col-md">
+						<h2 class="display-4 border-bottom probootstrap-section-heading" style="text-align: center;">Relájate y viaja tranquilo con seguro de viaje</h2>
+            <p class="lead mb-5 probootstrap-animate">
+            </p>
+            </p>
+          </div>
           <div class="col-md probootstrap-animate">
             <form action="#" class="probootstrap-form">
               <div class="form-group">
@@ -133,20 +138,11 @@
 									<div class="col-md">
 										</div>
 									<div class="col-md">
-                    <input type="submit" value="Busca tu hotel" class="btn btn-primary btn-block">
+                    <a href="/seleccionarSeguro" role="button" class="btn btn-primary p-3 mr-3 pl-5 pr-5 text-uppercase d-lg-inline d-md-inline d-sm-block d-block mb-3">Buscar</a>
                   </div>
                 </div>
               </div>
             </form>
-          </div>
-
-					<div class="col-md">
-						<h2 class="display-4 border-bottom probootstrap-section-heading" style="text-align: center;">RESERVA TU SEGURO</h2>
-            <p class="lead mb-5 probootstrap-animate">
-
-
-            </p>
-            </p>
           </div>
 
         </div>

@@ -350,6 +350,13 @@
 		              <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Agregar hotel</button>
 		              <hr class="my-4">
 								</form>
+								<h5 class="card-title text-center">Retorno a Administración</h5>
+                <form class="form-signin" method="GET" action="{{ url('administration') }}">
+                  <div class="form-group">
+                    <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Volver a administración</button>
+                    <hr class="my-4">
+                  </div>
+                </form>
 		          </div>
 		        </div>
 				</div>

@@ -51,7 +51,12 @@
     <section class="probootstrap_section" id="section-city-guides">
 			<div class="container">
         <div class="row align-items-center">
-
+					<div class="col-md">
+						<h2 class="display-4 border-bottom probootstrap-section-heading" style="text-align: center;">Encuentra el alquiler perfecto junto a PLACES</h2>
+            <p class="lead mb-5 probootstrap-animate">
+            </p>
+            </p>
+          </div>
           <div class="col-md probootstrap-animate">
             <form action="{{ url('vehicle_list') }}" class="probootstrap-form">
               <div class="form-group">
@@ -93,28 +98,18 @@
                     </div>
                   </div>
                 </div>
-
+                </div>
                 <!-- END row -->
                 <div class="row">
 									<div class="col-md">
 										</div>
 									<div class="col-md">
-                    <input type="submit" value="Busca tu hotel" class="btn btn-primary btn-block">
+                    <input type="submit" value="Buscar" class="btn btn-primary btn-block">
                   </div>
                 </div>
               </div>
             </form>
           </div>
-
-					<div class="col-md">
-						<h2 class="display-4 border-bottom probootstrap-section-heading" style="text-align: center;">RESERVA TU AUTO</h2>
-            <p class="lead mb-5 probootstrap-animate">
-
-
-            </p>
-            </p>
-          </div>
-
         </div>
       </div>
     </section>

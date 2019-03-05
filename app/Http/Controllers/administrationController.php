@@ -219,6 +219,61 @@ class administrationController extends Controller
     }
 
     public function adminHabitacionView(Request $request){
-      return view('Administration/admHabitaciones', ['regErr' => '']);
+      $hoteles = Hotel::All();
+      return view('Administration/admHabitaciones', ['hoteles' => $hoteles, 'regErr' => '']);
+    }
+
+    public function adminHabitacionHotelView(Request $request){
+      $hotel = Hotel::where('id', $request->get('hotel'))->first();
+      $habitaciones = Habitacion::where('hotel_id', $hotel->id)->get();
+      $request->session()->put('add_hotel_id', $hotel->id);
+      $request->session()->put('add_hotel_nombre', $hotel->nombre);
+      return view('Administration/admHabitacionHotel', ['habitaciones' => $habitaciones, 'hotel' => $hotel->nombre, 'regErr' => '', 'regErr2' => '']);
+    }
+
+    public function adminHabitacionHotelDisable(Request $request){
+      $habitacion = Habitacion::where('id', $request->get('habitacionId'))->first();
+      if($habitacion->activo){
+        $habitacion->activo = false;
+        $habitacion->save();
+        $habitaciones = Habitacion::where('hotel_id', $request->session()->get('add_hotel_id'))->get();
+        return view('Administration/admHabitacionHotel', ['habitaciones' => $habitaciones, 'hotel' => $request->session()->get('add_hotel_nombre'), 'regErr' => 'La habitacion se ha desactivado.', 'regErr2' => '']);
+      }
+      else{
+        $habitacion->activo = true;
+        $habitacion->save();
+        $habitaciones = Habitacion::where('hotel_id', $request->session()->get('add_hotel_id'))->get();
+        return view('Administration/admHabitacionHotel', ['habitaciones' => $habitaciones, 'hotel' => $request->session()->get('add_hotel_nombre'), 'regErr' => 'La habitacion se ha activado.', 'regErr2' => '']);
+      }
+    }
+
+    public function adminHabitacionHotelAdd(Request $request){
+      $habNumero = $request->get('number');
+      $habCapacidad = $request->get('capacity');
+      $habPrecio = $request->get('price');
+      $habCama = $request->get('bed');
+      $habCategoria = $request->get('category');
+
+      if($habNumero == NULL || $habCapacidad == NULL || $habPrecio == NULL || $habCama == NULL || $habCategoria == NULL){
+        $habitaciones = Habitacion::where('hotel_id', $request->session()->get('add_hotel_id'))->get();
+        return view('Administration/admHabitacionHotel', ['habitaciones' => $habitaciones, 'hotel' => $request->session()->get('add_hotel_nombre'), 'regErr' => '', 'regErr2' => 'Uno o mas campos estan vacios.']);
+      }
+      else{
+        $habitacion = new Habitacion;
+        $habitacion->fill(['numero' => $habNumero, 'capacidad' => $habCapacidad,
+                           'disponibilidad' => true, 'tipo_cama' => $habCama,
+                           'categoria' => $habCategoria, 'precio' => $habPrecio,
+                           'activo' => true, 'hotel_id' => $request->session()->get('add_hotel_id'),
+                           'created_at' => now()]);
+        $created = $habitacion->save();
+        if($created){
+          $habitaciones = Habitacion::where('hotel_id', $request->session()->get('add_hotel_id'))->get();
+          return view('Administration/admHabitacionHotel', ['habitaciones' => $habitaciones, 'hotel' => $request->session()->get('add_hotel_nombre'), 'regErr' => '', 'regErr2' => 'Habitación agregada correctamente al hotel '.$request->session()->get('add_hotel_nombre')]);
+        }
+        else{
+          $habitaciones = Habitacion::where('hotel_id', $request->session()->get('add_hotel_id'))->get();
+          return view('Administration/admHabitacionHotel', ['habitaciones' => $habitaciones, 'hotel' => $request->session()->get('add_hotel_nombre'), 'regErr' => '', 'regErr2' => 'Error: Habitación no se pudo agregar.']);
+        }
+      }
     }
 }

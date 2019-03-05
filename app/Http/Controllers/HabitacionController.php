@@ -109,6 +109,11 @@ class HabitacionController extends Controller
         }
     }
 
+    public function getById(Request $request){
+      $habitaciones = Habitacion::where('hotel_id', $request->get('id'))->get();
+      return $habitaciones;
+    }
+
     /**
      * Remove the specified resource from storage.
      *

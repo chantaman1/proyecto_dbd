@@ -14,10 +14,11 @@ class Habitacion extends Model
     protected $categoria;
     protected $precio;
     protected $activo;
+    protected $hotel_id;
 
   //atributos que pueden ser rellenables
   protected $fillable=[
-    'numero', 'capacidad', 'disponibilidad', 'tipo_cama', 'categoria', 'precio', 'activo',
+    'numero', 'capacidad', 'disponibilidad', 'tipo_cama', 'categoria', 'precio', 'activo','hotel_id',
   ];
 
   public function reservas()
