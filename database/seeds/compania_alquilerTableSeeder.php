@@ -11,6 +11,8 @@ class compania_alquilerTableSeeder extends Seeder
      */
     public function run()
     {
+      factory(App\Compania_alquiler::class, 60)->create();
+
       DB::table('compania_alquilers')->insert([
         'nombre' => 'Hertz',
         'direccion' => 'Avenida Americo Vespucio #1601',

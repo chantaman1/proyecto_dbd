@@ -22,13 +22,13 @@ class DatabaseSeeder extends Seeder
         $this->call(metodo_pagoTableSeeder::class);
         $this->call(comprobante_pagoTableSeeder::class);
         $this->call(pasajeroTableSeeder::class);
-        $this->call(compania_alquilerTableSeeder::class);
-        $this->call(vehiculoTableSeeder::class);
         $this->call(aseguradoraTableSeeder::class);
         $this->call(seguroTableSeeder::class);
         $this->call(hotelTableSeeder::class);
         $this->call(habitacionTableSeeder::class);
         $this->call(paqueteTableSeeder::class);
+        $this->call(compania_alquilerTableSeeder::class);
+        $this->call(vehiculoTableSeeder::class);
         $this->call(servicioTableSeeder::class);
         $this->call(aeropuerto_vueloSeeder::class);
         $this->call(habitacion_paqueteSeeder::class);

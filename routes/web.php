@@ -27,9 +27,7 @@ Route::get('/test1', function () {
 
 Route::get('/vuelos', 'vueloController@index');
 
-Route::get('/autos',function(){
-  return view('autos');
-});
+Route::get('/autos','vehiculoController@start');
 
 Route::get('/seguros',function(){
   return view('seguros');
@@ -266,7 +264,7 @@ Route::get('/servicio/destroy/{id}', 'servicioController@destroy');
 //RUTAS DEL VEHICULO
 Route::get('/vehiculo/show/{id}', 'vehiculoController@show');
 
-Route::get('/cars','vehiculoController@filter');
+Route::get('/vehicle_list','vehiculoController@filter');
 
 Route::get('/vehiculo/all/', 'vehiculoController@index');
 

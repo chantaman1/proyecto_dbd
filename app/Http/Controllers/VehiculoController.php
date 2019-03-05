@@ -109,6 +109,11 @@ class VehiculoController extends Controller
       }
     }
 
+    public function start(){
+      $ciudades = Compania_alquiler::distinct()->get(['ciudad']);
+      return view('autos')->with('ciudades',$ciudades);
+    }
+
     public function filter(Request $request){
       $alquiler = Compania_alquiler::where('ciudad', $request->get('ciudad'))->first();
       $vehiculos = Vehiculo::where('compania_alquiler_id', $alquiler->id)->get();
