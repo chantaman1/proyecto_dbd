@@ -11,7 +11,7 @@
 		<a class="nav-link" href="/paquetes">Paquetes</a>
 	</li>
 	<li class="nav-item dropdown dmenu">
-		<a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Servicios
+		<a class="nav-link active dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Seguro de viaje
 		</a>
 		<div class="dropdown-menu sm-menu">
 			<a class="dropdown-item" href="/autos">Arriendo de autos</a>
@@ -31,12 +31,12 @@
 					<a class="dropdown-item" href="/administration">Administration</a>
 				@endif
 				<div class="dropdown-divider"></div>
-				<a class="dropdown-item" href="/logout">Cerrar sesion</a>
+				<a class="dropdown-item" href="/logout">Cerrar sesión</a>
 			</div>
 		</li>
 	@else
 		<li class="nav-item">
-			<a class="nav-link active" href="/login">Iniciar sesion</a>
+			<a class="nav-link" href="/login">Iniciar sesión</a>
 		</li>
 	@endif
 @endsection
