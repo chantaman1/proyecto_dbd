@@ -2,7 +2,11 @@
 
 @section('selected')
 	<li class="nav-item">
+<<<<<<< HEAD
+		<a class="nav-link active" href="/vuelos">Vuelos <span class="sr-only">(current)</span></a>
+=======
 		<a class="nav-link" href="/vuelos">Vuelos <span class="sr-only">(current)</span></a>
+>>>>>>> 80ae891b23baa75edf450f75d0f1bdcbfc2bf356
 	</li>
 	<li class="nav-item">
 		<a class="nav-link" href="/hoteles">Hoteles</a>
@@ -42,67 +46,123 @@
 @endsection
 
 @section('content')
-<div class="content"><div class="ic">More Website Templates @ TemplateMonster.com - February 10, 2014!</div>
-  <div class="container_12 offset-by-six">
-    <div class="clear"></div>
-    <div class="grid_6">
-      <h3>Resumen de pago</h3>
+
+		<section class="probootstrap-cover overflow-hidden relative"  style="background-image: url('assets/images/bg_1.jpg');" data-stellar-background-ratio="0.5"  id="section-home">
+      <div class="overlay"></div>
+
+    </section>
+    <!-- END section -->
+
+<br>
+<div class="content">
+  <div class="row">
+    <div class="grid_6" style="margin-left:10%">
+      <h3 style="text-align:center"><b>Resumen de pago</b></h3>
+      <br>
 			@foreach ($data as $dt)
-        <div class="grid_4">
-          <a class="btn"> <strong>Tipo de viaje:</strong> {{ $dt->tipo_viaje }} <br/> <strong>Pasajero:</strong> {{$dt->nombre}} {{$dt->apellido_paterno}} {{$dt->apellido_materno}} <br/> <strong>Numero de asiento:</strong> {{$dt->asiento_codigo}} <br/> <strong>Tipo de asiento:</strong> {{$dt->asiento_tipo}} <br/> <strong>Precio:</strong> ${{$dt->asiento_precio}} <br/> <strong>Ciudad origen:</strong> {{$dt->origen}} <br/> <strong>Ciudad destino:</strong> {{$dt->destino}} </a>
+        <div>
+          <a class="btn display" style="color: #000000; width: 100%">
+             <strong>Tipo de viaje:</strong> {{ $dt->tipo_viaje }} <br/> <strong>Pasajero:</strong> {{$dt->nombre}} {{$dt->apellido_paterno}} {{$dt->apellido_materno}} <br/> <strong>Numero de asiento:</strong> {{$dt->asiento_codigo}} <br/> <strong>Tipo de asiento:</strong> {{$dt->asiento_tipo}} <br/> <strong>Precio:</strong> ${{$dt->asiento_precio}} <br/> <strong>Ciudad origen:</strong> {{$dt->origen}} <br/> <strong>Ciudad destino:</strong> {{$dt->destino}} </a>
         </div>
 			@endforeach
 				<div class="grid_4">
-					<a class="btn"> <strong>Total a pagar:</strong> {{$total}} </a>
+					<a class="btn" style="color: #000000; text-align: center">
+             <strong>    Total a pagar:</strong> {{$total}} </a>
 				</div>
       <div class="clear"></div>
     </div>
-		<div class="grid_6">
-			<h3>Datos tarjeta de credito</h3>
-			<form id="bookingForm" action="{{ url('finalizar') }}">
-				<div class="fl1">
-					<div class="tmInput">
-						<input id="owner" name="nombre" placeHolder="Nombre tarjeta..." type="text" data-constraints='@NotEmpty @Required'>
-					</div>
-					<div class="tmInput">
-						<input id="cardNumber" name="numero" placeHolder="Numero de tarjeta..." type="text" data-constraints="@NotEmpty @Required">
-					</div>
-					<div class="fl1 fl2">
-						<em>Mes</em>
-						<select name="mes" class="tmSelect auto" data-class="tmSelect tmSelect2" data-constraints="">
-							<option>01</option>
-							<option>02</option>
-							<option>03</option>
-							<option>04</option>
-							<option>05</option>
-							<option>06</option>
-							<option>07</option>
-							<option>08</option>
-							<option>09</option>
-							<option>10</option>
-							<option>11</option>
-							<option>12</option>
-						</select>
-						<div class="clear"></div>
-						<em>Año</em>
-						<select name="ano" class="tmSelect auto" data-class="tmSelect tmSelect2" data-constraints="">
-							<option>2019</option>
-							<option>2020</option>
-							<option>2021</option>
-							<option>2022</option>
-							<option>2023</option>
-							<option>2024</option>
-							<option>2025</option>
-							<option>2026</option>
-						</select>
-					</div>
-					<div class="tmInput">
-						<input id="cvv" name="cvv" placeHolder="CVV..." type="text" data-constraints="@NotEmpty @Required">
-					</div>
-				</div>
-				<div class="clear"></div>
-				<a href="javascript:;" onclick="parentNode.submit();" id="confirmButton" class="btn" type="submit">Realizar pago</a>
-			</form>
+		<div class="grid_6" style="margin-left:25%">
+			<h3><b>Datos tarjeta de credito</b></h3>
+      <div class="col-md probootstrap-animate">
+          <form action="{{ url('finalizar') }}" class="probootstrap-form">
+            <div class="form-group">
+              <div class="row mb-3">
+                <div class="col-md">
+                  <div class="form-group">
+                    <label for="id_label_single">Nombre Tarjeta</label>
+
+                    <label for="id_label_single" style="width: 100%;">
+                      <input name="nombre" type="text" class="form-control" required autofocus>
+                    </label>
+                  </div>
+                </div>
+              </div>
+
+              <!-- END row -->
+
+               <div class="row mb-3">
+                <div class="col-md">
+                  <div class="form-group">
+                    <label for="id_label_single">Numero Tarjeta</label>
+
+                    <label for="id_label_single" style="width: 100%;">
+                      <input name="numero" type="text" class="form-control" required autofocus>
+                    </label>
+                  </div>
+                </div>
+              </div>
+              <!-- END row -->
+              <div class="row mb-5">
+                <div class="col-md">
+                  <div class="form-group">
+                    <label for="id_label_single">Mes</label>
+                    <select class="js-example-basic-single" name="mes" style="width: 100%;">
+                      <option selected>01</option>
+                      <option>02</option>
+                      <option>03</option>
+                      <option>04</option>
+                      <option>05</option>
+                      <option>06</option>
+                      <option>07</option>
+                      <option>08</option>
+                      <option>09</option>
+                      <option>10</option>
+                      <option>11</option>
+                      <option>12</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="col-md">
+                  <div class="form-group">
+                    <label for="id_label_single">Año</label>
+                    <select class="js-example-basic-single" name="año" style="width: 100%;">
+                      <option selected>2019</option>
+                      <option>2020</option>
+                      <option>2021</option>
+                      <option>2022</option>
+                      <option>2023</option>
+                      <option>2024</option>
+                      <option>2025</option>
+                      <option>2026</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+
+              <!-- END row -->
+
+              <div class="row mb-3">
+                <div class="col-md">
+                  <div class="form-group">
+                    <label for="id_label_single">CVV</label>
+
+                    <label for="id_label_single" style="width: 100%;">
+                      <input name="cvv" type="text" class="form-control" required autofocus>
+                    </label>
+                  </div>
+                </div>
+              </div>
+              <!-- END row -->
+              <div class="row">
+                <div class="col-md">
+                  </div>
+                <div class="col-md">
+                  <input type="submit" value="Realizar pago" class="btn btn-primary btn-block" href="javascript:" onclick="parentNode.submit();">
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
 		</div>
   </div>
 </div>
