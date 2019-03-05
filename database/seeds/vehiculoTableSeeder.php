@@ -11,6 +11,7 @@ class vehiculoTableSeeder extends Seeder
      */
     public function run()
     {
+      factory(App\Vehiculo::class, 250)->create();
       DB::table('vehiculos')->insert([
           'patente' => 'CGHJ56',
           'marca' => 'Suzuki',

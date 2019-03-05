@@ -69,7 +69,7 @@
                         <select name="ciudad" class="js-example-basic-single js-states form-control" id="id_label_single" style="width: 100%;">
 													<option></option>
 													@foreach ($ciudades as $data)
-                          <option value={{$data->ciudad}}>{{$data->ciudad}}</option>
+                          <option>{{$data->ciudad}}</option>
                           @endforeach
                         </select>
                       </label>

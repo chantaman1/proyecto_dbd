@@ -115,9 +115,10 @@ class VehiculoController extends Controller
     }
 
     public function filter(Request $request){
-      $alquiler = Compania_alquiler::where('ciudad', $request->get('ciudad'))->first();
-      $vehiculos = Vehiculo::where('compania_alquiler_id', $alquiler->id)->get();
-    return view('vehicle-list')->with('vehiculos', $vehiculos);
+      $vehiculos = Vehiculo::join('compania_alquilers','vehiculos.compania_alquiler_id','=','compania_alquilers.id')
+          ->where('compania_alquilers.ciudad', $request->get('ciudad'))
+          ->get();
+        return view('vehicle-list')->with('vehiculos', $vehiculos);
   }
 
     public function buy_vehicle(Request $request){

@@ -51,9 +51,9 @@
 		<div class="content">
 			<div class="container_12 offset-by-six">
 				<div class="clear"></div>
-					<h3 style="text-align: center">Hoteles disponibles en la ciudad</h3>
+					<h3 style="text-align: center">Autos disponibles en la ciudad</h3>
 					<br>
-					@foreach ($autos as $data)
+					@foreach ($vehiculos as $data)
 					<div class="card" style="
 				    font-weight: bold;
 				    border: 1px solid #0C0C19;
@@ -65,15 +65,15 @@
 						text-align: left;
 				    text-shadow: 1px 1px 1px #fff;">
 						<a  href="comprar_auto?id={{ $data->id }}">
-							<img src='images/auto.jpg' align="left" height="200" width="200" style="margin:30px;  padding:10px">
+							<img src='images/auto.jpg' align="left" height="300" width="350" style="margin:30px;  padding:10px">
 				      <div class="card-body" style="color:black">
 				        <h4 style="color:#3433FF; margin: 10px; padding: 10px"><ins>{{$data->marca}}</ins></h4>
-								<p>Modelo: {{$data->modelo}}</p>
-				        <p>Patente: {{$data->patente}}</p>
-				        <p>Año: {{$data->año}}</p>
-				        <p>Cantidad Asientos: {{$data->cantidad_asientos}}, Tipo Transmisión {{$data->tipo_transmision}} </p>
-								<p>Descripción: {{$data->descripcion}}</p>
-				        <h6><ins>{{$data->precio}}</ins></h6>
+								<p><b>Modelo:</b> {{$data->modelo}}</p>
+				        <p><b>Patente:</b> {{$data->patente}}</p>
+				        <p><b>Año:</b> {{$data->año}}</p>
+				        <p><b>Cantidad Asientos:</b> {{$data->cantidad_asientos}}, <b>Tipo Transmisión:</b> {{$data->tipo_transmision}} </p>
+								<p><b>Descripción:</b> {{$data->descripcion}}</p>
+				        <h5 style="color:black"><b>Precio por día: ${{$data->precio}}</b></h6>
 								<br>
 			    		</div>
 						</a>
