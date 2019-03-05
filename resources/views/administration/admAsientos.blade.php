@@ -49,30 +49,30 @@
 				<div class="col-md-6 col-centered">
 		        <div class="card card-signin my-5">
 		          <div class="card-body">
-		            <h5 class="card-title text-center">Administrar aerolineas</h5>
-								<form class="form-signin" method="POST" action="{{ url('administrationAerolineaDelete') }}">
-									<div class="form-group">
-										<label for="id_label_single">Aerolineas existentes</label>
-										<label for="id_label_single" style="width: 100%;">
-											<select name="eliminarAero" class="js-example-basic-single js-states form-control" id="id_label_single" style="width: 100%;">
-												@foreach($aerolineas as $aero)
-													<option value="{{ $aero->nombre }}">{{ $aero->nombre }}</option>
-												@endforeach
-											</select>
-										</label>
-										<button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Eliminar aerolinea</button>
-			              <hr class="my-4">
-									</div>
-								</form>
-								<form class="form-signin" method="POST" action="{{ url('administrationAerolineaAdd') }}">
+		            <h5 class="card-title text-center">Administrar asientos del vuelo</h5>
+                <div class="form-label-group">
+                  <b>Total de asientos disponibles: {{ $asientos }}</b>
+                </div>
+								<form class="form-signin" method="POST" action="{{ url('administrationAsientoAdd') }}">
 									<div class="form-label-group">
-										<input name="aerolinea" type="name" id="inputName" class="form-control" placeholder="Airline name" required autofocus>
-										<label>Agregue nueva aerolinea</label>
+										<input name="ecoQuantity" type="name" id="inputName" class="form-control" placeholder="Seats quantity" required autofocus>
+                    <input name="ecoPrice" type="name" id="inputName" class="form-control" placeholder="Seats price" required autofocus>
+                    <label>Cantidad y precio Asientos Economico</label>
 									</div>
-									<div class="form-label-group">
+                  <div class="form-label-group">
+										<input name="ecoPremiumQuantity" type="name" id="inputName" class="form-control" placeholder="Seats quantity" required autofocus>
+                    <input name="ecoPremiumPrice" type="name" id="inputName" class="form-control" placeholder="Seats price" required autofocus>
+                    <label>Cantidad y precio Asientos Economico Premium</label>
+									</div>
+                  <div class="form-label-group">
+                    <input name="businessQuantity" type="name" id="inputName" class="form-control" placeholder="Seats quantity" required autofocus>
+                    <input name="businessPrice" type="name" id="inputName" class="form-control" placeholder="Seats price" required autofocus>
+                    <label>Cantidad y precio Asientos Business Premium</label>
+                  </div>
+                  <div class="form-label-group">
 										<b style="color:red;">{{ $regErr }}</b>
 									</div>
-		              <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Agregar aerolinea</button>
+		              <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Agregar asientos</button>
 		              <hr class="my-4">
 								</form>
 		          </div>

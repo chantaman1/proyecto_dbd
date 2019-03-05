@@ -325,4 +325,14 @@ Route::get('/logout', 'Auth\LoginController@getLogout');
 
 Route::get('/administration', 'AdministrationController@index');
 
-Route::get('/administracionAerolinea', 'administrationController@adminAerolineasView');
+Route::post('/administrationAerolinea', 'administrationController@adminAerolineasView');
+
+Route::post('/administrationAerolineaDelete', 'administrationController@adminAerolineasDelete');
+
+Route::post('/administrationAerolineaAdd', 'administrationController@adminAerolineasAdd');
+
+Route::post('administrationVuelo', 'administrationController@adminVueloView');
+
+Route::post('administrationVueloAdd', 'administrationController@adminVueloAdd');
+
+Route::post('administrationAsientoAdd', 'administrationController@adminAsientoAdd');

@@ -50,23 +50,25 @@
 		        <div class="card card-signin my-5">
 		          <div class="card-body">
 		            <h5 class="card-title text-center">Administrar vuelos</h5>
-								<form class="form-signin" method="GET" action="{{ url('administracionAerolinea') }}">
-		              <div class="form-label-group">
-		                <label>Cantidad de aerolineas: {{ $aerolineas }}</label>
+								<form class="form-signin" method="POST" action="{{ url('administrationAerolinea') }}">
+			              <div class="form-label-group">
+			                <label>Cantidad de aerolineas: {{ $aerolineas }}</label>
+			              </div>
+										<button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Administrar aerolineas</button>
+									</form>
+									<form class="form-signin" method="POST" action="{{ url('administrationVuelo') }}">
+									<div class="form-label-group">
+		                <label>Cantidad de vuelos activos: {{ $vueloActivos }}</label>
 		              </div>
-									<button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Administrar aerolineas</button>
+									<div class="form-label-group">
+										<label>Cantidad de vuelos inactivos: {{ $vueloInactivos }}</label>
+		              </div>
+									<div class="form-label-group">
+										<label>Cantidad de asientos disponibles: {{ $asientos }}</label>
+		              </div>
+		              <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Administrar vuelos</button>
+		              <hr class="my-4">
 								</form>
-								<div class="form-label-group">
-	                <label>Cantidad de vuelos activos: {{ $vueloActivos }}</label>
-	              </div>
-								<div class="form-label-group">
-									<label>Cantidad de vuelos inactivos: {{ $vueloInactivos }}</label>
-	              </div>
-								<div class="form-label-group">
-									<label>Cantidad de asientos disponibles: {{ $asientos }}</label>
-	              </div>
-	              <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Administrar vuelos</button>
-	              <hr class="my-4">
 		          </div>
 		        </div>
 				</div>
