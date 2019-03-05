@@ -49,8 +49,8 @@
 				<div class="col-md-6 col-centered">
 		        <div class="card card-signin my-5">
 		          <div class="card-body">
-		            <h5 class="card-title text-center">Administrar aerolineas</h5>
-								<form class="form-signin" method="POST" action="{{ url('administrationAerolineaDelete') }}">
+		            <h5 class="card-title text-center">Administrar habitaciones</h5>
+								<form class="form-signin" method="POST" action="{{ url('administrationHabitacionAdd') }}">
 									<div class="form-group">
 										<label for="id_label_single">Aerolineas existentes</label>
 										<label for="id_label_single" style="width: 100%;">

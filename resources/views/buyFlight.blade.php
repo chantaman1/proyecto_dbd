@@ -2,7 +2,11 @@
 
 @section('selected')
 	<li class="nav-item">
+<<<<<<< HEAD
 		<a class="nav-link active" href="/vuelos">Vuelos <span class="sr-only">(current)</span></a>
+=======
+		<a class="nav-link" href="/vuelos">Vuelos <span class="sr-only">(current)</span></a>
+>>>>>>> 80ae891b23baa75edf450f75d0f1bdcbfc2bf356
 	</li>
 	<li class="nav-item">
 		<a class="nav-link" href="/hoteles">Hoteles</a>

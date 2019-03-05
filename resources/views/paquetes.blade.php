@@ -33,12 +33,12 @@
 					<a class="dropdown-item" href="/administration">Administration</a>
 				@endif
 				<div class="dropdown-divider"></div>
-				<a class="dropdown-item" href="/logout">Cerrar sesion</a>
+				<a class="dropdown-item" href="/logout">Cerrar sesión</a>
 			</div>
 		</li>
 	@else
 		<li class="nav-item">
-			<a class="nav-link active" href="/login">Iniciar sesion</a>
+			<a class="nav-link" href="/login">Iniciar sesión</a>
 		</li>
 	@endif
 @endsection
