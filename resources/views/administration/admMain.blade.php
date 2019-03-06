@@ -132,6 +132,32 @@
 						</div>
 					</div>
 				</div>
+				<div class="col-md-6 col-centered">
+					<div class="card card-signin my-5">
+						<div class="card-body">
+							<h5 class="card-title text-center">Administrar paquetes</h5>
+							<form class="form-signin" method="POST" action="{{ url('administrationPaquetes') }}">
+								<div class="form-label-group">
+									<label>Cantidad paquetes disponibles: {{ $paquetesDisp }}</label>
+								</div>
+								<div class="form-label-group">
+									<label>Cantidad de seguros en paquetes disponibles: {{ $paqueteSeguro }}</label>
+								</div>
+								<div class="form-label-group">
+									<label>Cantidad de hoteles en paquetes disponibles: {{ $paqueteHotel }}</label>
+								</div>
+								<div class="form-label-group">
+									<label>Cantidad de vehiculos en paquetes disponibles: {{ $paqueteVehiculo }}</label>
+								</div>
+								<div class="form-label-group">
+									<label>Cantidad paquetes no disponibles: {{ $paquetesOcu }}</label>
+								</div>
+								<button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Administrar paquetes</button>
+								<hr class="my-4">
+							</form>
+						</div>
+					</div>
+				</div>
 	    </div>
 	  </div>
 

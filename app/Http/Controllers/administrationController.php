@@ -12,6 +12,7 @@ use App\Compania_alquiler;
 use App\Hotel;
 use App\Habitacion;
 use App\Aerolinea;
+use App\Paquete;
 
 class administrationController extends Controller
 {
@@ -28,6 +29,11 @@ class administrationController extends Controller
         $vehiculos = Vehiculo::where('disponibilidad', true)->get();
         $habitacionesDisponibles = Habitacion::where('disponibilidad', true)->get();
         $habitacionesOcupadas = Habitacion::where('disponibilidad', false)->get();
+        $paqueteDisponible = Paquete::where('disponibilidad', true)->get();
+        $paqueteOcupado = Paquete::where('disponibilidad', false)->get();
+        $paqueteSeguro = Paquete::where('posee_seguro', true)->where('disponibilidad', true)->get();
+        $paqueteVehiculo = Paquete::where('posee_vehiculo', true)->where('disponibilidad', true)->get();
+        $paqueteHotel = Paquete::where('posee_hotel', true)->where('disponibilidad', true)->get();
 
         $cant_vuelosActivos = $vuelosActivos->count();
         $cant_vuelosInactivos = $vuelosInactivos->count();
@@ -41,12 +47,20 @@ class administrationController extends Controller
         $cant_habitaciones = $habitacionesDisponibles->count();
         $cant_habitacionesOcupadas = $habitacionesOcupadas->count();
         $cant_total_habitaciones = $cant_habitaciones + $cant_habitacionesOcupadas;
+        $cant_paquete_disponible = $paqueteDisponible->count();
+        $cant_paquete_ocupado = $paqueteOcupado->count();
+        $cant_paquete_vehiculo = $paqueteVehiculo->count();
+        $cant_paquete_hotel = $paqueteHotel->count();
+        $cant_paquete_seguro = $paqueteSeguro->count();
         return view('Administration/admMain', ['vueloActivos' => $cant_vuelosActivos, 'vueloInactivos' => $cant_vuelosInactivos,
                                                'aseguradoras' => $cant_aseguradoras, 'companias' => $cant_alquiler,
                                                'hoteles' => $cant_hoteles, 'asientos' => $cant_asientos,
                                                'seguros' => $cant_seguros, 'vehiculos' => $cant_vehiculos,
                                                'habitacionesDisp' => $cant_habitaciones, 'aerolineas' => $cant_aerolineas,
-                                               'habitacionesOcu' => $cant_habitacionesOcupadas, 'totalHabitaciones' => $cant_total_habitaciones]);
+                                               'habitacionesOcu' => $cant_habitacionesOcupadas, 'totalHabitaciones' => $cant_total_habitaciones,
+                                               'paquetesDisp' => $cant_paquete_disponible, 'paquetesOcu' => $cant_paquete_ocupado,
+                                               'paqueteHotel' => $cant_paquete_hotel, 'paqueteVehiculo' => $cant_paquete_vehiculo,
+                                               'paqueteSeguro' => $cant_paquete_seguro]);
       }
       else{
         return redirect('/vuelos');
