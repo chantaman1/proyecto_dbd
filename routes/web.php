@@ -381,3 +381,7 @@ Route::post('administrationPaquetes', 'administrationController@adminPaquetesVie
 Route::post('administrationPaqueteDisable', 'administrationController@adminPaquetesDisable');
 
 Route::post('administrationPaqueteAdd', 'administrationController@adminPaquetesAdd');
+
+Route::post('administrationPaqueteFinalView', 'administrationController@adminPaquetesFinalView');
+
+Route::post('administrationPaqueteFinalAdd', 'administrationController@adminPaquetesFinalAdd');

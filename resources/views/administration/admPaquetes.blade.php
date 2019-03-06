@@ -369,7 +369,7 @@
 									<div class="form-label-group">
 										<b style="color:red;">{{ $regErr2 }}</b>
 									</div>
-		              <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Agregar aerolinea</button>
+		              <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Agregar paquete</button>
 		              <hr class="my-4">
 								</form>
 								<h5 class="card-title text-center">Retorno a Administración</h5>
