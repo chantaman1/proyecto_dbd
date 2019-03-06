@@ -102,15 +102,6 @@
                       <label for="inputName">Hotel del paquete</label>
                     </label>
                   </div>
-                  <div class="form-group">
-                    <label for="id_label_single" style="width: 100%;">
-                      <select name="insurance" class="js-example-basic-single js-states form-control" id="id_label" style="width: 100%;">
-                        <option selected value="false">No posee seguro</option>
-                        <option value="true">Posee seguro</option>
-                      </select>
-                      <label for="inputName">seguro del paquete</label>
-                    </label>
-                  </div>
                   <div class="form-label-group">
 										<input name="city" type="name" id="inputName" class="form-control" placeholder="Package quota" required autofocus>
 										<label>Ciudad de destino</label>

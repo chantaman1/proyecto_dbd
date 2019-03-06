@@ -528,12 +528,11 @@ class administrationController extends Controller
       $paqueteDescuento = $request->get('discount');
       $paqueteCupo = $request->get('quota');
       $paqueteVehiculo = $request->get('vehicle');
-      $paqueteSeguro = $request->get('insurance');
       $paqueteHotel = $request->get('hotel');
       $paqueteCiudad = $request->get('city');
       $paquetePais = $request->get('country');
 
-      if($paquetePrecio == NULL || $paqueteDescuento == NULL || $paqueteCupo == NULL || $paqueteVehiculo == NULL || $paqueteSeguro == NULL || $paqueteHotel == NULL || $paqueteCiudad == NULL || $paquetePais == NULL){
+      if($paquetePrecio == NULL || $paqueteDescuento == NULL || $paqueteCupo == NULL || $paqueteVehiculo == NULL || $paqueteHotel == NULL || $paqueteCiudad == NULL || $paquetePais == NULL){
         $paquetes = Paquete::All();
         return view('Administration/admPaquetes', ['paquetes' => $paquetes, 'regErr' => '', 'regErr2' => 'Uno o mas campos están vacios.']);
       }
@@ -543,13 +542,12 @@ class administrationController extends Controller
                         'precio' => $paquetePrecio, 'descuento' => $paqueteDescuento,
                         'cupos' => $paqueteCupo, 'disponibilidad' => true,
                         'posee_vehiculo' => $paqueteVehiculo, 'posee_hotel' => $paqueteHotel,
-                        'posee_seguro' => $paqueteSeguro, 'image' => 'images/miami1.jpg',
-                        'created_at' => now()]);
+                        'image' => 'images/miami1.jpg', 'created_at' => now()]);
         $created = $paquete->save();
         if($created){
+          $request->session()->put('add_paquete_id', $paquete->id);
           $request->session()->put('add_paqueteVehiculo', $paqueteVehiculo);
           $request->session()->put('add_paqueteHotel', $paqueteHotel);
-          $request->session()->put('add_paqueteSeguro', $paqueteSeguro);
 
           $automotora = Compania_alquiler::where('pais', $paquetePais)->where('ciudad', $paqueteCiudad)->first();
           $vehiculos = Vehiculo::where('compania_alquiler_id', $automotora->id)->get();
@@ -557,10 +555,7 @@ class administrationController extends Controller
           $hotel = Hotel::where('pais', $paquetePais)->where('ciudad', $paqueteCiudad)->first();
           $habitaciones = Habitacion::where('hotel_id', $hotel->id)->get();
 
-          $aseguradora = Aseguradora::where('pais', $paquetePais)->where('ciudad', $paqueteCiudad)->first();
-          $seguros = Seguro::where('aseguradora_id', $aseguradora->id)->get();
-
-          return view('Administration/admPaquetesFinal', ['vehiculos' => $vehiculos, 'habitaciones' => $habitaciones, 'seguros' => $seguros, 'haySeguro' => $paqueteSeguro, 'hayVehiculo' => $paqueteVehiculo, 'hayHotel' => $paqueteHotel, 'regErr' => '', 'regErr2' => '', 'regErr3' => '']);
+          return view('Administration/admPaquetesFinal', ['vehiculos' => $vehiculos, 'habitaciones' => $habitaciones, 'hayVehiculo' => $paqueteVehiculo, 'hayHotel' => $paqueteHotel, 'regErr' => '', 'regErr2' => '', 'regErr3' => '']);
         }
         else{
           $paquetes = Paquete::All();
@@ -569,37 +564,32 @@ class administrationController extends Controller
       }
     }
 
-    public function adminPaquetesFinalView(Request $request){
-      return;
-    }
-
     public function adminPaquetesFinalAdd(Request $request){
-      if($request->session()->get('add_paqueteVehiculo') == 'true' && $request->session()->get('add_paqueteHotel') == 'true' && $request->session()->get('$paqueteSeguro') == 'true'){
+      if($request->session()->get('add_paqueteVehiculo') == 'true' && $request->session()->get('add_paqueteHotel') == 'true'){
         $habitacion = $request->get('habitacionId');
         $vehiculo = $request->get('vehiculoId');
-        $seguro = $request->get('seguroId');
-        
+        $dias = $request->get('days');
+        $paquete = Paquete::find($request->session()->get('add_paquete_id'));
+        $paquete->habitacions()->attach([$habitacion], ['dias' => $dias, 'noches' => $dias + 1]);
+        $paquete->vehiculos()->attach([$vehiculo], ['dias' => $dias, 'noches' => $dias + 1]);
+        $paquetes = Paquete::All();
+        return view('Administration/admPaquetes', ['paquetes' => $paquetes, 'regErr' => '', 'regErr2' => 'Paquete con Vehiculo y Habitacion agregado correctamente.']);
       }
-      elseif($request->session()->get('add_paqueteVehiculo') == 'true' && $request->session()->get('add_paqueteHotel') == 'true' && $request->session()->get('$paqueteSeguro') == 'false'){
-        $habitacion = $request->get('habitacionId');
+      elseif($request->session()->get('add_paqueteVehiculo') == 'true' && $request->session()->get('add_paqueteHotel') == 'false'){
         $vehiculo = $request->get('vehiculoId');
+        $dias = $request->get('days');
+        $paquete = Paquete::find($request->session()->get('add_paquete_id'));
+        $paquete->vehiculos()->attach([$vehiculo], ['dias' => $dias, 'noches' => $dias + 1]);
+        $paquetes = Paquete::All();
+        return view('Administration/admPaquetes', ['paquetes' => $paquetes, 'regErr' => '', 'regErr2' => 'Paquete con vehiculo agregado correctamente.']);
       }
-      elseif($request->session()->get('add_paqueteVehiculo') == 'true' && $request->session()->get('add_paqueteHotel') == 'false' && $request->session()->get('$paqueteSeguro') == 'true'){
-        $vehiculo = $request->get('vehiculoId');
-        $seguro = $request->get('seguroId');
-      }
-      elseif($request->session()->get('add_paqueteVehiculo') == 'false' && $request->session()->get('add_paqueteHotel') == 'true' && $request->session()->get('$paqueteSeguro') == 'true'){
+      elseif($request->session()->get('add_paqueteVehiculo') == 'false' && $request->session()->get('add_paqueteHotel') == 'true'){
         $habitacion = $request->get('habitacionId');
-        $seguro = $request->get('seguroId');
-      }
-      elseif($request->session()->get('add_paqueteVehiculo') == 'true' && $request->session()->get('add_paqueteHotel') == 'false' && $request->session()->get('$paqueteSeguro') == 'false'){
-        $vehiculo = $request->get('vehiculoId');
-      }
-      elseif($request->session()->get('add_paqueteVehiculo') == 'false' && $request->session()->get('add_paqueteHotel') == 'true' && $request->session()->get('$paqueteSeguro') == 'false'){
-        $habitacion = $request->get('habitacionId');
-      }
-      elseif($request->session()->get('add_paqueteVehiculo') == 'false' && $request->session()->get('add_paqueteHotel') == 'false' && $request->session()->get('$paqueteSeguro') == 'true'){
-        $seguro = $request->get('seguroId');
+        $dias = $request->get('days');
+        $paquete = Paquete::find($request->session()->get('add_paquete_id'));
+        $paquete->habitacions()->attach([$habitacion], ['dias' => $dias, 'noches' => $dias + 1]);
+        $paquetes = Paquete::All();
+        return view('Administration/admPaquetes', ['paquetes' => $paquetes, 'regErr' => '', 'regErr2' => 'Paquete con habitación agregado correctamente.']);
       }
       else{
         $paquetes = Paquete::All();

@@ -56,22 +56,6 @@
 										<label>Cantidad de dias</label>
 									</div>
 									<div class="form-group">
-										<label for="id_label_single">Seguros existentes</label>
-										<label for="id_label_single" style="width: 100%;">
-                      @if($haySeguro == "true")
-  											<select name="seguroId" class="js-example-basic-single js-states form-control" id="id_label_sin" style="width: 100%;">
-  												@foreach($seguros as $seguro)
-  													<option value="{{ $seguro->id }}">{{ $seguro->tipo }}</option>
-  												@endforeach
-                        </select>
-                      @else
-                        <select disabled name="seguroId" class="js-example-basic-single js-states form-control" id="id_label_sin" style="width: 100%;">
-                          @foreach($seguros as $seguro)
-                            <option value="{{ $seguro->id }}">{{ $seguro->tipo }}</option>
-                          @endforeach
-                        </select>
-                      @endif
-										</label>
                     <label for="id_label_single">Vehiculos existentes</label>
                     <label for="id_label_single" style="width: 100%;">
                       @if($hayVehiculo == "true")
