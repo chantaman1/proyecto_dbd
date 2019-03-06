@@ -141,9 +141,6 @@
 									<label>Cantidad paquetes disponibles: {{ $paquetesDisp }}</label>
 								</div>
 								<div class="form-label-group">
-									<label>Cantidad de seguros en paquetes disponibles: {{ $paqueteSeguro }}</label>
-								</div>
-								<div class="form-label-group">
 									<label>Cantidad de hoteles en paquetes disponibles: {{ $paqueteHotel }}</label>
 								</div>
 								<div class="form-label-group">

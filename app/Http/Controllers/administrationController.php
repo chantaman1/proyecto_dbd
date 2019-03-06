@@ -31,7 +31,6 @@ class administrationController extends Controller
         $habitacionesOcupadas = Habitacion::where('disponibilidad', false)->get();
         $paqueteDisponible = Paquete::where('disponibilidad', true)->get();
         $paqueteOcupado = Paquete::where('disponibilidad', false)->get();
-        $paqueteSeguro = Paquete::where('posee_seguro', true)->where('disponibilidad', true)->get();
         $paqueteVehiculo = Paquete::where('posee_vehiculo', true)->where('disponibilidad', true)->get();
         $paqueteHotel = Paquete::where('posee_hotel', true)->where('disponibilidad', true)->get();
 
@@ -51,7 +50,6 @@ class administrationController extends Controller
         $cant_paquete_ocupado = $paqueteOcupado->count();
         $cant_paquete_vehiculo = $paqueteVehiculo->count();
         $cant_paquete_hotel = $paqueteHotel->count();
-        $cant_paquete_seguro = $paqueteSeguro->count();
         return view('Administration/admMain', ['vueloActivos' => $cant_vuelosActivos, 'vueloInactivos' => $cant_vuelosInactivos,
                                                'aseguradoras' => $cant_aseguradoras, 'companias' => $cant_alquiler,
                                                'hoteles' => $cant_hoteles, 'asientos' => $cant_asientos,
@@ -59,8 +57,7 @@ class administrationController extends Controller
                                                'habitacionesDisp' => $cant_habitaciones, 'aerolineas' => $cant_aerolineas,
                                                'habitacionesOcu' => $cant_habitacionesOcupadas, 'totalHabitaciones' => $cant_total_habitaciones,
                                                'paquetesDisp' => $cant_paquete_disponible, 'paquetesOcu' => $cant_paquete_ocupado,
-                                               'paqueteHotel' => $cant_paquete_hotel, 'paqueteVehiculo' => $cant_paquete_vehiculo,
-                                               'paqueteSeguro' => $cant_paquete_seguro]);
+                                               'paqueteHotel' => $cant_paquete_hotel, 'paqueteVehiculo' => $cant_paquete_vehiculo]);
       }
       else{
         return redirect('/vuelos');

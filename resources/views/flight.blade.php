@@ -129,7 +129,7 @@
                     </div>
                   </div>
                   <div class="col-md">
-                    <div class="form-group">
+                    <div id="returnFlight" class="form-group">
                       <label for="probootstrap-date-arrival">VUELTA</label>
                       <div class="probootstrap-date-wrap">
                         <span class="icon ion-calendar"></span>
