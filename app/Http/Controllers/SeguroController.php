@@ -15,7 +15,7 @@ class SeguroController extends Controller
     public function index()
     {
         $seguros = Seguro::All();
-        return $seguros;
+        return view('seleccionarSeguro')->with('seguros', $seguros);
     }
 
     /**

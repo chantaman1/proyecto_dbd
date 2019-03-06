@@ -58,117 +58,20 @@
         <div class="row probootstrap-animate">
           <div class="col-md-12">
             <div class="owl-carousel js-owl-carousel-2">
+							@foreach($seguros as $seguro)
               <div>
                 <div class="media probootstrap-media d-block align-items-stretch mb-4 probootstrap-animate">
                   <img src="assets/images/sq_img_2.jpg" alt="Free Template by ProBootstrap" class="img-fluid">
                   <div class="media-body">
-                    <h5 class="mb-3">02. Service Title Here</h5>
-                    <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. </p>
+                    <h5 class="mb-3">{{$seguro->tipo}}</h5>
+                    <p>{{$seguro->descripcion}}</p>
+										<h5>CLP$ {{number_format($seguro->precio, 0, '', '.')}}</h5>
                   </div>
                 </div>
               </div>
+
               <!-- END slide item -->
-
-              <div>
-                <div class="media probootstrap-media d-block align-items-stretch mb-4 probootstrap-animate">
-                  <img src="assets/images/sq_img_1.jpg" alt="Free Template by ProBootstrap" class="img-fluid">
-                  <div class="media-body">
-                    <h5 class="mb-3">02. Service Title Here</h5>
-                    <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. </p>
-                  </div>
-                </div>
-              </div>
-              <!-- END slide item -->
-
-              <div>
-                <div class="media probootstrap-media d-block align-items-stretch mb-4 probootstrap-animate">
-                  <img src="assets/images/sq_img_3.jpg" alt="Free Template by ProBootstrap" class="img-fluid">
-                  <div class="media-body">
-                    <h5 class="mb-3">02. Service Title Here</h5>
-                    <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. </p>
-                  </div>
-                </div>
-              </div>
-              <!-- END slide item -->
-
-              <div>
-                <div class="media probootstrap-media d-block align-items-stretch mb-4 probootstrap-animate">
-                  <img src="assets/images/sq_img_4.jpg" alt="Free Template by ProBootstrap" class="img-fluid">
-                  <div class="media-body">
-                    <h5 class="mb-3">02. Service Title Here</h5>
-                    <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. </p>
-                  </div>
-                </div>
-              </div>
-              <!-- END slide item -->
-
-              <div>
-                <div class="media probootstrap-media d-block align-items-stretch mb-4 probootstrap-animate">
-                  <img src="assets/images/sq_img_5.jpg" alt="Free Template by ProBootstrap" class="img-fluid">
-                  <div class="media-body">
-                    <h5 class="mb-3">02. Service Title Here</h5>
-                    <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. </p>
-                  </div>
-                </div>
-              </div>
-              <!-- END slide item -->
-
-
-              <div>
-                <div class="media probootstrap-media d-block align-items-stretch mb-4 probootstrap-animate">
-                  <img src="assets/images/sq_img_2.jpg" alt="Free Template by ProBootstrap" class="img-fluid">
-                  <div class="media-body">
-                    <h5 class="mb-3">02. Service Title Here</h5>
-                    <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. </p>
-                  </div>
-                </div>
-              </div>
-              <!-- END slide item -->
-
-              <div>
-                <div class="media probootstrap-media d-block align-items-stretch mb-4 probootstrap-animate">
-                  <img src="assets/images/sq_img_1.jpg" alt="Free Template by ProBootstrap" class="img-fluid">
-                  <div class="media-body">
-                    <h5 class="mb-3">02. Service Title Here</h5>
-                    <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. </p>
-                  </div>
-                </div>
-              </div>
-              <!-- END slide item -->
-
-              <div>
-                <div class="media probootstrap-media d-block align-items-stretch mb-4 probootstrap-animate">
-                  <img src="assets/images/sq_img_3.jpg" alt="Free Template by ProBootstrap" class="img-fluid">
-                  <div class="media-body">
-                    <h5 class="mb-3">02. Service Title Here</h5>
-                    <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. </p>
-                  </div>
-                </div>
-              </div>
-              <!-- END slide item -->
-
-              <div>
-                <div class="media probootstrap-media d-block align-items-stretch mb-4 probootstrap-animate">
-                  <img src="assets/images/sq_img_4.jpg" alt="Free Template by ProBootstrap" class="img-fluid">
-                  <div class="media-body">
-                    <h5 class="mb-3">02. Service Title Here</h5>
-                    <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. </p>
-                  </div>
-                </div>
-              </div>
-              <!-- END slide item -->
-
-              <div>
-                <div class="media probootstrap-media d-block align-items-stretch mb-4 probootstrap-animate">
-                  <img src="assets/images/sq_img_5.jpg" alt="Free Template by ProBootstrap" class="img-fluid">
-                  <div class="media-body">
-                    <h5 class="mb-3">02. Service Title Here</h5>
-                    <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. </p>
-                  </div>
-                </div>
-              </div>
-              <!-- END slide item -->
-
+							@endforeach
             </div>
           </div>
         </div>

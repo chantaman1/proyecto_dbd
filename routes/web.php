@@ -33,9 +33,7 @@ Route::get('/seguros',function(){
   return view('seguros');
 });
 
-Route::get('/seleccionarSeguro',function(){
-  return view('seleccionarSeguro');
-});
+Route::get('/seleccionarSeguro', 'SeguroController@index');
 
 Route::get('/hoteles','hotelController@start');
 
