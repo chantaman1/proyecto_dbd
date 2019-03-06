@@ -181,5 +181,32 @@ if(/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine
 	};
 	datePicker();
 
+	$('input[name="direction"]').change(function(){
+			if($('#oneway').prop('checked')){
+					hideFlight();
+			}else{
+					showFlight();
+			}
+	});
 
 });
+
+$(document).ready(function(){
+	$('input[name="direction"]').change(function(){
+			if($('#oneway').prop('checked')){
+					hideFlight();
+			}else{
+					showFlight();
+			}
+	});
+});
+
+function hideFlight() {
+  var x = document.getElementById("returnFlight");
+  x.style.display = "none";
+}
+
+function showFlight() {
+  var x = document.getElementById("returnFlight");
+  x.style.display = "block";
+}

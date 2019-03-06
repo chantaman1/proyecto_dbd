@@ -56,25 +56,9 @@
 										<label>Cantidad de dias</label>
 									</div>
 									<div class="form-group">
-										<label for="id_label_single">Seguros existentes</label>
-										<label for="id_label_single" style="width: 100%;">
-                      @if($haySeguro)
-  											<select name="seguroId" class="js-example-basic-single js-states form-control" id="id_label_sin" style="width: 100%;">
-  												@foreach($seguros as $seguro)
-  													<option value="{{ $seguro->id }}">{{ $seguro->tipo }}</option>
-  												@endforeach
-                        </select>
-                      @else
-                        <select disabled name="seguroId" class="js-example-basic-single js-states form-control" id="id_label_sin" style="width: 100%;">
-                          @foreach($seguros as $seguro)
-                            <option value="{{ $seguro->id }}">{{ $seguro->tipo }}</option>
-                          @endforeach
-                        </select>
-                      @endif
-										</label>
                     <label for="id_label_single">Vehiculos existentes</label>
                     <label for="id_label_single" style="width: 100%;">
-                      @if($hayVehiculo)
+                      @if($hayVehiculo == "true")
                         <select name="vehiculoId" class="js-example-basic-single js-states form-control" id="id_label_si" style="width: 100%;">
                           @foreach($vehiculos as $vehiculo)
                             <option value="{{ $vehiculo->id }}">Marca:{{ $vehiculo->marca }} Modelo:{{ $vehiculo->modelo}}</option>
@@ -90,7 +74,7 @@
                     </label>
                     <label for="id_label_single">Habitaciones existentes</label>
                     <label for="id_label_single" style="width: 100%;">
-                      @if($hayHotel)
+                      @if($hayHotel == "true")
                         <select name="habitacionId" class="js-example-basic-single js-states form-control" id="id_label_s" style="width: 100%;">
                           @foreach($habitaciones as $habitacion)
                             <option value="{{ $habitacion->id }}">Tipo cama:{{ $habitacion->tipo_cama }} Categoria:{{ $habitacion->categoria }}</option>

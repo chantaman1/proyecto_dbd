@@ -14,8 +14,8 @@ class HabitacionPaquete extends Migration
     public function up()
     {
       Schema::create('habitacion_paquete', function (Blueprint $table) {
-        $table->date('fecha_inicio');
-        $table->date('fecha_termino');
+        $table->integer('dias');
+        $table->integer('noches');
         $table->unsignedInteger('paquete_id');
         $table->unsignedInteger('habitacion_id');
         $table->foreign('paquete_id')->references('id')->on('paquetes')->onDelete('cascade');
