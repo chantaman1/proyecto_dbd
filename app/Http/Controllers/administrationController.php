@@ -501,4 +501,80 @@ class administrationController extends Controller
         }
       }
     }
+
+    public function adminPaquetesView(Request $request){
+      $paquetes = Paquete::All();
+      return view('Administration/admPaquetes', ['paquetes' => $paquetes, 'regErr' => '', 'regErr2' => '']);
+    }
+
+    public function adminPaquetesDisable(Request $request){
+      $paquete = Paquete::where('id', $request->get('paqueteId'))->first();
+      if($paquete->disponibilidad){
+        $paquete->disponibilidad = false;
+        $paquete->save();
+        $paquetes = Paquete::All();
+        return view('Administration/admPaquetes', ['paquetes' => $paquetes, 'regErr' => 'El paquete seleccionado ha sido desactivado.', 'regErr2' => '']);
+      }
+      else{
+        $paquete->disponibilidad = true;
+        $paquete->save();
+        $paquetes = Paquete::All();
+        return view('Administration/admPaquetes', ['paquetes' => $paquetes, 'regErr' => 'El seguro seleccionado ha sido activado.', 'regErr2' => '']);
+      }
+    }
+
+    public function adminPaquetesAdd(Request $request){
+      $paquetePrecio = $request->get('price');
+      $paqueteDescuento = $request->get('discount');
+      $paqueteCupo = $request->get('quota');
+      $paqueteVehiculo = $request->get('vehicle');
+      $paqueteSeguro = $request->get('insurance');
+      $paqueteHotel = $request->get('hotel');
+      $paqueteCiudad = $request->get('city');
+      $paquetePais = $request->get('country');
+      if($paqueteVehiculo == 'true'){
+        $paqueteVehiculo = true;
+      }
+      else{
+        $paqueteVehiculo = false;
+      }
+      if($paqueteHotel == 'true'){
+        $paqueteHotel = true;
+      }
+      else{
+        $paqueteHotel = false;
+      }
+      if($paqueteSeguro == 'true'){
+        $paqueteSeguro = true;
+      }
+      else{
+        $paqueteSeguro = false;
+      }
+
+      if($paquetePrecio == NULL || $paqueteDescuento == NULL || $paqueteCupo == NULL || $paqueteVehiculo == NULL || $paqueteSeguro == NULL || $paqueteHotel == NULL || $paqueteCiudad == NULL || $paquetePais == NULL){
+        $paquetes = Paquete::All();
+        return view('Administration/admPaquetes', ['paquetes' => $paquetes, 'regErr' => '', 'regErr2' => 'Uno o mas campos están vacios.']);
+      }
+      else{
+        $paquete = new Paquete;
+        $paquete->fill(['pais_destino' => $paquetePais, 'cuidad_destino' => $paqueteCiudad,
+                        'precio' => $paquetePrecio, 'descuento' => $paqueteDescuento,
+                        'cupos' => $paqueteCupo, 'disponibilidad' => true,
+                        'posee_vehiculo', $paqueteVehiculo, 'posee_hotel' => $paqueteHotel,
+                        'posee_seguro' => $paqueteSeguro, 'image' => 'images/miami1.jpg',
+                        'created_at' => now()]);
+        $created = $paquete->save();
+        if($created){
+          $request->session()->put('add_paqueteVehiculo', $paqueteVehiculo);
+          $request->session()->put('add_paqueteHotel', $paqueteHotel);
+          $request->session()->put('add_paqueteSeguro', $paqueteSeguro);
+          $paquetes = Paquete::All();
+          return view('Administration/admPaquetes', ['paquetes' => $paquetes, 'regErr' => '', 'regErr2' => 'Paquete agregado correctamente.']);
+        }
+        else{
+          $paquetes = Paquete::All();
+          return view('Administration/admPaquetes', ['paquetes' => $paquetes, 'regErr' => '', 'regErr2' => 'Error: No se puede agregar paquete.']);
+        }
+      }
+    }
 }
