@@ -10,9 +10,11 @@ class Seguro extends Model
     protected $tipo;
     protected $precio;
     protected $descripcion;
+    protected $aseguradora_id;
+    protected $activo;
 
   protected $fillable = [
-      'tipo', 'precio', 'descripcion',
+      'tipo', 'precio', 'descripcion', 'activo', 'aseguradora_id',
   ];
 
   public function pasajeros(){

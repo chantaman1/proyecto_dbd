@@ -437,4 +437,54 @@ class administrationController extends Controller
         }
       }
     }
+
+    public function adminSeguroView(Request $request){
+      $seguros = Seguro::where('aseguradora_id', $request->get('aseguradoraId'))->get();
+      $request->session()->put('add_aseguradora_id', $request->get('aseguradoraId'));
+      return view('Administration/admSeguros', ['aseguradora' => 'holi :v', 'seguros' => $seguros, 'regErr' => '', 'regErr2' => '']);
+    }
+
+    public function adminSeguroDisable(Request $request){
+      $seguro = Seguro::where('id', $request->get('seguroId'))->first();
+      $aseguradora = Aseguradora::where('id', $request->session()->get('add_aseguradora_id'))->first();
+      if($seguro->activo){
+        $seguro->activo = false;
+        $seguro->save();
+        $seguros = Seguro::where('aseguradora_id', $request->session()->get('add_aseguradora_id'))->get();
+        return view('Administration/admSeguros', ['aseguradora' => $aseguradora->nombre, 'seguros' => $seguros, 'regErr' => 'El seguro seleccionado ha sido desactivado.', 'regErr2' => '']);
+      }
+      else{
+        $seguro->activo = true;
+        $seguro->save();
+        $seguros = Seguro::where('aseguradora_id', $request->session()->get('add_aseguradora_id'))->get();
+        return view('Administration/admSeguros', ['aseguradora' => $aseguradora->nombre, 'seguros' => $seguros, 'regErr' => 'El seguro seleccionado ha sido activado.', 'regErr2' => '']);
+      }
+    }
+
+    public function adminSeguroAdd(Request $request){
+      $seguroTipo = $request->get('type');
+      $seguroPrecio = $request->get('price');
+      $seguroDescripcion = $request->get('description');
+      $aseguradora = Aseguradora::where('id', $request->session()->get('add_aseguradora_id'))->first();
+
+      if($seguroTipo == NULL || $seguroPrecio == NULL || $seguroDescripcion == NULL){
+        $seguros = Seguro::where('aseguradora_id', $request->session()->get('add_aseguradora_id'))->get();
+        return view('Administration/admSeguros', ['aseguradora' => $aseguradora->nombre, 'seguros' => $seguros, 'regErr' => '', 'regErr2' => 'Uno o mas campos se encuentran vacios.']);
+      }
+      else{
+        $seguro = new Seguro;
+        $seguro->fill(['tipo' => $seguroTipo, 'precio' => $seguroPrecio,
+                       'descripcion' => $seguroDescripcion, 'created_at' => now(),
+                       'activo' => true, 'aseguradora_id' => $request->session()->get('add_aseguradora_id')]);
+        $created = $seguro->save();
+        if($created){
+          $seguros = Seguro::where('aseguradora_id', $request->session()->get('add_aseguradora_id'))->get();
+          return view('Administration/admSeguros', ['aseguradora' => $aseguradora->nombre, 'seguros' => $seguros, 'regErr' => '', 'regErr2' => 'El seguro ha sido agregado correctamente.']);
+        }
+        else{
+          $seguros = Seguro::where('aseguradora_id', $request->session()->get('add_aseguradora_id'))->get();
+          return view('Administration/admSeguros', ['aseguradora' => $aseguradora->nombre, 'seguros' => $seguros, 'regErr' => '', 'regErr2' => 'Error: No se pudo agregar el seguro.']);
+        }
+      }
+    }
 }

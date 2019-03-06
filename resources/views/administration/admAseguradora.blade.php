@@ -349,13 +349,6 @@
 		              <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Agregar aseguradora</button>
 		              <hr class="my-4">
 								</form>
-								<h5 class="card-title text-center">Retorno a Administración</h5>
-                <form class="form-signin" method="GET" action="{{ url('administration') }}">
-                  <div class="form-group">
-                    <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Volver a administración</button>
-                    <hr class="my-4">
-                  </div>
-                </form>
 		          </div>
 		        </div>
 				</div>
@@ -363,11 +356,11 @@
           <div class="card card-signin my-5">
             <div class="card-body">
               <h5 class="card-title text-center">Administrar seguros</h5>
-              <form class="form-signin" method="POST" action="{{ url('administrationSeguro') }}">
+              <form class="form-signin" method="POST" action="{{ url('administrationSeguros') }}">
                 <div class="form-group">
                   <label for="id_label_single">Administre los seguros de las aseguradoras</label>
                   <label for="id_label_single" style="width: 100%;">
-                    <select name="automotoraId" class="js-example-basic-single js-states form-control" id="id_label_single" style="width: 100%;">
+                    <select name="aseguradoraId" class="js-example-basic-single js-states form-control" id="id_label_single" style="width: 100%;">
                       @foreach($aseguradoras as $aseguradora)
                         <option value="{{ $aseguradora->id }}">{{ $aseguradora->nombre }}</option>
                       @endforeach
@@ -377,6 +370,13 @@
                   <hr class="my-4">
                 </div>
               </form>
+							<h5 class="card-title text-center">Retorno a Administración</h5>
+							<form class="form-signin" method="GET" action="{{ url('administration') }}">
+								<div class="form-group">
+									<button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Volver a administración</button>
+									<hr class="my-4">
+								</div>
+							</form>
             </div>
           </div>
         </div>
