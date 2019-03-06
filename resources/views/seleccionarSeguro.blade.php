@@ -60,6 +60,7 @@
             <div class="owl-carousel js-owl-carousel-2">
 							@foreach($seguros as $seguro)
               <div>
+								<a href="asignacion_pasajero_seguro?id={{ $seguro->id }}">
                 <div class="media probootstrap-media d-block align-items-stretch mb-4 probootstrap-animate">
                   <img src="assets/images/sq_img_2.jpg" alt="Free Template by ProBootstrap" class="img-fluid">
                   <div class="media-body">
@@ -68,6 +69,7 @@
 										<h5>CLP$ {{number_format($seguro->precio, 0, '', '.')}}</h5>
                   </div>
                 </div>
+							</a>
               </div>
 
               <!-- END slide item -->

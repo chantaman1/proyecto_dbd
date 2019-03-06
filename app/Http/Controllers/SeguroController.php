@@ -107,4 +107,9 @@ class SeguroController extends Controller
           return "Seguro no existente.";
       }
     }
+
+    public function asignacion_pasajero_seguro(Request $request){
+      $request->session()->put('seguro_id',$request->get('id'));
+      return view('asignacion_pasajero_seguro');
+    }
 }
