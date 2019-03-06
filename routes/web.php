@@ -37,9 +37,7 @@ Route::get('/seleccionarSeguro',function(){
   return view('seleccionarSeguro');
 });
 
-Route::get('/hoteles',function(){
-  return view('hotel');
-});
+Route::get('/hoteles','hotelController@start');
 
 Route::get('/home', function () {
     return view('vuelos');
@@ -178,9 +176,9 @@ Route::get('/getHotels','hotelController@filter');
 
 Route::get('mostrar_habitaciones','hotelController@getAllRooms');
 
-Route::get('reservar_habitacion', 'habitacionController@iniciarReserva');
+Route::get('iniciar_reserva_habitacion', 'habitacionController@iniciar_reserva_habitacion');
 
-Route::post('comprar_habitacion', 'habitacionController@terminarReserva');
+Route::get('finalizar_pago_habitacion', 'reservaController@terminar_reserva_habitacion');
 
 //RUTAS DEL METODO PAGO
 Route::get('/metodo_pago/show/{id}', 'metodo_pagoController@show');
@@ -231,6 +229,7 @@ Route::post('/reserva/register', 'reservaController@store');
 Route::post('/reserva/update/{id}', 'reservaController@update');
 
 Route::get('/reserva/destroy/{id}', 'reservaController@destroy');
+
 
 //RUTAS DE LA ROL
 Route::get('/rol/show/{id}', 'rolController@show');

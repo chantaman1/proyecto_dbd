@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Hotel;
 use App\Habitacion;
+use Carbon\Carbon;
 class HotelController extends Controller
 {
     /**
@@ -109,6 +110,11 @@ class HotelController extends Controller
       }
     }
 
+    public function start(){
+      $ciudades = Hotel::distinct()->get(['ciudad']);
+      return view('hotel')->with('ciudades',$ciudades);
+    }
+
     public function search(Request $request){
       $hoteles_validos = array();
       foreach (Hotel::all() as $hotel) {
@@ -122,23 +128,27 @@ class HotelController extends Controller
       $capacidad = $request->session()->get('hotel_cant_adultos')+$request->session()->get('hotel_cant_ninos');
       $habitacions = Habitacion::where([
         'hotel_id' => $request->get('id'),
-        'capacidad' => $capacidad
+        'capacidad' => $capacidad,
+        'disponibilidad' => true
         ])->get();
       return view('habitacion-list')->with('habitacions',$habitacions);
     }
 
     public function filter(Request $request){
-      if($request->get('fecha_inicio') > $request->get('fecha_fin') || $request->get('ciudad') == NULL || $request->get('fecha_inicio') == NULL || $request->get('fecha_fin') == NULL){
-        return redirect('/hoteles');
-      }
       $hotels = Hotel::where([
         'ciudad' => $request->get('ciudad'),
         'activo' => true
         ])->get();
+      $format = 'd/m/Y';
+      $fecha1 = Carbon::createFromFormat($format, $request->get('fecha_inicio'));
+      $fecha2 = Carbon::createFromFormat($format, $request->get('fecha_fin'));
+      $request->session()->put('hotel_date_inicio', $fecha1);
+      $request->session()->put('hotel_date_fin', $fecha2);
       $request->session()->put('hotel_fecha_inicio', $request->get('fecha_inicio'));
       $request->session()->put('hotel_fecha_fin', $request->get('fecha_fin'));
       $request->session()->put('hotel_cant_adultos', $request->get('adults'));
       $request->session()->put('hotel_cant_ninos', $request->get('children'));
+      $request->session()->put('hotel_ciudad', $request->get('ciudad'));
       return view('hotel-list')->with('hotels', $hotels);
   }
 }

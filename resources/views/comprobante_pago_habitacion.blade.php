@@ -1,5 +1,7 @@
 @extends('layouts.main')
 
+<link rel="stylesheet" href="assets/css/ticket.css">
+<script type="text/javascript" src="assets/js/ticket.js"></script>
 @section('selected')
 	<li class="nav-item">
 		<a class="nav-link" href="/vuelos">Vuelos <span class="sr-only">(current)</span></a>
@@ -42,41 +44,41 @@
 @endsection
 
 @section('content')
-<section class="probootstrap-cover overflow-hidden relative"  style="background-image: url('assets/images/bg_1.jpg');" data-stellar-background-ratio="0.5"  id="section-home">
-	<div class="overlay"></div>
+		<style>
+		p {
+			text-align:center
+		}
+		</style>
+		<section class="probootstrap-cover overflow-hidden relative"  style="background-image: url('assets/images/bg_1.jpg');" data-stellar-background-ratio="0.5"  id="section-home">
+      <div class="overlay"></div>
 
-</section>
+    </section>
+    <!-- END section -->
+		<div id="register">
+		  <div id="ticket">
+		    <h1>¡Gracias por su compra!</h1>
+		    <table>
 
-<section class="probootstrap_section" id="section-city-guides">
-		<h3 style="text-align: center">Habitaciones disponibles en el hotel</h3>
-		<br>
-		<div class="container_12" >
-			@foreach ($habitacions as $data)
-			<div class="card" style="
-		    font-weight: bold;
-		    border: 1px solid #0C0C19;
-		    border-radius: 10px;
-		    background: #ffffff;
-		    box-shadow: inset 0px 0px 5px #0C0C19;
-		    -moz-box-shadow: inset 0px 0px 5px #0C0C19;
-		    -webkit-box-shadow: inset 0px 0px 5px #2B2B33;
-				text-align: left;
-		    text-shadow: 1px 1px 1px #fff;">
-				<a href="iniciar_reserva_habitacion?id={{ $data->id }}">
-					<img src='images/habitacion-suite-cama.jpg' align="left" height="200" width="200" style="margin:30px; padding:10px">
-		      <div class="card-body" style="color:black">
-		        <h4 style="color:#3433FF; margin: 10px; padding: 10px"><ins>{{$data->categoria}}</ins></h4>
-						<p>Tipo Cama: {{$data->tipo_cama}}</p>
-		        <p>Numero: {{$data->numero}}</p>
-		        <p>Capacidad: {{$data->capacidad}}</p>
-		        <p>Categoría: {{$data->categoria}}</p>
-		        <h6><b style="color: black; padding: 10px">Precio: ${{$data->precio}}</b></h6>
-						<br>
-	    		</div>
-				</a>
-			</div>
-			<br>
-			@endforeach
+		      <tbody id="entries">
+						<p></p>
+						<p>Numero Habitación: {{$habitacion->numero}}<p>
+						<p>Tipo Cama: {{$habitacion->tipo_cama}}</p>
+						<p>Categoría: {{$habitacion->categoria}}</p>
+						<p>Capacidad: {{$habitacion->capacidad}}</p>
+						<p>Fecha inicio: {{$detalle->fecha_inicio}}</p>
+						<p>Fecha fin: {{$detalle->fecha_fin}}</p>
+						<p>Ciudad: {{$detalle->ciudad}}</p>
+            <p>Nombre Titular Tarjeta: {{$detalle->nombre}}</p>
+						<p>Numero Tarjeta: {{$detalle->numero_tarjeta}}</p>
+						<p>CVV: {{$detalle->cvv}}</p>
+		      </tbody>
+					<tfoot>
+        <tr>
+          <th>Total Pago</th>
+          <th id="total">{{$reserva->totalAPagar}}</th>
+        </tr>
+      </tfoot>
+		    </table>
+		  </div>
 		</div>
-</section>
 @endsection

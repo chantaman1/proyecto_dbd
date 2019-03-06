@@ -69,24 +69,11 @@
 											<label for="id_label_single">Ciudad</label>
 
                       <label for="id_label_single" style="width: 100%;">
-                        <select class="js-example-basic-single js-states form-control" id="id_label_single" style="width: 100%;">
+                        <select name="ciudad" class="js-example-basic-single js-states form-control" id="id_label_single" style="width: 100%;">
 													<option></option>
-                          <option value="Cancún">Cancún</option>
-                          <option value="Punta Cana">Punta Cana</option>
-                          <option value="Playa del Carmen">Playa del Carmen</option>
-                          <option value="Camboriú">Camboriú</option>
-                          <option value="Río de Janeiro">Río de Janeiro</option>
-                          <option value="Búzios">Búzios</option>
-                          <option value="Buenos Aires">Buenos Aires</option>
-                          <option value="Bariloche">Bariloche</option>
-													<option value="Mendoza">Mendoza</option>
-													<option value="Nueva York">Nueva York</option>
-													<option value="Los Ángeles">Los Ángeles</option>
-													<option value="Miami">Miami</option>
-													<option value="Santiago">Santiago</option>
-													<option value="Puerto Varas">Puerto Varas</option>
-                          <option value="Pucón">Pucón</option>
-                          <option value="Puerto Natales">Puerto Natales</option>
+													@foreach ($ciudades as $data)
+                          <option>{{$data->ciudad}}</option>
+                          @endforeach
                         </select>
                       </label>
                     </div>
@@ -114,52 +101,34 @@
                     </div>
                   </div>
                 </div>
-
+								<!-- END row -->
 								<div class="row mb-5">
                   <div class="col-md">
                     <div class="form-group">
+											<label for="id_label_single">Adultos</label>
 											<select class="js-example-basic-single" name="adults" style="width: 100%;">
-												<option>sin adultos</option>
-												<option selected>1 adulto</option>
-												<option>2 adultos</option>
-												<option>3 adultos</option>
-												<option>4 adultos</option>
-												<option>5 adultos</option>
-												<option>6 adultos</option>
-												<option>7 adultos</option>
-												<option>8 adultos</option>
-												<option>9 adultos</option>
+												<option selected>1</option>
+												<option>2</option>
+												<option>3</option>
+												<option>4</option>
+												<option>5</option>
+												<option>6</option>
+												<option>7</option>
 											</select>
                     </div>
                   </div>
 									<div class="col-md">
                     <div class="form-group">
+											<label for="id_label_single2">Niños</label>
 											<select class="js-example-basic-single" name="children" style="width: 100%;">
-												<option selected>Sin niños</option>
-												<option>1 niño</option>
-												<option>2 niños</option>
-												<option>3 niños</option>
-												<option>4 niños</option>
-												<option>5 niños</option>
-												<option>6 niños</option>
-												<option>7 niños</option>
-												<option>8 niños</option>
-												<option>9 niños</option>
-											</select>
-                    </div>
-                  </div>
-									<div class="col-md">
-                    <div class="form-group">
-											<select class="js-example-basic-single" name="children" style="width: 100%;">
-												<option selected>1 habitación</option>
-												<option>2 habitaciones</option>
-												<option>3 habitaciones</option>
-												<option>4 habitaciones</option>
-												<option>5 habitaciones</option>
-												<option>6 habitaciones</option>
-												<option>7 habitaciones</option>
-												<option>8 habitaciones</option>
-												<option>9 habitaciones</option>
+												<option selected>0</option>
+												<option>1</option>
+												<option>2</option>
+												<option>3</option>
+												<option>4</option>
+												<option>5</option>
+												<option>6</option>
+												<option>7</option>
 											</select>
                     </div>
                   </div>

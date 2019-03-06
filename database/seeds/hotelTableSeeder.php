@@ -11,6 +11,7 @@ class hotelTableSeeder extends Seeder
      */
     public function run()
     {
+      factory(App\Hotel::class, 60)->create();
       DB::table('hotels')->insert([
           'nombre' => 'Park Inn by Radisson Resort',
           'direccion' => '3011 Maingate Lane',

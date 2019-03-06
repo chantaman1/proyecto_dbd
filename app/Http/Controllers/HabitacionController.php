@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Habitacion;
+use Auth;
+use Carbon\Carbon;
 class HabitacionController extends Controller
 {
     /**
@@ -42,15 +44,28 @@ class HabitacionController extends Controller
         return $habitacion;
     }
 
-    public function iniciarReserva(Request $request){
-        $habitacion = Habitacion::find($request->get('id'));
-        if($habitacion != NULL){
-          $request->session()->put('reserva_habitacion_id', $request->get('id'));
-          $request->session()->put('reserva_habitacion_precio', $habitacion->precio);
-          return view('habitacion-compra', ['capacidad' => $habitacion->capacidad, 'precio' => $habitacion->precio, 'categoria' => $habitacion->categoria, 'tipo_cama' => $habitacion->tipo_cama]);
+    public function iniciar_reserva_habitacion(Request $request){
+        if(Auth::check()){
+          $habitacion = Habitacion::find($request->get('id'));
+          if($habitacion != NULL){
+            $fecha1 = $request->session()->get('hotel_date_inicio');
+            $fecha2 = $request->session()->get('hotel_date_fin');
+            $dias = $fecha2->diffInDays($fecha1);
+            $total = $habitacion->precio*$dias;
+            $request->session()->put('habitacion_id', $request->get('id'));
+            $request->session()->put('habitacion_total', $total);
+            $detalle = (object)['ciudad'=> $request->session()->get('hotel_ciudad'),
+                                'fecha_inicio' => $request->session()->get('hotel_fecha_inicio'),
+                                'fecha_fin' => $request->session()->get('hotel_fecha_fin'),
+                                'total' => $total];
+            return view('habitacion_compra')->with('habitacion',$habitacion)->with('detalle',$detalle);
+          }
+          else{
+            return redirect('/hoteles');
+          }
         }
         else{
-          return redirect('/hoteles');
+          return redirect('/login');
         }
     }
 

@@ -68,6 +68,7 @@
 						<p>Fecha retiro: {{$detalle->fecha_retiro}}</p>
 						<p>Fecha devolucion: {{$detalle->fecha_devolucion}}</p>
 						<p>Ciudad: {{$detalle->ciudad}}</p>
+						<p>Nombre Titular Tarjeta: {{$detalle->nombre}}</p>
 						<p>Numero Tarjeta: {{$detalle->numero_tarjeta}}</p>
 						<p>CVV: {{$detalle->cvv}}</p>
 		      </tbody>

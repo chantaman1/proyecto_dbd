@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Reserva;
 use App\Vehiculo;
+use App\Habitacion;
 use App\Comprobante_pago;
 use Faker\Factory as Faker;
 use Auth;
@@ -95,14 +96,23 @@ class ReservaController extends Controller
       return view('comprobante_pago_vehiculo')->with('vehiculo',$vehiculo)->with('reserva',$reserva)->with('detalle',$detalle);
     }
 
-    public function terminarReservaHabitacion(Request $request){
-        app('App\Http\Controllers\HabitacionController')->reservarHabitacion($request->session()->get('reserva_habitacion_id'));
+    public function terminar_reserva_habitacion(Request $request){
+        app('App\Http\Controllers\HabitacionController')->reservarHabitacion($request->session()->get('habitacion_id'));
         $reserva = new Reserva;
-        $data = ['totalAPagar' => intVal($request->session()->get('reserva_habitacion_precio')), 'estado_pago' => 'Pagado', 'user_id' => Auth::id()];
+        $comprobante = new Comprobante_pago;
+        $faker = Faker::create();
+        $reserva_code = $faker->unique()->ean8;
+        $data = ['totalAPagar' => $request->session()->get('habitacion_total'), 'estado_pago' => 'Pagado', 'user_id' => Auth::id(), 'reserva'=> $reserva_code];
         $reserva->fill($data);
         $reserva->save();
-        $reserva->habitacions()->attach([$request->session()->get('hotel_fecha_inicio'), $request->session()->get('hotel_fecha_fin')]);
-        return view('reciboHabitacion', ['inicio' => $request->session()->get('hotel_fecha_inicio'), 'fin' => $request->session()->get('hotel_fecha_fin'), 'id_reserva' => $reserva->reserva_id]);
+        $data_comprobante = ['total_pagado'=>$reserva->totalAPagar,'descripcion_pago'=>'Pago por renta de habitación','metodo_pago_id'=> 2, 'reserva_id'=>$reserva->id];
+        $comprobante->fill($data_comprobante);
+        $comprobante->save();
+        $reserva->habitacions()->attach([$request->session()->get('habitacion_id')],['fecha_inicio'=>$request->session()->get('hotel_date_inicio'), 'fecha_termino'=>$request->session()->get('hotel_date_fin')]);
+        $habitacion = Habitacion::find($request->session()->get('habitacion_id'));
+        $detalle = (object)['numero_tarjeta'=>$request->get('numero'), 'cvv'=>$request->get('cvv'),'nombre'=>$request->get('nombre'),
+                            'fecha_inicio'=>$request->session()->get('hotel_fecha_inicio'),'fecha_fin'=>$request->session()->get('hotel_fecha_fin'), 'ciudad'=>$request->session()->get('hotel_ciudad')];
+        return view('comprobante_pago_habitacion')->with('habitacion',$habitacion)->with('reserva',$reserva)->with('detalle',$detalle);
     }
 
     public function test(){
