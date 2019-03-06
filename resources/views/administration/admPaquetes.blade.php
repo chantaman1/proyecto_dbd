@@ -87,7 +87,7 @@
                   <div class="form-group">
                     <label for="id_label_single" style="width: 100%;">
                       <select name="vehicle" class="js-example-basic-single js-states form-control" id="id_label_si" style="width: 100%;">
-                        <option value="false">No posee vehiculo</option>
+                        <option selected value="false">No posee vehiculo</option>
                         <option value="true">Posee vehiculo</option>
                       </select>
                       <label for="inputName">Vehiculo del paquete</label>
@@ -96,7 +96,7 @@
                   <div class="form-group">
                     <label for="id_label_single" style="width: 100%;">
                       <select name="hotel" class="js-example-basic-single js-states form-control" id="id_label_s" style="width: 100%;">
-                        <option value="false">No posee hotel</option>
+                        <option selected value="false">No posee hotel</option>
                         <option value="true">Posee hotel</option>
                       </select>
                       <label for="inputName">Hotel del paquete</label>
@@ -105,7 +105,7 @@
                   <div class="form-group">
                     <label for="id_label_single" style="width: 100%;">
                       <select name="insurance" class="js-example-basic-single js-states form-control" id="id_label" style="width: 100%;">
-                        <option value="false">No posee seguro</option>
+                        <option selected value="false">No posee seguro</option>
                         <option value="true">Posee seguro</option>
                       </select>
                       <label for="inputName">seguro del paquete</label>

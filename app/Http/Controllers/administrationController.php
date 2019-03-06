@@ -574,6 +574,37 @@ class administrationController extends Controller
     }
 
     public function adminPaquetesFinalAdd(Request $request){
+      if($request->session()->get('add_paqueteVehiculo') == 'true' && $request->session()->get('add_paqueteHotel') == 'true' && $request->session()->get('$paqueteSeguro') == 'true'){
+        $habitacion = $request->get('habitacionId');
+        $vehiculo = $request->get('vehiculoId');
+        $seguro = $request->get('seguroId');
+        
+      }
+      elseif($request->session()->get('add_paqueteVehiculo') == 'true' && $request->session()->get('add_paqueteHotel') == 'true' && $request->session()->get('$paqueteSeguro') == 'false'){
+        $habitacion = $request->get('habitacionId');
+        $vehiculo = $request->get('vehiculoId');
+      }
+      elseif($request->session()->get('add_paqueteVehiculo') == 'true' && $request->session()->get('add_paqueteHotel') == 'false' && $request->session()->get('$paqueteSeguro') == 'true'){
+        $vehiculo = $request->get('vehiculoId');
+        $seguro = $request->get('seguroId');
+      }
+      elseif($request->session()->get('add_paqueteVehiculo') == 'false' && $request->session()->get('add_paqueteHotel') == 'true' && $request->session()->get('$paqueteSeguro') == 'true'){
+        $habitacion = $request->get('habitacionId');
+        $seguro = $request->get('seguroId');
+      }
+      elseif($request->session()->get('add_paqueteVehiculo') == 'true' && $request->session()->get('add_paqueteHotel') == 'false' && $request->session()->get('$paqueteSeguro') == 'false'){
+        $vehiculo = $request->get('vehiculoId');
+      }
+      elseif($request->session()->get('add_paqueteVehiculo') == 'false' && $request->session()->get('add_paqueteHotel') == 'true' && $request->session()->get('$paqueteSeguro') == 'false'){
+        $habitacion = $request->get('habitacionId');
+      }
+      elseif($request->session()->get('add_paqueteVehiculo') == 'false' && $request->session()->get('add_paqueteHotel') == 'false' && $request->session()->get('$paqueteSeguro') == 'true'){
+        $seguro = $request->get('seguroId');
+      }
+      else{
+        $paquetes = Paquete::All();
+        return view('Administration/admPaquetes', ['paquetes' => $paquetes, 'regErr' => '', 'regErr2' => 'Error: No se puede agregar paquete. El paquete debe tener al menos 1 una opción.']);
+      }
       return;
     }
 }
