@@ -9,6 +9,7 @@ use App\Vehiculo;
 use App\Comprobante_pago;
 use Faker\Factory as Faker;
 use Auth;
+use Carbon\Carbon;
 class ReservaController extends Controller
 {
     /**
@@ -83,9 +84,15 @@ class ReservaController extends Controller
       $data_comprobante = ['total_pagado'=>$reserva->totalAPagar,'descripcion_pago'=>'Pago por renta de vehiculo','metodo_pago_id'=> 2, 'reserva_id'=>$reserva->id];
       $comprobante->fill($data_comprobante);
       $comprobante->save();
-      $reserva->vehiculos()->attach([$request->session()->get('vehiculo_id')],['fecha_inicio'=>$request->session()->get('vehiculo_fecha_retiro'), 'fecha_termino'=>$request->session()->get('vehiculo_fecha_devolucion')]);
+      $format = 'd/m/Y';
+      $fecha1 = Carbon::createFromFormat($format, $request->session()->get('vehiculo_fecha_retiro'));
+      $fecha2 = Carbon::createFromFormat($format, $request->session()->get('vehiculo_fecha_devolucion'));
+      $reserva->vehiculos()->attach([$request->session()->get('vehiculo_id')],['fecha_inicio'=>$fecha1, 'fecha_termino'=>$fecha2]);
       Vehiculo::find($request->session()->get('vehiculo_id'))->update(['disponibilidad'=> false]);
-      return $reserva;
+      $vehiculo = Vehiculo::find($request->session()->get('vehiculo_id'));
+      $detalle = (object)['numero_tarjeta'=>$request->get('numero'), 'cvv'=>$request->get('cvv'),'nombre'=>$request->get('nombre'),
+                          'fecha_retiro'=>$request->session()->get('vehiculo_fecha_retiro'),'fecha_devolucion'=>$request->session()->get('vehiculo_fecha_devolucion'), 'ciudad'=>$request->session()->get('vehiculo_ciudad')];
+      return view('comprobante_pago_vehiculo')->with('vehiculo',$vehiculo)->with('reserva',$reserva)->with('detalle',$detalle);
     }
 
     public function terminarReservaHabitacion(Request $request){
