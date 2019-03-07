@@ -43,27 +43,46 @@ class ReservaController extends Controller
     {
       $faker = Faker::create();
       $passengers = $request->session()->get('passengers');
-      $reserva_id = $faker->unique()->ean8;
-      foreach($passengers as $passenger){
-        app('App\Http\Controllers\PasajeroController')->store($passenger);
-        app('App\Http\Controllers\AsientoController')->confirmSeat($passenger->asiento_id);
-        $reserva = new Reserva;
-        $data = ['totalAPagar' => intVal($passenger->asiento_precio), 'estado_pago' => 'Pagado', 'user_id' => Auth::id(), 'reserva' => $reserva_id, 'asiento_id' => $passenger->asiento_id, 'cant_ninos' => $request->session()->get('cant_ninos'),
-                 'cant_adultos' => $request->session()->get('cant_adultos')];
-        $reserva->fill($data);
-        $reserva->save();
-      }
-      if($request->session()->get('fecha_regreso') != NULL){
-        return view('buyFinished', ['tipoVuelo' => 'Ida y regreso', 'pOrigen' => $request->session()->get('pais_origen'), 'pDestino' => $request->session()->get('pais_destino'),
-                                    'cOrigen' => $request->session()->get('ida_ciudad_origen'), 'cDestino' => $request->session()->get('ida_ciudad_destino'),
-                                    'pasajeros' => $request->session()->get('totalPasajeros'), 'reserva' => $reserva_id]);
+      if($request->session()->get('tipoVuelo') == 'both'){
+        $x = 0;
+        foreach($passengers as $passenger){
+          $reserva_id = $faker->unique()->ean8;
+          app('App\Http\Controllers\PasajeroController')->store($passenger, $request->session()->get('asientosIda')[$x]);
+          app('App\Http\Controllers\PasajeroController')->store($passenger, $request->session()->get('asientosRegreso')[$x]);
+          app('App\Http\Controllers\AsientoController')->confirmSeat($request->session()->get('asientosIda')[$x]);
+          app('App\Http\Controllers\AsientoController')->confirmSeat($request->session()->get('asientosRegreso')[$x]);
+          $reserva = new Reserva;
+          $data = ['totalAPagar' => intVal($request->session()->get('vuelo_total_pagar')), 'estado_pago' => 'Pagado', 'user_id' => Auth::id(), 'reserva' => $reserva_id, 'asiento_id' => $request->session()->get('asientosIda')[$x]];
+          $reserva->fill($data);
+          $reserva->save();
+          $reserva2 = new Reserva;
+          $data2 = ['totalAPagar' => intVal($request->session()->get('vuelo_total_pagar')), 'estado_pago' => 'Pagado', 'user_id' => Auth::id(), 'reserva' => $reserva_id, 'asiento_id' => $request->session()->get('asientosIda')[$x]];
+          $reserva2->fill($data2);
+          $reserva2->save();
+          $x++;
+          $request->session()->push('reservaId', $reserva_id);
+        }
+        return view('buyFinished', ['tipoVuelo' => 'Ida y regreso', 'cOrigen' => $request->session()->get('ida_ciudad_origen'), 'cDestino' => $request->session()->get('ida_ciudad_destino'),
+                                    'pasajeros' => $request->session()->get('totalPasajeros'), 'reserva' => $request->session()->get('reservaId')]);
+        }
       }
       else{
-
-        return view('buyFinished', ['tipoVuelo' => 'Solo ida', 'pOrigen' => $request->session()->get('pais_origen'), 'pDestino' => $request->session()->get('pais_destino'),
-                                    'cOrigen' => $request->session()->get('ida_ciudad_origen'), 'cDestino' => $request->session()->get('ida_ciudad_destino'),
-                                    'pasajeros' => $request->session()->get('totalPasajeros'), 'reserva' => $reserva_id]);
+        $x = 0;
+        foreach($passengers as $passenger){
+          $reserva_id = $faker->unique()->ean8;
+          app('App\Http\Controllers\PasajeroController')->store($passenger, $request->session()->get('asientosIda')[$x]);
+          app('App\Http\Controllers\AsientoController')->confirmSeat($request->session()->get('asientosIda')[$x]);
+          $reserva = new Reserva;
+          $data = ['totalAPagar' => intVal($request->session()->get('vuelo_total_pagar')), 'estado_pago' => 'Pagado', 'user_id' => Auth::id(), 'reserva' => $reserva_id, 'asiento_id' => $request->session()->get('asientosIda')[$x]];
+          $reserva->fill($data);
+          $reserva->save();
+          $x++;
+          $request->session()->push('reservaId', $reserva_id);
+        }
+        return view('buyFinished', ['tipoVuelo' => 'Solo ida', 'cOrigen' => $request->session()->get('ida_ciudad_origen'), 'cDestino' => $request->session()->get('ida_ciudad_destino'),
+                                    'pasajeros' => $request->session()->get('totalPasajeros'), 'reserva' => $request->session()->get('reservaId')]);
       }
+
     }
 
     public function reservaPaquete(Request $request){

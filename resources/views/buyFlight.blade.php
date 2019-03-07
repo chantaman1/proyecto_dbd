@@ -55,22 +55,35 @@
     <div class="grid_6" style="margin-left:10%">
       <h3 style="text-align:center"><b>Resumen de pago</b></h3>
       <br>
-			@foreach ($data as $dt)
-        <div>
-          <a class="btn display" style="color: #000000; width: 100%">
-             <strong>Tipo de viaje:</strong> {{ $dt->tipo_viaje }} <br/> <strong>Pasajero:</strong> {{$dt->nombre}} {{$dt->apellido_paterno}} {{$dt->apellido_materno}} <br/> <strong>Numero de asiento:</strong> {{$dt->asiento_codigo}} <br/> <strong>Tipo de asiento:</strong> {{$dt->asiento_tipo}} <br/> <strong>Precio:</strong> ${{$dt->asiento_precio}} <br/> <strong>Ciudad origen:</strong> {{$dt->origen}} <br/> <strong>Ciudad destino:</strong> {{$dt->destino}} </a>
-        </div>
-			@endforeach
+			@if($tipoViaje == "both")
+				@for ($i = 0; $i < count($asientosIda); $i++)
+						<div>
+							<a class="btn display" style="color: #000000; width: 100%">
+								 <strong>Tipo de viaje:</strong> Ida <br/> <strong>Pasajero:</strong> {{$pasajeros[$i]->nombre}} {{$pasajeros[$i]->apellido_paterno}} {{$pasajeros[$i]->apellido_materno}} <br/> <strong>Numero de asiento:</strong> {{$asientosIda[$i]->codigo}} <br/> <strong>Tipo de asiento:</strong> {{$asientosIda[$i]->tipo}} <br/> <strong>Precio:</strong> ${{$asientosIda[$i]->precio}} </a>
+						</div>
+						<div>
+							<a class="btn display" style="color: #000000; width: 100%">
+								 <strong>Tipo de viaje:</strong> Regreso <br/> <strong>Pasajero:</strong> {{$pasajeros[$i]->nombre}} {{$pasajeros[$i]->apellido_paterno}} {{$pasajeros[$i]->apellido_materno}} <br/> <strong>Numero de asiento:</strong> {{$asientosRegreso[$i]->codigo}} <br/> <strong>Tipo de asiento:</strong> {{ $asientosRegreso[$i]->tipo}} <br/> <strong>Precio:</strong> {{ $asientosRegreso[$i]->precio}} </a>
+						</div>
+				@endfor
+			@else
+				@for ($i = 0; $i < count($asientosIda); $i++)
+					<div>
+						<a class="btn display" style="color: #000000; width: 100%">
+							 <strong>Tipo de viaje:</strong> Ida <br/> <strong>Pasajero:</strong> {{$pasajeros[$i]->nombre}} {{$pasajeros[$i]->apellido_paterno}} {{$pasajeros[$i]->apellido_materno}} <br/> <strong>Numero de asiento:</strong> {{$asientosIda[$i]->codigo}} <br/> <strong>Tipo de asiento:</strong> {{$asientosIda[$i]->tipo}} <br/> <strong>Precio:</strong> ${{$asientosIda[$i]->precio}} </a>
+					</div>
+				@endfor
+			@endif
 				<div class="grid_4">
 					<a class="btn" style="color: #000000; text-align: center">
-             <strong>    Total a pagar:</strong> {{$total}} </a>
+             <strong>    Total a pagar:</strong> ${{$total}} </a>
 				</div>
       <div class="clear"></div>
     </div>
 		<div class="grid_6" style="margin-left:25%">
 			<h3><b>Datos tarjeta de credito</b></h3>
       <div class="col-md probootstrap-animate">
-          <form action="{{ url('finalizar') }}" class="probootstrap-form">
+          <form action="{{ url('realizarCompra') }}" class="probootstrap-form">
             <div class="form-group">
               <div class="row mb-3">
                 <div class="col-md">

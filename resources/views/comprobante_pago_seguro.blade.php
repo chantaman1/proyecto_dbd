@@ -7,13 +7,13 @@
 		<a class="nav-link" href="/vuelos">Vuelos <span class="sr-only">(current)</span></a>
 	</li>
 	<li class="nav-item">
-		<a class="nav-link active" href="/hoteles">Hoteles</a>
+		<a class="nav-link" href="/hoteles">Hoteles</a>
 	</li>
 	<li class="nav-item">
 		<a class="nav-link" href="/paquetes">Paquetes</a>
 	</li>
 	<li class="nav-item dropdown dmenu">
-		<a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Servicios
+		<a class="nav-link active dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Seguro de viajes
 		</a>
 		<div class="dropdown-menu sm-menu">
 			<a class="dropdown-item" href="/autos">Arriendo de autos</a>

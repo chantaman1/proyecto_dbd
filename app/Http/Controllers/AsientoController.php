@@ -54,6 +54,38 @@ class AsientoController extends Controller
       }
     }
 
+    public function getGoFlightSeat(Request $request){
+      if($request->session()->get('tipoViaje') == 'both'){
+        $request->session()->put('estadoAsiento', 1);
+        $asientos = Asiento::where('vuelo_id', $request->session()->get('ida_vuelo_id'))->where('disponibilidad', true)->get();
+        return view('seatResult', ['asientos' => $asientos, 'vuelta' => $request->session()->get('tipoViaje')]);
+      }
+      else{
+        $request->session()->put('estadoAsiento', 0);
+        $asientos = Asiento::where('vuelo_id', $request->session()->get('ida_vuelo_id'))->where('disponibilidad', true)->get();
+        return view('seatResult', ['asientos' => $asientos, 'vuelta' => $request->session()->get('tipoViaje')]);
+      }
+    }
+
+    public function getBackFlightSeat(Request $request){
+      $asientoIdaId = $request->get('id');
+      $request->session()->push('asientosIda', $asientoIdaId);
+      $asientos = Asiento::where('vuelo_id', $request->session()->get('vuelta_vuelo_id'))->where('disponibilidad', true)->get();
+      return view('seatResult', ['asientos' => $asientos, 'vuelta' => '']);
+    }
+
+    public function saveFlightSeats(Request $request){
+      $asientoId = $request->get('id');
+      if($request->session()->get('estadoAsiento') == 0){
+        $request->session()->push('asientosIda', $asientoId);
+        return app('App\Http\Controllers\PasajeroController')->addPassengerView($request);
+      }
+      else{
+        $request->session()->push('asientosRegreso', $asientoId);
+        return app('App\Http\Controllers\PasajeroController')->addPassengerView($request);
+      }
+    }
+
     /**
      * Display the specified resource.
      *

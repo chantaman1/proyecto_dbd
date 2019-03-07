@@ -49,7 +49,7 @@
 				<div class="card card-signin my-5">
 					<div class="card-body">
 						<h5 class="card-title text-center">Datos del pasajero</h5>
-						<form class="form-signin" method="POST" action="{{ url('comprar') }}">
+						<form class="form-signin" method="POST" action="{{ url('confirmPassenger') }}">
 							<div class="form-label-group">
 								<input name="nombre" type="name" id="inputName" class="form-control" placeholder="Names" required autofocus>
 								<label for="inputName">Nombres</label>

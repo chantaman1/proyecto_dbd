@@ -5,10 +5,10 @@
 		<a class="nav-link" href="/vuelos">Vuelos <span class="sr-only">(current)</span></a>
 	</li>
 	<li class="nav-item">
-		<a class="nav-link active" href="/hoteles">Hoteles</a>
+		<a class="nav-link" href="/hoteles">Hoteles</a>
 	</li>
 	<li class="nav-item">
-		<a class="nav-link" href="/paquetes">Paquetes</a>
+		<a class="nav-link active" href="/paquetes">Paquetes</a>
 	</li>
 	<li class="nav-item dropdown dmenu">
 		<a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Servicios
@@ -36,7 +36,7 @@
 		</li>
 	@else
 		<li class="nav-item">
-			<a class="nav-link active" href="/login">Iniciar sesion</a>
+			<a class="nav-link" href="/login">Iniciar sesion</a>
 		</li>
 	@endif
 @endsection

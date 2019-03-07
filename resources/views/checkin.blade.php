@@ -10,7 +10,7 @@
 		<a class="nav-link" href="/paquetes">Paquetes</a>
 	</li>
 	<li class="nav-item dropdown dmenu">
-		<a class="nav-link active dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Seguro de viajes
+		<a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Seguro de viajes
 		</a>
 		<div class="dropdown-menu sm-menu">
 			<a class="dropdown-item" href="/autos">Arriendo de autos</a>
@@ -19,7 +19,7 @@
 	</li>
 	@if(auth()->check())
 		<li class="nav-item dropdown dmenu">
-			<a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+			<a class="nav-link active dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
 				Bienvenido {{ Session::get('usuario_nombre') }}
 			</a>
 			<div class="dropdown-menu sm-menu">
@@ -46,16 +46,15 @@
 	<div class="container">
 	<div class="row" >
     <div class="col-md-6 col-centered"  style="margin-top:-6%">
-        <form action="{{ url('buscar_pasajero') }}" class="probootstrap-form">
-          <h5 class="card-title text-center">Buscar pasajero</h5>
+        <form class="probootstrap-form">
+          <h5 class="card-title text-center">CHECK-IN</h5>
           <div class="form-group">
             <div class="row mb-3">
               <div class="col-md">
                 <div class="form-group">
-                  <label for="id_label_single">Nombre</label>
-
+                  <label for="id_label_single">Código de Reserva</label>
                   <label for="id_label_single" style="width: 100%;">
-                    <input name="nombre" placeholder="Name..." type="text" class="form-control" required autofocus>
+                    <input name="checkin" placeholder="" type="text" class="form-control" required autofocus>
                   </label>
                 </div>
               </div>
@@ -66,22 +65,10 @@
              <div class="row mb-3">
               <div class="col-md">
                 <div class="form-group">
-                  <label for="id_label_single">Apellido</label>
+                  <label for="id_label_single">Apellido del Pasajero</label>
 
                   <label for="id_label_single" style="width: 100%;">
-                    <input name="apellido" placeholder="Surname..." type="text" class="form-control" required autofocus>
-                  </label>
-                </div>
-              </div>
-            </div>
-            <!-- END row -->
-            <div class="row mb-3">
-              <div class="col-md">
-                <div class="form-group">
-                  <label for="id_label_single">Pasaporte</label>
-
-                  <label for="id_label_single" style="width: 100%;">
-                    <input name="pasaporte" placeholder="Passport..." type="text" class="form-control" required autofocus>
+                    <input name="apellido" placeholder="" type="text" class="form-control" required autofocus>
                   </label>
                 </div>
               </div>
@@ -89,9 +76,7 @@
             <!-- END row -->
             <div class="row">
               <div class="col-md">
-                </div>
-              <div class="col-md">
-                <input type="submit" value="Buscar" class="btn btn-primary btn-block" href="javascript:" onclick="parentNode.submit();">
+                <input type="submit" value="Comienza tu Check-in" class="btn btn-primary btn-block" href="javascript:" onclick="parentNode.submit();">
               </div>
             </div>
           </div>

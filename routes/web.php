@@ -45,6 +45,10 @@ Route::get('/send-mail', function () {
     return redirect('vuelos');
 });
 
+Route::get('/checkin', function () {
+    return view('checkin');
+});
+
 
 //RUTAS DEL USUARIO
 Route::get('/buyHistory','userController@buyHistory');
@@ -288,7 +292,9 @@ Route::get('/vuelo/show/{id}', 'vueloController@show');
 
 Route::get('/vuelo/all/', 'vueloController@index');
 
-Route::get('/results', 'vueloController@getFlights');
+Route::get('/resultGoFlight', 'vueloController@getFirstFlight');
+
+Route::get('/resultBackFlight', 'vueloController@getSecondFlight');
 
 Route::get('/vuelo/byDate/{date}/', 'vueloController@getFlightByDate');
 
@@ -300,13 +306,15 @@ Route::post('/vuelo/update/{id}', 'vueloController@update');
 
 Route::get('/vuelo/destroy/{id}', 'vueloController@destroy');
 
-Route::get('/selecAsiento', 'asientoController@getSeatsByFlightId');
+Route::get('/selecAsientoIda', 'vueloController@saveSecondFlight');
 
-Route::get('/pasajero', 'pasajeroController@index');
+Route::get('/selecAsientoRegreso', 'asientoController@getBackFlightSeat');
 
-Route::post('/comprar', 'pasajeroController@saveData');
+Route::get('/pasajero', 'asientoController@saveFlightSeats');
 
-Route::get('/finalizar', 'reservaController@store');
+Route::post('/confirmPassenger', 'pasajeroController@addPassenger');
+
+Route::get('/realizarCompra', 'reservaController@store');
 
 Route::get('/auth/facebook', 'facebookController@redirectToFacebookProvider');
 

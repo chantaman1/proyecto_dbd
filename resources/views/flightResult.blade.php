@@ -50,7 +50,7 @@
 				<div class="clear"></div>
 				<div class="grid_6">
 					<br>
-					@if(Session::get('pasoActual') === 0)
+					@if($ida)
 						<h1 style="text-align:center">Vuelos disponibles IDA</h1>
 					@else
 						<h1 style="text-align:center">Vuelos disponibles REGRESO</h1>
@@ -71,13 +71,23 @@
 						width: 45%;
 						height: 50%;
 				    text-shadow: 1px 1px 1px #fff;">
-						<a  href="selecAsiento?id={{ $data->id }}&destino={{ $data->ciudad_destino }}">
+						@if($vuelta == "both")
+						<a  href="resultBackFlight?id={{ $data->id }}">
 				      <div class="card-body" style="color:black">
 				        <h6 style="color:#ffffff; margin: 0px; padding: 5px"><b>{{$data->hora}} del {{$data->fecha}}</b></h6>
 								<h6 style="color:#ffffff; margin: 0px; padding: 5px">Origen: {{$data->ciudad_origen}}, {{$data->pais_origen}}</h6>
 				        <h6 style="color:#ffffff; margin: 0px; padding: 5px">Destino: {{$data->ciudad_destino}}, {{$data->pais_destino}}</h6>
 			    		</div>
 						</a>
+						@else
+							<a  href="selecAsientoIda?id={{ $data->id }}">
+								<div class="card-body" style="color:black">
+									<h6 style="color:#ffffff; margin: 0px; padding: 5px"><b>{{$data->hora}} del {{$data->fecha}}</b></h6>
+									<h6 style="color:#ffffff; margin: 0px; padding: 5px">Origen: {{$data->ciudad_origen}}, {{$data->pais_origen}}</h6>
+									<h6 style="color:#ffffff; margin: 0px; padding: 5px">Destino: {{$data->ciudad_destino}}, {{$data->pais_destino}}</h6>
+								</div>
+							</a>
+						@endif
 					</div>
           @endforeach
 				</div>

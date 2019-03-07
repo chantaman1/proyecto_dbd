@@ -56,7 +56,7 @@
             </p>
           </div>
           <div class="col-md probootstrap-animate">
-            <form action="{{ url('results') }}" class="probootstrap-form">
+            <form action="{{ url('resultGoFlight') }}" class="probootstrap-form">
               <div class="form-group">
                 <div class="row mb-3">
                   <div class="col-md">
@@ -135,6 +135,7 @@
                         <span class="icon ion-calendar"></span>
                         <input name="fecha_regreso" type="text" id="probootstrap-date-arrival" class="form-control" placeHolder={{ "Fecha" }} data-constraints="@NotEmpty @Required @Date">
                       </div>
+												<b style="color:red;">{{ $regErr }}</b>
                     </div>
                   </div>
                 </div>
@@ -168,8 +169,8 @@
                 <!-- END row -->
                 <div class="row">
                   <div class="col-md">
-                    <label for="oneway" class="mr-5"><input type="radio" id="oneway" name="direction">		SÓLO IDA</label>
-                    <label for="round"><input type="radio" id="round" name="direction" checked>		IDA Y VUELTA</label>
+										<label for="round"><input type="radio" id="round" name="direction" value="both" checked>			  IDA Y VUELTA</label>
+                    <label for="oneway" class="mr-5"><input type="radio" id="oneway" value="one" name="direction">			  SÓLO IDA</label>
                   </div>
                   <div class="col-md">
                     <input type="submit" value="Busca tu vuelo" class="btn btn-primary btn-block">

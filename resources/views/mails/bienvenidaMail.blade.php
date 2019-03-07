@@ -456,12 +456,6 @@ PLACES Airlines
 										</table><!-- End Footer Block -->
 									</td>
 								</tr>
-								<tr>
-
-								</tr>
-								<tr>
-									<td class="spacer100" height="100" align="center"></td>
-								</tr>
 							</tbody>
 						</table>
 					</td>
