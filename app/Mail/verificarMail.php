@@ -29,8 +29,8 @@ class verificarMail extends Mailable
      */
     public function build()
     {
-      return $this->from('noresponder.alaya@gmail.com', 'Aerolinea Alaya')
-          ->subject('Verifique su correo Aerolineas Alaya')
+      return $this->from('noresponder.places@airline.com', 'PLACES Airlines')
+          ->subject('Verifique su correo PLACES Airline')
           ->markdown('mails.verificarMail')
           ->with([
               'userName' => $this->requestData->session()->get('usuario_nombre').' '.$this->requestData->session()->get('usuario_apellido_paterno'),
