@@ -192,18 +192,36 @@ document.getElementById(cityName).style.display = "block";
 
 <div id="Paquetes" class="tabcontent">
   <table>
-  <tr>
-    <th>Officers</th>
-    <th>Department</th>
-    <th>Date of birth</th>
-    <th>Status</th>
-  </tr>
-  <tr>
-    <td>Leandro Bizzinotto Ferreira</td>
-    <td>Web Designer</td>
-    <td>23/09/1994</td>
-    <td class="intraining">In training</td>
-  </tr>
+    <tr>
+      <th>Numero Reserva</th>
+      <th>País</th>
+      <th>Ciudad</th>
+      <th>Incluye Habitación</th>
+      <th>Incluye Vehículo</th>
+      <th>Descuento</th>
+      <th>Precio</th>
+    </tr>
+    @foreach ($user->reservas as $reserva)
+    @foreach($reserva->paquetes as $paquete)
+    <tr>
+      <td>{{$reserva->reserva}}</td>
+      <td>{{$paquete->pais}}</td>
+      <td>{{$paquete->ciudad}}</td>
+      @if($paquete->posee_hotel)
+      <td>Si</td>
+      @else
+      <td>No</td>
+      @endif
+      @if($paquete->posee_vehiculo)
+      <td>Si</td>
+      @else
+      <td>No</td>
+      @endif
+      <td>{{$paquete->descuento}}</td>
+      <td>{{$reserva->totalAPagar}}</td>
+    </tr>
+    @endforeach
+    @endforeach
  </table>
 </div>
 
