@@ -46,7 +46,7 @@
 	<div class="container">
 	<div class="row" >
     <div class="col-md-6 col-centered"  style="margin-top:-6%">
-        <form class="probootstrap-form">
+        <form class="probootstrap-form" action="{{ url('checkinResult') }}">
           <h5 class="card-title text-center">CHECK-IN</h5>
           <div class="form-group">
             <div class="row mb-3">

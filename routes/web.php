@@ -24,7 +24,6 @@ Route::get('/test1', function () {
     return view('test1');
 });
 
-
 Route::get('/vuelos', 'vueloController@index');
 
 Route::get('/autos','vehiculoController@start');
@@ -45,11 +44,11 @@ Route::get('/send-mail', function () {
     return redirect('vuelos');
 });
 
-Route::get('/checkin','reservaController@start');
 Route::get('/checkin', function () {
     return view('checkin');
 });
 
+Route::get('/checkinResult','reservaController@checkinResult');
 
 //RUTAS DEL USUARIO
 Route::get('/buyHistory','userController@buyHistory');
