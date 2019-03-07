@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Seguro;
+use App\Pasajero;
 class SeguroController extends Controller
 {
     /**
@@ -111,5 +112,13 @@ class SeguroController extends Controller
     public function asignacion_pasajero_seguro(Request $request){
       $request->session()->put('seguro_id',$request->get('id'));
       return view('asignacion_pasajero_seguro');
+    }
+
+    public function finalizar_pago_seguro(Request $request){
+      $seguro = Seguro::find($request->session()->get('seguro_id'));
+      $pasajero = Pasajero::find($request->session()->get('seguro_pasajero_id'));
+      $seguro->pasajeros()->attach([$pasajero->id]);
+      $detalle = (object)['numero_tarjeta'=>$request->get('numero'), 'cvv'=>$request->get('cvv'),'nombre'=>$request->get('nombre')];
+      return view('comprobante_pago_seguro')->with('seguro',$seguro)->with('pasajero',$pasajero)->with('detalle',$detalle);
     }
 }
