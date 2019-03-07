@@ -145,6 +145,8 @@ document.getElementById(cityName).style.display = "block";
     <th>Ciudad</th>
     <th>Hotel</th>
     <th>Dirección</th>
+    <th>Fecha inicio</th>
+    <th>Fecha termino</th>
     <th>Número de Hab.</th>
     <th>Categoría</th>
     <th>Precio</th>
@@ -156,6 +158,8 @@ document.getElementById(cityName).style.display = "block";
     <td>{{$habitacion->hotel->ciudad}}</td>
     <td>{{$habitacion->hotel->nombre}}</td>
     <td>{{$habitacion->hotel->direccion}}</td>
+    <td>{{$habitacion->pivot->fecha_inicio}}</td>
+    <td>{{$habitacion->pivot->fecha_termino}}</td>
     <td>{{$habitacion->numero}}</td>
     <td>{{$habitacion->categoria}}</td>
     <td>{{$reserva->totalAPagar}}</td>
@@ -171,6 +175,8 @@ document.getElementById(cityName).style.display = "block";
     <th>Numero Reserva</th>
     <th>Ciudad</th>
     <th>Dirección</th>
+    <th>Fecha Inicio</th>
+    <th>Fecha Termino</th>
     <th>Patente</th>
     <th>Marca</th>
     <th>Modelo</th>
@@ -182,6 +188,8 @@ document.getElementById(cityName).style.display = "block";
     <td>{{$reserva->reserva}}</td>
     <td>{{$vehiculo->compania_alquiler->ciudad}}</td>
     <td>{{$vehiculo->compania_alquiler->direccion}}</td>
+    <td>{{$vehiculo->pivot->fecha_inicio}}</td>
+    <td>{{$vehiculo->pivot->fecha_termino}}</td>
     <td>{{$vehiculo->patente}}</td>
     <td>{{$vehiculo->marca}}</td>
     <td>{{$vehiculo->modelo}}</td>
