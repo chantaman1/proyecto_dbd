@@ -54,7 +54,7 @@
                 <div class="form-group">
                   <label for="id_label_single">Código de Reserva</label>
                   <label for="id_label_single" style="width: 100%;">
-                    <input name="checkin" placeholder="" type="text" class="form-control" required autofocus>
+                    <input name="codigoReserva" placeholder="" type="text" class="form-control" required autofocus>
                   </label>
                 </div>
               </div>
