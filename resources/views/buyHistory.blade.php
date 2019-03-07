@@ -207,8 +207,8 @@ document.getElementById(cityName).style.display = "block";
     @foreach($reserva->paquetes as $paquete)
     <tr>
       <td>{{$reserva->reserva}}</td>
-      <td>{{$paquete->pais}}</td>
-      <td>{{$paquete->ciudad}}</td>
+      <td>{{$paquete->pais_destino}}</td>
+      <td>{{$paquete->ciudad_destino}}</td>
       @if($paquete->posee_hotel)
       <td>Si</td>
       @else
