@@ -255,4 +255,21 @@ class ReservaController extends Controller
           return "Reserva no existente.";
       }
     }
+
+    public function checkinResult(Request $request)
+    {
+        $reserva = Reserva::where('reserva', $request->get('codigoReserva'))->first();
+        $asientos = $reserva->asientos;
+        foreach($asientos as $asiento)
+        {
+          $pasajeros = $asiento->pasajeros;
+          foreach($pasajeros as $pasajero)
+          {
+            if($pasajero->apellido_paterno == $request->get('apellido')){
+              return view('checkinResult')->with('asiento', $asiento)->with('reserva', $reserva);
+            }
+          }
+        }
+        return redirect('/checkin');
+    }
 }
