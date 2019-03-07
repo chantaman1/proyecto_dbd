@@ -358,7 +358,7 @@ a {
   margin-bottom: 50px;
   -webkit-box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.05);
   box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.05);
-  border-radius: 0px; }
+  border-radius: 10px; }
   @media (max-width: 991px) {
     .probootstrap-form {
       padding: 15px; } }
