@@ -142,7 +142,6 @@ class PasajeroController extends Controller
       }
     }
 
-<<<<<<< HEAD
     public function addPassengerView(Request $request){
       return view('passengerFlight');
     }
@@ -206,22 +205,6 @@ class PasajeroController extends Controller
                                     'pasajeros' => $request->session()->get('passengers'), 'total' => $totalPagar,
                                     'tipoViaje' => $request->session()->get('tipoViaje')]);
         }
-=======
-    public function buscar_pasajero(Request $request){
-      $pasajero = Pasajero::where('nombre',$request->get('nombre'))
-        ->where('apellido_paterno',$request->get('apellido'))
-        ->where('pasaporte',$request->get('pasaporte'))->first();
-      if($pasajero == NULL){
-          return back()->withInput();
-      }
-      else if(Auth::check() == false){
-        return redirect('/login');
-      }
-      else{
-        $seguro = Seguro::find($request->session()->get('seguro_id'));
-        $request->session()->put('seguro_pasajero_id', $pasajero->id);
-        return view('pago_seguro')->with('pasajero',$pasajero)->with('seguro',$seguro);
->>>>>>> 4914ad80b1e5eac1f29311d50fc0e19dde9e51c5
       }
     }
 

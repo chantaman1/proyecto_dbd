@@ -169,15 +169,9 @@
                 <!-- END row -->
                 <div class="row">
                   <div class="col-md">
-<<<<<<< HEAD
 										<label for="round"><input type="radio" id="round" name="direction" value="both" checked>			  IDA Y VUELTA</label>
                     <label for="oneway" class="mr-5"><input type="radio" id="oneway" value="one" name="direction">			  SÓLO IDA</label>
                   </div>
-=======
-										<label for="round"><input type="radio" id="round" name="direction" checked>		IDA Y VUELTA</label>
-                    <label for="oneway" class="mr-5"><input type="radio" id="oneway" name="direction">		SÓLO IDA</label>
-                  	</div>
->>>>>>> e41438e2045228ea1263946d13d44f549ae9443e
                   <div class="col-md">
                     <input type="submit" value="Busca tu vuelo" class="btn btn-primary btn-block">
                   </div>
