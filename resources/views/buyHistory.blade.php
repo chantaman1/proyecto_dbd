@@ -120,27 +120,18 @@ document.getElementById(cityName).style.display = "block";
     <th>Tipo Asiento</th>
     <th>Precio</th>
   </tr>
+  @foreach ($user->reservas as $reserva)
+  @foreach($reserva->asientos as $asiento)
   <tr>
-    <td>Ubuntu Server 16.04.4</td>
-    <td class="actived"><a href="#">Available</a></td>
-    <td>1 year, 11 months, 23 hours, 59minutes, 59seconds</td>
+    <td>{{$reserva->reserva}}</td>
+    <td>{{$asiento->vuelo->ciudad_origen}}</td>
+    <td>{{$asiento->vuelo->ciudad_destino}}</td>
+    <td>{{$asiento->vuelo->fecha}}</td>
+    <td>{{$asiento->codigo}}</td>
+    <td>{{$asiento->tipo}}</td>
+    <td>{{$asiento->precio}}</td>
   </tr>
-  <tr>
-    <td>Virtual Machine Windows Server 2002</td>
-    <td class="actived"><a href="#">Available</a></td>
-   <td>2 year, 11 months, 23 hours, 59minutes, 59seconds</td>
-  </tr>
-  <tr>
-    <td>Windows 10 Spark server</td>
-    <td class="deactivated"><a href="#">Unavailable</a></td>
-    <td>0 year, 6 months, 2 hours, 9minutes, 40seconds</td>
-  </tr>
-  <tr>
-    <td>Windows XP Professional</td>
-    <td class="deactivated"><a href="#">Unavailable</a></td>
-   <td>0 year, 0 month, 0 hours, 0 minutes, 0 seconds</td>
-  </tr>
-
+  @endforeach
 </table>
 </div>
 
@@ -155,25 +146,11 @@ document.getElementById(cityName).style.display = "block";
     <th>Categoría</th>
     <th>Precio</th>
   </tr>
+  @foreach($reserva->)
   <tr>
     <td>Orange</td>
     <td>1 unit</td>
     <td>U$ 0,10</td>
-  </tr>
-  <tr>
-    <td>Pineapple</td>
-    <td>1 unit</td>
-   <td>U$ 0,20</td>
-  </tr>
-  <tr>
-    <td>Strawberry</td>
-    <td>1 unit</td>
-    <td>U$ 0,40</td>
-  </tr>
-  <tr>
-    <td>Apple</td>
-    <td>2 units</td>
-   <td>U$ 0,40</td>
   </tr>
 
 </table>
@@ -280,10 +257,11 @@ document.getElementById(cityName).style.display = "block";
 <div id="Seguros" class="tabcontent">
   <table>
   <tr>
+    <th>ID Seguro</th>
     <th>Tipo Seguro</th>
     <th>Nombre Pasajero</th>
     <th>Apellido Pasajero</th>
-    <th>Status</th>
+    <th>Precio</th>
   </tr>
   <tr>
     <td>Leandro Bizzinotto Ferreira</td>

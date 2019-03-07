@@ -24,7 +24,8 @@ class UserController extends Controller
     }
 
     public function buyHistory(){
-      return view('buyHistory');
+      $user = User::find(1);
+      return view('buyHistory')->with('user',$user);
     }
 
     public function getUserByEmail($email){

@@ -4,11 +4,11 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class ReservaAsiento extends Migration
+class AsientoReserva extends Migration
 {
     public function up()
     {
-      Schema::create('reserva_asiento', function (Blueprint $table) {
+      Schema::create('asiento_reserva', function (Blueprint $table) {
           $table->increments('id');
           $table->unsignedInteger('reserva_id');
           $table->unsignedInteger('asiento_id');
@@ -25,6 +25,6 @@ class ReservaAsiento extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('reserva_asiento');
+        Schema::dropIfExists('asiento_reserva');
     }
 }
