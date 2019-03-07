@@ -6,7 +6,9 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Pasajero;
 use App\Asiento;
+use App\Seguro;
 use Auth;
+use Illuminate\Support\Facades\Route;
 class PasajeroController extends Controller
 {
     /**
@@ -137,6 +139,23 @@ class PasajeroController extends Controller
       }
       else{
         return redirect('/login');
+      }
+    }
+
+    public function buscar_pasajero(Request $request){
+      $pasajero = Pasajero::where('nombre',$request->get('nombre'))
+        ->where('apellido_paterno',$request->get('apellido'))
+        ->where('pasaporte',$request->get('pasaporte'))->first();
+      if($pasajero == NULL){
+          return back()->withInput();
+      }
+      else if(Auth::check() == false){
+        return redirect('/login');
+      }
+      else{
+        $seguro = Seguro::find($request->session()->get('seguro_id'));
+        $request->session()->put('seguro_pasajero_id', $pasajero->id);
+        return view('pago_seguro')->with('pasajero',$pasajero)->with('seguro',$seguro);
       }
     }
 

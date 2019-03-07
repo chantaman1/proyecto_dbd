@@ -10,13 +10,13 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-		<title>Places &mdash; Free HTML5 Bootstrap 4 Theme by ProBootstrap.com</title>
+		<title>Places</title>
 		<meta name="description" content="Free Bootstrap 4 Theme by ProBootstrap.com">
 		<meta name="keywords" content="free website templates, free bootstrap themes, free template, free bootstrap, free website template">
 
 
     <link href="https://fonts.googleapis.com/css?family=Work+Sans:300,400,700" rel="stylesheet">
-		
+
 		<link rel="stylesheet" href="assets/css/bootstrap/bootstrap.css">
     <link rel="stylesheet" href="assets/css/animate.css">
     <link rel="stylesheet" href="assets/fonts/ionicons/css/ionicons.min.css">
