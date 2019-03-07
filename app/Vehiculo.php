@@ -32,10 +32,6 @@ class Vehiculo extends Model
     return $this->belongsToMany('app\Paquete')->withPivot('hora_inicio','fecha_inicio','hora_termino','fecha_termino');
   }
 
-  public function rols(){
-    return $this->belongsToMany('app\Rol');
-  }
-
   public function compania_alquiler(){
     return $this->belongsTo('app\Compania_alquiler');
   }

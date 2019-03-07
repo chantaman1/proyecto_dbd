@@ -132,6 +132,7 @@ document.getElementById(cityName).style.display = "block";
     <td>{{$asiento->precio}}</td>
   </tr>
   @endforeach
+  @endforeach
 </table>
 </div>
 
@@ -142,17 +143,23 @@ document.getElementById(cityName).style.display = "block";
     <th>Ciudad</th>
     <th>Hotel</th>
     <th>Dirección</th>
-    <th>Número Hab.</th>
+    <th>Número de Hab.</th>
     <th>Categoría</th>
     <th>Precio</th>
   </tr>
-  @foreach($reserva->)
+  @foreach ($user->reservas as $reserva)
+  @foreach($reserva->habitacions as $habitacion)
   <tr>
-    <td>Orange</td>
-    <td>1 unit</td>
-    <td>U$ 0,10</td>
+    <td>{{$reserva->reserva}}</td>
+    <td>{{$habitacion->hotel->ciudad}}</td>
+    <td>{{$habitacion->hotel->nombre}}</td>
+    <td>{{$habitacion->hotel->direccion}}</td>
+    <td>{{$habitacion->numero}}</td>
+    <td>{{$habitacion->categoria}}</td>
+    <td>{{$reserva->totalAPagar}}</td>
   </tr>
-
+  @endforeach
+  @endforeach
 </table>
 </div>
 
@@ -165,45 +172,21 @@ document.getElementById(cityName).style.display = "block";
     <th>Patente</th>
     <th>Marca</th>
     <th>Modelo</th>
-    <th>Categoría</th>
     <th>Precio</th>
   </tr>
+  @foreach ($user->reservas as $reserva)
+  @foreach($reserva->vehiculos as $vehiculo)
   <tr>
-    <td>Leandro Bizzinotto Ferreira</td>
-    <td>Web Designer</td>
-    <td>23/09/1994</td>
-    <td class="intraining">In training</td>
+    <td>{{$reserva->reserva}}</td>
+    <td>{{$vehiculo->compania_alquiler->ciudad}}</td>
+    <td>{{$vehiculo->compania_alquiler->direccion}}</td>
+    <td>{{$vehiculo->patente}}</td>
+    <td>{{$vehiculo->marca}}</td>
+    <td>{{$vehiculo->modelo}}</td>
+    <td>{{$reserva->totalAPagar}}</td>
   </tr>
-  <tr>
-    <td>Cristiano Bizzinotto Ferreira</td>
-    <td>Advertising</td>
-    <td>23/09/1994</td>
-    <td class="available">Available</td>
-  </tr>
-  <tr>
-    <td>Amanda Maria Bizzinotto Ferreira</td>
-    <td>Polyglot, Translator, Developer</td>
-    <td>17/07/1993</td>
-    <td class="vacation">Vacation</td>
-  </tr>
-  <tr>
-    <td>Luis Antonio Ferreira</td>
-    <td>Personal Manager</td>
-    <td>20/08/1966</td>
-    <td class="available">Available</td>
-  </tr>
-  <tr>
-    <td>Luis Antonio Ferreira</td>
-    <td>Personal Manager</td>
-    <td>20/08/1968</td>
-    <td class="available">Available</td>
-  </tr>
-  <tr>
-    <td>Rita Helena Bizzinotto Ferreira</td>
-    <td>Housewife</td>
-    <td>20/07/1962</td>
-    <td class="disable">Disable</td>
-  </tr>
+  @endforeach
+  @endforeach
  </table>
 </div>
 
@@ -221,36 +204,6 @@ document.getElementById(cityName).style.display = "block";
     <td>23/09/1994</td>
     <td class="intraining">In training</td>
   </tr>
-  <tr>
-    <td>Cristiano Bizzinotto Ferreira</td>
-    <td>Advertising</td>
-    <td>23/09/1994</td>
-    <td class="available">Available</td>
-  </tr>
-  <tr>
-    <td>Amanda Maria Bizzinotto Ferreira</td>
-    <td>Polyglot, Translator, Developer</td>
-    <td>17/07/1993</td>
-    <td class="vacation">Vacation</td>
-  </tr>
-  <tr>
-    <td>Luis Antonio Ferreira</td>
-    <td>Personal Manager</td>
-    <td>20/08/1966</td>
-    <td class="available">Available</td>
-  </tr>
-  <tr>
-    <td>Luis Antonio Ferreira</td>
-    <td>Personal Manager</td>
-    <td>20/08/1968</td>
-    <td class="available">Available</td>
-  </tr>
-  <tr>
-    <td>Rita Helena Bizzinotto Ferreira</td>
-    <td>Housewife</td>
-    <td>20/07/1962</td>
-    <td class="disable">Disable</td>
-  </tr>
  </table>
 </div>
 
@@ -263,42 +216,21 @@ document.getElementById(cityName).style.display = "block";
     <th>Apellido Pasajero</th>
     <th>Precio</th>
   </tr>
+  @foreach ($user->reservas as $reserva)
+  @foreach ($reserva->asientos as $asiento)
+  @if($asiento->pasajero != NULL)
+  @foreach ($asiento->pasajero->seguros as $seguro)
   <tr>
-    <td>Leandro Bizzinotto Ferreira</td>
-    <td>Web Designer</td>
-    <td>23/09/1994</td>
-    <td class="intraining">In training</td>
+    <td>{{$seguro->id}}</td>
+    <td>{{$seguro->tipo}}</td>
+    <td>{{$asiento->pasajero->nombre}}</td>
+    <td>{{$asiento->pasajero->apellido_paterno}}</td>
+    <td>{{$seguro->precio}}</td>
   </tr>
-  <tr>
-    <td>Cristiano Bizzinotto Ferreira</td>
-    <td>Advertising</td>
-    <td>23/09/1994</td>
-    <td class="available">Available</td>
-  </tr>
-  <tr>
-    <td>Amanda Maria Bizzinotto Ferreira</td>
-    <td>Polyglot, Translator, Developer</td>
-    <td>17/07/1993</td>
-    <td class="vacation">Vacation</td>
-  </tr>
-  <tr>
-    <td>Luis Antonio Ferreira</td>
-    <td>Personal Manager</td>
-    <td>20/08/1966</td>
-    <td class="available">Available</td>
-  </tr>
-  <tr>
-    <td>Luis Antonio Ferreira</td>
-    <td>Personal Manager</td>
-    <td>20/08/1968</td>
-    <td class="available">Available</td>
-  </tr>
-  <tr>
-    <td>Rita Helena Bizzinotto Ferreira</td>
-    <td>Housewife</td>
-    <td>20/07/1962</td>
-    <td class="disable">Disable</td>
-  </tr>
+  @endforeach
+  @endif
+  @endforeach
+  @endforeach
  </table>
 </div>
 </div>
