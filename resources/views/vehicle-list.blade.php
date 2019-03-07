@@ -53,7 +53,7 @@
 				<div class="clear"></div>
 					<h3 style="text-align: center">Autos disponibles en la ciudad</h3>
 					<br>
-					@foreach ($vehiculos as $data)
+					@foreach ($vehiculos as $vehiculo)
 					<div class="card" style="
 				    font-weight: bold;
 				    border: 1px solid #0C0C19;
@@ -64,16 +64,16 @@
 				    -webkit-box-shadow: inset 0px 0px 5px #2B2B33;
 						text-align: left;
 				    text-shadow: 1px 1px 1px #fff;">
-						<a  href="reservar_vehiculo?id={{ $data->id }}">
+						<a  href="reservar_vehiculo?id={{ $vehiculo->id }}">
 							<img src='images/auto.jpg' align="left" height="300" width="350" style="margin:30px;  padding:10px">
 				      <div class="card-body" style="color:black">
-				        <h4 style="color:#3433FF; margin: 10px; padding: 10px"><ins>{{$data->marca}}</ins></h4>
-								<p><b>Modelo:</b> {{$data->modelo}}</p>
-				        <p><b>Patente:</b> {{$data->patente}}</p>
-				        <p><b>Año:</b> {{$data->año}}</p>
-				        <p><b>Cantidad Asientos:</b> {{$data->cantidad_asientos}}, <b>Tipo Transmisión:</b> {{$data->tipo_transmision}} </p>
-								<p><b>Descripción:</b> {{$data->descripcion}}</p>
-				        <h5 style="color:black"><b>Precio por día: ${{$data->precio}}</b></h6>
+				        <h4 style="color:#3433FF; margin: 10px; padding: 10px"><ins>{{$vehiculo->marca}}</ins></h4>
+								<p><b>Modelo:</b> {{$vehiculo->modelo}}</p>
+				        <p><b>Patente:</b> {{$vehiculo->patente}}</p>
+				        <p><b>Año:</b> {{$vehiculo->año}}</p>
+				        <p><b>Cantidad Asientos:</b> {{$vehiculo->cantidad_asientos}}, <b>Tipo Transmisión:</b> {{$vehiculo->tipo_transmision}} </p>
+								<p><b>Descripción:</b> {{$vehiculo->descripcion}}</p>
+				        <h5 style="color:black"><b>Precio por día: ${{$vehiculo->precio}}</b></h6>
 								<br>
 			    		</div>
 						</a>

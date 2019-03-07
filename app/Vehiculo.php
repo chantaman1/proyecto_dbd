@@ -25,18 +25,22 @@ class Vehiculo extends Model
   ];
 
   public function reservas(){
-    return $this->belongsToMany('app\Reserva')->withPivot('hora_inicio','fecha_inicio','hora_termino','fecha_termino');
+    return $this->belongsToMany('App\Reserva')->withPivot('hora_inicio','fecha_inicio','hora_termino','fecha_termino');
   }
 
   public function paquetes(){
+<<<<<<< HEAD
     return $this->belongsToMany('app\Paquete')->withPivot('dias', 'noches');
   }
 
   public function rols(){
     return $this->belongsToMany('app\Rol');
+=======
+    return $this->belongsToMany('App\Paquete')->withPivot('hora_inicio','fecha_inicio','hora_termino','fecha_termino');
+>>>>>>> 84c148f84c6777710bfc6a6d7768e55df5c29b3b
   }
 
   public function compania_alquiler(){
-    return $this->belongsTo('app\Compania_alquiler');
+    return $this->belongsTo('App\Compania_alquiler');
   }
 }

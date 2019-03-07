@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\User;
+use Auth;
+use App\Compania_alquiler;
 use Illuminate\Support\Facades\Hash;
 use App\Mail\bienvenidaMail;
 use App\Mail\verificarMail;
@@ -24,7 +26,8 @@ class UserController extends Controller
     }
 
     public function buyHistory(){
-      $user = User::find(1);
+      $id = Auth::id();
+      $user = User::find($id);
       return view('buyHistory')->with('user',$user);
     }
 
