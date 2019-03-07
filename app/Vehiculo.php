@@ -29,7 +29,11 @@ class Vehiculo extends Model
   }
 
   public function paquetes(){
-    return $this->belongsToMany('App\Paquete')->withPivot('hora_inicio','fecha_inicio','hora_termino','fecha_termino');
+    return $this->belongsToMany('app\Paquete')->withPivot('dias', 'noches');
+  }
+
+  public function rols(){
+    return $this->belongsToMany('app\Rol');
   }
 
   public function compania_alquiler(){

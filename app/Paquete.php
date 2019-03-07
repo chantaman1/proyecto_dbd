@@ -36,12 +36,12 @@ class Paquete extends Model
 
   public function vehiculos()
   {
-      return $this->belongsToMany('App\Vehiculo')->withPivot('hora_inicio','fecha_inicio','hora_termino','fecha_termino');
+      return $this->belongsToMany('App\Vehiculo')->withPivot('dias', 'noches');
   }
 
   public function habitacions()
   {
-      return $this->belongsToMany('App\Habitacion')->withPivot('fecha_inicio','fecha_termino');
+      return $this->belongsToMany('App\Habitacion')->withPivot('dias', 'noches');
   }
 
   public function servicios()

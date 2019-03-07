@@ -11,7 +11,7 @@
 		<a class="nav-link" href="/paquetes">Paquetes</a>
 	</li>
 	<li class="nav-item dropdown dmenu">
-		<a class="nav-link active dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Servicios
+		<a class="nav-link active dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Arriendo de autos
 		</a>
 		<div class="dropdown-menu sm-menu">
 			<a class="dropdown-item" href="/autos">Arriendo de autos</a>
@@ -57,11 +57,11 @@
       <br>
         <div>
           <a class="btn display" style="color: #000000; width: 100%">
-             <strong>Patente vehículo:</strong> {{ $vehiculo->patente }} <br/> <strong>Marca:</strong> {{$vehiculo->marca}} <br/> <strong>Modelo:</strong> {{$vehiculo->modelo}} <strong>Año:</strong> {{$vehiculo->año}} <br/> <strong>Fecha de retiro:</strong> {{$data->fecha_retiro}} <br/> <strong>Fecha de devolución:</strong> {{$data->fecha_devolucion}} <br/> <strong>Ciudad:</strong> {{$data->ciudad}} <br/> <strong>Precio por día:</strong> {{$vehiculo->precio}} </a>
+             <strong>Patente vehículo:</strong> {{ $vehiculo->patente }} <br/> <strong>Marca:</strong> {{$vehiculo->marca}} <br/> <strong>Modelo:</strong> {{$vehiculo->modelo}} <strong>Año:</strong> {{$vehiculo->año}} <br/> <strong>Fecha de retiro:</strong> {{$data->fecha_retiro}} <br/> <strong>Fecha de devolución:</strong> {{$data->fecha_devolucion}} <br/> <strong>Ciudad:</strong> {{$data->ciudad}} <br/> <strong>Precio por día:</strong> CLP$ {{number_format($vehiculo->precio, 0, '', '.')}} </a>
         </div>
         <div class="grid_4">
 					<a class="btn" style="color: #000000; text-align: center">
-             <strong>    Total a pagar:</strong> {{$data->total}} </a>
+             <strong>    Total a pagar:</strong> CLP$ {{number_format($data->total, 0, '', '.')}} </a>
 				</div>
     </div>
 		<div class="grid_6" style="margin-left:25%">

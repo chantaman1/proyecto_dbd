@@ -73,7 +73,7 @@
 				        <p><b>Año:</b> {{$vehiculo->año}}</p>
 				        <p><b>Cantidad Asientos:</b> {{$vehiculo->cantidad_asientos}}, <b>Tipo Transmisión:</b> {{$vehiculo->tipo_transmision}} </p>
 								<p><b>Descripción:</b> {{$vehiculo->descripcion}}</p>
-				        <h5 style="color:black"><b>Precio por día: ${{$vehiculo->precio}}</b></h6>
+				        <h5 style="color:black"><b>Precio por día: CLP$ {{number_format($vehiculo->precio, 0, '', '.')}}</b></h6>
 								<br>
 			    		</div>
 						</a>
