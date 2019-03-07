@@ -28,8 +28,8 @@ class confirmacionCompra extends Mailable
      */
     public function build()
     {
-        return $this->from('noresponder.alaya@gmail.com', 'Aerolinea Alaya')
-            ->subject('Confirmacion de compra Aerolinea')
+        return $this->from('noresponder.places@airline.com', 'PLACES Airlines')
+            ->subject('Confirmación de compra PLACES Airline')
             ->markdown('mails.confirmacionCompra')
             ->with([
                 'name' => 'Joe Doe',
