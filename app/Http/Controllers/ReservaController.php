@@ -64,7 +64,6 @@ class ReservaController extends Controller
         }
         return view('buyFinished', ['tipoVuelo' => 'Ida y regreso', 'cOrigen' => $request->session()->get('ida_ciudad_origen'), 'cDestino' => $request->session()->get('ida_ciudad_destino'),
                                     'pasajeros' => $request->session()->get('totalPasajeros'), 'reserva' => $request->session()->get('reservaId')]);
-        }
       }
       else{
         $x = 0;
