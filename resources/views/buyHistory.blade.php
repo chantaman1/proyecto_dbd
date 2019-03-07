@@ -131,7 +131,7 @@ document.getElementById(cityName).style.display = "block";
     <td>{{$asiento->pasajero->apellido_paterno}}</td>
     <td>{{$asiento->codigo}}</td>
     <td>{{$asiento->tipo}}</td>
-    <td>{{$asiento->precio}}</td>
+    <td>CLP$ {{number_format($asiento->precio, 0, '', '.')}}</td>
   </tr>
   @endforeach
   @endforeach
@@ -162,7 +162,7 @@ document.getElementById(cityName).style.display = "block";
     <td>{{$habitacion->pivot->fecha_termino}}</td>
     <td>{{$habitacion->numero}}</td>
     <td>{{$habitacion->categoria}}</td>
-    <td>{{$reserva->totalAPagar}}</td>
+    <td>CLP$ {{number_format($reserva->totalAPagar, 0, '', '.')}}</td>
   </tr>
   @endforeach
   @endforeach
@@ -193,7 +193,7 @@ document.getElementById(cityName).style.display = "block";
     <td>{{$vehiculo->patente}}</td>
     <td>{{$vehiculo->marca}}</td>
     <td>{{$vehiculo->modelo}}</td>
-    <td>{{$reserva->totalAPagar}}</td>
+    <td>CLP$ {{number_format($reserva->totalAPagar, 0, '', '.')}}</td>
   </tr>
   @endforeach
   @endforeach
@@ -228,7 +228,7 @@ document.getElementById(cityName).style.display = "block";
       <td>No</td>
       @endif
       <td>{{$paquete->descuento}}</td>
-      <td>{{$reserva->totalAPagar}}</td>
+      <td>CLP$ {{number_format($reserva->totalAPagar, 0, '', '.')}}</td>
     </tr>
     @endforeach
     @endforeach
@@ -253,7 +253,7 @@ document.getElementById(cityName).style.display = "block";
     <td>{{$seguro->tipo}}</td>
     <td>{{$asiento->pasajero->nombre}}</td>
     <td>{{$asiento->pasajero->apellido_paterno}}</td>
-    <td>{{$seguro->precio}}</td>
+    <td>CLP$ {{number_format($seguro->precio, 0, '', '.')}}</td>
   </tr>
   @endforeach
   @endif
