@@ -45,6 +45,10 @@ Route::get('/send-mail', function () {
     return redirect('vuelos');
 });
 
+Route::get('/checkin', function () {
+    return view('checkin');
+});
+
 
 //RUTAS DEL USUARIO
 Route::get('/usuario/show/{id}', 'usuarioController@show');

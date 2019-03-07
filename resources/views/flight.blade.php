@@ -168,9 +168,9 @@
                 <!-- END row -->
                 <div class="row">
                   <div class="col-md">
+										<label for="round"><input type="radio" id="round" name="direction" checked>		IDA Y VUELTA</label>
                     <label for="oneway" class="mr-5"><input type="radio" id="oneway" name="direction">		SÓLO IDA</label>
-                    <label for="round"><input type="radio" id="round" name="direction" checked>		IDA Y VUELTA</label>
-                  </div>
+                  	</div>
                   <div class="col-md">
                     <input type="submit" value="Busca tu vuelo" class="btn btn-primary btn-block">
                   </div>
