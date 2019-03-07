@@ -57,35 +57,41 @@
       <br>
 			@if($tipoViaje == "both")
 				@if($esPaquete == 'true')
-					@for ($i = 0; $i < count($asientosIda); $i++)
+					@php ($i = 0)
+					@foreach($asientosIda as $asiento)
 							<div>
 								<a class="btn display" style="color: #000000; width: 100%">
-									 <strong>Tipo de viaje:</strong> Ida <br/> <strong>Pasajero:</strong> {{$pasajeros[$i]->nombre}} {{$pasajeros[$i]->apellido_paterno}} {{$pasajeros[$i]->apellido_materno}} <br/> <strong>Numero de asiento:</strong> {{$asientosIda[$i]->codigo}} <br/> <strong>Tipo de asiento:</strong> {{$asientosIda[$i]->tipo}} </a>
+									 <strong>Tipo de viaje:</strong> Ida <br/> <strong>Pasajero:</strong> {{$pasajeros[$i]->nombre}} {{$pasajeros[$i]->apellido_paterno}} {{$pasajeros[$i]->apellido_materno}} <br/> <strong>Numero de asiento:</strong> {{$asiento->codigo}} <br/> <strong>Tipo de asiento:</strong> {{$asiento->tipo}} </a>
 							</div>
 							<div>
 								<a class="btn display" style="color: #000000; width: 100%">
 									 <strong>Tipo de viaje:</strong> Regreso <br/> <strong>Pasajero:</strong> {{$pasajeros[$i]->nombre}} {{$pasajeros[$i]->apellido_paterno}} {{$pasajeros[$i]->apellido_materno}} <br/> <strong>Numero de asiento:</strong> {{$asientosRegreso[$i]->codigo}} <br/> <strong>Tipo de asiento:</strong> {{ $asientosRegreso[$i]->tipo}} </a>
 							</div>
-					@endfor
+					@php ($i++)
+					@endforeach
 				@else
-					@for ($i = 0; $i < count($asientosIda); $i++)
+					@php ($i = 0)
+					@foreach($asientosIda as $asiento)
 							<div>
 								<a class="btn display" style="color: #000000; width: 100%">
-									 <strong>Tipo de viaje:</strong> Ida <br/> <strong>Pasajero:</strong> {{$pasajeros[$i]->nombre}} {{$pasajeros[$i]->apellido_paterno}} {{$pasajeros[$i]->apellido_materno}} <br/> <strong>Numero de asiento:</strong> {{$asientosIda[$i]->codigo}} <br/> <strong>Tipo de asiento:</strong> {{$asientosIda[$i]->tipo}} <br/> <strong>Precio:</strong> ${{$asientosIda[$i]->precio}} </a>
+									 <strong>Tipo de viaje:</strong> Ida <br/> <strong>Pasajero:</strong> {{$pasajeros[$i]->nombre}} {{$pasajeros[$i]->apellido_paterno}} {{$pasajeros[$i]->apellido_materno}} <br/> <strong>Numero de asiento:</strong> {{$asiento->codigo}} <br/> <strong>Tipo de asiento:</strong> {{$asiento->tipo}} <br/> <strong>Precio:</strong> ${{$asiento->precio}} </a>
 							</div>
 							<div>
 								<a class="btn display" style="color: #000000; width: 100%">
 									 <strong>Tipo de viaje:</strong> Regreso <br/> <strong>Pasajero:</strong> {{$pasajeros[$i]->nombre}} {{$pasajeros[$i]->apellido_paterno}} {{$pasajeros[$i]->apellido_materno}} <br/> <strong>Numero de asiento:</strong> {{$asientosRegreso[$i]->codigo}} <br/> <strong>Tipo de asiento:</strong> {{ $asientosRegreso[$i]->tipo}} <br/> <strong>Precio:</strong> {{ $asientosRegreso[$i]->precio}} </a>
 							</div>
-					@endfor
+					@php ($i++)
+					@endforeach
 				@endif
 			@else
-				@for ($i = 0; $i < count($asientosIda); $i++)
+				@php ($i = 0)
+				@foreach($asientosIda as $asiento)
 					<div>
 						<a class="btn display" style="color: #000000; width: 100%">
-							 <strong>Tipo de viaje:</strong> Ida <br/> <strong>Pasajero:</strong> {{$pasajeros[$i]->nombre}} {{$pasajeros[$i]->apellido_paterno}} {{$pasajeros[$i]->apellido_materno}} <br/> <strong>Numero de asiento:</strong> {{$asientosIda[$i]->codigo}} <br/> <strong>Tipo de asiento:</strong> {{$asientosIda[$i]->tipo}} <br/> <strong>Precio:</strong> ${{$asientosIda[$i]->precio}} </a>
+							 <strong>Tipo de viaje:</strong> Ida <br/> <strong>Pasajero:</strong> {{$pasajeros[$i]->nombre}} {{$pasajeros[$i]->apellido_paterno}} {{$pasajeros[$i]->apellido_materno}} <br/> <strong>Numero de asiento:</strong> {{$asiento->codigo}} <br/> <strong>Tipo de asiento:</strong> {{$asiento->tipo}} <br/> <strong>Precio:</strong> ${{$asiento->precio}} </a>
 					</div>
-				@endfor
+				@php ($i++)
+				@endforeach
 			@endif
 			@if($esPaquete == 'true')
 			<div class="grid_4">

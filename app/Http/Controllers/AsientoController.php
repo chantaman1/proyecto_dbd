@@ -70,6 +70,7 @@ class AsientoController extends Controller
     public function getBackFlightSeat(Request $request){
       $asientoIdaId = $request->get('id');
       $request->session()->push('asientosIda', $asientoIdaId);
+      $this->updateSeat($asientoIdaId);
       $asientos = Asiento::where('vuelo_id', $request->session()->get('vuelta_vuelo_id'))->where('disponibilidad', true)->get();
       return view('seatResult', ['asientos' => $asientos, 'vuelta' => '']);
     }
@@ -78,10 +79,12 @@ class AsientoController extends Controller
       $asientoId = $request->get('id');
       if($request->session()->get('estadoAsiento') == 0){
         $request->session()->push('asientosIda', $asientoId);
+        $this->updateSeat($asientoId);
         return app('App\Http\Controllers\PasajeroController')->addPassengerView($request);
       }
       else{
         $request->session()->push('asientosRegreso', $asientoId);
+        $this->updateSeat($asientoId);
         return app('App\Http\Controllers\PasajeroController')->addPassengerView($request);
       }
     }
