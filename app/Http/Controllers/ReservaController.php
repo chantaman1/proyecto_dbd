@@ -224,12 +224,9 @@ class ReservaController extends Controller
         $asientos = $reserva->asientos;
         foreach($asientos as $asiento)
         {
-          $pasajeros = $asiento->pasajeros;
-          foreach($pasajeros as $pasajero)
-          {
-            if($pasajero->apellido_paterno == $request->get('apellido')){
-              return view('checkinResult')->with('asiento', $asiento)->with('reserva', $reserva);
-            }
+          $pasajero = $asiento->pasajero;
+          if($pasajero->apellido_paterno == $request->get('apellido')){
+            return view('checkinResult')->with('asiento', $asiento)->with('reserva', $reserva);
           }
         }
         return redirect('/checkin');
