@@ -273,7 +273,7 @@ class VueloController extends Controller
     public function eraseData(Request $request){
         $request->session()->flush();
         $this->initializeFlightData($request);
-        return view('index');
+        return redirect('/vuelos');
     }
 
     private function initializeFlightData(Request $request){

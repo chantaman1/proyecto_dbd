@@ -259,11 +259,14 @@
 																		<p class="bodycopy" style="margin: 0; padding: 0; color: #364141; font-weight: 300; line-height: 24px; font-size: 16px; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;">
 																			¡Hey, <strong>{{ $userName }}</strong>!,<br> <br>
 																			Gracias por preferir PLACES Airlines.<br>
-                                      A continuación encontrarás tu código de reserva:
-                                      <br><br>
-                                      CODIGO DE RESERVA:
-                                      <br><br>
-
+                                      A continuación encontrarás tu(s) código(s) de reserva:
+																			@foreach($reserva as $res)
+	                                      <br><br>
+	                                      CODIGO DE RESERVA: {{ $res }}
+																			@endforeach
+																			<br><br>
+																			Los detalles de esta y otras compras las puedes encontrar en la sección 'Historial de compras'
+																			<br><br>
                                       De parte de todo el equipo de PLACES Airlines, te deseamos un buen viaje.
 <br><br>Atentamente,<br>
 PLACES Airlines

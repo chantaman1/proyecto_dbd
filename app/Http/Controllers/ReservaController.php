@@ -7,10 +7,13 @@ use App\Http\Controllers\Controller;
 use App\Reserva;
 use App\Vehiculo;
 use App\Habitacion;
+use App\Asiento;
 use App\Comprobante_pago;
 use Faker\Factory as Faker;
 use Auth;
 use Carbon\Carbon;
+use App\Mail\confirmacionCompra;
+use Illuminate\Support\Facades\Mail;
 class ReservaController extends Controller
 {
     /**
@@ -32,7 +35,6 @@ class ReservaController extends Controller
     {
         //
     }
-
     /**
      * Store a newly created resource in storage.
      *
@@ -76,8 +78,15 @@ class ReservaController extends Controller
             $x++;
             $request->session()->push('reservaId', $reserva_id);
           }
-          return view('buyFinished', ['tipoVuelo' => 'Paquete ida y vuelta', 'cOrigen' => $request->session()->get('ida_ciudad_origen'), 'cDestino' => $request->session()->get('ida_ciudad_destino'),
-                                      'pasajeros' => $request->session()->get('totalPasajeros'), 'reserva' => $request->session()->get('reservaId')]);
+          $request->session()->put('compra_reservas', $request->session()->get('reservaId'));
+          $totalPasajeros = $request->session()->get('totalPasajeros');
+          $reserva_final = $request->session()->get('reservaId');
+          $ciudadOrigen = $request->session()->get('ida_ciudad_origen');
+          $ciudadDestino = $request->session()->get('ida_ciudad_destino');
+          Mail::to($request->session()->get('usuario_correo'))->send(new confirmacionCompra($request));
+          sleep(1);
+          return view('buyFinished', ['tipoVuelo' => 'Paquete ida y vuelta', 'cOrigen' => $ciudadOrigen, 'cDestino' => $ciudadDestino,
+                                      'pasajeros' => $totalPasajeros, 'reserva' => $reserva_final]);
         }
         else{
           $x = 0;
@@ -109,8 +118,15 @@ class ReservaController extends Controller
             $x++;
             $request->session()->push('reservaId', $reserva_id);
           }
-          return view('buyFinished', ['tipoVuelo' => 'Ida y regreso', 'cOrigen' => $request->session()->get('ida_ciudad_origen'), 'cDestino' => $request->session()->get('ida_ciudad_destino'),
-                                      'pasajeros' => $request->session()->get('totalPasajeros'), 'reserva' => $request->session()->get('reservaId')]);
+          $request->session()->put('compra_reservas', $request->session()->get('reservaId'));
+          $totalPasajeros = $request->session()->get('totalPasajeros');
+          $reserva_final = $request->session()->get('reservaId');
+          $ciudadOrigen = $request->session()->get('ida_ciudad_origen');
+          $ciudadDestino = $request->session()->get('ida_ciudad_destino');
+          Mail::to($request->session()->get('usuario_correo'))->send(new confirmacionCompra($request));
+          sleep(1);
+          return view('buyFinished', ['tipoVuelo' => 'Ida y vuelta', 'cOrigen' => $ciudadOrigen, 'cDestino' => $ciudadDestino,
+                                      'pasajeros' => $totalPasajeros, 'reserva' => $reserva_final]);
         }
       }
       else{
@@ -131,8 +147,15 @@ class ReservaController extends Controller
           $x++;
           $request->session()->push('reservaId', $reserva_id);
         }
-        return view('buyFinished', ['tipoVuelo' => 'Solo ida', 'cOrigen' => $request->session()->get('ida_ciudad_origen'), 'cDestino' => $request->session()->get('ida_ciudad_destino'),
-                                    'pasajeros' => $request->session()->get('totalPasajeros'), 'reserva' => $request->session()->get('reservaId')]);
+        $request->session()->put('compra_reservas', $request->session()->get('reservaId'));
+        $totalPasajeros = $request->session()->get('totalPasajeros');
+        $reserva_final = $request->session()->get('reservaId');
+        $ciudadOrigen = $request->session()->get('ida_ciudad_origen');
+        $ciudadDestino = $request->session()->get('ida_ciudad_destino');
+        Mail::to($request->session()->get('usuario_correo'))->send(new confirmacionCompra($request));
+        sleep(1);
+        return view('buyFinished', ['tipoVuelo' => 'Solo ida', 'cOrigen' => $ciudadOrigen, 'cDestino' => $ciudadDestino,
+                                    'pasajeros' => $totalPasajeros, 'reserva' => $reserva_final]);
       }
 
     }
@@ -164,6 +187,8 @@ class ReservaController extends Controller
       $vehiculo = Vehiculo::find($request->session()->get('vehiculo_id'));
       $detalle = (object)['numero_tarjeta'=>$request->get('numero'), 'cvv'=>$request->get('cvv'),'nombre'=>$request->get('nombre'),
                           'fecha_retiro'=>$request->session()->get('vehiculo_fecha_retiro'),'fecha_devolucion'=>$request->session()->get('vehiculo_fecha_devolucion'), 'ciudad'=>$request->session()->get('vehiculo_ciudad')];
+      $request->session()->put('compra_reservas', array($reserva_code));
+      Mail::to($request->session()->get('usuario_correo'))->send(new confirmacionCompra($request));
       return view('comprobante_pago_vehiculo')->with('vehiculo',$vehiculo)->with('reserva',$reserva)->with('detalle',$detalle);
     }
 
@@ -183,6 +208,8 @@ class ReservaController extends Controller
         $habitacion = Habitacion::find($request->session()->get('habitacion_id'));
         $detalle = (object)['numero_tarjeta'=>$request->get('numero'), 'cvv'=>$request->get('cvv'),'nombre'=>$request->get('nombre'),
                             'fecha_inicio'=>$request->session()->get('hotel_fecha_inicio'),'fecha_fin'=>$request->session()->get('hotel_fecha_fin'), 'ciudad'=>$request->session()->get('hotel_ciudad')];
+        $request->session()->put('compra_reservas', array($reserva_code));
+        Mail::to($request->session()->get('usuario_correo'))->send(new confirmacionCompra($request));
         return view('comprobante_pago_habitacion')->with('habitacion',$habitacion)->with('reserva',$reserva)->with('detalle',$detalle);
     }
 
