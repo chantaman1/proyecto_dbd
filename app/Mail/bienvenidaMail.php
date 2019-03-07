@@ -31,8 +31,8 @@ class bienvenidaMail extends Mailable
      */
     public function build()
     {
-      return $this->from('noresponder.alaya@gmail.com', 'Aerolinea Alaya')
-          ->subject('Bienvenido a Aerolineas Alaya')
+      return $this->from('noresponder.places@airline.com', 'PLACES Airlines')
+          ->subject('Bienvenido a PLACES Airlines')
           ->markdown('mails.bienvenidaMail')
           ->with([
               'userName' => $this->requestData->session()->get('usuario_nombre').' '.$this->requestData->session()->get('usuario_apellido_paterno'),

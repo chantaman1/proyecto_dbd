@@ -36,7 +36,7 @@
 		</li>
 	@else
 		<li class="nav-item">
-			<a class="nav-link active" href="/login">Iniciar sesion</a>
+			<a class="nav-link" href="/login">Iniciar sesion</a>
 		</li>
 	@endif
 @endsection
@@ -70,7 +70,7 @@
 		        <p>Numero: {{$data->numero}}</p>
 		        <p>Capacidad: {{$data->capacidad}}</p>
 		        <p>Categoría: {{$data->categoria}}</p>
-		        <h6><b style="color: black; padding: 10px">Precio: ${{$data->precio}}</b></h6>
+		        <h6><b style="color: black; padding: 10px">Precio: CLP$ {{number_format($data->precio, 0, '', '.')}}</b></h6>
 						<br>
 	    		</div>
 				</a>

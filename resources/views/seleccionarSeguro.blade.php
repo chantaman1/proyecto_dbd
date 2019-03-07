@@ -52,7 +52,7 @@
       <div class="container">
         <div class="row text-center mb-5 probootstrap-animate">
           <div class="col-md-12">
-            <h2 class="display-4 border-bottom probootstrap-section-heading">Travel With Us</h2>
+            <h2 class="display-4 border-bottom probootstrap-section-heading">Relájate y viaja tranquilo con seguro de viaje</h2>
           </div>
         </div>
         <div class="row probootstrap-animate">
@@ -60,14 +60,16 @@
             <div class="owl-carousel js-owl-carousel-2">
 							@foreach($seguros as $seguro)
               <div>
+								<a href="asignacion_pasajero_seguro?id={{ $seguro->id }}">
                 <div class="media probootstrap-media d-block align-items-stretch mb-4 probootstrap-animate">
-                  <img src="assets/images/sq_img_2.jpg" alt="Free Template by ProBootstrap" class="img-fluid">
+                  <img src="assets/images/happyfamily.jpg" alt="Free Template by ProBootstrap" class="img-fluid">
                   <div class="media-body">
                     <h5 class="mb-3">{{$seguro->tipo}}</h5>
                     <p>{{$seguro->descripcion}}</p>
 										<h5>CLP$ {{number_format($seguro->precio, 0, '', '.')}}</h5>
                   </div>
                 </div>
+							</a>
               </div>
 
               <!-- END slide item -->

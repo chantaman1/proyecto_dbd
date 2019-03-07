@@ -7,13 +7,13 @@
 		<a class="nav-link" href="/vuelos">Vuelos <span class="sr-only">(current)</span></a>
 	</li>
 	<li class="nav-item">
-		<a class="nav-link active" href="/hoteles">Hoteles</a>
+		<a class="nav-link" href="/hoteles">Hoteles</a>
 	</li>
 	<li class="nav-item">
 		<a class="nav-link" href="/paquetes">Paquetes</a>
 	</li>
 	<li class="nav-item dropdown dmenu">
-		<a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Servicios
+		<a class="nav-link active dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Seguro de viajes
 		</a>
 		<div class="dropdown-menu sm-menu">
 			<a class="dropdown-item" href="/autos">Arriendo de autos</a>
@@ -62,13 +62,12 @@
 
 		      <tbody id="entries">
 						<p></p>
-						<p>Numero Habitación: {{$habitacion->numero}}<p>
-						<p>Tipo Cama: {{$habitacion->tipo_cama}}</p>
-						<p>Categoría: {{$habitacion->categoria}}</p>
-						<p>Capacidad: {{$habitacion->capacidad}}</p>
-						<p>Fecha inicio: {{$detalle->fecha_inicio}}</p>
-						<p>Fecha fin: {{$detalle->fecha_fin}}</p>
-						<p>Ciudad: {{$detalle->ciudad}}</p>
+						<p>Tipo Seguro: {{$seguro->tipo}}<p>
+						<p>Nombre Pasajero: {{$pasajero->nombre}}</p>
+						<p>Apellido Pasajero: {{$pasajero->apellido_paterno}}</p>
+						<p>Fecha de Nacimiento: {{$pasajero->fecha_nacimiento}}</p>
+						<p>Correo: {{$pasajero->correo}}</p>
+						<p>Pasaporte: {{$pasajero->pasaporte}}</p>
             <p>Nombre Titular Tarjeta: {{$detalle->nombre}}</p>
 						<p>Numero Tarjeta: {{$detalle->numero_tarjeta}}</p>
 						<p>CVV: {{$detalle->cvv}}</p>
@@ -76,7 +75,7 @@
 					<tfoot>
         <tr style="font-size:200%;">
           <th>Total Pago</th>
-          <th id="total">CLP$ {{number_format($reserva->totalAPagar, 0, '', '.')}}</th>
+          <th id="total">CLP$ {{number_format($seguro->precio, 0, '', '.')}}</th>
         </tr>
       </tfoot>
 		    </table>

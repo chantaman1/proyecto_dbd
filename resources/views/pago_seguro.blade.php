@@ -5,13 +5,13 @@
 		<a class="nav-link" href="/vuelos">Vuelos <span class="sr-only">(current)</span></a>
 	</li>
 	<li class="nav-item">
-		<a class="nav-link active" href="/hoteles">Hoteles</a>
+		<a class="nav-link" href="/hoteles">Hoteles</a>
 	</li>
 	<li class="nav-item">
 		<a class="nav-link" href="/paquetes">Paquetes</a>
 	</li>
 	<li class="nav-item dropdown dmenu">
-		<a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Servicios
+		<a class="nav-link active dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Seguro de viajes
 		</a>
 		<div class="dropdown-menu sm-menu">
 			<a class="dropdown-item" href="/autos">Arriendo de autos</a>
@@ -56,17 +56,17 @@
           <br>
             <div>
               <a class="btn display" style="color: #000000; width: 100%">
-                 <strong>Numero habitación:</strong> {{ $habitacion->numero }} <br/> <strong>Tipo cama:</strong> {{$habitacion->tipo_cama}} <br/> <strong>Categoría:</strong> {{$habitacion->categoria}} <strong>Capacidad:</strong> {{$habitacion->capacidad}} <br/> <strong>Fecha de inicio:</strong> {{$detalle->fecha_inicio}} <br/> <strong>Fecha fin:</strong> {{$detalle->fecha_fin}} <br/> <strong>Ciudad:</strong> {{$detalle->ciudad}} <br/> <strong>Precio por día:</strong> CLP$ {{number_format($habitacion->precio, 0, '', '.')}}</a>
+                 <strong>Tipo seguro:</strong> {{ $seguro->tipo }} <br/> <strong>Nombre Pasajero:</strong> {{$pasajero->nombre}} <br/> <strong>Apellido Pasajero:</strong> {{$pasajero->apellido_paterno}} <br> <strong>Fecha de nacimiento:</strong> {{$pasajero->fecha_nacimiento}} <br/> <strong>Correo:</strong> {{$pasajero->correo}} <br/> <strong>Pasaporte:</strong> {{$pasajero->pasaporte}} <br/></a>
             </div>
             <div class="grid_4">
     					<a class="btn" style="color: #000000; text-align: center">
-                 <strong>    Total a pagar:</strong> CLP$ {{number_format($detalle->total, 0, '', '.')}} </a>
+                 <strong>Total a pagar:</strong> {{$seguro->precio}} </a>
     				</div>
         </div>
     		<div class="grid_6" style="margin-left:25%">
     			<h3><b>Datos tarjeta de credito</b></h3>
           <div class="col-md probootstrap-animate">
-              <form action="{{ url('finalizar_pago_habitacion') }}" class="probootstrap-form">
+              <form action="{{ url('finalizar_pago_seguro') }}" class="probootstrap-form">
                 <div class="form-group">
                   <div class="row mb-3">
                     <div class="col-md">

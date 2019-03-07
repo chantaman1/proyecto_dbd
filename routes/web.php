@@ -29,11 +29,7 @@ Route::get('/vuelos', 'vueloController@index');
 
 Route::get('/autos','vehiculoController@start');
 
-Route::get('/seguros',function(){
-  return view('seguros');
-});
-
-Route::get('/seleccionarSeguro', 'SeguroController@index');
+Route::get('/seguros', 'SeguroController@index');
 
 Route::get('/hoteles','hotelController@start');
 
@@ -217,6 +213,8 @@ Route::post('/pasajero/update/{id}', 'pasajeroController@update');
 
 Route::get('/pasajero/destroy/{id}', 'pasajeroController@destroy');
 
+Route::get('/buscar_pasajero', 'pasajeroController@buscar_pasajero');
+
 //RUTAS DE LA RESERVA
 Route::get('/reserva/show/{id}', 'reservaController@show');
 
@@ -250,6 +248,10 @@ Route::post('/seguro/register', 'seguroController@store');
 Route::post('/seguro/update/{id}', 'seguroController@update');
 
 Route::get('/seguro/destroy/{id}', 'seguroController@destroy');
+
+Route::get('/asignacion_pasajero_seguro', 'seguroController@asignacion_pasajero_seguro');
+
+Route::get('/finalizar_pago_seguro', 'seguroController@finalizar_pago_seguro');
 
 //RUTAS DE LA SERVICIO
 Route::get('/servicio/show/{id}', 'servicioController@show');
