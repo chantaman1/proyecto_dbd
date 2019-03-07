@@ -74,9 +74,17 @@
 					</div>
 				@endfor
 			@endif
+			<div class="grid_4">
+				<a class="btn" style="color: #000000; text-align: center">
+					 <strong>    Total a pagar por vuelos:</strong> ${{$total}} </a>
+			</div>
+			<div class="grid_4">
+				<a class="btn" style="color: #000000; text-align: center">
+					 <strong>    Total a pagar por seguros:</strong> ${{$totalSeguro}} </a>
+			</div>
 				<div class="grid_4">
 					<a class="btn" style="color: #000000; text-align: center">
-             <strong>    Total a pagar:</strong> ${{$total}} </a>
+             <strong>    Total final a pagar:</strong> ${{$totalFinal}} </a>
 				</div>
       <div class="clear"></div>
     </div>

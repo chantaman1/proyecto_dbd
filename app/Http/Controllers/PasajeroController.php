@@ -151,7 +151,8 @@ class PasajeroController extends Controller
         $passengerData = (object)['nombre' => $request->get('nombre'), 'apellido_paterno' => $request->get('apellido_paterno'),
                                   'apellido_materno' => $request->get('apellido_materno'), 'correo' => $request->get('correo'),
                                   'fecha_nacimiento' => $request->get('fecha_nacimiento'), 'telefono' => $request->get('telefono'),
-                                  'nacionalidad' => $request->get('nacionalidad'), 'pasaporte' => $request->get('pasaporte')];
+                                  'nacionalidad' => $request->get('nacionalidad'), 'pasaporte' => $request->get('pasaporte'),
+                                  'seguro' => $request->get('seguro')];
         $request->session()->push('passengers', $passengerData);
         $request->session()->put('pasajeroActual', $request->session()->get('pasajeroActual') + 1);
         return app('App\Http\Controllers\AsientoController')->getGoFlightSeat($request);
@@ -160,7 +161,8 @@ class PasajeroController extends Controller
         $passengerData = (object)['nombre' => $request->get('nombre'), 'apellido_paterno' => $request->get('apellido_paterno'),
                                   'apellido_materno' => $request->get('apellido_materno'), 'correo' => $request->get('correo'),
                                   'fecha_nacimiento' => $request->get('fecha_nacimiento'), 'telefono' => $request->get('telefono'),
-                                  'nacionalidad' => $request->get('nacionalidad'), 'pasaporte' => $request->get('pasaporte')];
+                                  'nacionalidad' => $request->get('nacionalidad'), 'pasaporte' => $request->get('pasaporte'),
+                                  'seguro' => $request->get('seguro')];
         $request->session()->push('passengers', $passengerData);
         $request->session()->put('pasajeroActual', $request->session()->get('pasajeroActual') + 1);
         if($request->session()->get('tipoViaje') == 'both'){
@@ -170,6 +172,7 @@ class PasajeroController extends Controller
           $dataAsientosIda = array();
           $dataAsientosRegreso = array();
           $totalPagar = 0;
+          $totalSeguro = 0;
           while($x < $lengthAsientosIda){
             $asiento = Asiento::find($request->session()->get('asientosIda')[$x]);
             array_push($dataAsientosIda, $asiento);
@@ -183,10 +186,18 @@ class PasajeroController extends Controller
             $totalPagar = $totalPagar + $asiento->precio;
             $x++;
           }
+          foreach($request->session()->get('passengers') as $passenger){
+            if($passenger->seguro == 'true'){
+              $totalSeguro = $totalSeguro + 29990;
+            }
+          }
+          $request->session()->put('seguro_total_pagar', $totalSeguro);
           $request->session()->put('vuelo_total_pagar', $totalPagar);
+          $request->session()->put('total_pagar', $totalPagar + $totalSeguro);
           return view('buyFlight', ['asientosIda' => $dataAsientosIda, 'asientosRegreso' => $dataAsientosRegreso,
                                     'pasajeros' => $request->session()->get('passengers'), 'total' => $totalPagar,
-                                    'tipoViaje' => $request->session()->get('tipoViaje')]);
+                                    'tipoViaje' => $request->session()->get('tipoViaje'), 'totalSeguro' => $totalSeguro,
+                                    'totalFinal' => $totalPagar + $totalSeguro]);
         }
         else{
           $x = 0;
@@ -194,16 +205,25 @@ class PasajeroController extends Controller
           $dataAsientosIda = array();
           $dataAsientosRegreso = array();
           $totalPagar = 0;
+          $totalSeguro = 0;
           while($x < $lengthAsientosIda){
             $asiento = Asiento::find($request->session()->get('asientosIda')[$x]);
             array_push($dataAsientosIda, $asiento);
             $totalPagar = $totalPagar + $asiento->precio;
             $x++;
           }
+          foreach($request->session()->get('passengers') as $passenger){
+            if($passenger->seguro == 'true'){
+              $totalSeguro = $totalSeguro + 29990;
+            }
+          }
+          $request->session()->put('seguro_total_pagar', $totalSeguro);
           $request->session()->put('vuelo_total_pagar', $totalPagar);
+          $request->session()->put('total_pagar', $totalPagar + $totalSeguro);
           return view('buyFlight', ['asientosIda' => $dataAsientosIda, 'asientosRegreso' => $dataAsientosRegreso,
                                     'pasajeros' => $request->session()->get('passengers'), 'total' => $totalPagar,
-                                    'tipoViaje' => $request->session()->get('tipoViaje')]);
+                                    'tipoViaje' => $request->session()->get('tipoViaje'), 'totalSeguro' => $totalSeguro,
+                                    'totalFinal' => $totalPagar + $totalSeguro]);
         }
       }
     }
@@ -253,7 +273,7 @@ class PasajeroController extends Controller
                               'pasaporte' => $passenger->pasaporte,
                               'asiento_id' => $asiento_id));
         $pasajero->save();
-        return;
+        return $pasajero;
     }
 
     /**

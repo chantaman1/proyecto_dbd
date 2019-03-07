@@ -30,6 +30,6 @@ class Pasajero extends Model
 
   public function seguros()
   {
-      return $this->belongsToMany('App\Seguros');
+      return $this->belongsToMany('App\Seguro');
   }
 }
