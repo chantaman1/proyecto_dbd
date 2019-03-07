@@ -17,10 +17,10 @@ class VueloController extends Controller
     {
         $this->initializeFlightData($request);
         if(Auth::check() == true){
-          return view('flight', ['userLogged' => true, 'name' => Auth::user()->nombre]);
+          return view('flight', ['userLogged' => true, 'name' => Auth::user()->nombre, 'regErr' => '']);
         }
         else{
-          return view('flight', ['userLogged' => true, 'name' => 'null']);
+          return view('flight', ['userLogged' => true, 'name' => 'null', 'regErr' => '']);
         }
     }
 
@@ -37,7 +37,7 @@ class VueloController extends Controller
     public function getFlights(Request $request){
       if($request->session()->get('pasoActual') == 0){
         if($request->get('origen') == NULL || $request->get('destino') == NULL || $request->get('fecha_origen') == NULL){
-          return redirect('/');
+          return redirect('/vuelos');
         }
         else if($request->get('fecha_regreso') != NULL){
           $request->session()->put('idaVuelta', true);
@@ -117,6 +117,77 @@ class VueloController extends Controller
     public function create()
     {
         //
+    }
+
+    public function getFirstFlight(Request $request){
+      $origin = $request->get('origen');
+      $destino = $request->get('destino');
+      $fecha_origen = $request->get('fecha_origen');
+      $adultos = $request->get('cant_adultos');
+      $niños = $request->get('cant_ninos');
+      $tipoViaje = $request->get('direction');
+      $request->session()->put('tipoViaje', $tipoViaje);
+      $request->session()->put('fecha_ida', $fecha_origen);
+      $request->session()->put('ida_ciudad_origen', $origin);
+      $request->session()->put('ida_ciudad_destino', $destino);
+      $request->session()->put('vuelta_ciudad_origen', $destino);
+      $request->session()->put('vuelta_ciudad_destino', $origin);
+      $request->session()->put('cant_adultos', $adultos);
+      $request->session()->put('cant_ninos', $niños);
+
+      if($origin == NULL || $destino == NULL || $fecha_origen == NULL || $adultos == NULL || $niños == NULL){
+        return view('flight', ['regErr' => 'Uno o mas campos están vacios.']);
+      }
+      else{
+        if($tipoViaje == 'both'){
+          $pasajeros = $adultos + $niños;
+          $request->session()->put('totalPasajeros', $pasajeros);
+          $fecha_regreso = $request->get('fecha_regreso');
+          $request->session()->put('fecha_regreso', $fecha_regreso);
+          $request->session()->put('estadoVuelo', 1);
+          $vuelos = Vuelo::where([
+            'ciudad_origen' => $request->get('origen'),
+            'ciudad_destino' => $request->get('destino'),
+            'fecha' => $request->get('fecha_origen'),
+            ['asientos', '>=', $request->session()->get('totalPasajeros')]
+          ])->get();
+          return view('flightResult', ['vuelos' => $vuelos, 'vuelta' => $tipoViaje, 'ida' => true]);
+        }
+        else{
+          $pasajeros = $adultos + $niños;
+          $request->session()->put('totalPasajeros', $pasajeros);
+          $request->session()->put('estadoVuelo', 0);
+          $vuelos = Vuelo::where([
+            'ciudad_origen' => $request->get('origen'),
+            'ciudad_destino' => $request->get('destino'),
+            'fecha' => $request->get('fecha_origen'),
+            ['asientos', '>=', $request->session()->get('totalPasajeros')]
+          ])->get();
+          return view('flightResult', ['vuelos' => $vuelos, 'vuelta' => $tipoViaje, 'ida' => true]);
+        }
+      }
+    }
+
+    public function getSecondFlight(Request $request){
+      $request->session()->put('ida_vuelo_id', $request->get('id'));
+      $vuelos = Vuelo::where([
+        'ciudad_origen' => $request->session()->get('vuelta_ciudad_origen'),
+        'ciudad_destino' => $request->session()->get('vuelta_ciudad_destino'),
+        'fecha' => $request->session()->get('fecha_regreso'),
+        ['asientos', '>=', $request->session()->get('totalPasajeros')]
+      ])->get();
+      return view('flightResult', ['vuelos' => $vuelos, 'vuelta' => '', 'ida' => false]);
+    }
+
+    public function saveSecondFlight(Request $request){
+      if($request->session()->get('estadoVuelo') == 0){
+        $request->session()->put('ida_vuelo_id', $request->get('id'));
+        return app('App\Http\Controllers\AsientoController')->getGoFlightSeat($request);
+      }
+      else{
+        $request->session()->put('vuelta_vuelo_id', $request->get('id'));
+        return app('App\Http\Controllers\AsientoController')->getGoFlightSeat($request);
+      }
     }
 
     /**

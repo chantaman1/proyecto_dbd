@@ -53,7 +53,8 @@
 					<br>
           @foreach ($asientos as $data)
             <div class="grid_4">
-              <a href="pasajero?id={{ $data->id }}&precio={{ $data->precio }}&codigo={{ $data->codigo }}&tipo={{ $data->tipo }}" style="background: #ffffff; color: #04B404; box-shadow: inset 0px 0px 5px #0C0C19;
+							@if($vuelta == "both")
+              <a href="selecAsientoRegreso?id={{ $data->id }}" style="background: #ffffff; color: #04B404; box-shadow: inset 0px 0px 5px #0C0C19;
 					    -moz-box-shadow: inset 0px 0px 5px #0C0C19;
 					    -webkit-box-shadow: inset 0px 0px 5px #2B2B33;
 							border: 1px solid #04B404;
@@ -61,6 +62,16 @@
 							display: flex;
 					    border-radius: 10px;" class="btn">
 							  <strong style="position: absolute; left:10%">Codigo de asiento:</strong><i style="position: absolute; left:25%"> {{$data->codigo}} </i><br/> <strong style="position: absolute; left:35%">Tipo de asiento:</strong><i style="position: absolute; left:50%"> {{$data->tipo}} </i> <br/> <strong style="position: absolute; left:75%">Precio:</strong><i style="position: absolute; left:85%"> ${{$data->precio}}</i></a>
+							@else
+							<a href="pasajero?id={{ $data->id }}" style="background: #ffffff; color: #04B404; box-shadow: inset 0px 0px 5px #0C0C19;
+					    -moz-box-shadow: inset 0px 0px 5px #0C0C19;
+					    -webkit-box-shadow: inset 0px 0px 5px #2B2B33;
+							border: 1px solid #04B404;
+							display:inline-block;
+							display: flex;
+					    border-radius: 10px;" class="btn">
+							  <strong style="position: absolute; left:10%">Codigo de asiento:</strong><i style="position: absolute; left:25%"> {{$data->codigo}} </i><br/> <strong style="position: absolute; left:35%">Tipo de asiento:</strong><i style="position: absolute; left:50%"> {{$data->tipo}} </i> <br/> <strong style="position: absolute; left:75%">Precio:</strong><i style="position: absolute; left:85%"> ${{$data->precio}}</i></a>
+							@endif
             </div>
           @endforeach
 				</div>
