@@ -56,11 +56,11 @@
           <br>
             <div>
               <a class="btn display" style="color: #000000; width: 100%">
-                 <strong>Numero habitación:</strong> {{ $habitacion->numero }} <br/> <strong>Tipo cama:</strong> {{$habitacion->tipo_cama}} <br/> <strong>Categoría:</strong> {{$habitacion->categoria}} <strong>Capacidad:</strong> {{$habitacion->capacidad}} <br/> <strong>Fecha de inicio:</strong> {{$detalle->fecha_inicio}} <br/> <strong>Fecha fin:</strong> {{$detalle->fecha_fin}} <br/> <strong>Ciudad:</strong> {{$detalle->ciudad}} <br/> <strong>Precio por día:</strong> {{$habitacion->precio}} </a>
+                 <strong>Numero habitación:</strong> {{ $habitacion->numero }} <br/> <strong>Tipo cama:</strong> {{$habitacion->tipo_cama}} <br/> <strong>Categoría:</strong> {{$habitacion->categoria}} <strong>Capacidad:</strong> {{$habitacion->capacidad}} <br/> <strong>Fecha de inicio:</strong> {{$detalle->fecha_inicio}} <br/> <strong>Fecha fin:</strong> {{$detalle->fecha_fin}} <br/> <strong>Ciudad:</strong> {{$detalle->ciudad}} <br/> <strong>Precio por día:</strong> CLP$ {{number_format($habitacion->precio, 0, '', '.')}}</a>
             </div>
             <div class="grid_4">
     					<a class="btn" style="color: #000000; text-align: center">
-                 <strong>    Total a pagar:</strong> {{$detalle->total}} </a>
+                 <strong>    Total a pagar:</strong> CLP$ {{number_format($detalle->total, 0, '', '.')}} </a>
     				</div>
         </div>
     		<div class="grid_6" style="margin-left:25%">

@@ -46,7 +46,8 @@
 @section('content')
 		<style>
 		p {
-			text-align:center
+			text-align:center;
+			text-transform:uppercase;
 		}
 		</style>
 		<section class="probootstrap-cover overflow-hidden relative"  style="background-image: url('assets/images/bg_1.jpg');" data-stellar-background-ratio="0.5"  id="section-home">
@@ -73,9 +74,9 @@
 						<p>CVV: {{$detalle->cvv}}</p>
 		      </tbody>
 					<tfoot>
-        <tr>
+        <tr style="font-size:200%;">
           <th>Total Pago</th>
-          <th id="total">{{$reserva->totalAPagar}}</th>
+          <th id="total">CLP$ {{number_format($reserva->totalAPagar, 0, '', '.')}}</th>
         </tr>
       </tfoot>
 		    </table>
