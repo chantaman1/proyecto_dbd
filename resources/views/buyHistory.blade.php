@@ -116,6 +116,7 @@ document.getElementById(cityName).style.display = "block";
     <th>Ciudad Origen</th>
     <th>Ciudad Destino</th>
     <th>Fecha Salida</th>
+    <th>Apellido Pasajero</th>
     <th>Código Asiento</th>
     <th>Tipo Asiento</th>
     <th>Precio</th>
@@ -127,6 +128,7 @@ document.getElementById(cityName).style.display = "block";
     <td>{{$asiento->vuelo->ciudad_origen}}</td>
     <td>{{$asiento->vuelo->ciudad_destino}}</td>
     <td>{{$asiento->vuelo->fecha}}</td>
+    <td>{{$asiento->pasajero->apellido_paterno}}</td>
     <td>{{$asiento->codigo}}</td>
     <td>{{$asiento->tipo}}</td>
     <td>{{$asiento->precio}}</td>
