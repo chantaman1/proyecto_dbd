@@ -166,38 +166,74 @@ class PasajeroController extends Controller
         $request->session()->push('passengers', $passengerData);
         $request->session()->put('pasajeroActual', $request->session()->get('pasajeroActual') + 1);
         if($request->session()->get('tipoViaje') == 'both'){
-          $x = 0;
-          $lengthAsientosIda = count($request->session()->get('asientosIda'));
-          $lengthAsientosRegreso = count($request->session()->get('asientosRegreso'));
-          $dataAsientosIda = array();
-          $dataAsientosRegreso = array();
-          $totalPagar = 0;
-          $totalSeguro = 0;
-          while($x < $lengthAsientosIda){
-            $asiento = Asiento::find($request->session()->get('asientosIda')[$x]);
-            array_push($dataAsientosIda, $asiento);
-            $totalPagar = $totalPagar + $asiento->precio;
-            $x++;
-          }
-          $x = 0;
-          while($x < $lengthAsientosRegreso){
-            $asiento = Asiento::find($request->session()->get('asientosRegreso')[$x]);
-            array_push($dataAsientosRegreso, $asiento);
-            $totalPagar = $totalPagar + $asiento->precio;
-            $x++;
-          }
-          foreach($request->session()->get('passengers') as $passenger){
-            if($passenger->seguro == 'true'){
-              $totalSeguro = $totalSeguro + 29990;
+          if($request->session()->get('esPaquete') == 'true'){
+            $x = 0;
+            $lengthAsientosIda = count($request->session()->get('asientosIda'));
+            $lengthAsientosRegreso = count($request->session()->get('asientosRegreso'));
+            $dataAsientosIda = array();
+            $dataAsientosRegreso = array();
+            $totalPagar = 0;
+            $totalSeguro = 0;
+            while($x < $lengthAsientosIda){
+              $asiento = Asiento::find($request->session()->get('asientosIda')[$x]);
+              array_push($dataAsientosIda, $asiento);
+              $totalPagar = $totalPagar + $asiento->precio;
+              $x++;
             }
+            $x = 0;
+            while($x < $lengthAsientosRegreso){
+              $asiento = Asiento::find($request->session()->get('asientosRegreso')[$x]);
+              array_push($dataAsientosRegreso, $asiento);
+              $totalPagar = $totalPagar + $asiento->precio;
+              $x++;
+            }
+            foreach($request->session()->get('passengers') as $passenger){
+              if($passenger->seguro == 'true'){
+                $totalSeguro = $totalSeguro + 29990;
+              }
+            }
+            $request->session()->put('seguro_total_pagar', $totalSeguro);
+            $request->session()->put('vuelo_total_pagar', $request->session()->get('get_paquete')->precio);
+            $request->session()->put('total_pagar', $request->session()->get('get_paquete')->precio + $totalSeguro);
+            return view('buyFlight', ['asientosIda' => $dataAsientosIda, 'asientosRegreso' => $dataAsientosRegreso,
+                                      'pasajeros' => $request->session()->get('passengers'), 'total' => $request->session()->get('get_paquete')->precio,
+                                      'tipoViaje' => $request->session()->get('tipoViaje'), 'totalSeguro' => $totalSeguro,
+                                      'totalFinal' => $request->session()->get('get_paquete')->precio + $totalSeguro, 'esPaquete' => 'true']);
           }
-          $request->session()->put('seguro_total_pagar', $totalSeguro);
-          $request->session()->put('vuelo_total_pagar', $totalPagar);
-          $request->session()->put('total_pagar', $totalPagar + $totalSeguro);
-          return view('buyFlight', ['asientosIda' => $dataAsientosIda, 'asientosRegreso' => $dataAsientosRegreso,
-                                    'pasajeros' => $request->session()->get('passengers'), 'total' => $totalPagar,
-                                    'tipoViaje' => $request->session()->get('tipoViaje'), 'totalSeguro' => $totalSeguro,
-                                    'totalFinal' => $totalPagar + $totalSeguro]);
+          else{
+            $x = 0;
+            $lengthAsientosIda = count($request->session()->get('asientosIda'));
+            $lengthAsientosRegreso = count($request->session()->get('asientosRegreso'));
+            $dataAsientosIda = array();
+            $dataAsientosRegreso = array();
+            $totalPagar = 0;
+            $totalSeguro = 0;
+            while($x < $lengthAsientosIda){
+              $asiento = Asiento::find($request->session()->get('asientosIda')[$x]);
+              array_push($dataAsientosIda, $asiento);
+              $totalPagar = $totalPagar + $asiento->precio;
+              $x++;
+            }
+            $x = 0;
+            while($x < $lengthAsientosRegreso){
+              $asiento = Asiento::find($request->session()->get('asientosRegreso')[$x]);
+              array_push($dataAsientosRegreso, $asiento);
+              $totalPagar = $totalPagar + $asiento->precio;
+              $x++;
+            }
+            foreach($request->session()->get('passengers') as $passenger){
+              if($passenger->seguro == 'true'){
+                $totalSeguro = $totalSeguro + 29990;
+              }
+            }
+            $request->session()->put('seguro_total_pagar', $totalSeguro);
+            $request->session()->put('vuelo_total_pagar', $totalPagar);
+            $request->session()->put('total_pagar', $totalPagar + $totalSeguro);
+            return view('buyFlight', ['asientosIda' => $dataAsientosIda, 'asientosRegreso' => $dataAsientosRegreso,
+                                      'pasajeros' => $request->session()->get('passengers'), 'total' => $totalPagar,
+                                      'tipoViaje' => $request->session()->get('tipoViaje'), 'totalSeguro' => $totalSeguro,
+                                      'totalFinal' => $totalPagar + $totalSeguro, 'esPaquete' => '']);
+          }
         }
         else{
           $x = 0;
@@ -223,7 +259,7 @@ class PasajeroController extends Controller
           return view('buyFlight', ['asientosIda' => $dataAsientosIda, 'asientosRegreso' => $dataAsientosRegreso,
                                     'pasajeros' => $request->session()->get('passengers'), 'total' => $totalPagar,
                                     'tipoViaje' => $request->session()->get('tipoViaje'), 'totalSeguro' => $totalSeguro,
-                                    'totalFinal' => $totalPagar + $totalSeguro]);
+                                    'totalFinal' => $totalPagar + $totalSeguro, 'esPaquete' => '']);
         }
       }
     }

@@ -44,16 +44,19 @@ class PaqueteController extends Controller
       $niños = $request->get('cant_ninos');
       $totalPasajeros = $adultos + $niños;
       $request->session()->put('esPaquete', 'true');
+      $request->session()->put('paquete_fecha_ida', $fechaIda);
       if($request->session()->get('get_paquete')->posee_hotel){
         $dias = $request->session()->get('get_paquete')->habitacions()->get()[0]->pivot->dias;
         $date = Carbon::createFromFormat('d/m/Y', $fechaIda);
         $fechaRegreso = date('d/m/Y', strtotime($date. ' + '.$dias.' days'));
+        $request->session()->put('paquete_fecha_vuelta', $fechaRegreso);
         return redirect('/resultGoFlight?origen=Santiago&destino='.$request->session()->get('get_paquete')->ciudad_destino.'&fecha_origen='.$fechaIda.'&fecha_regreso='.$fechaRegreso.'&cant_adultos='.$adultos.'&cant_ninos='.$niños.'&direction=both');
       }
       elseif($request->session()->get('get_paquete')->posee_vehiculo){
         $dias = $request->session()->get('get_paquete')->vehiculos()->first()->dias;
         $date = Carbon::createFromFormat('d/m/Y', $fechaIda);
         $fechaRegreso = date('d/m/Y', strtotime($date. ' + '.$dias.' days'));
+        $request->session()->put('paquete_fecha_vuelta', $fechaRegreso);
         return redirect('/resultGoFlight?origen=Santiago&destino='.$request->session()->get('get_paquete')->ciudad_destino.'&fecha_origen='.$fechaIda.'&fecha_regreso='.$fechaRegreso.'&cant_adultos='.$adultos.'&cant_ninos='.$niños.'&direction=both');
       }
       else{

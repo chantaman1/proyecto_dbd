@@ -14,8 +14,8 @@ class PaqueteReserva extends Migration
     public function up()
     {
       Schema::create('paquete_reserva', function (Blueprint $table) {
-        $table->date('fecha_inicio');
-        $table->date('fecha_termino');
+        $table->string('fecha_inicio', 30);
+        $table->string('fecha_termino', 30);
         $table->unsignedInteger('reserva_id');
         $table->unsignedInteger('paquete_id');
         $table->foreign('reserva_id')->references('id')->on('reservas')->onDelete('cascade');

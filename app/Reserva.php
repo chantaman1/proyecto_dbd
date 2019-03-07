@@ -38,7 +38,7 @@ class Reserva extends Model
     //la reserva tiene muchos paquetes y el paquete muchas reservas
     public function paquetes()
     {
-        return $this->belongsToMany('App\Paquete');
+        return $this->belongsToMany('App\Paquete')->withPivot('fecha_inicio', 'fecha_termino');
     }
 
     //la reserva tiene muchos vuelos y el vuelo muchas reservas
