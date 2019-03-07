@@ -45,6 +45,7 @@ Route::get('/send-mail', function () {
     return redirect('vuelos');
 });
 
+Route::get('/checkin','reservaController@start');
 Route::get('/checkin', function () {
     return view('checkin');
 });
