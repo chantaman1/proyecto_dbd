@@ -237,7 +237,7 @@ class PasajeroController extends Controller
                               'pasaporte' => $passenger->pasaporte,
                               'asiento_id' => $asiento_id));
         $pasajero->save();
-        return;
+        return true;
     }
 
     /**
