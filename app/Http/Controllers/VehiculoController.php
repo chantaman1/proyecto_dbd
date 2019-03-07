@@ -120,6 +120,7 @@ class VehiculoController extends Controller
         $vehiculos = Vehiculo::join('compania_alquilers','vehiculos.compania_alquiler_id','=','compania_alquilers.id')
           ->where('compania_alquilers.ciudad', $request->get('ciudad'))
           ->where('vehiculos.disponibilidad', true)
+          ->select('vehiculos.*')
           ->get();
         $request->session()->put('vehiculo_ciudad', $request->get('ciudad'));
         $request->session()->put('vehiculo_fecha_retiro', $request->get('fecha_retiro'));

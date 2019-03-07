@@ -25,14 +25,14 @@ class Vehiculo extends Model
   ];
 
   public function reservas(){
-    return $this->belongsToMany('app\Reserva')->withPivot('hora_inicio','fecha_inicio','hora_termino','fecha_termino');
+    return $this->belongsToMany('App\Reserva')->withPivot('hora_inicio','fecha_inicio','hora_termino','fecha_termino');
   }
 
   public function paquetes(){
-    return $this->belongsToMany('app\Paquete')->withPivot('hora_inicio','fecha_inicio','hora_termino','fecha_termino');
+    return $this->belongsToMany('App\Paquete')->withPivot('hora_inicio','fecha_inicio','hora_termino','fecha_termino');
   }
 
   public function compania_alquiler(){
-    return $this->belongsTo('app\Compania_alquiler');
+    return $this->belongsTo('App\Compania_alquiler');
   }
 }
