@@ -31,7 +31,7 @@ class Paquete extends Model
 
   public function reservas()
   {
-      return $this->belongsToMany('App\Reserva');
+      return $this->belongsToMany('App\Reserva')->withPivot('fecha_inicio', 'fecha_termino');
   }
 
   public function vehiculos()

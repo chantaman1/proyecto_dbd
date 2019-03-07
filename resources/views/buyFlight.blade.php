@@ -56,16 +56,29 @@
       <h3 style="text-align:center"><b>Resumen de pago</b></h3>
       <br>
 			@if($tipoViaje == "both")
-				@for ($i = 0; $i < count($asientosIda); $i++)
-						<div>
-							<a class="btn display" style="color: #000000; width: 100%">
-								 <strong>Tipo de viaje:</strong> Ida <br/> <strong>Pasajero:</strong> {{$pasajeros[$i]->nombre}} {{$pasajeros[$i]->apellido_paterno}} {{$pasajeros[$i]->apellido_materno}} <br/> <strong>Numero de asiento:</strong> {{$asientosIda[$i]->codigo}} <br/> <strong>Tipo de asiento:</strong> {{$asientosIda[$i]->tipo}} <br/> <strong>Precio:</strong> ${{$asientosIda[$i]->precio}} </a>
-						</div>
-						<div>
-							<a class="btn display" style="color: #000000; width: 100%">
-								 <strong>Tipo de viaje:</strong> Regreso <br/> <strong>Pasajero:</strong> {{$pasajeros[$i]->nombre}} {{$pasajeros[$i]->apellido_paterno}} {{$pasajeros[$i]->apellido_materno}} <br/> <strong>Numero de asiento:</strong> {{$asientosRegreso[$i]->codigo}} <br/> <strong>Tipo de asiento:</strong> {{ $asientosRegreso[$i]->tipo}} <br/> <strong>Precio:</strong> {{ $asientosRegreso[$i]->precio}} </a>
-						</div>
-				@endfor
+				@if($esPaquete == 'true')
+					@for ($i = 0; $i < count($asientosIda); $i++)
+							<div>
+								<a class="btn display" style="color: #000000; width: 100%">
+									 <strong>Tipo de viaje:</strong> Ida <br/> <strong>Pasajero:</strong> {{$pasajeros[$i]->nombre}} {{$pasajeros[$i]->apellido_paterno}} {{$pasajeros[$i]->apellido_materno}} <br/> <strong>Numero de asiento:</strong> {{$asientosIda[$i]->codigo}} <br/> <strong>Tipo de asiento:</strong> {{$asientosIda[$i]->tipo}} </a>
+							</div>
+							<div>
+								<a class="btn display" style="color: #000000; width: 100%">
+									 <strong>Tipo de viaje:</strong> Regreso <br/> <strong>Pasajero:</strong> {{$pasajeros[$i]->nombre}} {{$pasajeros[$i]->apellido_paterno}} {{$pasajeros[$i]->apellido_materno}} <br/> <strong>Numero de asiento:</strong> {{$asientosRegreso[$i]->codigo}} <br/> <strong>Tipo de asiento:</strong> {{ $asientosRegreso[$i]->tipo}} </a>
+							</div>
+					@endfor
+				@else
+					@for ($i = 0; $i < count($asientosIda); $i++)
+							<div>
+								<a class="btn display" style="color: #000000; width: 100%">
+									 <strong>Tipo de viaje:</strong> Ida <br/> <strong>Pasajero:</strong> {{$pasajeros[$i]->nombre}} {{$pasajeros[$i]->apellido_paterno}} {{$pasajeros[$i]->apellido_materno}} <br/> <strong>Numero de asiento:</strong> {{$asientosIda[$i]->codigo}} <br/> <strong>Tipo de asiento:</strong> {{$asientosIda[$i]->tipo}} <br/> <strong>Precio:</strong> ${{$asientosIda[$i]->precio}} </a>
+							</div>
+							<div>
+								<a class="btn display" style="color: #000000; width: 100%">
+									 <strong>Tipo de viaje:</strong> Regreso <br/> <strong>Pasajero:</strong> {{$pasajeros[$i]->nombre}} {{$pasajeros[$i]->apellido_paterno}} {{$pasajeros[$i]->apellido_materno}} <br/> <strong>Numero de asiento:</strong> {{$asientosRegreso[$i]->codigo}} <br/> <strong>Tipo de asiento:</strong> {{ $asientosRegreso[$i]->tipo}} <br/> <strong>Precio:</strong> {{ $asientosRegreso[$i]->precio}} </a>
+							</div>
+					@endfor
+				@endif
 			@else
 				@for ($i = 0; $i < count($asientosIda); $i++)
 					<div>
@@ -74,18 +87,33 @@
 					</div>
 				@endfor
 			@endif
+			@if($esPaquete == 'true')
 			<div class="grid_4">
 				<a class="btn" style="color: #000000; text-align: center">
-					 <strong>    Total a pagar por vuelos:</strong> ${{$total}} </a>
-			</div>
-			<div class="grid_4">
-				<a class="btn" style="color: #000000; text-align: center">
-					 <strong>    Total a pagar por seguros:</strong> ${{$totalSeguro}} </a>
+					 <strong>    Total a pagar por paquete:</strong> ${{$total}} </a>
 			</div>
 				<div class="grid_4">
 					<a class="btn" style="color: #000000; text-align: center">
-             <strong>    Total final a pagar:</strong> ${{$totalFinal}} </a>
+						 <strong>    Total a pagar por seguros:</strong> ${{$totalSeguro}} </a>
 				</div>
+				<div class="grid_4">
+					<a class="btn" style="color: #000000; text-align: center">
+						 <strong>    Total final a pagar:</strong> ${{$totalFinal}} </a>
+				</div>
+			@else
+				<div class="grid_4">
+					<a class="btn" style="color: #000000; text-align: center">
+						 <strong>    Total a pagar por vuelos:</strong> ${{$total}} </a>
+				</div>
+				<div class="grid_4">
+					<a class="btn" style="color: #000000; text-align: center">
+						 <strong>    Total a pagar por seguros:</strong> ${{$totalSeguro}} </a>
+				</div>
+				<div class="grid_4">
+					<a class="btn" style="color: #000000; text-align: center">
+		         <strong>    Total final a pagar:</strong> ${{$totalFinal}} </a>
+				</div>
+			@endif
       <div class="clear"></div>
     </div>
 		<div class="grid_6" style="margin-left:25%">
