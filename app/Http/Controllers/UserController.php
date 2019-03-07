@@ -23,6 +23,10 @@ class UserController extends Controller
         return $usuarios;
     }
 
+    public function buyHistory(){
+      return view('buyHistory');
+    }
+
     public function getUserByEmail($email){
         $usuario = User::where('correo', $email)->first();
         if($usuario != NULL){

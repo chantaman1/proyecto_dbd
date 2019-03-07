@@ -51,6 +51,8 @@ Route::get('/checkin', function () {
 
 
 //RUTAS DEL USUARIO
+Route::get('/buyHistory','userController@buyHistory');
+
 Route::get('/usuario/show/{id}', 'usuarioController@show');
 
 Route::get('/usuario/all/', 'usuarioController@index');
