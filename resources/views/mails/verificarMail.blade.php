@@ -189,7 +189,7 @@
 												<tr>
 													<td style="line-height: 40px;" align="center" valign="top" bgcolor="#515E5F">
 														<p style=" text-align: center; margin: 0; padding: 0; line-height: 40px; font-size: 34px; font-weight: 500; color: #ffffff; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;">
-															<strong>Verifique su correo en Aerolineas Alaya</strong>
+															<strong>Verifique su correo en PLACES Airlines</strong>
 														</p>
 													</td>
 												</tr>
@@ -424,10 +424,6 @@ PLACES Airlines
 										</table><!-- End Footer Block -->
 									</td>
 								</tr>
-								<tr>
-
-								</tr>
-
 							</tbody>
 						</table>
 					</td>
