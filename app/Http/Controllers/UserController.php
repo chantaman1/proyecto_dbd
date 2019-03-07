@@ -104,22 +104,22 @@ class UserController extends Controller
         $user = User::where('email', $request->get('mail'))->first();
         if($user != NULL){
           if($user->verified){
-            dd('cuenta ya verificada');
+            return redirect('/vuelos');
           }
           else{
             if($user->email_token === $request->get('token')){
               $user->verified = true;
               $user->email_verified_at = date('Y-m-d H:i:s');
               $user->save();
-              dd('verificado');
+              return redirect('/vuelos');
             }
             else{
-              dd('token incorrecto');
+              return redirect('/vuelos');
             }
           }
         }
         else{
-          dd('usuario no existe');
+          return redirect('/vuelos');
         }
     }
 
