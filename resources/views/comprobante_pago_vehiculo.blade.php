@@ -73,9 +73,9 @@
 						<p>CVV: {{$detalle->cvv}}</p>
 		      </tbody>
 					<tfoot>
-        <tr>
+        <tr style="font-size:200%;">
           <th>Total Pago</th>
-          <th id="total">{{$reserva->totalAPagar}}</th>
+          <th id="total">CLP$ {{number_format($reserva->totalAPagar, 0, '', '.')}}</th>
         </tr>
       </tfoot>
 		    </table>
