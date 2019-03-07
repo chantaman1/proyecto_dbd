@@ -205,7 +205,7 @@ Route::get('/paquete/destroy/{id}', 'paqueteController@destroy');
 
 Route::get('/paquetes', 'PaqueteController@start');
 
-Route::get('/comprar_paquete','PaqueteController@comprar_paquete');
+Route::get('/comprar_paquete','PaqueteController@getPackageData');
 
 Route::get('/finalizarPaquete', 'PaqueteController@finalizarCompra')->middleware('auth');
 
@@ -316,6 +316,8 @@ Route::get('/pasajero', 'asientoController@saveFlightSeats');
 Route::post('/confirmPassenger', 'pasajeroController@addPassenger');
 
 Route::get('/realizarCompra', 'reservaController@store');
+
+Route::post('/selectFechaPaquete', 'paqueteController@getFechaPaquete');
 
 Route::get('/auth/facebook', 'facebookController@redirectToFacebookProvider');
 

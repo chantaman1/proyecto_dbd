@@ -28,7 +28,7 @@ class Habitacion extends Model
 
   public function paquetes()
   {
-      return $this->belongsToMany('App\Paquete')->withPivot('fecha_inicio','fecha_termino');
+      return $this->belongsToMany('App\Paquete')->withPivot('dias', 'noches');
   }
 
   public function hotel()

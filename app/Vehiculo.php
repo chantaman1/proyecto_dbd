@@ -29,7 +29,7 @@ class Vehiculo extends Model
   }
 
   public function paquetes(){
-    return $this->belongsToMany('app\Paquete')->withPivot('hora_inicio','fecha_inicio','hora_termino','fecha_termino');
+    return $this->belongsToMany('app\Paquete')->withPivot('dias', 'noches');
   }
 
   public function rols(){

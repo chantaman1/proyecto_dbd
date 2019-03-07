@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Paquete;
 use App\Vuelo;
+use Carbon\Carbon;
 
 class PaqueteController extends Controller
 {
@@ -28,6 +29,36 @@ class PaqueteController extends Controller
     public function create()
     {
         //
+    }
+
+    public function getPackageData(Request $request){
+      $idPaquete = $request->get('id');
+      $paquete = Paquete::find($idPaquete);
+      $request->session()->put('get_paquete', $paquete);
+      return view('packageDate', ['destino' => $paquete->ciudad_destino]);
+    }
+
+    public function getFechaPaquete(Request $request){
+      $fechaIda = $request->get('fecha_origen');
+      $adultos = $request->get('cant_adultos');
+      $niños = $request->get('cant_ninos');
+      $totalPasajeros = $adultos + $niños;
+      $request->session()->put('esPaquete', 'true');
+      if($request->session()->get('get_paquete')->posee_hotel){
+        $dias = $request->session()->get('get_paquete')->habitacions()->get()[0]->pivot->dias;
+        $date = Carbon::createFromFormat('d/m/Y', $fechaIda);
+        $fechaRegreso = date('d/m/Y', strtotime($date. ' + '.$dias.' days'));
+        return redirect('/resultGoFlight?origen=Santiago&destino='.$request->session()->get('get_paquete')->ciudad_destino.'&fecha_origen='.$fechaIda.'&fecha_regreso='.$fechaRegreso.'&cant_adultos='.$adultos.'&cant_ninos='.$niños.'&direction=both');
+      }
+      elseif($request->session()->get('get_paquete')->posee_vehiculo){
+        $dias = $request->session()->get('get_paquete')->vehiculos()->first()->dias;
+        $date = Carbon::createFromFormat('d/m/Y', $fechaIda);
+        $fechaRegreso = date('d/m/Y', strtotime($date. ' + '.$dias.' days'));
+        return redirect('/resultGoFlight?origen=Santiago&destino='.$request->session()->get('get_paquete')->ciudad_destino.'&fecha_origen='.$fechaIda.'&fecha_regreso='.$fechaRegreso.'&cant_adultos='.$adultos.'&cant_ninos='.$niños.'&direction=both');
+      }
+      else{
+        return redirect('/vuelos');
+      }
     }
 
     /**

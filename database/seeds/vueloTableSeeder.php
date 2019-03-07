@@ -31,6 +31,36 @@ class vueloTableSeeder extends Seeder
         ]);
 
         DB::table('vuelos')->insert([
+            'tipo' => 'ida',
+            'ciudad_origen' => 'Santiago',
+            'pais_origen' => 'Chile',
+            'codigo' => $faker->ean8,
+            'ciudad_destino' => 'Punta Cana',
+            'pais_destino' => 'República Dominicana',
+            'fecha' => '07/03/2019',
+            'hora' => '00:00:00',
+            'aerolinea_id' => 1,
+            'asientos' => 0,
+            'created_at' => now(),
+            'updated_at' => null,
+        ]);
+
+        DB::table('vuelos')->insert([
+            'tipo' => 'vuelta',
+            'ciudad_origen' => 'Punta Cana',
+            'pais_origen' => 'República Dominicana',
+            'codigo' => $faker->ean8,
+            'ciudad_destino' => 'Santiago',
+            'pais_destino' => 'Chile',
+            'fecha' => '14/03/2019',
+            'hora' => '00:00:00',
+            'aerolinea_id' => 1,
+            'asientos' => 0,
+            'created_at' => now(),
+            'updated_at' => null,
+        ]);
+
+        DB::table('vuelos')->insert([
             'tipo' => 'vuelta',
             'ciudad_origen' => 'Cancún',
             'pais_origen' => 'México',
