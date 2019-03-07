@@ -336,9 +336,9 @@
 							</div>
 							<div class="row" style="margin-top:0">
 							<div class="col-md">
-								<label style="margin-right:20%">Incluir Seguro:     </label>
-								<label for="oneway" class="mr-5"><input type="radio" id="oneway" name="seguro">  Si</label>
-								<label for="round"><input type="radio" id="round" name="seguro">   No</label>
+								<label style="margin-right:20%">Incluir Seguro asistencia médica por $29.990 ?:     </label>
+								<label for="oneway" class="mr-5"><input type="radio" id="oneway" name="seguro" value="true">  Si</label>
+								<label for="round"><input type="radio" id="round" name="seguro" value="false">   No</label>
 							</div>
 						</div>
 							<button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Continuar compra!</button>
